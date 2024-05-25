@@ -11,6 +11,7 @@ public class Block
     //
     // Define block types here
     //
+    [Serializable]
     public enum Type : byte
     {
         Invalid = 0,

@@ -1,14 +1,46 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 [ExecuteInEditMode]
-public class Chunk : MonoBehaviour
+[Serializable]
+public class Chunk : MonoBehaviour, ISerializationCallbackReceiver
 {
     [SerializeField] public Vector2Int m_chunkIdx;
-    [SerializeField] public Block.Type[,,] m_blocks;
     [SerializeField] private int m_chunkWidth;
     [SerializeField] private int m_chunkHeight;
+    [HideInInspector] public Block.Type[,,] m_blocks;
+
+    [SerializeField][HideInInspector] private Block.Type[] m_blocks_serializable;
+
+    public void OnBeforeSerialize()
+    {
+        m_blocks_serializable = new Block.Type[m_chunkWidth * m_chunkHeight * m_chunkWidth];
+        for (int z = 0, i=0; z < m_chunkWidth; ++z)
+        {
+            for (int y = 0; y < m_chunkHeight; ++y)
+            {
+                for (int x = 0; x < m_chunkWidth; ++x, ++i)
+                {
+                    m_blocks_serializable[i] = m_blocks[z, y, x];
+                }
+            }
+        }
+    }
+
+    public void OnAfterDeserialize()
+    {
+        m_blocks = new Block.Type[m_chunkWidth, m_chunkHeight, m_chunkWidth];
+        for (int i=0; i<m_blocks_serializable.Length; ++i)
+        {
+            int x = i % m_chunkWidth;
+            int y = (i / m_chunkWidth) % m_chunkHeight;
+            int z = i / (m_chunkHeight * m_chunkWidth);
+            m_blocks[z, y, x] = m_blocks_serializable[i];
+        }
+    }
 
     public void Init(Vector2Int chunkIdx, int chunkWidth, int chunkHeight)
     {
@@ -29,7 +61,7 @@ public class Chunk : MonoBehaviour
         m_blocks[blockIdx.z, blockIdx.y, blockIdx.x] = blockType;
     }
 
-    private void ClearBlocks()
+    private void ClearBlocks() 
     {
         for (int z = 0; z < m_chunkWidth + 0; ++z)
         {

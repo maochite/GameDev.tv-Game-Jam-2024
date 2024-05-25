@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public enum Direction
 
 [ExecuteInEditMode]
 [Serializable]
-public class Map : MonoBehaviour
+public class Map : MonoBehaviour, ISerializationCallbackReceiver
 {
     [Serializable]
     public struct BlockPos
@@ -26,19 +27,20 @@ public class Map : MonoBehaviour
     }
 
     [SerializeField] private int mapWidth = 1;
-    [SerializeField] public readonly int chunkWidth = 16; // TODO: This should be private with an accessor
-    [SerializeField] public readonly int chunkHeight = 2; // TODO: This should be private with an accessor
+    [SerializeField] public int chunkWidth = 16; // TODO: This should be private with an accessor
+    [SerializeField] public int chunkHeight = 2; // TODO: This should be private with an accessor
     [SerializeField] private Chunk ChunkPrefab;
 
     //private List<Tower> towers;
     //private HashSet<(int, int)> occupiedSquares;
-
-    public static Map Instance;
+     
+    [SerializeReference] public static Map Instance;
 
     [SerializeField] private HashSet<BlockPos> buildableBlockSet;
     [SerializeField] private List<BlockPos> buildableBlockList;
 
-    [SerializeField] private Chunk[,] m_chunks;
+    private Chunk[,] m_chunks;
+    [SerializeField] private Chunk[] m_chunks_serializable;
 
     // TODO: Perhaps the map should handle the overlay itself
     // make a new component and use it from here
@@ -55,7 +57,7 @@ public class Map : MonoBehaviour
 
     public bool IsBuildable(BlockPos blockPos)
     {
-        return buildableBlockSet.Contains(blockPos);
+        return buildableBlockSet.Contains(blockPos); 
     }
 
     public void SetBuildable(Vector2Int chunkIdx, Vector3Int blockIdx, bool shouldBeBuildable)
@@ -93,24 +95,42 @@ public class Map : MonoBehaviour
         }
     }
 
+    public void OnBeforeSerialize()
+    {
+        m_chunks_serializable = new Chunk[mapWidth * mapWidth];
+        for (int z = 0, i=0; z < mapWidth; ++z)
+        {
+            for (int x = 0; x < mapWidth; ++x, ++i)
+            {
+                m_chunks_serializable[i] = m_chunks[z, x];
+            } 
+        }
+    }
 
     public void OnAfterDeserialize()
     {
-        Debug.Log("AA"); 
-        Instance = this; 
-    }
+        Instance = this;
+        buildableBlockSet = new();
+        buildableBlockSet.AddRange(buildableBlockList);
 
+        m_chunks = new Chunk[mapWidth, mapWidth];
+        foreach (Chunk chunk in m_chunks_serializable) 
+        {
+            m_chunks[chunk.m_chunkIdx.y, chunk.m_chunkIdx.x] = chunk;
+        }
+    }
+    
     private void Awake()
     {
-        Instance = this;
         Reset();
         //towers = new();
         //occupiedSquares = new();
+        Instance = this;
     }
 
     private void Reset()
     {
-        buildableBlockSet = new();
+        buildableBlockSet = new(); 
         buildableBlockList = new();
         BlockPos blockPos = new()
         {
@@ -119,7 +139,7 @@ public class Map : MonoBehaviour
         };
         buildableBlockSet.Add(blockPos);
         buildableBlockList.Add(blockPos);
-
+         
         for (int i = transform.childCount; i > 0; --i)
         {
             DestroyImmediate(transform.GetChild(0).gameObject);

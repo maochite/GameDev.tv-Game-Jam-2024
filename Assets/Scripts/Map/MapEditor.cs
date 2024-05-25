@@ -7,7 +7,7 @@ using System.Drawing;
 
 [RequireComponent(typeof(Map))]
 [ExecuteInEditMode]
-public class MapEditor : MonoBehaviour
+public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
 {
     public enum MapActionType
     {
@@ -62,16 +62,18 @@ public class MapEditor : MonoBehaviour
     [SerializeField][ReadOnly] private float maxSelectDistance = 100.0f;
     [SerializeField][ReadOnly] private float tileOverlayOffset = 0.01f;
     [SerializeField][ReadOnly] private Block.Type currentBlock = Block.Type.Dirt;
-    [SerializeField][ReadOnly] private Mode currentMode = Mode.MapEdit;
+    [SerializeField] private Mode currentMode = Mode.MapEdit;
+
+    [SerializeField][ReadOnly] private Material overlayMaterial;
+    [SerializeField][ReadOnly] private bool isFaceSelected;
+    [SerializeField][ReadOnly] private FacePos faceSelected;
+
+    [SerializeReference] private Map map;
 
     private Dictionary<KeyCode, Action> KeyMap;
 
     public static MapEditor Instance;
-    private Map map;
 
-    private Material overlayMaterial;
-    private bool isFaceSelected = false;
-    private FacePos faceSelected = new();
 
     //[Button]
     //private void SaveMap()
@@ -79,16 +81,22 @@ public class MapEditor : MonoBehaviour
 
     //}
 
-    private void Awake()
+    private void initKeyMap()
     {
-        Instance = this;
-        map = GetComponent<Map>();
-
         KeyMap = new()
         {
             { KeyCode.E, () => HandleChangeMode(Mode.MapEdit) },
             { KeyCode.Q, () => HandleChangeMode(Mode.TileMark) },
         };
+    }
+
+    private void Awake()
+    {
+        map = GetComponent<Map>();
+        isFaceSelected = false;
+        faceSelected = new();
+
+        initKeyMap();
 
         Shader shader = Shader.Find("Hidden/Internal-Colored");
 
@@ -104,6 +112,19 @@ public class MapEditor : MonoBehaviour
         overlayMaterial.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
         // Turn off depth writes
         overlayMaterial.SetInt("_ZWrite", 0);
+
+        Instance = this;
+    }
+
+    public void OnBeforeSerialize()
+    {
+        // Nothing to do
+    }
+
+    public void OnAfterDeserialize()
+    {
+        initKeyMap();
+        Instance = this;
     }
 
     public void HandleClick(Ray ray, bool shiftHeld)
