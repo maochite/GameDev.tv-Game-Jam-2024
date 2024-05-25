@@ -122,13 +122,13 @@ public class Map : MonoBehaviour, ISerializationCallbackReceiver
     
     private void Awake()
     {
-        Reset();
+        //Reset();
         //towers = new();
         //occupiedSquares = new();
         Instance = this;
     }
 
-    private void Reset()
+    public void ResetMap()
     {
         buildableBlockSet = new(); 
         buildableBlockList = new();

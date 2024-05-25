@@ -73,12 +73,43 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     private Dictionary<KeyCode, Action> KeyMap;
 
     public static MapEditor Instance;
+    [SerializeField][HideInInspector] private bool initialised = false;
 
+    [Button]
+    private void ResetMap()
+    {
+        if (!initialised)
+        {
+            map = GetComponent<Map>();
+            isFaceSelected = false;
+            faceSelected = new();
+
+            initKeyMap();
+
+            Shader shader = Shader.Find("Hidden/Internal-Colored");
+
+            overlayMaterial = new(shader)
+            {
+                hideFlags = HideFlags.HideAndDontSave
+            };
+
+            // Turn on alpha blending
+            overlayMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            overlayMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            // Turn backface culling off
+            overlayMaterial.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
+            // Turn off depth writes
+            overlayMaterial.SetInt("_ZWrite", 0);
+
+            Instance = this;
+        }
+
+        map.ResetMap();
+    }
 
     //[Button]
     //private void SaveMap()
     //{
-
     //}
 
     private void initKeyMap()
@@ -88,32 +119,6 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
             { KeyCode.E, () => HandleChangeMode(Mode.MapEdit) },
             { KeyCode.Q, () => HandleChangeMode(Mode.TileMark) },
         };
-    }
-
-    private void Awake()
-    {
-        map = GetComponent<Map>();
-        isFaceSelected = false;
-        faceSelected = new();
-
-        initKeyMap();
-
-        Shader shader = Shader.Find("Hidden/Internal-Colored");
-
-        overlayMaterial = new(shader)
-        {
-            hideFlags = HideFlags.HideAndDontSave
-        };
-
-        // Turn on alpha blending
-        overlayMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        overlayMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        // Turn backface culling off
-        overlayMaterial.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
-        // Turn off depth writes
-        overlayMaterial.SetInt("_ZWrite", 0);
-
-        Instance = this;
     }
 
     public void OnBeforeSerialize()
