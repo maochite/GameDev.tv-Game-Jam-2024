@@ -1,0 +1,3431 @@
+fileFormatVersion: 2
+guid: 21c28c26aa42a64408804c08bb43c970
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WickerMage_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1295
+        width: 32
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93105093e1b01304587ba08ffebcccb0
+      internalID: 1463757597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1295
+        width: 31
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99fb3e9ce977c64c8f3535297e40916
+      internalID: -436229120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1295
+        width: 31
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6bdc9bf5eadfb4180510201fcc1deb
+      internalID: 1583077288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1295
+        width: 34
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de244146b9ff7f546911ec8b1c02536c
+      internalID: -658061171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_4
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1295
+        width: 44
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4092f780deb064c4195b474de33a3e4c
+      internalID: -957148358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_5
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1295
+        width: 44
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1984de0db7bd9f241a6ed1409808256d
+      internalID: 1026393994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_6
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1295
+        width: 34
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d85ecb771904842aaa00577745aebb
+      internalID: 1678552095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_7
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1233
+        width: 28
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49467856, y: -0.0012887808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f750f4240561b4eb9a025164855b2d
+      internalID: -1047803031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1233
+        width: 28
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49129596, y: 0.00026526817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f282a74b4c18e4280fa2de9917d85a
+      internalID: 1272586414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1233
+        width: 28
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49224743, y: -0.0020705003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b57eea69137d2c4cb76f12d96f80bb5
+      internalID: -1505130074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_10
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1233
+        width: 30
+        height: 52
+      alignment: 9
+      pivot: {x: 0.46387228, y: 0.00029578575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df30d54a2fa1ad848a6f6851051719b5
+      internalID: -1592370165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_11
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1233
+        width: 33
+        height: 52
+      alignment: 9
+      pivot: {x: 0.4189222, y: -0.00016432542}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a6335573aac40469faeb2b3394805c
+      internalID: 892255197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_12
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1233
+        width: 33
+        height: 52
+      alignment: 9
+      pivot: {x: 0.4213479, y: 0.000002347506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9a9ef1c5f09b0449743dde5fa0d621
+      internalID: 226205643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_13
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1233
+        width: 30
+        height: 52
+      alignment: 9
+      pivot: {x: 0.45109862, y: 0.002171443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9934706b24658904cbc55bbf5e13c76b
+      internalID: -733608354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_14
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1169
+        width: 32
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ddd2f06fd5dfe4db36a1a65ebbcb5e
+      internalID: -1401010101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1169
+        width: 31
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de2365e0d995a647b44d3f6b0544065
+      internalID: -1250578311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_16
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1169
+        width: 29
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a290e69b359214891c76d51b0dba84
+      internalID: -1141883792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_17
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1169
+        width: 36
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582a5b7e88c332f49b82384ec90e5729
+      internalID: -925300480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_18
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 1169
+        width: 44
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21105a87cf844864bb50d089e03acbed
+      internalID: -12912145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_19
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1169
+        width: 44
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d683e43208c9545a2073cba4bdc4ff
+      internalID: 907005957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_20
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1169
+        width: 36
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1466cad25342c444e8d00225177ba429
+      internalID: -963637649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_21
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1104
+        width: 30
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5538631, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330b4a5565abfd24d856e1e819b25822
+      internalID: 1903495377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_22
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1104
+        width: 33
+        height: 52
+      alignment: 9
+      pivot: {x: 0.61017376, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9ffe52c1b6ec344b44f2541ae81b27
+      internalID: -241642187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_23
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1104
+        width: 33
+        height: 52
+      alignment: 9
+      pivot: {x: 0.59181166, y: -0.0038851225}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394ecf2d0270e864a8e48e9144e9de49
+      internalID: 703163817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_24
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1104
+        width: 30
+        height: 52
+      alignment: 9
+      pivot: {x: 0.5673289, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f438d6ec070d694bb9ab25865873fc5
+      internalID: -1599342745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_25
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1104
+        width: 28
+        height: 52
+      alignment: 9
+      pivot: {x: 0.52885544, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2d4f1687c70c040a55be2c22e4d4cd
+      internalID: 766732039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_26
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1104
+        width: 28
+        height: 52
+      alignment: 9
+      pivot: {x: 0.52885437, y: 0.0038851225}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b067330005b2e40439cafbdeb75a997f
+      internalID: 1469013435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_27
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 1104
+        width: 28
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e449359dddb971845b8c561911aded55
+      internalID: -1837137085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_28
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1040
+        width: 32
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f137f9371fd6de84b91ca85e0bb86d87
+      internalID: 2063196765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_29
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1039
+        width: 33
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e712f604e0d3d409455fe701e3aedd
+      internalID: 659378757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_30
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1038
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3f23dab41138f44a61359913a6f80c
+      internalID: 1967359860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_31
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1037
+        width: 31
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17afb13b295d5d048840c0ac8a4d1c7d
+      internalID: -1456905273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_32
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1038
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5b84bb227754844b4b856cfe2e4776
+      internalID: 1958483735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_33
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1039
+        width: 32
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5600c5b487172b44af9feb6a9d26c08
+      internalID: 1958467304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_34
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1038
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa38e130695efc2448eccd7c890b4b69
+      internalID: -166809111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_35
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1037
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec264f002bf284a45835eb39cd6697df
+      internalID: 2129155041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_36
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1038
+        width: 33
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02633c8cd2b61f143be64a99240bf158
+      internalID: -2035533808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_37
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 975
+        width: 28
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3aa37e302b536d449f1cb5041a55a4b
+      internalID: 1733973907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_38
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 975
+        width: 35
+        height: 51
+      alignment: 9
+      pivot: {x: 0.4894623, y: -0.0000011967678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057a18eb5c6a0aa4f9bcbc3158be2df7
+      internalID: 354619635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_39
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 976
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5064721, y: 0.001968683}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c300303f453ab2440913001dfb577e9f
+      internalID: 2011549559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_40
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 976
+        width: 32
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e50b31c9746f74b92091da5abf7640
+      internalID: 2099309969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_41
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 975
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7436d56f7ff6e845be9dc1d73cf34ab
+      internalID: 1935646747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_42
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 975
+        width: 30
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2766b5e75fabf341b617ad4ca334192
+      internalID: -1779275668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_43
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 975
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555f3d25d5fa242478eeaff09ba82e75
+      internalID: 1656358118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_44
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 975
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a0065ef0283ae45b79850419cd12e0
+      internalID: 2092678146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_45
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 975
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed816803a2cb984482b3962621d8e01
+      internalID: -503836962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_46
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 911
+        width: 33
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d6ea1bbf4bd174196160febe300f7d
+      internalID: -1678325615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_47
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 911
+        width: 33
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdeb662ab4c13040a0672a42fa13cee
+      internalID: 1914743889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_48
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 910
+        width: 32
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081376d274f2b494183c88ed27c9f363
+      internalID: -757046496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_49
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 910
+        width: 31
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f95c36a62473e14dae9029b38402d88
+      internalID: -202435955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_50
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 910
+        width: 32
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab36ef69d3ea224b851bb3626e6e740
+      internalID: -299565867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_51
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 911
+        width: 33
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a339cacb8310c614eb7cb8e1e0c1b51d
+      internalID: 1625554882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_52
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 910
+        width: 32
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184bb5cbb71d78541814a4e10cdc1767
+      internalID: -775571661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_53
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 910
+        width: 31
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd6d7e1f8b069541b8a56867ea91d0e
+      internalID: -58931260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_54
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 910
+        width: 33
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f72cabf56909d74fa666c1ad6909439
+      internalID: -1708299343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_55
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 845
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1030a042d51344b4a8618930d741ba94
+      internalID: -212201169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_56
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 845
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510c5d25f77e7314ea3282030fb5f0cf
+      internalID: -1008133208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_57
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 845
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a526316282dec4898fa5c763b51170
+      internalID: -68730832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_58
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 845
+        width: 30
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfd6d8606e75e4448862f976145972f
+      internalID: 2022127607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_59
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 845
+        width: 32
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f53d45397b7f524ebee54fc0d4b93f3
+      internalID: 399184536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_60
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 846
+        width: 32
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95999161542e69b4092b519cd7bbe172
+      internalID: -1272450067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_61
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 846
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.42625904, y: -0.004205442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5734c27b79a5f41aebc960493bb4ec
+      internalID: 1089778527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_62
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 845
+        width: 35
+        height: 51
+      alignment: 9
+      pivot: {x: 0.4938712, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99868435fa966b549b958515f908e92e
+      internalID: 1949405312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_63
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 845
+        width: 28
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7414f22189a43454093ac60305131df1
+      internalID: -460293221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_64
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 782
+        width: 33
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddd11e72afb88d499bfeb7ea2f9c82f
+      internalID: -207253411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_65
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 782
+        width: 34
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042decaa15aa3804cbf8e6f837473aeb
+      internalID: 2018204318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_66
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 782
+        width: 40
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c416cea3a48b9704aa9c08e9647bb7f6
+      internalID: 1185894626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_67
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 782
+        width: 40
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b2759623e24f142a3d3c775264b6f1
+      internalID: -283107426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_68
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 782
+        width: 40
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b9caef76fd0b043a9bf1822e03a320
+      internalID: -2028723842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_69
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 780
+        width: 45
+        height: 39
+      alignment: 9
+      pivot: {x: 0.47743055, y: 0.11574613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ff96524e042a6478907729de3e9a6b
+      internalID: -303164251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_70
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 718
+        width: 33
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb95d5aba7e5024b8e9d223599c18a4
+      internalID: -482262888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_71
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 716
+        width: 32
+        height: 51
+      alignment: 9
+      pivot: {x: 0.46999002, y: 0.015064913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63e5d0141e377e43ba07bf15dfb1def
+      internalID: -1203118148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_72
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 716
+        width: 31
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb3a18d9f8ceed498b8451becf2e193
+      internalID: -367367851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_73
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 716
+        width: 35
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf959aa0578555845a1c91826fbf7d54
+      internalID: -1669684403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_74
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 716
+        width: 38
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a94572dab952b45ad2722dff92066b
+      internalID: 305257988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_75
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 716
+        width: 38
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c2aafd1b5bf024e84abda11c8feb4b
+      internalID: 1346474986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_76
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 716
+        width: 38
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22e53ddf9cab1047a59f984fa0431a2
+      internalID: -2549878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_77
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 716
+        width: 35
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a24ddbca9229c4da904dd431a0a1a9
+      internalID: -1743204427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_78
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 652
+        width: 28
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efa2a5257cf73a4da1b3ad8d237326f
+      internalID: -1159906666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_79
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 652
+        width: 39
+        height: 52
+      alignment: 9
+      pivot: {x: 0.6034204, y: 0.011082576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2799695920dfbab4db7d1b47378f89ee
+      internalID: -750328734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_80
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 652
+        width: 42
+        height: 52
+      alignment: 9
+      pivot: {x: 0.60467565, y: 0.004025973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1c3d8043f11ef4987308f94ee18407
+      internalID: 1145746007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_81
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 652
+        width: 42
+        height: 52
+      alignment: 9
+      pivot: {x: 0.63458323, y: 0.004025973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89c9e95af7b7d7418885a2e3418c307
+      internalID: -1004379395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_82
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 652
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: 0.7378998, y: 0.0040271464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a19120715969f468c6e379257ead16
+      internalID: -1962812427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_83
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 652
+        width: 46
+        height: 52
+      alignment: 9
+      pivot: {x: 0.741209, y: 0.0040271464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395cc64935716324dae6d6bfb9a87d6a
+      internalID: 142379966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_84
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 652
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: 0.7188686, y: 0.012077918}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315cfdd89805ef445a50e23f012a59fb
+      internalID: 505789431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_85
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 652
+        width: 42
+        height: 52
+      alignment: 9
+      pivot: {x: 0.62959945, y: 0.0040271464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315f8c115bf11ac40aa318ce18c98ab1
+      internalID: 333957299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_86
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 588
+        width: 33
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fbb042b70271c4fbefa9b5c5b5f236
+      internalID: -1842367041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_87
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 588
+        width: 36
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c050065b5d79b4bbb253bddf80a134
+      internalID: -232982651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_88
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 589
+        width: 35
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d6da66243d6204aa6bc0a4f7a826d3
+      internalID: 75149590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_89
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 589
+        width: 29
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c533b802b43698b48802a19510def5d2
+      internalID: -602164074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_90
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 587
+        width: 29
+        height: 55
+      alignment: 9
+      pivot: {x: 0.50051457, y: 0.05319935}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423aa1958d8167a469d18dfd81a817ef
+      internalID: 127615642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_91
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 585
+        width: 29
+        height: 57
+      alignment: 9
+      pivot: {x: 0.51056224, y: 0.083223045}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67620cd07cade134e855a4f47e3aab2d
+      internalID: 16349320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_92
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 587
+        width: 29
+        height: 55
+      alignment: 9
+      pivot: {x: 0.49999788, y: 0.05107089}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80236d19d186fd42ab275ac8df1297d
+      internalID: 342609985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_93
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 589
+        width: 29
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8e8d9463ebb864faa376bcd3256757
+      internalID: -1503411723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_94
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 526
+        width: 42
+        height: 52
+      alignment: 9
+      pivot: {x: 0.3685954, y: 0.0070742094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621fc327f1f52114887e6ded4c1f8000
+      internalID: -62761483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_95
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 526
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: 0.2758952, y: 0.0070742094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e9c636eb7a5af46a1af233ad5ecf43
+      internalID: -1352557463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_96
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 526
+        width: 46
+        height: 52
+      alignment: 9
+      pivot: {x: 0.25343952, y: 0.006492028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24831b62ba75174591ef6b9c9d27d62
+      internalID: -1627966179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_97
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 526
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: 0.28212497, y: 0.005192683}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca877754654fcac488f8726c9e8e5ba6
+      internalID: 589879179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_98
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 526
+        width: 42
+        height: 52
+      alignment: 9
+      pivot: {x: 0.37462363, y: 0.0025963415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38935b7b53f4b944a30591959b596b3
+      internalID: -1120509208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_99
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 526
+        width: 42
+        height: 52
+      alignment: 9
+      pivot: {x: 0.37783813, y: 0.0012981708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bffb5aaf11b39a54a940fe5cd1bc8167
+      internalID: 510022977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_100
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 526
+        width: 39
+        height: 52
+      alignment: 9
+      pivot: {x: 0.39094505, y: 0.0025963415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aff69cf2fa11114c90f3f1e50e8ee61
+      internalID: 164673205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_101
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 526
+        width: 28
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1724f65767391d24ba40b45f2d98db42
+      internalID: 1272263238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_102
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 464
+        width: 36
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e5d1f35953cab4b875189187d31415
+      internalID: 1975599106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_103
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 463
+        width: 35
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27eb188128b57d44b83d48e08a4f2db
+      internalID: 852467945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_104
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 463
+        width: 31
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00a5883b6a2d1d45802efb9a1d66fe8
+      internalID: 803826220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_105
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 463
+        width: 43
+        height: 51
+      alignment: 9
+      pivot: {x: 0.34018654, y: -0.0000011967678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6f6bcd2fdd24d4f82c544c966221a1
+      internalID: 372079689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_106
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 463
+        width: 43
+        height: 52
+      alignment: 9
+      pivot: {x: 0.3191571, y: -0.000001173753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244bfa1787741d04abbbd0d364b4d90f
+      internalID: -1149491898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_107
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 463
+        width: 54
+        height: 51
+      alignment: 9
+      pivot: {x: 0.25887835, y: 0.007090849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4165b1be0d5651649800525ce08dad86
+      internalID: -527552665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_109
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 400
+        width: 40
+        height: 52
+      alignment: 9
+      pivot: {x: 0.6285077, y: -0.00081106334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f5098f941917f479dee522b68c015b
+      internalID: 672489871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_110
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 397
+        width: 42
+        height: 53
+      alignment: 9
+      pivot: {x: 0.66444415, y: 0.05379961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baafb4228f11080478de072847a06cfd
+      internalID: -255750776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_111
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 400
+        width: 30
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49281463, y: -0.0042883065}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e3f43a502a17b4581318aa04b11644
+      internalID: 772259148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_112
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 400
+        width: 51
+        height: 52
+      alignment: 9
+      pivot: {x: 0.72690505, y: -0.0028099646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0d09639c7a6b345a4ead16e0f5d633
+      internalID: -1529235089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_113
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 400
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: 0.6856863, y: 0.0037906354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce2d901c253c9a42a2e30c5e53bbc4b
+      internalID: 1089367732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_114
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 400
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.6156451, y: 0.0009800837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bd5e60a6e18a04e91e8230cbc7f7cd
+      internalID: -1622372513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_115
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 334
+        width: 35
+        height: 55
+      alignment: 9
+      pivot: {x: 0.45461884, y: 0.0064181243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49cd8a6765063464386022f6a67e9617
+      internalID: -1833822977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_116
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 334
+        width: 29
+        height: 55
+      alignment: 9
+      pivot: {x: 0.538524, y: 0.003737016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce6b62950666994d8731f4c7a409386
+      internalID: -228441958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_117
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 334
+        width: 29
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5d8ebacdacf914d80b07cd7ff528d3
+      internalID: -1525415755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_118
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 334
+        width: 29
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c042eb92cdb7d64caf96eda671d2fa5
+      internalID: 235467065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_119
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 334
+        width: 50
+        height: 55
+      alignment: 9
+      pivot: {x: 0.28585693, y: 0.0010614569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b9846b7f6c46047ba5374904b14228
+      internalID: -1810157924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_120
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 334
+        width: 54
+        height: 55
+      alignment: 9
+      pivot: {x: 0.2826504, y: 0.0037076082}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026ec5ee320e3b8458d7b8ada6b44753
+      internalID: -2058622640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_121
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 269
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.39029473, y: 0.0067884005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0775463da628a145b63d8ca835b31e4
+      internalID: 846678523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_122
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 269
+        width: 44
+        height: 52
+      alignment: 9
+      pivot: {x: 0.3275287, y: 0.0067895744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b64adeccbbb23d47b4382876f83e8f1
+      internalID: -812052161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_123
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 269
+        width: 51
+        height: 52
+      alignment: 9
+      pivot: {x: 0.26815078, y: 0.010182307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3215a1cc1857e94e9b0fbd51cce6a7f
+      internalID: -1837507176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_124
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 269
+        width: 30
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49abe4bdcbf2efc408012e2fe7afaaa7
+      internalID: 1608913926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_125
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 266
+        width: 42
+        height: 53
+      alignment: 9
+      pivot: {x: 0.33192152, y: 0.063268125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf9689e6d487dd4ab9409530af9cbc1
+      internalID: 164631052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_126
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 269
+        width: 40
+        height: 52
+      alignment: 9
+      pivot: {x: 0.38087386, y: 0.0067884005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52de924cb765494fabad4ce0d7e31ad
+      internalID: 837888681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_128
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 208
+        width: 33
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672af65b03ee6d04c9aee41f78171649
+      internalID: 74333285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_129
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 207
+        width: 46
+        height: 50
+      alignment: 9
+      pivot: {x: 0.33221436, y: -0.0016152954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bc50eb8d0930442beed0468f91794e
+      internalID: -1782861562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_130
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 207
+        width: 31
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898e53fa57af46040be8750edce4e378
+      internalID: 642586824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_131
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 207
+        width: 31
+        height: 51
+      alignment: 9
+      pivot: {x: 0.47652262, y: -0.0031708363}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f44ea6a5b17690459c35ef573956629
+      internalID: -1944024935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_132
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 207
+        width: 41
+        height: 51
+      alignment: 9
+      pivot: {x: 0.3340819, y: -0.0020288206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8260e7f0943dc478276f3efca03250
+      internalID: -4221751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_133
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 207
+        width: 46
+        height: 51
+      alignment: 9
+      pivot: {x: 0.2995141, y: -0.00044280407}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e30dd17fb23dd4fb52579eae01ac9f
+      internalID: 1920478610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_135
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 145
+        width: 39
+        height: 52
+      alignment: 9
+      pivot: {x: 0.59668666, y: 0.00000088031476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a199d11430549224c98c3a293ab20619
+      internalID: -57589458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_136
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 145
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6591559, y: -0.0053863525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee53464a8cc1c494a8cfcdd53a355baa
+      internalID: -1590491649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_137
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 145
+        width: 30
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f3cf4aa2965e244a0a98d312ae6a67
+      internalID: -1636196745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_138
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 145
+        width: 50
+        height: 52
+      alignment: 9
+      pivot: {x: 0.69931304, y: 0.005179185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377569f2a1aca9c40a3a7006d48fcf06
+      internalID: 783908088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_139
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 145
+        width: 53
+        height: 52
+      alignment: 9
+      pivot: {x: 0.71852255, y: 0.010360718}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c87e2f29801c44fb2e4465c0fdde53
+      internalID: -665957923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_140
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 145
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.60191387, y: 0.0051806523}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 385e1d4f2970fcc4e818a87e445d1ca9
+      internalID: -419792137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_141
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 79
+        width: 34
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d41d9a6fca771a4198ba959ed148a01
+      internalID: 1921783982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_142
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 79
+        width: 45
+        height: 55
+      alignment: 9
+      pivot: {x: 0.3802931, y: 0.024486056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba598498887cfd4ca5022d011f55304
+      internalID: -617445014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_143
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 79
+        width: 29
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fa625b6a937f140aeb989b7608b78c
+      internalID: 744027080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_144
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 79
+        width: 44
+        height: 54
+      alignment: 9
+      pivot: {x: 0.35308665, y: 0.034915783}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41626231d235a574ba25b203f7491252
+      internalID: 21028697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_145
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 79
+        width: 51
+        height: 55
+      alignment: 9
+      pivot: {x: 0.2834712, y: 0.034279425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee5d75942c26784fb44e2fb69c7accc
+      internalID: 1168800143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_146
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 79
+        width: 48
+        height: 55
+      alignment: 9
+      pivot: {x: 0.33727393, y: 0.039178327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62b35ab75e14ec4d8544d403882f174
+      internalID: 324451385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_147
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 16
+        width: 37
+        height: 52
+      alignment: 9
+      pivot: {x: 0.3980879, y: 0.01554027}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97428cf320af05548ade728af9f1ff3b
+      internalID: -696411864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_148
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 16
+        width: 53
+        height: 52
+      alignment: 9
+      pivot: {x: 0.28147832, y: 0.010361891}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411945a6c6fbc164cb86be0869a99aa2
+      internalID: 975323378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_149
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 16
+        width: 50
+        height: 52
+      alignment: 9
+      pivot: {x: 0.30607513, y: 0.01554027}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca28e56b921b4c42bb6f30049085308
+      internalID: 1948468725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_150
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 16
+        width: 30
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53e73c987506aa448a1de1cf44317e7
+      internalID: 1903318369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_151
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 16
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.3408439, y: 0.005385933}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dddfa6da425e89543a1801558172354e
+      internalID: -1842294518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WickerMage_152
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 16
+        width: 39
+        height: 52
+      alignment: 9
+      pivot: {x: 0.38950288, y: 0.01554027}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866cb724e46fe4f41961dc056280c954
+      internalID: -1202087435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5db5c5655b4fa8a4db097456b055ce37
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      WickerMage_0: 1463757597
+      WickerMage_1: -436229120
+      WickerMage_10: -1592370165
+      WickerMage_100: 164673205
+      WickerMage_101: 1272263238
+      WickerMage_102: 1975599106
+      WickerMage_103: 852467945
+      WickerMage_104: 803826220
+      WickerMage_105: 372079689
+      WickerMage_106: -1149491898
+      WickerMage_107: -527552665
+      WickerMage_108: -348243578
+      WickerMage_109: 672489871
+      WickerMage_11: 892255197
+      WickerMage_110: -255750776
+      WickerMage_111: 772259148
+      WickerMage_112: -1529235089
+      WickerMage_113: 1089367732
+      WickerMage_114: -1622372513
+      WickerMage_115: -1833822977
+      WickerMage_116: -228441958
+      WickerMage_117: -1525415755
+      WickerMage_118: 235467065
+      WickerMage_119: -1810157924
+      WickerMage_12: 226205643
+      WickerMage_120: -2058622640
+      WickerMage_121: 846678523
+      WickerMage_122: -812052161
+      WickerMage_123: -1837507176
+      WickerMage_124: 1608913926
+      WickerMage_125: 164631052
+      WickerMage_126: 837888681
+      WickerMage_127: -5037581
+      WickerMage_128: 74333285
+      WickerMage_129: -1782861562
+      WickerMage_13: -733608354
+      WickerMage_130: 642586824
+      WickerMage_131: -1944024935
+      WickerMage_132: -4221751
+      WickerMage_133: 1920478610
+      WickerMage_134: -990123838
+      WickerMage_135: -57589458
+      WickerMage_136: -1590491649
+      WickerMage_137: -1636196745
+      WickerMage_138: 783908088
+      WickerMage_139: -665957923
+      WickerMage_14: -1401010101
+      WickerMage_140: -419792137
+      WickerMage_141: 1921783982
+      WickerMage_142: -617445014
+      WickerMage_143: 744027080
+      WickerMage_144: 21028697
+      WickerMage_145: 1168800143
+      WickerMage_146: 324451385
+      WickerMage_147: -696411864
+      WickerMage_148: 975323378
+      WickerMage_149: 1948468725
+      WickerMage_15: -1250578311
+      WickerMage_150: 1903318369
+      WickerMage_151: -1842294518
+      WickerMage_152: -1202087435
+      WickerMage_153: 1411416618
+      WickerMage_16: -1141883792
+      WickerMage_17: -925300480
+      WickerMage_18: -12912145
+      WickerMage_19: 907005957
+      WickerMage_2: 1583077288
+      WickerMage_20: -963637649
+      WickerMage_21: 1903495377
+      WickerMage_22: -241642187
+      WickerMage_23: 703163817
+      WickerMage_24: -1599342745
+      WickerMage_25: 766732039
+      WickerMage_26: 1469013435
+      WickerMage_27: -1837137085
+      WickerMage_28: 2063196765
+      WickerMage_29: 659378757
+      WickerMage_3: -658061171
+      WickerMage_30: 1967359860
+      WickerMage_31: -1456905273
+      WickerMage_32: 1958483735
+      WickerMage_33: 1958467304
+      WickerMage_34: -166809111
+      WickerMage_35: 2129155041
+      WickerMage_36: -2035533808
+      WickerMage_37: 1733973907
+      WickerMage_38: 354619635
+      WickerMage_39: 2011549559
+      WickerMage_4: -957148358
+      WickerMage_40: 2099309969
+      WickerMage_41: 1935646747
+      WickerMage_42: -1779275668
+      WickerMage_43: 1656358118
+      WickerMage_44: 2092678146
+      WickerMage_45: -503836962
+      WickerMage_46: -1678325615
+      WickerMage_47: 1914743889
+      WickerMage_48: -757046496
+      WickerMage_49: -202435955
+      WickerMage_5: 1026393994
+      WickerMage_50: -299565867
+      WickerMage_51: 1625554882
+      WickerMage_52: -775571661
+      WickerMage_53: -58931260
+      WickerMage_54: -1708299343
+      WickerMage_55: -212201169
+      WickerMage_56: -1008133208
+      WickerMage_57: -68730832
+      WickerMage_58: 2022127607
+      WickerMage_59: 399184536
+      WickerMage_6: 1678552095
+      WickerMage_60: -1272450067
+      WickerMage_61: 1089778527
+      WickerMage_62: 1949405312
+      WickerMage_63: -460293221
+      WickerMage_64: -207253411
+      WickerMage_65: 2018204318
+      WickerMage_66: 1185894626
+      WickerMage_67: -283107426
+      WickerMage_68: -2028723842
+      WickerMage_69: -303164251
+      WickerMage_7: -1047803031
+      WickerMage_70: -482262888
+      WickerMage_71: -1203118148
+      WickerMage_72: -367367851
+      WickerMage_73: -1669684403
+      WickerMage_74: 305257988
+      WickerMage_75: 1346474986
+      WickerMage_76: -2549878
+      WickerMage_77: -1743204427
+      WickerMage_78: -1159906666
+      WickerMage_79: -750328734
+      WickerMage_8: 1272586414
+      WickerMage_80: 1145746007
+      WickerMage_81: -1004379395
+      WickerMage_82: -1962812427
+      WickerMage_83: 142379966
+      WickerMage_84: 505789431
+      WickerMage_85: 333957299
+      WickerMage_86: -1842367041
+      WickerMage_87: -232982651
+      WickerMage_88: 75149590
+      WickerMage_89: -602164074
+      WickerMage_9: -1505130074
+      WickerMage_90: 127615642
+      WickerMage_91: 16349320
+      WickerMage_92: 342609985
+      WickerMage_93: -1503411723
+      WickerMage_94: -62761483
+      WickerMage_95: -1352557463
+      WickerMage_96: -1627966179
+      WickerMage_97: 589879179
+      WickerMage_98: -1120509208
+      WickerMage_99: 510022977
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

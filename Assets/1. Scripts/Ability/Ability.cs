@@ -21,18 +21,23 @@ namespace Ability
 
         public AbilitySO AbilitySO { get; private set; }
 
-        public float CurrentCooldown { get; private set; } = 0;
-
         public int Damage { get; private set; } = 0;
         public float Cooldown { get; private set; } = 0;
         public float AbilitySpeed { get; private set; } = 0;
         public float AbilitySize { get; private set; } = 0;
+
+        private float lastCooldownTime = 0;
 
 
         public Ability(AbilitySO abilitySO, IEntity entity)
         {
             Entity = entity;
             AbilitySO = abilitySO;
+
+            //Temp
+            Cooldown = AbilitySO.AttributeData.Cooldown;
+            AbilitySpeed = AbilitySO.MovementData.BaseSpeed;
+            AbilitySize = AbilitySO.SizeData.BaseSize;
 
             UpdateAbilityStats();
         }
@@ -41,15 +46,25 @@ namespace Ability
         {
             abilityCoroutine = null;
 
-            if (Time.time >= CurrentCooldown)
+            if (!IsCoolingDown())
             {
-                CurrentCooldown = Time.time + Cooldown;
+                lastCooldownTime = Time.time + Cooldown;
 
                 abilityCoroutine = AbilityInitializer.Instance.Initialize(new(this, Entity.Transform, target));
                 return true;
             }
 
             return false;
+        }
+
+        public bool IsCoolingDown()
+        {
+            if (Time.time < lastCooldownTime)
+            {
+                return true;
+            }
+
+            else return false;
         }
 
         public void UpdateAbilityStats()

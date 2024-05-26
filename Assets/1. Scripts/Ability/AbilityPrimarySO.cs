@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Ability
 {
     [CreateAssetMenu(menuName = "Ability/AbilityPrimarySO")]
+    
     public class AbilityPrimarySO : AbilitySO
     {
 

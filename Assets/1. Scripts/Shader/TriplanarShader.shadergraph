@@ -235,6 +235,7 @@
     "m_OutputNode": {
         "m_Id": ""
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "cfbff0fbbb4a485e90aab9b9a2705aa3"
@@ -1231,7 +1232,7 @@
     "m_Value": 1.0,
     "m_FloatType": 1,
     "m_RangeValues": {
-        "x": 1.0,
+        "x": 0.009999999776482582,
         "y": 20.0
     }
 }

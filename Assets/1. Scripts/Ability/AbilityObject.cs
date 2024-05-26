@@ -44,7 +44,7 @@ namespace Ability
 
         private AbilitySO abilitySO;
         public AbilitySO AbilitySO => abilitySO;
-        [field: SerializeField] public MeshRenderer ShadowMesh { get; private set; }
+        //[field: SerializeField] public MeshRenderer ShadowMesh { get; private set; }
 
         private AbilityCastingData castingData;
         private AbilityInitializeData initializeData;
@@ -146,7 +146,7 @@ namespace Ability
 
             this.currentSize = size;
             abilityCollider.radius = currentSize / 2;
-            ShadowMesh.transform.localScale = new Vector3(size, size, size);
+            //ShadowMesh.transform.localScale = new Vector3(size, size, size);
 
             if (primaryParticles != null) primaryParticles.ChangeParticalSize(size);
         }
@@ -222,8 +222,8 @@ namespace Ability
 
             abilityCollider.radius = ability.AbilitySize / 2;
 
-            ShadowMesh.transform.localScale = 
-                new Vector3(ability.AbilitySize, ability.AbilitySize, ability.AbilitySize);
+            //ShadowMesh.transform.localScale = 
+            //    new Vector3(ability.AbilitySize, ability.AbilitySize, ability.AbilitySize);
 
             UpdateCurves();
 

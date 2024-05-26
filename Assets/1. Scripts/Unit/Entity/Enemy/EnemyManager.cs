@@ -25,6 +25,7 @@ namespace Unit.Entity
 
         private void Start()
         {
+            return; 
             foreach (EnemySO enemySO in EnemySOList)
             {
                 CreateNewEnemyPool(enemySO);
@@ -64,7 +65,7 @@ namespace Unit.Entity
 
 
             enemy.transform.SetPositionAndRotation(pos, rot);
-            enemy.AssignEntity(enemySO);
+            enemy.AssignEnemy(enemySO);
             enemy.gameObject.SetActive(true);
             activeEnemies.Add(enemy);
             currentActive++;

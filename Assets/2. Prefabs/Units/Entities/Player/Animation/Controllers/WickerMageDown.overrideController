@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WickerMageDown
+  m_Controller: {fileID: 9100000, guid: e847c66486a47a54693984b8dc8f1928, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5bb47768a0e20b34cb277bcb4fd6d737, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5354ef27a21802449902cc4a828ddddf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f88f6b3bbc4c22945a14b0db8d4e4f27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 09bedd97a0d9fe240b025df60f283187, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 98a8aefeddbe3804aa2fad4cf938addd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7ff14ce51f4c0ef4faa0b68de9f226d2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1700f11023569084e8010958597a030e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 05cd8aeff701cf543bb8fa2016401149, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e5ecfe0dcf432f843a20ae8f60d37eda, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ab6c382c2765d5d45bd000b44a0608a0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7b4e4c487d624b04c8c8e04264b9888d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a32d94ad20100d9419955afd023710a8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: edce2b4c6c2d9404b86bd20f45f20ef0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a92e4c06d3a387447a0be879a65beece, type: 2}

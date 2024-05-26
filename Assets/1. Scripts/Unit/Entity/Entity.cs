@@ -31,7 +31,7 @@ namespace Unit.Entity
         public Guid TargetID { get; }
     }
 
-    public abstract class Entity<T> : Unit<T> where T : EntitySO
+    public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
     {
 
         public virtual Transform Transform => gameObject.transform;
@@ -41,12 +41,14 @@ namespace Unit.Entity
 
         public float MovementSpeed { get; protected set; }
 
+        [field: SerializeField] public SpriteAnimator Animator { get; protected set; }
+
         protected virtual void Start()
         {
 
         }
 
-        public virtual void AssignEntity(T entitySO)
+        protected virtual void AssignEntity(T entitySO)
         {
             EntitySO = entitySO;
             TargetID = Guid.NewGuid();

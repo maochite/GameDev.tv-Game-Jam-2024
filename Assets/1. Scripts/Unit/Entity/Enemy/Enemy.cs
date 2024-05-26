@@ -11,9 +11,9 @@ namespace Unit.Entity
     {
         public EnemySO EnemySO => UnitSO;
 
-        public override void AssignEntity(EnemySO enemySO)
+        public void AssignEnemy(EnemySO enemySO)
         {
-            base.AssignEntity(enemySO);
+            AssignEntity(enemySO);
         }
 
         //protected override void Start();
