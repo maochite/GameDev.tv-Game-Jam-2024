@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unit.Entity;
+using Unit.Entities;
 using UnityEngine;
 
 namespace Ability

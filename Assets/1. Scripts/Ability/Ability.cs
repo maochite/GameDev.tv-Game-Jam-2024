@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Principal;
-using Unit.Entity;
+using Unit.Entities;
 using UnityEngine;
 using UnityEngine.VFX;
 

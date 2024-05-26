@@ -8,7 +8,7 @@ using UnityEngine.Animations;
 using TMPro;
 using System.Linq;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
     public enum EntityType
     {
@@ -33,9 +33,9 @@ namespace Unit.Entity
 
     public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
     {
+        public EntitySO EntitySO => UnitSO;
 
         public virtual Transform Transform => gameObject.transform;
-        public virtual EntitySO EntitySO { get; protected set; }
         public virtual Guid TargetID { get; protected set; }
         public bool IsActive { get; protected set; } = false;
 
@@ -50,7 +50,7 @@ namespace Unit.Entity
 
         protected virtual void AssignEntity(T entitySO)
         {
-            EntitySO = entitySO;
+            UnitSO = entitySO;
             TargetID = Guid.NewGuid();
         }
 

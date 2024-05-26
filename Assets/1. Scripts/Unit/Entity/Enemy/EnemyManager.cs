@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
 
     public class EnemyManager : StaticInstance<EnemyManager>

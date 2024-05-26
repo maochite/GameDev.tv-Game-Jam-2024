@@ -2,7 +2,7 @@ using Particle;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unit.Entity;
+using Unit.Entities;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -646,7 +646,7 @@ namespace Ability
         {
             //Debug.Log("Hit entity "+entity + " " + abilitySO.AttributeData.Damage);
 
-            entity.CurrentHealth -= ability.Damage;
+            //entity.CurrentHealth -= ability.Damage;
 
         }
 

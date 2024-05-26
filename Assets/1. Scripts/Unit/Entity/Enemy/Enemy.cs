@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
 
     public class Enemy : Entity<EnemySO>

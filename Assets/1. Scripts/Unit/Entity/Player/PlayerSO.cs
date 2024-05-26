@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
     [CreateAssetMenu(menuName = "Unit/Entity/PlayerSO")]
     public class PlayerSO : EntitySO

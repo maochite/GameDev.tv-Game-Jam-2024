@@ -11,6 +11,8 @@ TagManager:
   - 
   - Water
   - UI
+  - Terrain
+  - Indestructable
   - 
   - 
   - 
@@ -18,12 +20,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Destructable
+  - Gatherable
   - 
   - 
   - 

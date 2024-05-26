@@ -4,28 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Ability;
+using Unit.Gatherables;
+using System.Linq;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.EventSystems.EventTrigger;
+using Unity.VisualScripting;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
     public enum EntityState
     {
         Move,
         Attack,
+        Chop,
+        Mine,
         Idle,
+        Dead,
+        Summon,
     }
 
     public class Player : Entity<PlayerSO>
     {
-        [Header("Player Components")]
+        [Header("Player Prefab Components")]
         [field: SerializeField] private Rigidbody rigidBody;
         private PlayerSO playerSO;
         private AbilityPrimary playerAbility;
+
+        [Header("Player Prefab Fields")]
+        [field: SerializeField] public float enemySphereRadius = 20f;
+        [field: SerializeField] public float miscSphereRadius = 1f;
+        [field: SerializeField] public float gatheringCooldown = 1f;
 
         [Header("Camera Components")]
         //[SerializeField] private CameraFollow camFollow;
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
+
+        private float lastGatheringCooldownTime;
 
         private float movementSpeed = 5;
         private Vector3 raw_input;
@@ -34,6 +50,20 @@ namespace Unit.Entity
 
         private EntityState state;
 
+        //Overlap detect
+        private LayerMask enemyLayerMask;
+        private LayerMask miscLayerMask;
+        private Collider[] enemyBuffer = new Collider[200];
+        private Collider[] miscBuffer = new Collider[200];
+        private List<Gatherable> gatherableBuffer = new(200);
+
+        //private Tower[] towerBuffer = new Tower[200];
+
+        private void Awake()
+        {
+            enemyLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy);
+            miscLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
+        }
 
         public void AssignPlayer(PlayerSO playerSO)
         {
@@ -43,7 +73,7 @@ namespace Unit.Entity
             playerAbility = new(playerSO.DefaultAbility, this);
         }
 
-        private void GatherInput()
+        private void GetInput()
         {
             raw_input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
             raw_input.Normalize();
@@ -89,29 +119,19 @@ namespace Unit.Entity
 
         private void Update()
         {
-            GatherInput();
-
-
+            GetInput();
         }
 
         private void FixedUpdate()
         {
-            if (!IsAttacking())
+            if(state == EntityState.Idle)
             {
-                if (Attack())
-                {
-                    ChangeState(EntityState.Attack);
-                }
+                ProximityAction();
+            }
 
-                else if (Move())
-                {
-                    ChangeState(EntityState.Move);
-                }
-
-                else
-                {
-                    ChangeState(EntityState.Idle);
-                }
+            if (Move())
+            {
+                ChangeState(EntityState.Move);
             }
 
             else
@@ -121,6 +141,46 @@ namespace Unit.Entity
             
         }
 
+        public void ProximityAction()
+        {
+            int numEnemyColliders = Physics.OverlapSphereNonAlloc(transform.position, enemySphereRadius, enemyBuffer, enemyLayerMask);
+
+            if (numEnemyColliders > 0)
+            {
+                var closestTransform = TransformUtility.FindClosestTransformSqr(transform.position, enemyBuffer);
+
+                //if (Attack())
+                //{
+                //    ChangeState(EntityState.Attack);
+                //}
+
+                return;
+            }
+
+            int numMiscColliders = Physics.OverlapSphereNonAlloc(transform.position, miscSphereRadius, miscBuffer, miscLayerMask);
+            gatherableBuffer.Clear();
+
+            if(!IsGathering())
+            {
+                for (int i = 0; i < numMiscColliders; i++)
+                {
+
+                    if (miscBuffer[i].TryGetComponent(out Gatherable gatherable))
+                    {
+                        gatherableBuffer.Add(gatherable);
+                    }
+                }
+
+                if (gatherableBuffer.Count != 0)
+                {
+                    GatherResources(gatherableBuffer);
+
+                    return;
+                }
+            }
+
+        }
+
         public void ChangeState(EntityState entityState)
         {
             if(state == EntityState.Move)
@@ -128,37 +188,54 @@ namespace Unit.Entity
                 Animator.ToggleWalkAnimation(false);
             }
 
-            if(entityState == EntityState.Move)
+            switch (entityState)
             {
-                Animator.ToggleWalkAnimation(true);
-                state = EntityState.Move;
-            }
-
-            if (entityState == EntityState.Attack)
-            {
-                Animator.TriggerAttackAnimation(1 / playerAbility.AbilitySO.AttributeData.Cooldown);
-                state = EntityState.Attack;
+                case EntityState.Move:
+                    Animator.ToggleWalkAnimation(true);
+                    state = EntityState.Move;
+                    break;
+                case EntityState.Attack:
+                    Animator.TriggerAttackAnimation(1 / playerAbility.AbilitySO.AttributeData.Cooldown);
+                    state = EntityState.Attack;
+                    break;
+                case EntityState.Summon:
+                    break;
+                case EntityState.Chop:
+                    Animator.TriggerChopAnimation();
+                    state = EntityState.Chop;
+                    break;
+                case EntityState.Mine:
+                    Animator.TriggerMineAnimation();
+                    state = EntityState.Mine;
+                    break;
+                case EntityState.Dead:
+                    break;
+                case EntityState.Idle:
+                    state = EntityState.Idle;
+                    break;
+                default:
+                    break;
             }
         }
 
         public bool IsAttacking()
         {
-            if (state == EntityState.Attack)
+            if (playerAbility.IsCoolingDown())
             {
-                if (playerAbility.IsCoolingDown())
-                {
-                    Debug.Log("CHECK");
-                    return true;
-                }
-
-                else
-                {
-                    ChangeState(EntityState.Idle);
-                    return false;
-                }
+                return true;
             }
 
-            return false;
+            else return false;
+        }
+
+        public bool IsGathering()
+        {
+            if (Time.time < lastGatheringCooldownTime)
+            {
+                return true;
+            }
+
+            else return false;
         }
 
 
@@ -203,6 +280,28 @@ namespace Unit.Entity
             }
         }
 
+        private void GatherResources(List<Gatherable> gatherables)
+        {
+            if (gatherables == null || gatherables.Count == 0) return;
+
+            if (gatherables[0].UnitSO.ResourceType == ResourceType.Wood)
+            {
+                ChangeState(EntityState.Chop);
+            }
+
+            else if (gatherables[0].UnitSO.ResourceType == ResourceType.Stone
+                || gatherables[0].UnitSO.ResourceType == ResourceType.Gold)
+            {
+                ChangeState(EntityState.Mine);
+            }
+
+            foreach (Gatherable gatherable in gatherables)
+            {
+                gatherable.Gather();
+            }
+
+            lastGatheringCooldownTime = Time.time + gatheringCooldown;
+        }
     }
 
     public static class Helpers

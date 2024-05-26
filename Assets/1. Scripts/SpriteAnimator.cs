@@ -63,7 +63,16 @@ public class SpriteAnimator : MonoBehaviour
     {
         animator.SetFloat("AttackSpeed", attackSpeed);
         animator.SetTrigger("Attack");
-        //Debug.Log(gameObject.GetComponentInParent<StatsManager>().gameObject.name + " has Attacked " + Time.time);
+    }
+
+    public void TriggerMineAnimation()
+    {
+        animator.SetTrigger("Mine");
+    }
+
+    public void TriggerChopAnimation()
+    {
+        animator.SetTrigger("Chop");
     }
 
     public void ToggleCastingAnimation(bool casting)
