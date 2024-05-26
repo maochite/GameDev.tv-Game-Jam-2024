@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_chunkIdx: {x: 0, y: 0}
+  m_chunkWidth: 0
+  m_chunkHeight: 0
+  m_blocks_serializable: 
 --- !u!23 &1656521013990944243
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,6 +68,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -174,7 +179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063725073612055595}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 059988369c114d448b8d58aca9300775, type: 3}
   m_Name: 
@@ -184,6 +189,9 @@ MonoBehaviour:
   chunkHeight: 16
   ChunkPrefab: {fileID: 3493047187929203927, guid: 257c8d5629365ff45a271c3f1ae385a7,
     type: 3}
+  buildableBlockList: []
+  m_chunks_serializable:
+  - {fileID: 0}
 --- !u!114 &3228797405923962265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,5 +204,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d4098d24cf70a47a249ed3a7bed41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxSelectDistance: 100
+  buildableOverlayColor: {r: 0, g: 0.8, b: 0, a: 0.3}
+  selectedTileOverlayColor: {r: 0, g: 0.8, b: 0.8, a: 0.7}
+  maxSelectDistance: 100
+  tileOverlayOffset: 0.01
   currentBlock: 2
+  currentMode: 0
+  overlayMaterial: {fileID: 0}
+  isFaceSelected: 0
+  map: {fileID: 86647489905578865}
+  initialised: 0
