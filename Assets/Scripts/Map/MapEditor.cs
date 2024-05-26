@@ -75,8 +75,7 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     public static MapEditor Instance;
     [SerializeField][HideInInspector] private bool initialised = false;
 
-    [Button]
-    private void ResetMap()
+    private void Reset()
     {
         if (!initialised)
         {
@@ -101,10 +100,8 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
             // Turn off depth writes
             overlayMaterial.SetInt("_ZWrite", 0);
 
-            Instance = this;
+            map.ResetMap();
         }
-
-        map.ResetMap();
     }
 
     //[Button]
