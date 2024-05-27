@@ -24,6 +24,7 @@ TagManager:
   - Player
   - Destructable
   - Gatherable
+  - Tower
   - 
   - 
   - 
@@ -31,9 +32,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Mask
+  - Fog
   - 
   - 
   - 

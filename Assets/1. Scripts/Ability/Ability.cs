@@ -17,7 +17,7 @@ namespace Ability
 
     public abstract class Ability
     {
-        public IEntity Entity { get; private set; }
+        public ICaster Caster { get; private set; }
 
         public AbilitySO AbilitySO { get; private set; }
 
@@ -29,9 +29,9 @@ namespace Ability
         private float lastCooldownTime = 0;
 
 
-        public Ability(AbilitySO abilitySO, IEntity entity)
+        public Ability(AbilitySO abilitySO, ICaster caster)
         {
-            Entity = entity;
+            Caster = caster;
             AbilitySO = abilitySO;
 
             //Temp
@@ -50,7 +50,7 @@ namespace Ability
             {
                 lastCooldownTime = Time.time + Cooldown;
 
-                abilityCoroutine = AbilityInitializer.Instance.Initialize(new(this, Entity.Transform, target));
+                abilityCoroutine = AbilityInitializer.Instance.Initialize(new(this, Caster.Transform, target));
                 return true;
             }
 

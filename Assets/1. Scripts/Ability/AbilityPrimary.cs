@@ -8,6 +8,6 @@ namespace Ability
 
     public class AbilityPrimary : Ability
     {
-        public AbilityPrimary(AbilitySO abilitySO, IEntity entity) : base(abilitySO, entity) { }
+        public AbilityPrimary(AbilitySO abilitySO, ICaster caster) : base(abilitySO, caster) { }
     }
 }

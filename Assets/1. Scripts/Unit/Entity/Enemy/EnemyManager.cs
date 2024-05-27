@@ -9,58 +9,38 @@ namespace Unit.Entities
 
     public class EnemyManager : StaticInstance<EnemyManager>
     {
-        [SerializeField] public Enemy EnemyPrefab { get; private set; }
+        [field: SerializeField] public Enemy EnemyPrefab { get; private set; }
 
-        [SerializeField, Header("Enemy Pooling")] List<EnemySO> EnemySOList;
+        [Header("Enemy Pooling")]
         [SerializeField] int initalPoolSize = 25;
         [SerializeField] int poolExtension = 25;
 
-        [SerializeField, Header("Testing")] EnemySO testEnemySO;
-
         [SerializeField, ReadOnly] int currentActive = 0;
 
-        private List<Enemy> activeEnemies = new();
-
-        private Dictionary<EnemySO, Queue<Enemy>> enemySystemPools = new();
+        private HashSet<Enemy> activeEnemies = new();
+        private Queue<Enemy> enemySystemPool = new();
 
         private void Start()
         {
-            return; 
-            foreach (EnemySO enemySO in EnemySOList)
-            {
-                CreateNewEnemyPool(enemySO);
-            }
-
-            CreateNewEnemyPool(testEnemySO);
+            ExtendEnemyPool(initalPoolSize);
         }
 
-        private void CreateNewEnemyPool(EnemySO enemySO)
-        {
-            enemySystemPools.Add(enemySO, new());
-            ExtendEnemyPool(enemySO, initalPoolSize);
-        }
-
-        private void ExtendEnemyPool(EnemySO enemySO, int amount)
+        private void ExtendEnemyPool(int amount)
         {
             for (int i = 0; i < amount; i++)
             {
                 Enemy enemy = Instantiate(EnemyPrefab, Vector3.zero, Quaternion.identity, transform);
                 enemy.gameObject.SetActive(false);
-                enemySystemPools[enemySO].Enqueue(enemy);
+                enemySystemPool.Enqueue(enemy);
             }
         }
 
         public Enemy RequestEnemy(EnemySO enemySO, Vector3 pos, Quaternion rot)
         {
-            if (!enemySystemPools.ContainsKey(enemySO))
+            if (!enemySystemPool.TryDequeue(out Enemy enemy))
             {
-                CreateNewEnemyPool(enemySO);
-            }
-
-            if (!enemySystemPools[enemySO].TryDequeue(out Enemy enemy))
-            {
-                ExtendEnemyPool(enemySO, poolExtension);
-                enemy = enemySystemPools[enemySO].Dequeue();
+                ExtendEnemyPool(poolExtension);
+                enemy = enemySystemPool.Dequeue();
             }
 
 
@@ -68,7 +48,8 @@ namespace Unit.Entities
             enemy.AssignEnemy(enemySO);
             enemy.gameObject.SetActive(true);
             activeEnemies.Add(enemy);
-            currentActive++;
+            
+            currentActive = activeEnemies.Count;
 
 
             return enemy;
@@ -77,16 +58,18 @@ namespace Unit.Entities
 
         public void ReturnEnemyToPool(Enemy enemy)
         {
-            if (!enemySystemPools.ContainsKey(enemy.EnemySO))
+            if(!activeEnemies.Contains(enemy))
             {
+                Debug.LogWarning("Invalid Enemy returned to Enemy Pool");
                 return;
             }
 
+            activeEnemies.Remove(enemy);
 
             enemy.gameObject.SetActive(false);
-            enemySystemPools[enemy.EnemySO].Enqueue(enemy);
-            activeEnemies.Remove(enemy);
-            currentActive--;
+            enemySystemPool.Enqueue(enemy);
+
+            currentActive = activeEnemies.Count;
         }
 
         public void UpdateActiveEnemyModifiedStats()

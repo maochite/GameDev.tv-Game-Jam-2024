@@ -23,12 +23,20 @@ namespace Unit.Entities
         MovementSpeed,
     }
 
+    public interface IUnit : IDamagable
+    {
+        public Guid TargetID { get; }
+    }
 
-    public interface IEntity : IDamagable
+    public interface ICaster : IUnit
     {
         public Transform Transform { get; }
+    }
+
+
+    public interface IEntity : IUnit, ICaster
+    {
         public EntitySO EntitySO { get; }
-        public Guid TargetID { get; }
     }
 
     public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
