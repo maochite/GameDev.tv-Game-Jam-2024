@@ -2,7 +2,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unit.Construct;
+using Unit.Constructs;
 using UnityEngine;
 
 public class ConstructManager : MonoBehaviour
@@ -32,7 +32,7 @@ public class ConstructManager : MonoBehaviour
 
     void Start()
     {
-        ExtendConstructPool(initalPoolSize);
+        //ExtendConstructPool(initalPoolSize);
     }
 
     public void PlaceConstruct(ConstructSO constructSO, Vector3 pos)

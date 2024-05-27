@@ -7,7 +7,7 @@ using Unit.Entities;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Unit.Construct
+namespace Unit.Constructs
 {
     public class Construct : Unit<ConstructSO>, ICaster
     {

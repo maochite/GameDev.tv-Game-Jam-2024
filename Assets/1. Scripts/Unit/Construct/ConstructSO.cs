@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unit.Construct
+namespace Unit.Constructs
 {
     public class ConstructSO : UnitSO
     {

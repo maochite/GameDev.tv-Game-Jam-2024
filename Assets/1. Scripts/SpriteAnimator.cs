@@ -56,36 +56,34 @@ public class SpriteAnimator : MonoBehaviour
 
     public void ToggleWalkAnimation(bool walking)
     {
+        animator.SetFloat("ActionSpeed", 1);
         animator.SetBool("Walk", walking);
     }
 
-    public void TriggerAttackAnimation(float attackSpeed)
+    public void TriggerAttackAnimation(float actionSpeed)
     {
-        animator.SetFloat("AttackSpeed", attackSpeed);
+        animator.SetFloat("ActionSpeed", actionSpeed);
         animator.SetTrigger("Attack");
     }
 
-    public void TriggerMineAnimation()
+    public void TriggerMineAnimation(float actionSpeed)
     {
+        animator.SetFloat("ActionSpeed", actionSpeed);
         animator.SetTrigger("Mine");
     }
 
-    public void TriggerChopAnimation()
+    public void TriggerChopAnimation(float actionSpeed)
     {
+        animator.SetFloat("ActionSpeed", actionSpeed);
         animator.SetTrigger("Chop");
     }
 
-    public void ToggleCastingAnimation(bool casting)
+    public void TriggerSummonAnimation(float actionSpeed)
     {
-        //send in and instantiate a particle system too, probably
-        animator.SetBool("isCasting", casting);
+        animator.SetFloat("ActionSpeed", actionSpeed);
+        animator.SetTrigger("Summon");
     }
 
-    //perhaps we should have multiple different cast animations depending on ability
-    public void TriggerAfterCastAnimation()
-    {
-        animator.SetTrigger("hasCasted");
-    }
 
     public void ToggleDeathAnimation()
     {

@@ -12,7 +12,7 @@ public enum LayerEnum
     Player = 1 << 3,
     Enemy = 1 << 4,
     Gatherable = 1 << 5,
-    Tower = 1 << 6,
+    Construct = 1 << 6,
     LineOfSight = 1 << 7,
 }
 
@@ -24,7 +24,7 @@ public enum HitLayer
     Indestructible = 1 << 2,
     Player = 1 << 3,
     Enemy = 1 << 4,
-    Tower = 1 << 6,
+    Construct = 1 << 6,
 }
 
 [System.Flags]
@@ -36,7 +36,7 @@ public enum CollisionLayer
     Player = 1 << 3,
     Enemy = 1 << 4,
     Gatherable = 1 << 5,
-    Tower = 1 << 6,
+    Construct = 1 << 6,
 }
 
 public static class LayerUtility

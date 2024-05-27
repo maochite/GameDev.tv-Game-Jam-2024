@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Unit.Gatherables
 {
+
     public class Gatherable : Unit<GatherableSO>
     {
         [Header("For Non-Pool Prefab Placement")]

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2406041372808236226}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.61, y: 0.21000004, z: 5.3100004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -72,9 +72,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 7300540214696542509}
   rigidBody: {fileID: 7565830329985711769}
-  enemySphereRadius: 20
+  enemySphereRadius: 5
   miscSphereRadius: 2
-  gatheringCooldown: 1
+  baseGatheringSpeed: 0.5
+  baseAttackSpeed: 0.5
+  baseMovementSpeed: 5
   inputSmoothing: 8
 --- !u!54 &7565830329985711769
 Rigidbody:

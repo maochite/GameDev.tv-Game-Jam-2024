@@ -6,6 +6,6 @@ namespace Unit.Entities
 {
     public class EntitySO : UnitSO
     {
-
+        public EntityActionAnimation AttackAnimation { get; private set; } = EntityActionAnimation.Attack;
     }
 }
