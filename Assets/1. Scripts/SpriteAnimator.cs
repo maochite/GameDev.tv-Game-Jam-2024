@@ -2,91 +2,126 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(SpriteRenderer))]
-public class SpriteAnimator : MonoBehaviour
+namespace Unit.Entities
 {
-    public Transform EntityTransform;
-    public AnimatorOverrideController UpAnimatorController;
-    public AnimatorOverrideController DownAnimatorController;
-    public AnimatorOverrideController LeftAnimatorController;
-    public AnimatorOverrideController RightAnimatorController;
-
-    protected SpriteRenderer spriteRenderer;
-    protected Animator animator;
-    protected Camera PlayerCamera;
-
-    private void Awake()
+    public enum EntityActionAnimation
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        PlayerCamera = Camera.main;
+        Chop,
+        Mine,
+        Attack,
+        Summon,
     }
 
-    private void Update()
+
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class SpriteAnimator : MonoBehaviour
     {
-        transform.rotation = Quaternion.Euler(0.0f, EntityTransform.rotation.z * -1.0f, 0.0f);
-        UpdateSprite(Mathf.DeltaAngle(PlayerCamera.transform.eulerAngles.y + 180, EntityTransform.eulerAngles.y));
-    }
-
-    protected virtual void UpdateSprite(float angle)
-    {
-        float angleAbs = Mathf.Abs(angle);
-
-        // Debug.Log(rotationAbs);
-
-        if (angleAbs < 25)
+        public enum EntityActionAnimation
         {
-            animator.runtimeAnimatorController = DownAnimatorController;
+            Chop,
+            Mine,
+            Attack,
+            Summon,
         }
-        else if (angleAbs < 145)
+
+
+        public Transform EntityTransform;
+        public AnimatorOverrideController UpAnimatorController;
+        public AnimatorOverrideController DownAnimatorController;
+        public AnimatorOverrideController LeftAnimatorController;
+        public AnimatorOverrideController RightAnimatorController;
+
+        protected SpriteRenderer spriteRenderer;
+        protected Animator animator;
+        protected Camera PlayerCamera;
+
+        private void Awake()
         {
-            if (angle < 0)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
+            PlayerCamera = Camera.main;
+        }
+
+        private void Update()
+        {
+            transform.rotation = Quaternion.Euler(0.0f, EntityTransform.rotation.z * -1.0f, 0.0f);
+            UpdateSprite(Mathf.DeltaAngle(PlayerCamera.transform.eulerAngles.y + 180, EntityTransform.eulerAngles.y));
+        }
+
+        protected virtual void UpdateSprite(float angle)
+        {
+            float angleAbs = Mathf.Abs(angle);
+
+            // Debug.Log(rotationAbs);
+
+            if (angleAbs < 25)
             {
-                animator.runtimeAnimatorController = RightAnimatorController;
+                animator.runtimeAnimatorController = DownAnimatorController;
+            }
+            else if (angleAbs < 145)
+            {
+                if (angle < 0)
+                {
+                    animator.runtimeAnimatorController = RightAnimatorController;
+                }
+
+                else animator.runtimeAnimatorController = LeftAnimatorController;
+            }
+            else
+            {
+                animator.runtimeAnimatorController = UpAnimatorController;
+            }
+        }
+
+        public void ToggleIdleAnimation(bool toggle)
+        {
+            if(toggle)
+            {
+                animator.SetFloat("ActionSpeed", 1);
             }
 
-            else animator.runtimeAnimatorController = LeftAnimatorController;
+            animator.SetBool("Idle", toggle);
         }
-        else
+
+        public void ToggleWalkAnimation(bool toggle)
         {
-            animator.runtimeAnimatorController = UpAnimatorController;
+            if (toggle)
+            {
+                animator.SetFloat("ActionSpeed", 1);
+            }
+
+            animator.SetBool("Walk", toggle);
         }
-    }
 
-    public void ToggleWalkAnimation(bool walking)
-    {
-        animator.SetFloat("ActionSpeed", 1);
-        animator.SetBool("Walk", walking);
-    }
+        public void TriggerAttackAnimation(float actionSpeed)
+        {
+            animator.SetFloat("ActionSpeed", actionSpeed);
+            animator.SetTrigger("Attack");
+        }
 
-    public void TriggerAttackAnimation(float actionSpeed)
-    {
-        animator.SetFloat("ActionSpeed", actionSpeed);
-        animator.SetTrigger("Attack");
-    }
+        public void TriggerMineAnimation(float actionSpeed)
+        {
+            animator.SetFloat("ActionSpeed", actionSpeed);
+            animator.SetTrigger("Mine");
+        }
 
-    public void TriggerMineAnimation(float actionSpeed)
-    {
-        animator.SetFloat("ActionSpeed", actionSpeed);
-        animator.SetTrigger("Mine");
-    }
+        public void TriggerChopAnimation(float actionSpeed)
+        {
+            animator.SetFloat("ActionSpeed", actionSpeed);
+            animator.SetTrigger("Chop");
+        }
 
-    public void TriggerChopAnimation(float actionSpeed)
-    {
-        animator.SetFloat("ActionSpeed", actionSpeed);
-        animator.SetTrigger("Chop");
-    }
-
-    public void TriggerSummonAnimation(float actionSpeed)
-    {
-        animator.SetFloat("ActionSpeed", actionSpeed);
-        animator.SetTrigger("Summon");
-    }
+        public void TriggerSummonAnimation(float actionSpeed)
+        {
+            animator.SetFloat("ActionSpeed", actionSpeed);
+            animator.SetTrigger("Summon");
+        }
 
 
-    public void ToggleDeathAnimation()
-    {
-        animator.SetBool("isAlive", false);
+        public void ToggleDeathAnimation()
+        {
+            animator.SetBool("isAlive", false);
+        }
     }
 }

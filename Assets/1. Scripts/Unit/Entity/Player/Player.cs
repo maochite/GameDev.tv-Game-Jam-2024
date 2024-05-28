@@ -11,6 +11,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 using Unity.VisualScripting;
 using Unit.Constructs;
 using static UnityEditor.PlayerSettings;
+using System;
 
 namespace Unit.Entities
 {
@@ -19,6 +20,7 @@ namespace Unit.Entities
         Move,
         Idle,
         Dead,
+        Action,
     }
 
     public enum EntityActionState
@@ -29,15 +31,6 @@ namespace Unit.Entities
         Repair,
         Summon,
     }
-
-    public enum EntityActionAnimation
-    {
-        Chop,
-        Mine,
-        Attack,
-        Summon,
-    }
-
 
     public class Player : Entity<PlayerSO>
     {
@@ -155,25 +148,33 @@ namespace Unit.Entities
 
             if (state == EntityPrimaryState.Idle)
             {
-                if (action != EntityActionState.None)
-                {
-                    ResolveCurrentAction();
-                }
-
-                else
-                {
-                    GetActionFromProximity();
-                }
+                 GetActionFromProximity();
             }
 
-            if (Move())
+            if(state == EntityPrimaryState.Action)
             {
-                ChangeState(EntityPrimaryState.Move);
+                if(action == EntityActionState.None)
+                {
+                    ChangePrimaryState(EntityPrimaryState.Idle);
+                }
+
+                else if (Move())
+                {
+                    action = EntityActionState.None;
+                    ChangePrimaryState(EntityPrimaryState.Move);
+                }
+
+                else ResolveCurrentAction();
             }
 
             else
             {
-                ChangeState(EntityPrimaryState.Idle);
+                if (Move())
+                {
+                    ChangePrimaryState(EntityPrimaryState.Move);
+                }
+
+                else ChangePrimaryState(EntityPrimaryState.Idle);
             }
 
         }
@@ -197,6 +198,7 @@ namespace Unit.Entities
                 }
 
                 action = EntityActionState.None;
+                ChangePrimaryState(EntityPrimaryState.Idle);
             }
         }
 
@@ -221,6 +223,7 @@ namespace Unit.Entities
                     if(closestTransform.TryGetComponent(out Enemy enemy))
                     {
                         currentAttackTarget = new(enemy);
+                        Look(currentAttackTarget.Unit.transform.position);
 
                         ChangeAction(EntityActionState.Attack);
                     }
@@ -258,13 +261,13 @@ namespace Unit.Entities
 
         }
 
-        public void ChangeState(EntityPrimaryState entityState)
+        public void ChangePrimaryState(EntityPrimaryState entityState)
         {
             if (entityState == state) return;
 
-            action = EntityActionState.None;
-
+            Animator.ToggleIdleAnimation(false);
             Animator.ToggleWalkAnimation(false);
+
             //Animator.ToggleDeathAnimation(false);
 
 
@@ -278,8 +281,12 @@ namespace Unit.Entities
                     //Toggle Death Animation
                     break;
                 case EntityPrimaryState.Idle:
+                    Animator.ToggleIdleAnimation(true);
                     state = EntityPrimaryState.Idle;
                     //Idle Toggle is automatic if everything else is off
+                    break;;
+                case EntityPrimaryState.Action:
+                    state = EntityPrimaryState.Action;
                     break;
                 default:
                     break;
@@ -296,10 +303,12 @@ namespace Unit.Entities
                     action = EntityActionState.None;
                     break;
                 case EntityActionState.Attack:
-                    EvaluateAnimation(playerSO.AttackAnimation, baseAttackSpeed);
+                    EvaluateActionAnimation(playerSO.AttackAnimation, baseAttackSpeed);
                     actionRemainingTime = baseAttackSpeed;
 
                     action = EntityActionState.Attack;
+                    ChangePrimaryState(EntityPrimaryState.Action);
+
                     break;
                 case EntityActionState.Gather:
 
@@ -312,9 +321,12 @@ namespace Unit.Entities
 
                         else
                         {
-                            EvaluateAnimation(gatherableUnit.Unit.UnitSO.GatheringAnimation, baseGatheringSpeed);
+                            EvaluateActionAnimation(gatherableUnit.Unit.UnitSO.GatheringAnimation, baseGatheringSpeed);
                             actionRemainingTime = baseGatheringSpeed;
                             action = EntityActionState.Gather;
+
+                            ChangePrimaryState(EntityPrimaryState.Action);
+
                             return;
                         }
                     }
@@ -368,7 +380,7 @@ namespace Unit.Entities
             }
         }
 
-        private void EvaluateAnimation(
+        private void EvaluateActionAnimation(
             EntityActionAnimation entityActionAnimation, float actionSpeed)
         {
 
