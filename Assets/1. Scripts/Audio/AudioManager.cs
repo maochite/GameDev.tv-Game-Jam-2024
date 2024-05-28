@@ -15,7 +15,7 @@ namespace Audio
     }
 
 
-    public class AudioManager : PersistentSingleton<AudioManager>
+    public class AudioManager : StaticInstance<AudioManager>
     {
         public class AudioWrapper : MonoBehaviour
         {

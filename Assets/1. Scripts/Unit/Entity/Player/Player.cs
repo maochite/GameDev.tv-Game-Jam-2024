@@ -274,6 +274,7 @@ namespace Unit.Entities
             switch (entityState)
             {
                 case EntityPrimaryState.Move:
+                    Animator.ChangeAnimationMultiplier(1);
                     Animator.ToggleWalkAnimation(true);
                     state = EntityPrimaryState.Move;
                     break;
@@ -383,20 +384,24 @@ namespace Unit.Entities
         private void EvaluateActionAnimation(
             EntityActionAnimation entityActionAnimation, float actionSpeed)
         {
+            Animator.ChangeAnimationMultiplier(actionSpeed);
 
             switch (entityActionAnimation)
             {
                 case EntityActionAnimation.Attack:
-                    Animator.TriggerAttackAnimation(1 / actionSpeed);
+                    Animator.TriggerAttackAnimation();
                     break;
                 case EntityActionAnimation.Chop:
-                    Animator.TriggerChopAnimation(1 / actionSpeed);
+                    Animator.TriggerChopAnimation();
                     break;
                 case EntityActionAnimation.Mine:
-                    Animator.TriggerMineAnimation(1 / actionSpeed);
+                    Animator.TriggerMineAnimation();
                     break;
                 case EntityActionAnimation.Summon:
-                    Animator.TriggerSummonAnimation(1 / actionSpeed);
+                    Animator.TriggerSummonAnimation();
+                    break;
+                default:
+                    Animator.TriggerSummonAnimation();
                     break;
             }
         }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Unit.Constructs;
 using UnityEngine;
 
-public class ConstructManager : MonoBehaviour
+public class ConstructManager : StaticInstance<ConstructManager>
 {
     public const float TOWER_SQUARE_SIZE = 1f;
 

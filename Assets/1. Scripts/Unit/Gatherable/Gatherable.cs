@@ -1,3 +1,4 @@
+using Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -61,6 +62,7 @@ namespace Unit.Gatherables
 
                     if (currentHealth <= 0)
                     {
+                        OnDeath();
                         Destroy(gameObject);
                         isDestroyed = true;
                     }
@@ -92,6 +94,16 @@ namespace Unit.Gatherables
         {
             spriteObject.transform.localPosition = Vector3.zero;
             shakeTimer = shakeDuration;
+        }
+
+        private void OnDeath()
+        {
+            foreach(ItemSO itemSO in UnitSO.ItemPool)
+            {
+                Item item = ItemManager.Instance.CreateNewItem(itemSO);
+                ItemObject itemObj = ItemManager.Instance.RequestItemObject(item, transform.position, Quaternion.identity);
+                itemObj.DropItem(transform.position + UnitSO.ItemDropOffset);
+            }
         }
     }
 }

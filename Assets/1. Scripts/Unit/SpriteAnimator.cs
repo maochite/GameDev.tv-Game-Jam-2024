@@ -76,45 +76,31 @@ namespace Unit.Entities
 
         public void ToggleIdleAnimation(bool toggle)
         {
-            if(toggle)
-            {
-                animator.SetFloat("ActionSpeed", 1);
-            }
-
             animator.SetBool("Idle", toggle);
         }
 
         public void ToggleWalkAnimation(bool toggle)
         {
-            if (toggle)
-            {
-                animator.SetFloat("ActionSpeed", 1);
-            }
-
             animator.SetBool("Walk", toggle);
         }
 
-        public void TriggerAttackAnimation(float actionSpeed)
+        public void TriggerAttackAnimation()
         {
-            animator.SetFloat("ActionSpeed", actionSpeed);
             animator.SetTrigger("Attack");
         }
 
-        public void TriggerMineAnimation(float actionSpeed)
+        public void TriggerMineAnimation()
         {
-            animator.SetFloat("ActionSpeed", actionSpeed);
             animator.SetTrigger("Mine");
         }
 
-        public void TriggerChopAnimation(float actionSpeed)
+        public void TriggerChopAnimation()
         {
-            animator.SetFloat("ActionSpeed", actionSpeed);
             animator.SetTrigger("Chop");
         }
 
-        public void TriggerSummonAnimation(float actionSpeed)
+        public void TriggerSummonAnimation()
         {
-            animator.SetFloat("ActionSpeed", actionSpeed);
             animator.SetTrigger("Summon");
         }
 
@@ -122,6 +108,11 @@ namespace Unit.Entities
         public void ToggleDeathAnimation()
         {
             animator.SetBool("isAlive", false);
+        }
+
+        public void ChangeAnimationMultiplier(float animationSpeed)
+        {
+            animator.SetFloat("ActionSpeed", 1 / animationSpeed);
         }
     }
 }
