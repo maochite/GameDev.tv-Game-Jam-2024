@@ -1,13 +1,14 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unit.Entities;
 using UnityEditor;
 using UnityEngine;
 
 public interface IDamagable
 {
     public int CurrentHealth { get; }
-    public int MaxHealth { get; }
 }
 
 namespace Unit
@@ -23,14 +24,20 @@ namespace Unit
         }
 
         public T Unit { get; private set; }
-        public GUID InstanceID { get; private set; }
+        public Guid InstanceID { get; private set; }
     }
 
     public abstract class Unit<T> : MonoBehaviour, IDamagable where T : UnitSO
     {
+        [Header("Unity Specifics")]
         public T UnitSO { get; protected set; }
-        public GUID ID { get; private set; }
-        public virtual int CurrentHealth { get; protected set; }
-        public virtual int MaxHealth { get; protected set; }
+        public Guid ID { get; private set; }
+        public abstract int CurrentHealth { get; protected set; }
+        
+        public virtual void AssignUnit(T unitSO)
+        {
+            UnitSO = unitSO;
+            ID = Guid.NewGuid();
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace Unit.Gatherables
 
     public class Gatherable : Unit<GatherableSO>
     {
+        [Header("- Gatherable Specifics -")]
+
         [Header("For Non-Pool Prefab Placement")]
         [SerializeField] private GatherableSO nonPoolSO;
 
@@ -29,15 +31,14 @@ namespace Unit.Gatherables
         {
             if(nonPoolSO != null)
             {
-                AssignGatherable(nonPoolSO);
+                AssignUnit(nonPoolSO);
             }
         }
 
-        public void AssignGatherable(GatherableSO gatherableSO)
+        public override void AssignUnit(GatherableSO gatherableSO)
         {
-            MaxHealth = gatherableSO.DefaultHealth;
-            currentHealth = MaxHealth;
-            UnitSO = gatherableSO;
+            base.AssignUnit(gatherableSO);
+            currentHealth = gatherableSO.BaseHealth;
 
             if (shakeVariations.Count > 0)
             {
@@ -100,9 +101,8 @@ namespace Unit.Gatherables
         {
             foreach(ItemSO itemSO in UnitSO.ItemPool)
             {
-                Item item = ItemManager.Instance.CreateNewItem(itemSO);
-                ItemObject itemObj = ItemManager.Instance.RequestItemObject(item, transform.position, Quaternion.identity);
-                itemObj.DropItem(transform.position + UnitSO.ItemDropOffset);
+                ItemObject itemObj = ItemManager.Instance.RequestItemObject(itemSO, transform.position, Quaternion.identity);
+                itemObj.ScatterItem(transform.position + UnitSO.ItemDropOffset);
             }
         }
     }

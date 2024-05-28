@@ -9,11 +9,14 @@ namespace Unit.Entities
 
     public class Enemy : Entity<EnemySO>
     {
+        [Header("- Enemy Specifics -")]
         public EnemySO EnemySO => UnitSO;
 
-        public void AssignEnemy(EnemySO enemySO)
+        public override int CurrentHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
+
+        public override void AssignUnit(EnemySO enemySO)
         {
-            AssignEntity(enemySO);
+            base.AssignUnit(enemySO);
         }
 
         //protected override void Start();

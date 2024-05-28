@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7431449431080506364}
   - component: {fileID: 2278522759449779012}
   m_Layer: 18
-  m_Name: Rock
+  m_Name: RockTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

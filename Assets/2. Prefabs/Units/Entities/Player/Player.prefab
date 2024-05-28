@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2889864696354522044}
   - component: {fileID: 4917661786787681075}
   - component: {fileID: 7565830329985711769}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,11 +72,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 7300540214696542509}
   rigidBody: {fileID: 7565830329985711769}
-  enemySphereRadius: 5
-  miscSphereRadius: 2
-  baseGatheringSpeed: 0.5
-  baseAttackSpeed: 0.5
-  baseMovementSpeed: 5
   inputSmoothing: 8
 --- !u!54 &7565830329985711769
 Rigidbody:
@@ -102,7 +97,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &4428578062911968094
@@ -117,7 +112,7 @@ GameObject:
   - component: {fileID: 4058847465040967284}
   - component: {fileID: 9204974865529333594}
   - component: {fileID: 7300540214696542509}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba19efa79409364084707d6c9e05970, type: 3}
+  m_Name: FireBallConstruct
+  m_EditorClassIdentifier: 
+  <BaseHealth>k__BackingField: 100
+  <AbilityPrimarySO>k__BackingField: {fileID: 11400000, guid: 92668c74d91ea1948ae4126c7e51c894,
+    type: 2}
+  <TargetRange>k__BackingField: 30
+  <MeshFilter>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 0}

@@ -12,7 +12,7 @@ namespace Unit.Entities
 
         public void AssignPlayer()
         {
-            player.AssignPlayer(playerSO);
+            player.AssignUnit(playerSO);
             isActive = true;
         }
 

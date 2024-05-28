@@ -6,6 +6,7 @@ namespace Unit.Entities
 {
     public class EnemySO : EntitySO
     {
-
+        [field: Header("Enemy Specifics")]
+        public int test;
     }
 }

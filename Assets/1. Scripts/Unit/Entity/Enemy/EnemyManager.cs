@@ -45,7 +45,7 @@ namespace Unit.Entities
 
 
             enemy.transform.SetPositionAndRotation(pos, rot);
-            enemy.AssignEnemy(enemySO);
+            enemy.AssignUnit(enemySO);
             enemy.gameObject.SetActive(true);
             activeEnemies.Add(enemy);
             

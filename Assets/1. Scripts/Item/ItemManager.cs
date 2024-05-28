@@ -21,12 +21,7 @@ namespace Items
 
         private void Start()
         {
-            ExtendItemObjectPool(initalPoolSize);
-        }
-
-        public Item CreateNewItem(ItemSO itemSO)
-        {
-            return new(itemSO);
+            //ExtendItemObjectPool(initalPoolSize);
         }
 
         private void ExtendItemObjectPool(int amount)
@@ -39,7 +34,7 @@ namespace Items
             }
         }
 
-        public ItemObject RequestItemObject(Item item, Vector3 pos, Quaternion rot)
+        public ItemObject RequestItemObject(ItemSO itemSO, Vector3 pos, Quaternion rot)
         {
             if (!itemSystemPool.TryDequeue(out ItemObject itemObj))
             {
@@ -49,7 +44,7 @@ namespace Items
 
 
             itemObj.transform.SetPositionAndRotation(pos, rot);
-            itemObj.AssignItem(item);
+            itemObj.AssignItemSO(itemSO);
             itemObj.gameObject.SetActive(true);
             activeItems.Add(itemObj);
 

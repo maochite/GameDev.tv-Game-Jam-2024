@@ -7,7 +7,8 @@ namespace Unit
 
     public class UnitSO : ScriptableObject
     {
-        [field: SerializeField] public int DefaultHealth { get; private set; }
+        [field: Header("- Unit Specifics -")]
+        [field: SerializeField] public int BaseHealth { get; private set; }
     }
 
 }

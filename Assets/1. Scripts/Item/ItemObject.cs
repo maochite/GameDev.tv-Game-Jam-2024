@@ -1,11 +1,9 @@
-using Ability;
-using Items;
+using Storage;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using Unit.Entities;
 using UnityEngine;
-using UnityEngine.Windows;
-using static Ability.AbilitySO.Composition;
+
 
 
 namespace Items
@@ -15,12 +13,21 @@ namespace Items
     [RequireComponent(typeof(SphereCollider))]
     public class ItemObject : MonoBehaviour
     {
+        [Serializable]
+        public class ItemDrop
+        {
+            [field: SerializeField, Range(0, 50)] public float ScatterForce { get; private set; } = 1f;
+            [field: SerializeField, Range(0, 1)] public float SpawnOffset { get; private set; } = 0.25f;
+            [field: SerializeField, Range(0, 50)] public float HomingSpeed { get; private set; } = 5f;
+            [field: SerializeField, Range(0, 5)] public float HomingDelay { get; private set; } = 1f;
+            [field: SerializeField] public Vector3 HomingTargetOffset { get; private set; } = Vector3.zero;
+        }
+
         Rigidbody rigidBody;
         SpriteRenderer spriteRenderer;
 
-        public Item Item { get; private set; }
-        [field: SerializeField] public Vector3 HomingTargetOffset { get; private set; }
-        [field: SerializeField, Range(0.01f, 1)] public float CollectionRange { get; private set; } = 0.1f;
+        public ItemSO ItemSO { get; private set; }
+        [field: SerializeField] public ItemDrop ItemDropData { get; private set; }
 
         private Coroutine HomingCoroutineRef;
         private bool canHome = false;
@@ -31,73 +38,67 @@ namespace Items
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void AssignItem(Item item)
+        public void AssignItemSO(ItemSO itemSO)
         {
-            Item = item;
-            spriteRenderer.sprite = Item.ItemSO.Sprite;
+            ItemSO = itemSO;
+            spriteRenderer.sprite = ItemSO.Sprite;
             canHome = false;
+        }
+
+        public void ScatterItem(Vector3 pos)
+        {
+            rigidBody.detectCollisions = true;
+            rigidBody.isKinematic = false;
+
+            Vector3 scatterDirection = UnityEngine.Random.insideUnitSphere + Vector3.up;
+            scatterDirection.Normalize();
+            rigidBody.AddForce(scatterDirection * ItemDropData.ScatterForce, ForceMode.Impulse);
+            transform.position = pos + UnityEngine.Random.insideUnitSphere * ItemDropData.SpawnOffset;
+
+            HomingCoroutineRef = StartCoroutine(HomingDelayCoroutine());
         }
 
         public void DropItem(Vector3 pos)
         {
-            var itemDrop = Item.ItemSO.ItemDropBehaviour;
-
-            rigidBody.detectCollisions = true;
-            rigidBody.isKinematic = false;
-
-            if (itemDrop.ItemDropType == ItemDropType.Scatter)
-            {
-                Vector3 scatterDirection = Random.insideUnitSphere + Vector3.up;
-                scatterDirection.Normalize();
-                rigidBody.AddForce(scatterDirection * itemDrop.ScatterForce, ForceMode.Impulse);
-                transform.position = pos + Random.insideUnitSphere * itemDrop.SpawnOffset;
-
-            }
-
-            else
-            {
-                transform.position = pos;
-            }
-
-            if (itemDrop.CanHome)
-            {
-                HomingCoroutineRef = StartCoroutine(HomingDelayCoroutine());
-            }
+            transform.position = pos;
+            HomingCoroutineRef = StartCoroutine(HomingDelayCoroutine());
         }
 
         public IEnumerator HomingDelayCoroutine()
         {
-            var itemDrop = Item.ItemSO.ItemDropBehaviour;
-            yield return new WaitForSeconds(itemDrop.HomingDelay);
+            yield return new WaitForSeconds(ItemDropData.HomingDelay);
             canHome = true;
+        }
+
+        public void CollectItem()
+        {
+            if (InventoryManager.Instance.AddItem(ItemSO))
+            {
+                ItemManager.Instance.ReturnItemObjectToPool(this);
+            }
         }
 
     
         private void FixedUpdate()
         {
-            var playerRef = PlayerManager.Instance;
 
-    
-            if (playerRef.TryGetPlayerPosition(out Vector3 playerPos))
+            if (PlayerManager.Instance.TryGetPlayer(out Player player))
             {
-                float distance = (Vector3.Distance(transform.position, playerPos));
+                float distance = Vector3.Distance(transform.position, player.transform.position);
 
                 ////collect item logic
-                if (distance < CollectionRange)
+                if (distance < player.CollectionRadius)
                 {
-                    ItemManager.Instance.ReturnItemObjectToPool(this);
-                    return;
+                    CollectItem();
                 }
 
-                var itemDrop = Item.ItemSO.ItemDropBehaviour;
-
-                if (canHome && distance <= itemDrop.HomingRange)
+                if (canHome && distance <= player.ItemMagnetRadius)
                 {
 
-                    Vector3 targetPosition = playerPos + HomingTargetOffset;
+                    Vector3 targetPosition = player.transform.position + ItemDropData.HomingTargetOffset;
                     Vector3 targetDirection = (targetPosition - transform.position).normalized;
 
-                    rigidBody.MovePosition(transform.position + targetDirection * itemDrop.HomingSpeed * Time.fixedDeltaTime);
+                    rigidBody.MovePosition(transform.position + ItemDropData.HomingSpeed * Time.fixedDeltaTime * targetDirection);
 
                     rigidBody.detectCollisions = false;
                     rigidBody.isKinematic = true;

@@ -25,10 +25,6 @@ public class ConstructManager : StaticInstance<ConstructManager>
     [SerializeField, ReadOnly] int poolSize = 0;
     [SerializeField, ReadOnly] int currentActive = 0;
 
-    void Awake()
-    {
-
-    }
 
     void Start()
     {
@@ -54,7 +50,9 @@ public class ConstructManager : StaticInstance<ConstructManager>
         construct.name = constructSO.name;
 
         currentActive++;
-        construct.AssignConstruct(constructSO, pos, rot);
+
+        construct.transform.SetPositionAndRotation(pos, rot);
+        construct.AssignUnit(constructSO);
 
         return construct;
     }

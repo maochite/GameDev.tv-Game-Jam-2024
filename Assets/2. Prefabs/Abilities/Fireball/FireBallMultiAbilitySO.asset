@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdfe0615d21ea114cb981c9dc6cc8515, type: 3}
-  m_Name: FireBallAbilitySO
+  m_Name: FireBallMultiAbilitySO
   m_EditorClassIdentifier: 
   <HitMask>k__BackingField: 0
   <ColliderMask>k__BackingField: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
   <AttributeData>k__BackingField:
     <Duration>k__BackingField: 3
     <Damage>k__BackingField: 1
-    <Cooldown>k__BackingField: 3
+    <Cooldown>k__BackingField: 1
   <CompositionData>k__BackingField:
     relativeStartLocation: 0
     <LocalCoordinates>k__BackingField: 1
@@ -30,11 +30,11 @@ MonoBehaviour:
     <OffsetData>k__BackingField:
       <Y_StartPositionIsZero>k__BackingField: 1
       <StartPositionOffsetType>k__BackingField: 0
-      startPositionOffset: {x: 0, y: 1, z: 0.5}
+      startPositionOffset: {x: 0, y: 0.5, z: 1}
       startPositionRandomRangeA: {x: 0, y: 0, z: 0}
       startPositionRandomRangeB: {x: 0, y: 0, z: 0}
       <TargetPositionOffsetType>k__BackingField: 0
-      targetPositionOffset: {x: 0, y: 1, z: 2}
+      targetPositionOffset: {x: 0, y: 0.5, z: 1}
       targetPositionRandomRangeA: {x: 0, y: 0, z: 0}
       targetPositionRandomRangeB: {x: 0, y: 0, z: 0}
       <RotationOffsetType>k__BackingField: 0
@@ -75,9 +75,9 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   <CapacityData>k__BackingField:
-    <AbilityAmount>k__BackingField: 1
-    <SpreadAngle>k__BackingField: 0
-    <MaximumSpreadAngle>k__BackingField: 0
+    <AbilityAmount>k__BackingField: 3
+    <SpreadAngle>k__BackingField: 130
+    <MaximumSpreadAngle>k__BackingField: 128
   <SizeData>k__BackingField:
     baseSize: 0.5
     sizeCurveMultiplier:
@@ -186,7 +186,7 @@ MonoBehaviour:
     chainRange: 1
     chainFallback: 0
   <MovementData>k__BackingField:
-    baseSpeed: 4
+    baseSpeed: 5
     speedMultiplier:
       serializedVersion: 2
       m_Curve:

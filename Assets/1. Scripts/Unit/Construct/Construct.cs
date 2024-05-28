@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unit.Entities;
+using Unit.Gatherables;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -11,6 +12,10 @@ namespace Unit.Constructs
 {
     public class Construct : Unit<ConstructSO>, ICaster
     {
+
+        [Header("For Non-Pool Prefab Placement")]
+        [SerializeField] private ConstructSO nonPoolSO;
+
         [SerializeField, ReadOnly] private AbilityPrimary constructAbility;
         //[SerializeField, ReadOnly] private ConstructRangeIndicator rangeIndicator;
         //[SerializeField, ReadOnly] private DecalProjector decalProjector;
@@ -25,7 +30,7 @@ namespace Unit.Constructs
 
         public Transform Transform => transform;
 
-        public Guid TargetID => throw new NotImplementedException();
+        public override int CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
 
         private float delayTimer = 0f;
 
@@ -43,15 +48,24 @@ namespace Unit.Constructs
             gameManager = GameManager.Instance;
         }
 
-        public void AssignConstruct(ConstructSO constructSO, Vector3 pos, Quaternion rot)
+        public void Start()
         {
-            //Flush the previous material
-            Destroy(meshRenderer.material);
+            if (nonPoolSO != null)
+            {
+                AssignUnit(nonPoolSO);
+            }
+        }
 
-            Mesh newMesh = constructSO.MeshFilter.sharedMesh;
-            meshFilter.mesh = newMesh;
-            meshRenderer.material = constructSO.Material;
-            transform.SetPositionAndRotation(pos, rot);
+        public override void AssignUnit(ConstructSO constructSO)
+        {
+            base.AssignUnit(constructSO);
+
+            //Flush the previous material
+            //Destroy(meshRenderer.material);
+            //
+            //Mesh newMesh = constructSO.MeshFilter.sharedMesh;
+            //meshFilter.mesh = newMesh;
+            //meshRenderer.material = constructSO.Material;
 
 
             constructAbility = new AbilityPrimary(ConstructSO.AbilityPrimarySO, this);
@@ -99,6 +113,5 @@ namespace Unit.Constructs
         {
             constructAbility.TryCast(targetPos, out _);
         }
-
     }
 }

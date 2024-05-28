@@ -34,17 +34,11 @@ namespace Unit.Entities
 
     public class Player : Entity<PlayerSO>
     {
+        [Header("- Player Specifics -")]
+
         [Header("Player Prefab Components")]
         [field: SerializeField] private Rigidbody rigidBody;
-        private PlayerSO playerSO;
         private AbilityPrimary playerAbility;
-
-        [Header("Player Prefab Fields")]
-        [SerializeField] private float enemySphereRadius = 20f;
-        [SerializeField] private float miscSphereRadius = 1f;
-        [SerializeField] private float baseGatheringSpeed = 1f;
-        [SerializeField] private float baseAttackSpeed = 1;
-        [SerializeField] private float baseMovementSpeed = 5;
 
         [Header("Camera Components")]
         //[SerializeField] private CameraFollow camFollow;
@@ -52,14 +46,16 @@ namespace Unit.Entities
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
 
+        //Controller Variables
         private Vector3 raw_input;
         private Vector3 calculated_input;
         private Vector3 world_input;
 
+        //States
         private EntityPrimaryState state;
         private EntityActionState action;
 
-        //Overlap detect
+        //Action detect
         private LayerMask enemyLayerMask;
         private LayerMask miscLayerMask;
         private Collider[] enemyBuffer = new Collider[200];
@@ -67,17 +63,21 @@ namespace Unit.Entities
         private Collider[] miscBuffer = new Collider[200];
         private List<Gatherable> gatherableBuffer = new(200);
 
-        //private Tower[] towerBuffer = new Tower[200];
-
-        private float actionRemainingTime = 0;
-        private bool InAction = false;
-
         //Action Targets
         private UnitIDInstance<Enemy, EnemySO> currentAttackTarget;
         private Construct currentSummonTarget;
         private List<UnitIDInstance<Gatherable, GatherableSO>> gatherableTargets = new(10);
         private List<Construct> currentRepairTargets = new(10);
 
+        //Action Variables
+        private float actionRemainingTime = 0;
+
+        //Player Stats
+         public float GatheringTime { get; private set; }
+         public float GatherRadius { get; private set; } 
+         public float ItemMagnetRadius { get; private set; } 
+         public float CollectionRadius { get; private set; }
+        public override int CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
 
         private void Awake()
         {
@@ -85,12 +85,15 @@ namespace Unit.Entities
             miscLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
         }
 
-        public void AssignPlayer(PlayerSO playerSO)
+        public override void AssignUnit(PlayerSO playerSO)
         {
-            AssignEntity(playerSO);
-
-            this.playerSO = playerSO;
+            base.AssignUnit(playerSO);
             playerAbility = new(playerSO.DefaultAbility, this);
+
+            GatheringTime = playerSO.BaseGatheringTime;
+            GatherRadius = playerSO.BaseGatherRadius;
+            ItemMagnetRadius = playerSO.BaseItemMagnetRadius;
+            CollectionRadius = playerSO.BaseCollectionRadius;
         }
 
         private void GetInput()
@@ -109,7 +112,7 @@ namespace Unit.Entities
             {
                 transform.forward = movementDirection;
 
-                rigidBody.MovePosition(rigidBody.position + baseMovementSpeed * Time.deltaTime * calculated_input);
+                rigidBody.MovePosition(rigidBody.position + MovementSpeed * Time.deltaTime * calculated_input);
                 return true;
             }
 
@@ -207,7 +210,7 @@ namespace Unit.Entities
 
             if (!playerAbility.IsCoolingDown())
             {
-                int numEnemyColliders = Physics.OverlapSphereNonAlloc(transform.position, enemySphereRadius, enemyBuffer, enemyLayerMask);
+                int numEnemyColliders = Physics.OverlapSphereNonAlloc(transform.position, AttackRadius, enemyBuffer, enemyLayerMask);
 
                 if (numEnemyColliders > 0)
                 {
@@ -232,7 +235,7 @@ namespace Unit.Entities
                 }
             }
 
-            int numMiscColliders = Physics.OverlapSphereNonAlloc(transform.position, miscSphereRadius, miscBuffer, miscLayerMask);
+            int numMiscColliders = Physics.OverlapSphereNonAlloc(transform.position, GatherRadius, miscBuffer, miscLayerMask);
             gatherableBuffer.Clear();
 
             for (int i = 0; i < numMiscColliders; i++)
@@ -304,8 +307,8 @@ namespace Unit.Entities
                     action = EntityActionState.None;
                     break;
                 case EntityActionState.Attack:
-                    EvaluateActionAnimation(playerSO.AttackAnimation, baseAttackSpeed);
-                    actionRemainingTime = baseAttackSpeed;
+                    EvaluateActionAnimation(UnitSO.AttackAnimation, AttackSpeed);
+                    actionRemainingTime = AttackSpeed;
 
                     action = EntityActionState.Attack;
                     ChangePrimaryState(EntityPrimaryState.Action);
@@ -322,8 +325,8 @@ namespace Unit.Entities
 
                         else
                         {
-                            EvaluateActionAnimation(gatherableUnit.Unit.UnitSO.GatheringAnimation, baseGatheringSpeed);
-                            actionRemainingTime = baseGatheringSpeed;
+                            EvaluateActionAnimation(gatherableUnit.Unit.UnitSO.GatheringAnimation, GatheringTime);
+                            actionRemainingTime = GatheringTime;
                             action = EntityActionState.Gather;
 
                             ChangePrimaryState(EntityPrimaryState.Action);
