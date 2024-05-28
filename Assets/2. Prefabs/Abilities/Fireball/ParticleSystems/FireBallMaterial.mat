@@ -107,6 +107,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _MainTexSpeed: 0
     - _Metallic: 1
     - _NoiseDissolve: 5.19
     - _NoiseScale: 25
@@ -133,12 +134,13 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 5.992157, g: 0.4080279, b: 0, a: 0}
     - _MainColor: {r: 1, g: 0, b: 0, a: 1}
-    - _NoiseSpeed: {r: 2.55, g: 1.52, b: 0, a: 0}
+    - _MainTexTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _NoiseSpeed: {r: 1, g: 1, b: 0, a: 0}
     - _NoiseTiling: {r: 1, g: 2.12, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _VoronoiColor: {r: 1.216786, g: 0.20999315, b: 0.09555908, a: 1}
     - _VoronoiSpeed: {r: 3.24, g: 0.14, b: 0, a: 0}
-    - _VoronoiTiling: {r: -1.97, g: 1, b: 0, a: 0}
+    - _VoronoiTiling: {r: 3, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7808623784592687817

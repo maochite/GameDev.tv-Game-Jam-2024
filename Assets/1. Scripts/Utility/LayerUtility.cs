@@ -6,32 +6,37 @@ using UnityEngine;
 [System.Flags]
 public enum LayerEnum
 {
-    Ground = 1 << 0,
+    Terrain = 1 << 0,
     Destructible = 1 << 1,
     Indestructible = 1 << 2,
     Player = 1 << 3,
     Enemy = 1 << 4,
-    LineOfSight = 1 << 5,
+    Gatherable = 1 << 5,
+    Construct = 1 << 6,
+    LineOfSight = 1 << 7,
 }
 
 [System.Flags]
 public enum HitLayer
 {
-    Ground = 1 << 0,
+    Terrain = 1 << 0,
     Destructible = 1 << 1,
     Indestructible = 1 << 2,
     Player = 1 << 3,
     Enemy = 1 << 4,
+    Construct = 1 << 6,
 }
 
 [System.Flags]
 public enum CollisionLayer
 {
-    Ground = 1 << 0,
+    Terrain = 1 << 0,
     Destructible = 1 << 1,
     Indestructible = 1 << 2,
     Player = 1 << 3,
     Enemy = 1 << 4,
+    Gatherable = 1 << 5,
+    Construct = 1 << 6,
 }
 
 public static class LayerUtility
@@ -98,6 +103,18 @@ public static class LayerUtility
     public static LayerMask CombineMasks(LayerMask mask1, LayerMask mask2)
     {
         return mask1 | mask2;
+    }
+
+    public static LayerMask CombineMasks(params LayerMask[] masks)
+    {
+        LayerMask combinedMask = 0;
+
+        foreach (LayerMask mask in masks)
+        {
+            combinedMask |= mask;
+        }
+
+        return combinedMask;
     }
 
     public static void RemoveMaskFromMask(ref LayerMask mask, LayerMask layerToRemove)

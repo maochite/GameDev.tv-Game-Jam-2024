@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658e00cd2e6b9774e8bcaa27b4d48e40, type: 3}
   m_Name: WickerMage
   m_EditorClassIdentifier: 
+  <BaseHealth>k__BackingField: 15
+  <BaseMovementSpeed>k__BackingField: 5
+  <BaseAttackTime>k__BackingField: 0.5
+  <BaseAttackRadius>k__BackingField: 6
   <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 7b995e134c27e714080dff60f0fb5272,
     type: 2}
+  <BaseGatheringTime>k__BackingField: 0.5
+  <BaseGatherRadius>k__BackingField: 1.5
+  <BaseItemMagnetRadius>k__BackingField: 4
+  <BaseCollectionRadius>k__BackingField: 1

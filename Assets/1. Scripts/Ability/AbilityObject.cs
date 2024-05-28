@@ -2,7 +2,7 @@ using Particle;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unit.Entity;
+using Unit.Entities;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -486,7 +486,7 @@ namespace Ability
                     else
                     {
                         //Enemy was hit; add to dictionary
-                        previousTargetHits[target.TargetID] = Time.time;
+                        previousTargetHits[target.ID] = Time.time;
                         EntityHitEvent(target);
                         //VFXHitEvent();
 
@@ -542,17 +542,17 @@ namespace Ability
 
         bool TargetHitEligibility(IEntity target)
         {
-            if (excludedTargets.Contains(target.TargetID))
+            if (excludedTargets.Contains(target.ID))
                 return false;
 
-            if (!previousTargetHits.ContainsKey(target.TargetID))
+            if (!previousTargetHits.ContainsKey(target.ID))
             {
                 return true; // Entity not in dictionary, so it's eligible
             }
 
             else if (abilitySO.HitData.EntityHitType == EntityHitType.Interval)
             {
-                float lastHitTime = previousTargetHits[target.TargetID];
+                float lastHitTime = previousTargetHits[target.ID];
 
                 return Time.time - lastHitTime >= abilitySO.HitData.TargetHitCooldown;
 
@@ -646,7 +646,7 @@ namespace Ability
         {
             //Debug.Log("Hit entity "+entity + " " + abilitySO.AttributeData.Damage);
 
-            entity.CurrentHealth -= ability.Damage;
+            //entity.CurrentHealth -= ability.Damage;
 
         }
 

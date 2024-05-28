@@ -8,7 +8,7 @@ using UnityEngine.Animations;
 using TMPro;
 using System.Linq;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
     public enum EntityType
     {
@@ -23,23 +23,34 @@ namespace Unit.Entity
         MovementSpeed,
     }
 
+    public interface IUnit : IDamagable
+    {
+        public Guid ID { get; }
+    }
 
-    public interface IEntity : IDamagable
+    public interface ICaster : IUnit
     {
         public Transform Transform { get; }
+    }
+
+
+    public interface IEntity : IUnit, ICaster
+    {
         public EntitySO EntitySO { get; }
-        public Guid TargetID { get; }
     }
 
     public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
     {
+        [Header("- Entity Specifics -")]
+        public EntitySO EntitySO => UnitSO;
 
         public virtual Transform Transform => gameObject.transform;
-        public virtual EntitySO EntitySO { get; protected set; }
-        public virtual Guid TargetID { get; protected set; }
+        public virtual Guid ID { get; protected set; }
         public bool IsActive { get; protected set; } = false;
 
         public float MovementSpeed { get; protected set; }
+        public float AttackSpeed { get; protected set; }
+        public float AttackRadius { get; protected set; }
 
         [field: SerializeField] public SpriteAnimator Animator { get; protected set; }
 
@@ -48,10 +59,13 @@ namespace Unit.Entity
 
         }
 
-        protected virtual void AssignEntity(T entitySO)
+        public override void AssignUnit(T entitySO)
         {
-            EntitySO = entitySO;
-            TargetID = Guid.NewGuid();
+            base.AssignUnit(entitySO);
+            MovementSpeed = entitySO.BaseMovementSpeed;
+            AttackSpeed = entitySO.BaseAttackTime;
+            AttackRadius = entitySO.BaseAttackRadius;
+
         }
 
     }

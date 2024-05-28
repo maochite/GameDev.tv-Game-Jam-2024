@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unit.Entity;
+using Unit.Entities;
 using UnityEngine;
 
 namespace Ability
@@ -8,6 +8,6 @@ namespace Ability
 
     public class AbilityPrimary : Ability
     {
-        public AbilityPrimary(AbilitySO abilitySO, IEntity entity) : base(abilitySO, entity) { }
+        public AbilityPrimary(AbilitySO abilitySO, ICaster caster) : base(abilitySO, caster) { }
     }
 }

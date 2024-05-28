@@ -4,21 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Ability;
+using Unit.Gatherables;
+using System.Linq;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.EventSystems.EventTrigger;
+using Unity.VisualScripting;
+using Unit.Constructs;
+using static UnityEditor.PlayerSettings;
+using System;
 
-namespace Unit.Entity
+namespace Unit.Entities
 {
-    public enum EntityState
+    public enum EntityPrimaryState
     {
         Move,
-        Attack,
         Idle,
+        Dead,
+        Action,
+    }
+
+    public enum EntityActionState
+    {
+        None,
+        Attack,
+        Gather,
+        Repair,
+        Summon,
     }
 
     public class Player : Entity<PlayerSO>
     {
-        [Header("Player Components")]
+        [Header("- Player Specifics -")]
+
+        [Header("Player Prefab Components")]
         [field: SerializeField] private Rigidbody rigidBody;
-        private PlayerSO playerSO;
         private AbilityPrimary playerAbility;
 
         [Header("Camera Components")]
@@ -27,23 +46,57 @@ namespace Unit.Entity
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
 
-        private float movementSpeed = 5;
+        //Controller Variables
         private Vector3 raw_input;
         private Vector3 calculated_input;
         private Vector3 world_input;
 
-        private EntityState state;
+        //States
+        private EntityPrimaryState state;
+        private EntityActionState action;
 
+        //Action detect
+        private LayerMask enemyLayerMask;
+        private LayerMask miscLayerMask;
+        private Collider[] enemyBuffer = new Collider[200];
+        private List<Collider> reducedEnemyBuffer = new(200);
+        private Collider[] miscBuffer = new Collider[200];
+        private List<Gatherable> gatherableBuffer = new(200);
 
-        public void AssignPlayer(PlayerSO playerSO)
+        //Action Targets
+        private UnitIDInstance<Enemy, EnemySO> currentAttackTarget;
+        private Construct currentSummonTarget;
+        private List<UnitIDInstance<Gatherable, GatherableSO>> gatherableTargets = new(10);
+        private List<Construct> currentRepairTargets = new(10);
+
+        //Action Variables
+        private float actionRemainingTime = 0;
+
+        //Player Stats
+         public float GatheringTime { get; private set; }
+         public float GatherRadius { get; private set; } 
+         public float ItemMagnetRadius { get; private set; } 
+         public float CollectionRadius { get; private set; }
+        public override int CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+
+        private void Awake()
         {
-            AssignEntity(playerSO);
-
-            this.playerSO = playerSO;
-            playerAbility = new(playerSO.DefaultAbility, this);
+            enemyLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy);
+            miscLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
         }
 
-        private void GatherInput()
+        public override void AssignUnit(PlayerSO playerSO)
+        {
+            base.AssignUnit(playerSO);
+            playerAbility = new(playerSO.DefaultAbility, this);
+
+            GatheringTime = playerSO.BaseGatheringTime;
+            GatherRadius = playerSO.BaseGatherRadius;
+            ItemMagnetRadius = playerSO.BaseItemMagnetRadius;
+            CollectionRadius = playerSO.BaseCollectionRadius;
+        }
+
+        private void GetInput()
         {
             raw_input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
             raw_input.Normalize();
@@ -59,7 +112,7 @@ namespace Unit.Entity
             {
                 transform.forward = movementDirection;
 
-                rigidBody.MovePosition(rigidBody.position + movementSpeed * Time.deltaTime * calculated_input);
+                rigidBody.MovePosition(rigidBody.position + MovementSpeed * Time.deltaTime * calculated_input);
                 return true;
             }
 
@@ -89,88 +142,216 @@ namespace Unit.Entity
 
         private void Update()
         {
-            GatherInput();
-
-
+            GetInput();
         }
 
         private void FixedUpdate()
         {
-            if (!IsAttacking())
+            if (state == EntityPrimaryState.Dead) return;
+
+            if (state == EntityPrimaryState.Idle)
             {
-                if (Attack())
+                 GetActionFromProximity();
+            }
+
+            if(state == EntityPrimaryState.Action)
+            {
+                if(action == EntityActionState.None)
                 {
-                    ChangeState(EntityState.Attack);
+                    ChangePrimaryState(EntityPrimaryState.Idle);
                 }
 
                 else if (Move())
                 {
-                    ChangeState(EntityState.Move);
+                    action = EntityActionState.None;
+                    ChangePrimaryState(EntityPrimaryState.Move);
                 }
 
-                else
-                {
-                    ChangeState(EntityState.Idle);
-                }
+                else ResolveCurrentAction();
             }
 
             else
             {
-                ChangeState(EntityState.Idle);
+                if (Move())
+                {
+                    ChangePrimaryState(EntityPrimaryState.Move);
+                }
+
+                else ChangePrimaryState(EntityPrimaryState.Idle);
+            }
+
+        }
+
+        private void ResolveCurrentAction()
+        {
+            actionRemainingTime -= Time.deltaTime;
+
+            if (actionRemainingTime > 0) return;
+
+            else
+            {
+                if(action == EntityActionState.Attack)
+                {
+                    Attack();
+                }
+
+                else if (action == EntityActionState.Gather)
+                {
+                    Gather();
+                }
+
+                action = EntityActionState.None;
+                ChangePrimaryState(EntityPrimaryState.Idle);
+            }
+        }
+
+        public void GetActionFromProximity()
+        {
+
+            if (!playerAbility.IsCoolingDown())
+            {
+                int numEnemyColliders = Physics.OverlapSphereNonAlloc(transform.position, AttackRadius, enemyBuffer, enemyLayerMask);
+
+                if (numEnemyColliders > 0)
+                {
+                    reducedEnemyBuffer.Clear();
+                    
+                    for (int i = 0; i < numEnemyColliders; i++)
+                    {
+                        reducedEnemyBuffer.Add(enemyBuffer[i]);
+                    }
+
+                    Transform closestTransform = TransformUtility.FindClosestTransformSqr(transform.position, reducedEnemyBuffer);
+
+                    if(closestTransform.TryGetComponent(out Enemy enemy))
+                    {
+                        currentAttackTarget = new(enemy);
+                        Look(currentAttackTarget.Unit.transform.position);
+
+                        ChangeAction(EntityActionState.Attack);
+                    }
+
+                    return;
+                }
+            }
+
+            int numMiscColliders = Physics.OverlapSphereNonAlloc(transform.position, GatherRadius, miscBuffer, miscLayerMask);
+            gatherableBuffer.Clear();
+
+            for (int i = 0; i < numMiscColliders; i++)
+            {
+
+                if (miscBuffer[i].TryGetComponent(out Gatherable gatherable))
+                {
+                    gatherableBuffer.Add(gatherable);
+                }
+            }
+
+            if (gatherableBuffer.Count != 0)
+            {
+                gatherableTargets.Clear();
+
+                foreach (Gatherable gatherable in gatherableBuffer)
+                {
+                    gatherableTargets.Add(new(gatherable));
+                }
+
+                ChangeAction(EntityActionState.Gather);
+
+                return;
             }
             
+
         }
 
-        public void ChangeState(EntityState entityState)
+        public void ChangePrimaryState(EntityPrimaryState entityState)
         {
-            if(state == EntityState.Move)
-            {
-                Animator.ToggleWalkAnimation(false);
-            }
+            if (entityState == state) return;
 
-            if(entityState == EntityState.Move)
-            {
-                Animator.ToggleWalkAnimation(true);
-                state = EntityState.Move;
-            }
+            Animator.ToggleIdleAnimation(false);
+            Animator.ToggleWalkAnimation(false);
 
-            if (entityState == EntityState.Attack)
+            //Animator.ToggleDeathAnimation(false);
+
+
+            switch (entityState)
             {
-                Animator.TriggerAttackAnimation(1 / playerAbility.AbilitySO.AttributeData.Cooldown);
-                state = EntityState.Attack;
+                case EntityPrimaryState.Move:
+                    Animator.ChangeAnimationMultiplier(1);
+                    Animator.ToggleWalkAnimation(true);
+                    state = EntityPrimaryState.Move;
+                    break;
+                case EntityPrimaryState.Dead:
+                    //Toggle Death Animation
+                    break;
+                case EntityPrimaryState.Idle:
+                    Animator.ToggleIdleAnimation(true);
+                    state = EntityPrimaryState.Idle;
+                    //Idle Toggle is automatic if everything else is off
+                    break;;
+                case EntityPrimaryState.Action:
+                    state = EntityPrimaryState.Action;
+                    break;
+                default:
+                    break;
             }
         }
 
-        public bool IsAttacking()
+        public void ChangeAction(EntityActionState entityAction)
         {
-            if (state == EntityState.Attack)
+            if (entityAction == action) return;
+
+            switch (entityAction)
             {
-                if (playerAbility.IsCoolingDown())
-                {
-                    Debug.Log("CHECK");
-                    return true;
-                }
+                case EntityActionState.None:
+                    action = EntityActionState.None;
+                    break;
+                case EntityActionState.Attack:
+                    EvaluateActionAnimation(UnitSO.AttackAnimation, AttackSpeed);
+                    actionRemainingTime = AttackSpeed;
 
-                else
-                {
-                    ChangeState(EntityState.Idle);
-                    return false;
-                }
+                    action = EntityActionState.Attack;
+                    ChangePrimaryState(EntityPrimaryState.Action);
+
+                    break;
+                case EntityActionState.Gather:
+
+                    foreach (var gatherableUnit in gatherableTargets)
+                    {
+                        if (gatherableUnit.Unit == null || gatherableUnit.InstanceID != gatherableUnit.Unit.ID)
+                        {
+                            continue;
+                        }
+
+                        else
+                        {
+                            EvaluateActionAnimation(gatherableUnit.Unit.UnitSO.GatheringAnimation, GatheringTime);
+                            actionRemainingTime = GatheringTime;
+                            action = EntityActionState.Gather;
+
+                            ChangePrimaryState(EntityPrimaryState.Action);
+
+                            return;
+                        }
+                    }
+
+                    //Shouldn't really get here
+                    action = EntityActionState.None;
+
+                    break;
+                case EntityActionState.Summon:
+                default:
+                    break;
             }
-
-            return false;
         }
-
 
         public bool Attack()
         {
-            if (Input.GetMouseButton(0))
+            if (currentAttackTarget.Unit != null
+                    && currentAttackTarget.Unit.ID == currentAttackTarget.InstanceID)
             {
-                if(GetMouseWorldPosition(out Vector3 pos) 
-                    && playerAbility.TryCast(pos, out _))
+                if (playerAbility.TryCast(currentAttackTarget.Unit.transform.position, out _))
                 {
-                    Look(pos);
-                    ChangeState(EntityState.Attack);
                     return true;
                 }
             }
@@ -203,11 +384,44 @@ namespace Unit.Entity
             }
         }
 
+        private void EvaluateActionAnimation(
+            EntityActionAnimation entityActionAnimation, float actionSpeed)
+        {
+            Animator.ChangeAnimationMultiplier(actionSpeed);
+
+            switch (entityActionAnimation)
+            {
+                case EntityActionAnimation.Attack:
+                    Animator.TriggerAttackAnimation();
+                    break;
+                case EntityActionAnimation.Chop:
+                    Animator.TriggerChopAnimation();
+                    break;
+                case EntityActionAnimation.Mine:
+                    Animator.TriggerMineAnimation();
+                    break;
+                case EntityActionAnimation.Summon:
+                    Animator.TriggerSummonAnimation();
+                    break;
+                default:
+                    Animator.TriggerSummonAnimation();
+                    break;
+            }
+        }
+
+        private void Gather()
+        {
+
+            foreach (var gatherableInstance in gatherableTargets)
+            {
+                if (gatherableInstance.Unit != null 
+                    && gatherableInstance.Unit.ID == gatherableInstance.InstanceID)
+                {
+                    gatherableInstance.Unit.Gather();
+                }
+            }
+
+        }
     }
 
-    public static class Helpers
-    {
-        //private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
-        //public static Vector3 ToIso(this Vector3 input) => _isoMatrix.MultiplyPoint3x4(input);
-    }
 }

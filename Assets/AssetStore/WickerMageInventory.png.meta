@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a22c0716cd3920645b7d7c40a6eb63e6
+guid: 5971415b4f584e2449d285e1535f1bc7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_casting_front_0
+      name: WickerMageInventory_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 8
-        width: 42
-        height: 94
+        x: 0
+        y: 0
+        width: 287
+        height: 268
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c68696d8c0462c4a961b9959e99893d
-      internalID: 775269750
+      spriteID: a2657e50004748a4784cd0f98aef9f70
+      internalID: 1808852785
       vertices: []
       indices: 
       edges: []
@@ -133,7 +133,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f99fbae25b0f3b64fb0c4e38741d87ec
+    spriteID: 032b65669c229534fa70e87deb6d4763
     internalID: 0
     vertices: []
     indices: 
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_casting_front_0: 775269750
+      WickerMageInventory_0: 1808852785
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
