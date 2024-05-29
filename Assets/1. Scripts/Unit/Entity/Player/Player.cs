@@ -73,11 +73,12 @@ namespace Unit.Entities
         private float actionRemainingTime = 0;
 
         //Player Stats
-         public float GatheringTime { get; private set; }
+        public float GatheringDamage { get; private set; }
+        public float GatheringTime { get; private set; }
          public float GatherRadius { get; private set; } 
          public float ItemMagnetRadius { get; private set; } 
          public float CollectionRadius { get; private set; }
-        public override int CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public override float CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
 
         private void Awake()
         {
@@ -417,7 +418,7 @@ namespace Unit.Entities
                 if (gatherableInstance.Unit != null 
                     && gatherableInstance.Unit.ID == gatherableInstance.InstanceID)
                 {
-                    gatherableInstance.Unit.Gather();
+                    gatherableInstance.Unit.Gather(GatheringDamage);
                 }
             }
 

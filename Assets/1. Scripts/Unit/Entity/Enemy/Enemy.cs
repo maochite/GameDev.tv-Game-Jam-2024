@@ -12,7 +12,7 @@ namespace Unit.Entities
         [Header("- Enemy Specifics -")]
         public EnemySO EnemySO => UnitSO;
 
-        public override int CurrentHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
+        public override float CurrentHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
 
         public override void AssignUnit(EnemySO enemySO)
         {

@@ -30,7 +30,7 @@ namespace Unit.Constructs
 
         public Transform Transform => transform;
 
-        public override int CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public override float CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
 
         private float delayTimer = 0f;
 

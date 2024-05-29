@@ -1,18 +1,12 @@
+using Ability;
+using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unit.Entities;
 using UnityEngine;
 
-public class ItemPlayerUpgrade : MonoBehaviour
+public class ItemPlayerUpgradeSO : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
