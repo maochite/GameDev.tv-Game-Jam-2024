@@ -8,7 +8,7 @@ using UnityEngine;
 
 public interface IDamagable
 {
-    public int CurrentHealth { get; }
+    public float CurrentHealth { get; }
 }
 
 namespace Unit
@@ -32,7 +32,7 @@ namespace Unit
         [Header("Unity Specifics")]
         public T UnitSO { get; protected set; }
         public Guid ID { get; private set; }
-        public abstract int CurrentHealth { get; protected set; }
+        public abstract float CurrentHealth { get; protected set; }
         
         public virtual void AssignUnit(T unitSO)
         {

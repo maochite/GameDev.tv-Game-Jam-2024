@@ -3,16 +3,16 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Storage
 {
     [Serializable]
-    public class ResourceStorage
+    public class ResourceSlot
     {
-        [field: SerializeField, ReadOnly] public int Wood { get; set; } = 0;
-        [field: SerializeField, ReadOnly] public int Stone { get; set; } = 0;
-        [field: SerializeField, ReadOnly] public int Gold { get; set; } = 0;
+        [field: SerializeField] public TMP_Text NumTextUI { get; private set; }
+        public int NumResources { get; set; } = 0;
     }
 
     [Serializable]
@@ -20,6 +20,7 @@ namespace Storage
     {
         [field: SerializeField] public ItemSO ItemSO { get; private set; }
         [field: SerializeField] public int MaxItems { get; private set; }
+        [field: SerializeField] public TMP_Text NumTextUI  { get; private set; }
         public int NumItems { get; set; } = 0;
     }
 
@@ -27,10 +28,15 @@ namespace Storage
     public class InventoryManager : StaticInstance<InventoryManager>
     {
 
+        [field: Header("Inventory Slots")]
         public const int InventorySize = 16;
-        public const int MaxResources = 9999;
+        public const int MaxResources = 999;
         [field: SerializeField] public ItemSlot[] Inventory { get; private set; } = new ItemSlot[InventorySize];
-        [field: SerializeField, ReadOnly] public ResourceStorage ResourceStorage { get; private set; }
+
+        [field: Header("Resource Slots")]
+        [field: SerializeField] public ResourceSlot WoodSlot { get; private set; }
+        [field: SerializeField] public ResourceSlot StoneSlot { get; private set; }
+        [field: SerializeField] public ResourceSlot GoldSlot { get; private set; }
 
         public bool AddItem(ItemSO itemSO)
         {
@@ -101,23 +107,23 @@ namespace Storage
             switch (itemResourceSO.ResourceType)
             {
                 case ResourceType.Wood:
-                    if (ResourceStorage.Wood < MaxResources)
+                    if (WoodSlot.NumResources < MaxResources)
                     {
-                        ResourceStorage.Wood++;
+                        WoodSlot.NumResources++;
                         return true;
                     }
                     break;
                 case ResourceType.Stone:
-                    if (ResourceStorage.Stone < MaxResources)
+                    if (StoneSlot.NumResources < MaxResources)
                     {
-                        ResourceStorage.Stone++;
+                        StoneSlot.NumResources++;
                         return true;
                     }
                     break;
                 case ResourceType.Gold:
-                    if (ResourceStorage.Gold < MaxResources)
+                    if (GoldSlot.NumResources < MaxResources)
                     {
-                        ResourceStorage.Gold++;
+                        GoldSlot.NumResources++;
                         return true;
                     }
                     break;
@@ -134,23 +140,23 @@ namespace Storage
             switch (itemResourceSO.ResourceType)
             {
                 case ResourceType.Wood:
-                    if (ResourceStorage.Wood > 0)
+                    if (WoodSlot.NumResources > 0)
                     {
-                        ResourceStorage.Wood--;
+                        WoodSlot.NumResources--;
                         return true;
                     }
                     break;
                 case ResourceType.Stone:
-                    if (ResourceStorage.Stone > 0)
+                    if (StoneSlot.NumResources > 0)
                     {
-                        ResourceStorage.Stone--;
+                        StoneSlot.NumResources--;
                         return true;
                     }
                     break;
                 case ResourceType.Gold:
-                    if (ResourceStorage.Gold > 0)
+                    if (GoldSlot.NumResources > 0)
                     {
-                        ResourceStorage.Gold--;
+                        GoldSlot.NumResources--;
                         return true;
                     }
                     break;

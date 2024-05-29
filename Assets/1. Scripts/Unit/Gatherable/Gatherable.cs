@@ -25,7 +25,7 @@ namespace Unit.Gatherables
         private float shakeTimer = 0f;
         private bool isDestroyed = false;
         private bool initialPositionSet = false;
-        private int currentHealth = 0;
+        private float currentHealth = 0;
 
         public void Start()
         {
@@ -48,7 +48,7 @@ namespace Unit.Gatherables
             }
         }
 
-        public override int CurrentHealth
+        public override float CurrentHealth
         {
             get { return currentHealth; }
 
@@ -71,10 +71,10 @@ namespace Unit.Gatherables
             }
         }
 
-        public void Gather()
+        public void Gather(float gatherAmount)
         {
             //Gathering removes 1 health from the gatherable
-            CurrentHealth -= 1;
+            CurrentHealth -= gatherAmount;
         }
 
         void Update()
