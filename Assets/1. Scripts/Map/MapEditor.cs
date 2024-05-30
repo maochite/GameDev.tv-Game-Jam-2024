@@ -61,8 +61,9 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     [SerializeField] private Color selectedTileOverlayColor = new(0.0f, 0.8f, 0.8f, 0.7f);
     [SerializeField][ReadOnly] private float maxSelectDistance = 100.0f;
     [SerializeField][ReadOnly] private float tileOverlayOffset = 0.01f;
-    [SerializeField][ReadOnly] private Block.Type currentBlock = Block.Type.Dirt;
+    [SerializeField] private Block.Type currentBlock = Block.Type.Dirt;
     [SerializeField] private Mode currentMode = Mode.MapEdit;
+
 
     [SerializeField][ReadOnly] private Material overlayMaterial;
     [SerializeField][ReadOnly] private bool isFaceSelected;
@@ -115,6 +116,9 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
         {
             { KeyCode.E, () => HandleChangeMode(Mode.MapEdit) },
             { KeyCode.Q, () => HandleChangeMode(Mode.TileMark) },
+            { KeyCode.Alpha1, () => SetCurrentBlock(Block.Type.Dirt) },
+            { KeyCode.Alpha2, () => SetCurrentBlock(Block.Type.Grass) },
+            { KeyCode.Alpha3, () => SetCurrentBlock(Block.Type.Stone) },
         };
     }
 
@@ -207,6 +211,12 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
         }
 
         HandleMapAction(new MapAction(chunkIdx, blockIdx, actionType, currentBlock, newBlockType));
+    }
+
+    public void SetCurrentBlock(Block.Type block)
+    {
+        // TODO: Track for undo and stuff
+        currentBlock = block;
     }
 
     // Returns true if the event is handled
