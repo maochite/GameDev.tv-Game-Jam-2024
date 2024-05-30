@@ -61,7 +61,7 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     [SerializeField] private Color selectedTileOverlayColor = new(0.0f, 0.8f, 0.8f, 0.7f);
     [SerializeField][ReadOnly] private float maxSelectDistance = 100.0f;
     [SerializeField][ReadOnly] private float tileOverlayOffset = 0.01f;
-    [SerializeField][ReadOnly] private Block.Type currentBlock = Block.Type.Dirt;
+    [SerializeField] private Block.Type currentBlock = Block.Type.Dirt;
     [SerializeField] private Mode currentMode = Mode.MapEdit;
 
 
