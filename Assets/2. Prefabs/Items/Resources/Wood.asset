@@ -10,16 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3731cf1ff77516c45b3217b95a0151e7, type: 3}
-  m_Name: ItemWoodSO
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -1982592707, guid: a7c7e603017f0214dbf94f73fea7aff7,
+  <UISprite>k__BackingField: {fileID: 1046631828, guid: 725e89e5a38bc6247b354cdcd324bd7d,
     type: 3}
-  <ItemDropBehaviour>k__BackingField:
-    <ItemDropType>k__BackingField: 1
-    <ScatterForce>k__BackingField: 3
-    <SpawnOffset>k__BackingField: 0.25
-    <CanHome>k__BackingField: 1
-    <HomingSpeed>k__BackingField: 10
-    <HomingDelay>k__BackingField: 2
-    <HomingRange>k__BackingField: 5
+  <WorldSprite>k__BackingField: {fileID: -1322324872, guid: 77e732b539d2b08488678f27ca7feda6,
+    type: 3}
   <ResourceType>k__BackingField: 0

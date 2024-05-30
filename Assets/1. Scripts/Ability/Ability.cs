@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Principal;
+using Unit;
 using Unit.Entities;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -17,11 +18,11 @@ namespace Ability
 
     public abstract class Ability
     {
-        public ICaster Caster { get; private set; }
+        public IEntity Entity { get; private set; }
 
         public AbilitySO AbilitySO { get; private set; }
 
-        public int Damage { get; private set; } = 0;
+        public float Damage { get; private set; } = 0;
         public float Cooldown { get; private set; } = 0;
         public float AbilitySpeed { get; private set; } = 0;
         public float AbilitySize { get; private set; } = 0;
@@ -29,9 +30,9 @@ namespace Ability
         private float lastCooldownTime = 0;
 
 
-        public Ability(AbilitySO abilitySO, ICaster caster)
+        public Ability(AbilitySO abilitySO, IEntity entity)
         {
-            Caster = caster;
+            Entity = entity;
             AbilitySO = abilitySO;
 
             //Temp
@@ -50,7 +51,7 @@ namespace Ability
             {
                 lastCooldownTime = Time.time + Cooldown;
 
-                abilityCoroutine = AbilityInitializer.Instance.Initialize(new(this, Caster.Transform, target));
+                abilityCoroutine = AbilityInitializer.Instance.Initialize(new(this, Entity.Transform, target));
                 return true;
             }
 
@@ -69,13 +70,13 @@ namespace Ability
 
         public void UpdateAbilityStats()
         {
-            //SetDamageStat(EntityModifications.Instance.GetDamageModified(Entity.EntitySO, AbilitySO));
-            //SetCooldownStat(EntityModifications.Instance.GetCooldownModified(Entity.EntitySO, AbilitySO));
-            //SetAbilitySpeedStat(EntityModifications.Instance.GetAbilitySpeedModified(Entity.EntitySO, AbilitySO));
-            //SetAbilitySizeStat(EntityModifications.Instance.GetAbilitySizeModified(Entity.EntitySO, AbilitySO));
+            SetDamageStat(EntityStatsManager.Instance.GetDamageModified(Entity.EntitySO, AbilitySO));
+            SetCooldownStat(EntityStatsManager.Instance.GetCooldownModified(Entity.EntitySO, AbilitySO));
+            SetAbilitySpeedStat(EntityStatsManager.Instance.GetAbilitySpeedModified(Entity.EntitySO, AbilitySO));
+            SetAbilitySizeStat(EntityStatsManager.Instance.GetAbilitySizeModified(Entity.EntitySO, AbilitySO));
         }
 
-        public void SetDamageStat(int damage)
+        public void SetDamageStat(float damage)
         {
             if(damage < 1) damage = 1;
 

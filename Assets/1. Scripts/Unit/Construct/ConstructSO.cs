@@ -1,12 +1,13 @@
 using Ability;
 using System.Collections;
 using System.Collections.Generic;
+using Unit.Entities;
 using UnityEngine;
 
 namespace Unit.Constructs
 {
     [CreateAssetMenu(menuName = "Unit/ConstructSO")]
-    public class ConstructSO : UnitSO
+    public class ConstructSO : EntitySO
     {
         [field: Header("- Construct Specifics -")]
         [field: Header("Construct Ability")]

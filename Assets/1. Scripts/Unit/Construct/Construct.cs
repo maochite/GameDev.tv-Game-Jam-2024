@@ -10,7 +10,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Unit.Constructs
 {
-    public class Construct : Unit<ConstructSO>, ICaster
+    public class Construct : Entity<ConstructSO>
     {
 
         [Header("For Non-Pool Prefab Placement")]
@@ -31,6 +31,8 @@ namespace Unit.Constructs
         public Transform Transform => transform;
 
         public override float CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public override float MaxHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public override float HealthRegen { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
 
         private float delayTimer = 0f;
 
@@ -112,6 +114,11 @@ namespace Unit.Constructs
         public void FireAttack(Vector3 targetPos)
         {
             constructAbility.TryCast(targetPos, out _);
+        }
+
+        public override void UpdateEntityStats()
+        {
+            throw new NotImplementedException();
         }
     }
 }

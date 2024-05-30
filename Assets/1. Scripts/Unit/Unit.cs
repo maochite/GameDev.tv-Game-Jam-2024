@@ -33,11 +33,16 @@ namespace Unit
         public T UnitSO { get; protected set; }
         public Guid ID { get; private set; }
         public abstract float CurrentHealth { get; protected set; }
-        
+        public abstract float MaxHealth { get; protected set; }
+        public abstract float HealthRegen { get; protected set; }
+        protected bool isActive = false;
+
         public virtual void AssignUnit(T unitSO)
         {
             UnitSO = unitSO;
             ID = Guid.NewGuid();
+            isActive = true;
         }
+
     }
 }

@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: BasicTreeSO
   m_EditorClassIdentifier: 
   <BaseHealth>k__BackingField: 5
+  <BaseHealthRegen>k__BackingField: 0
   <ItemPool>k__BackingField:
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
-  - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
-  - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
+  - {fileID: 11400000, guid: bb1af9e0224de1c4e8aa1745b8eed3dd, type: 2}
+  - {fileID: 11400000, guid: 511a0c822125e0040868337b575542df, type: 2}
+  - {fileID: 11400000, guid: 699cb71fff618d14f9195f3e6237121c, type: 2}
+  - {fileID: 11400000, guid: 90a666bd7d0ca0f4da35c159ecc73944, type: 2}
   <ItemDropOffset>k__BackingField: {x: 0, y: 2, z: 0}
   <GatheringAnimation>k__BackingField: 0

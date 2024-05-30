@@ -1,8 +1,8 @@
 using Items;
-using System.Collections;
+using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Unit.Gatherables
 {
@@ -23,9 +23,7 @@ namespace Unit.Gatherables
         private AnimationCurve shakeZ;
 
         private float shakeTimer = 0f;
-        private bool isDestroyed = false;
         private bool initialPositionSet = false;
-        private float currentHealth = 0;
 
         public void Start()
         {
@@ -37,43 +35,87 @@ namespace Unit.Gatherables
 
         public override void AssignUnit(GatherableSO gatherableSO)
         {
+
             base.AssignUnit(gatherableSO);
-            currentHealth = gatherableSO.BaseHealth;
+            MaxHealth = gatherableSO.BaseHealth;
+            CurrentHealth = MaxHealth;
 
             if (shakeVariations.Count > 0)
             {
-                int randomIndex = Random.Range(0, shakeVariations.Count);
+                int randomIndex = UnityEngine.Random.Range(0, shakeVariations.Count);
                 shakeX = shakeVariations[randomIndex];
                 shakeZ = shakeVariations[randomIndex];
             }
         }
 
+        [SerializeField, ReadOnly] private float currentHealth = 0;
         public override float CurrentHealth
         {
             get { return currentHealth; }
 
             protected set
             {
-                if (isDestroyed) return;
+                if (!isActive) return;
 
                 if (value < currentHealth)
                 {
-                    currentHealth--;
+                    currentHealth = value;
                     GatherResponse();
 
                     if (currentHealth <= 0)
                     {
                         OnDeath();
                         Destroy(gameObject);
-                        isDestroyed = true;
+                        isActive = false;
                     }
                 }
+
+                else if (value > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+
+                else currentHealth = value;
             }
+        }
+        
+
+        [SerializeField, ReadOnly] private float maxHealth = 0;
+        public override float MaxHealth 
+        { 
+            get => maxHealth;
+
+            protected set
+            {
+                if (!isActive) return;
+
+                maxHealth = value;
+
+                if (maxHealth < 1)
+                {
+                    maxHealth = 1;
+                }
+
+                if (currentHealth >= maxHealth)
+                {
+                    currentHealth = maxHealth;
+
+                    //healthBar.ToggleHealthBar(false);
+                }
+
+                //healthBar.SetHealthBarValue(_currentHealth, _maxHealth);
+            }
+        }
+
+        //May not implement this
+        public override float HealthRegen 
+        { 
+            get => throw new NotImplementedException(); 
+            protected set => throw new NotImplementedException(); 
         }
 
         public void Gather(float gatherAmount)
         {
-            //Gathering removes 1 health from the gatherable
             CurrentHealth -= gatherAmount;
         }
 

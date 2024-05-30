@@ -14,6 +14,7 @@ namespace Items
 
     public abstract class ItemSO : ScriptableObject
     {
-        [field: SerializeField] public Sprite Sprite { get; private set; }
+        [field: SerializeField] public Sprite UISprite { get; private set; }
+        [field: SerializeField] public Sprite WorldSprite { get; private set; }
     }
 }

@@ -1,0 +1,2767 @@
+fileFormatVersion: 2
+guid: 398eb62452c105c468f9e9981e10afc0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OutlineRocks_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 542
+        width: 66
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f050a1a123a694b8a41e8613550e6b
+      internalID: -1369246710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 556
+        width: 45
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a85ab878ca0b3634c855c3d8bebc3bd3
+      internalID: 1847029625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_2
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 543
+        width: 62
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5c30d122e05ef64594f5cf0b88b70a0
+      internalID: 1273837324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 557
+        width: 39
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb74164d8b8c0b43b21e78fdbff12ea
+      internalID: -1985098819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 546
+        width: 56
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb52471481913441bf609ea5a3cd0c6
+      internalID: 1519192269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_5
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 538
+        width: 74
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b918cc8d382855c49998619e163917d1
+      internalID: -1328744752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_6
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 541
+        width: 68
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccc35104dc69e7468a9828fe2882473
+      internalID: -355301470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_7
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 555
+        width: 47
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d5500401e3f1548b3c2facc01bbb83
+      internalID: 899074010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_8
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 542
+        width: 64
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a94fec2df0837b4ca1a2b823718faee
+      internalID: -2074061622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_9
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 556
+        width: 41
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb33e68d4a2f8ec41b7dab5729f50cdb
+      internalID: -1066501699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_10
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 545
+        width: 58
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ccbed667ce541478b7b4eed224c468
+      internalID: -1947222753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_11
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 537
+        width: 76
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ea8e3686110a447b31b41f0cf2097f
+      internalID: -702348223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_12
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 516
+        width: 51
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894b5fd2608ebbf4d8ebf3521caa80c1
+      internalID: 1096335214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_13
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 513
+        width: 41
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b41ad1a64fd8c43a8c688d568bf010
+      internalID: -1627191525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_14
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 505
+        width: 43
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19683726a0184864ba3168d561ebac64
+      internalID: -1582772522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_15
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 515
+        width: 53
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a08b5400d93a9c41ac471ef7d2a3bcf
+      internalID: -759135793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_16
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 512
+        width: 43
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bac0c3904c2ce14a9d30e13280976cf
+      internalID: -420912160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_17
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 504
+        width: 45
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40442be9834482447afd0c7da34eff7d
+      internalID: 174486085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 484
+        width: 38
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2217c55d23e614fbcec815590281ec
+      internalID: -1426371097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_19
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 471
+        width: 81
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5eeb66b479bbf945959c469f98cd6dc
+      internalID: -1895858551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_20
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 482
+        width: 60
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb941ce19183e6646a832150904d3b29
+      internalID: 689920706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_21
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 479
+        width: 46
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc585dd7d0a5004cab0faa94f148de5
+      internalID: -463318340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_22
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 476
+        width: 50
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84163d8390dba2145ab77060803f9057
+      internalID: 427292256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_23
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 453
+        width: 64
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8c5f94799ece24bab734e58df2682b
+      internalID: -1425124735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_24
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 483
+        width: 40
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76cd460f4ee33342b77d04a5d366c37
+      internalID: -280682834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_25
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 470
+        width: 83
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f14d0df39fcf44bba0c2f815014af4
+      internalID: 95776282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_26
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 481
+        width: 62
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462dc64cd8e404647a35ee883c441e48
+      internalID: -1477409351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_27
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 478
+        width: 48
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eedb716a46d4af842b90aca1b8b5891c
+      internalID: 186994579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_28
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 475
+        width: 52
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc7a18e18a48db4a81549cac28eaf8d
+      internalID: -155016791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_29
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 452
+        width: 66
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d552726bea47c8c4daa7e132ebaa0c79
+      internalID: 1252247152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_30
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 446
+        width: 38
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81700fa6def9e164db27d4c61512ce12
+      internalID: -296881747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_31
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 434
+        width: 67
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ae2101111b5024c898e11ebfb49062
+      internalID: 487467907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_32
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 438
+        width: 59
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332a941025736d244bafe90f4d135914
+      internalID: -366365083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_33
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 445
+        width: 40
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2614c1592a6115e468a33cb4f6491d3e
+      internalID: 1782400393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_34
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 433
+        width: 69
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6200e8419c90542825c48e8d41cdf9
+      internalID: 355954992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_35
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 437
+        width: 61
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7050e22068558b94b84726333de87eb6
+      internalID: 1671692505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_36
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 418
+        width: 39
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f875e1d52c1f540abf0c153e02cbd4
+      internalID: 1319406287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_37
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 411
+        width: 56
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3e25d4fd8b5904a821c30be0f60e4b
+      internalID: -990900995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_38
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 399
+        width: 57
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9740177ede30b46a6c30ae55398121
+      internalID: 1564325762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_39
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 405
+        width: 41
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9d03957aa6e60408f573687cc80e61
+      internalID: -2031918853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_40
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 382
+        width: 80
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98911cb7ede3f6449bcddced99823581
+      internalID: -1762211833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_41
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 400
+        width: 56
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183ba6c7be360344fa7b10dc7c0c1337
+      internalID: 2067684426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_42
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 419
+        width: 37
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcfd25e46890c040b43f7aeb673dcd5
+      internalID: -809784303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_43
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 412
+        width: 54
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a68cf6c18b1c3419464ec6ecb253ad
+      internalID: 1782331690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_44
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 398
+        width: 59
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1762c6ffc13f74340a6925fcf464ace3
+      internalID: 800484326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_45
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 404
+        width: 43
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b2a7ad505960b42ab55df3cb6504f5
+      internalID: 1366795518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_46
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 381
+        width: 82
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e580f87b8781ac5498d3ad18944841c2
+      internalID: -2065950038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_47
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 399
+        width: 58
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42730e59c8226c24d87654dd5d75065d
+      internalID: 27535652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_48
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 363
+        width: 36
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb464bb3fb102a45924f32c4dd58901
+      internalID: -1448000193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_49
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 349
+        width: 54
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043f77fef5d1deb4c94b11fc473e5fac
+      internalID: -1538976841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_50
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 380
+        width: 39
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90d6e9a643d0874a8f4174558e7021b
+      internalID: 329777376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_51
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 362
+        width: 38
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea9ab0dac79c7f4b9c83c15359119d8
+      internalID: 1618177121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_52
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 348
+        width: 56
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9ff54d6a360b949860b88c33a39ab7
+      internalID: 1376665590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_53
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 379
+        width: 41
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c91048962b39041a6ce132306c14df
+      internalID: 975395553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_54
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 314
+        width: 44
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e903b3b6fd65a67449ec3acfe632be8b
+      internalID: -1177154509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_55
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 331
+        width: 71
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb508f1876dc16948b81575a1b084429
+      internalID: 1961819261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_56
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 296
+        width: 78
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e540972e9d87d76459276666fda2f57a
+      internalID: -777886703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_57
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 313
+        width: 46
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b535e37e1def65a4bb43078b9596bbc7
+      internalID: -1054992464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_58
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 330
+        width: 73
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eef52cd596c2124da80194aebc88f7e
+      internalID: 486480954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_59
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 295
+        width: 80
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a8204811c9647499dd5e12d424a29b
+      internalID: 1143056195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_60
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 251
+        width: 68
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab3822b0cb2cc64d9071cb94322e0ae
+      internalID: 964983511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_61
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 265
+        width: 47
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04dd9ddbf459ee4284700da3165b608
+      internalID: -1698602904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_62
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 252
+        width: 64
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5344079ac6a5914eac0c756fa4677fd
+      internalID: -1444532433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_63
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 266
+        width: 41
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf7df8a1af588c489d92ff17ead9210
+      internalID: 775302093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_64
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 255
+        width: 58
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1f1f94449829147bdd7667f872a9dd
+      internalID: -1178656496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_65
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 247
+        width: 76
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd362136740be84eb34cdc1e1b9fc66
+      internalID: -1207434583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_66
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 247
+        width: 66
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b119502fa5d8f40829b72b503a4367
+      internalID: -1332483672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_67
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 261
+        width: 45
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26590fcd68b9e5a44bdfaaffbf64c45f
+      internalID: -1345002397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_68
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 248
+        width: 62
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07158162f64f8545968c4dd3eeaa504
+      internalID: 609093931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_69
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 262
+        width: 39
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f35fe1530633549bcc3761c4708b36
+      internalID: -989219563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_70
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 251
+        width: 56
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba7b31e7a2a1944b8332adae14fddc0
+      internalID: -1538593321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_71
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 243
+        width: 74
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd03fa9fd89fb0c499f674a37e117958
+      internalID: 1162660734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_72
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 225
+        width: 53
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33145b66660b90c49a82573ffb80bfa4
+      internalID: 2007811131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_73
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 222
+        width: 43
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7905216531563d843a66761953016042
+      internalID: -1869049462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_74
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 214
+        width: 45
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9de2e565de426147aab0714de5817e0
+      internalID: 1399078711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_75
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 221
+        width: 51
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebae9841cfc4ce14991b53a172e22f99
+      internalID: 2022058280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_76
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 218
+        width: 41
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970a440b4cdfae1418109e42b8ab3da3
+      internalID: -772008841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_77
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 210
+        width: 43
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce3901d4e1b7f648984296812a273d6
+      internalID: 66465504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_78
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 193
+        width: 40
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5abfe2edc218ea344891bc8d974acf7e
+      internalID: 1451743856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_79
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 180
+        width: 83
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25557d69d68ecfe43bd9e5c8956821b2
+      internalID: -1144871471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_80
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 191
+        width: 62
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0052661aeac21409767e2ab3864a3d
+      internalID: -1015198377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_81
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 188
+        width: 48
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd30b08bb28f9fc4f9bfba3ac108ac4c
+      internalID: 1719374279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_82
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 185
+        width: 52
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3aec99b1fd910440a1c4d71d19dc133
+      internalID: 188882901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_83
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 162
+        width: 66
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66bb574951fcb974cacde274cdf5463c
+      internalID: -1323035669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_84
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 189
+        width: 38
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640e9fabdd5cc1f46879c1309057b4b0
+      internalID: 1296543988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_85
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 176
+        width: 81
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f96ffe344babd42988f0df04de335b
+      internalID: 1901904420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_86
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 187
+        width: 60
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61738d3fe7b606e4db2220a57e1b1d8e
+      internalID: 1181475294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_87
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 184
+        width: 46
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887643b7dbf6dfc48a2e9133f0bc9bfe
+      internalID: 293275050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_88
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 181
+        width: 50
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818dd71184a025f45b6626ec6f4007fc
+      internalID: 1752443191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_89
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 158
+        width: 64
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d7b7595e34c1d49b13e7c63cdd5158
+      internalID: 6116375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_90
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 155
+        width: 40
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00bf984f24dc72a4aabca56e2581fbd2
+      internalID: -140694686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_91
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 143
+        width: 69
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61c21a74b8be1d4091b5fbfeb0b1086
+      internalID: 961922763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_92
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 147
+        width: 61
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d6f9908dc6b644491c453a4218d3bf
+      internalID: -1663090016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_93
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 128
+        width: 39
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2646a277cba6a4eba5f7aaca861989
+      internalID: -1634980221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_94
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 121
+        width: 56
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c79acf5b7fa2649bd144b5ef842ad2
+      internalID: 97058183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_95
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 151
+        width: 38
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e718404d87c421e42adb604b1b288fac
+      internalID: 1245818981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_96
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 139
+        width: 67
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7470218bfa0de394684f078b5996451a
+      internalID: -289740113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_97
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 143
+        width: 59
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece70a4cc977a8d4eb9e88b1be2cc35a
+      internalID: -916118201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_98
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 59
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c8113668756f34db2aa4f46483361b
+      internalID: 156121479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_99
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 114
+        width: 43
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4427bb122188c4a8c13cb45e1cd798
+      internalID: -2127580618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_100
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 91
+        width: 82
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6407c9951269c2a439328bf83c3c8a91
+      internalID: 306134515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_101
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 109
+        width: 58
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bafa313157f2ed429c3e8499e67d39a
+      internalID: -1225462290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_102
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 104
+        width: 57
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be2974b44318b9459ee7bd97e496352
+      internalID: 1280322966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_103
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 110
+        width: 41
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ca28b6132b56344a49ec5b50de1902
+      internalID: -656197230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_104
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 87
+        width: 80
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18466c9cbeb533b4fa62165cec5a7e7b
+      internalID: 1049224003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_105
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 105
+        width: 56
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f6c4e829db57e40819e0d7ac5bd1f3
+      internalID: -1885050831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_106
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 124
+        width: 37
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a688a3c8e6ce5a643ba2969eaaaeedfe
+      internalID: -979981751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_107
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 117
+        width: 54
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90656ae0c5676ed45b367a6d593f2046
+      internalID: 1068832693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_108
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 72
+        width: 38
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2babd514ea7f4844a7f0663ade7f500
+      internalID: -1890793943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_109
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 58
+        width: 56
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da231362736d8e42b11f33d8ea37f42
+      internalID: -431237789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_110
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 89
+        width: 41
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24fcd498bddee724cb229a438eceee7b
+      internalID: -1199295339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_111
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 68
+        width: 36
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c307e5701b9e854093704dac84bd7fe
+      internalID: -1413196205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_112
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 54
+        width: 54
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c250721839757664b8506afd1c4988f5
+      internalID: 434169609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_113
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 85
+        width: 39
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7545e9eae6e2e44bc62f2232374e2d
+      internalID: -740323311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_114
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 23
+        width: 46
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21f107aa045aad4690be7581b713e10
+      internalID: -1631332935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_115
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 40
+        width: 73
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b3ecff693b08d428c7a97e8a8ac226
+      internalID: -1140087873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_116
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 5
+        width: 80
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaae235ac572bbd458754703f496da5b
+      internalID: 1861372104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_117
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 19
+        width: 44
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22239f0858568ac4d806128b3a14fe0f
+      internalID: -614530683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_118
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 36
+        width: 71
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160969e5d5436614e98707597bf3aeef
+      internalID: -1175145823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OutlineRocks_119
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1
+        width: 78
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39490d37624f19746a106820af9e0555
+      internalID: -291898875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a4d8c161115065d43bdc54bcbcd565a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      OutlineRocks_0: -1369246710
+      OutlineRocks_1: 1847029625
+      OutlineRocks_10: -1947222753
+      OutlineRocks_100: 306134515
+      OutlineRocks_101: -1225462290
+      OutlineRocks_102: 1280322966
+      OutlineRocks_103: -656197230
+      OutlineRocks_104: 1049224003
+      OutlineRocks_105: -1885050831
+      OutlineRocks_106: -979981751
+      OutlineRocks_107: 1068832693
+      OutlineRocks_108: -1890793943
+      OutlineRocks_109: -431237789
+      OutlineRocks_11: -702348223
+      OutlineRocks_110: -1199295339
+      OutlineRocks_111: -1413196205
+      OutlineRocks_112: 434169609
+      OutlineRocks_113: -740323311
+      OutlineRocks_114: -1631332935
+      OutlineRocks_115: -1140087873
+      OutlineRocks_116: 1861372104
+      OutlineRocks_117: -614530683
+      OutlineRocks_118: -1175145823
+      OutlineRocks_119: -291898875
+      OutlineRocks_12: 1096335214
+      OutlineRocks_13: -1627191525
+      OutlineRocks_14: -1582772522
+      OutlineRocks_15: -759135793
+      OutlineRocks_16: -420912160
+      OutlineRocks_17: 174486085
+      OutlineRocks_18: -1426371097
+      OutlineRocks_19: -1895858551
+      OutlineRocks_2: 1273837324
+      OutlineRocks_20: 689920706
+      OutlineRocks_21: -463318340
+      OutlineRocks_22: 427292256
+      OutlineRocks_23: -1425124735
+      OutlineRocks_24: -280682834
+      OutlineRocks_25: 95776282
+      OutlineRocks_26: -1477409351
+      OutlineRocks_27: 186994579
+      OutlineRocks_28: -155016791
+      OutlineRocks_29: 1252247152
+      OutlineRocks_3: -1985098819
+      OutlineRocks_30: -296881747
+      OutlineRocks_31: 487467907
+      OutlineRocks_32: -366365083
+      OutlineRocks_33: 1782400393
+      OutlineRocks_34: 355954992
+      OutlineRocks_35: 1671692505
+      OutlineRocks_36: 1319406287
+      OutlineRocks_37: -990900995
+      OutlineRocks_38: 1564325762
+      OutlineRocks_39: -2031918853
+      OutlineRocks_4: 1519192269
+      OutlineRocks_40: -1762211833
+      OutlineRocks_41: 2067684426
+      OutlineRocks_42: -809784303
+      OutlineRocks_43: 1782331690
+      OutlineRocks_44: 800484326
+      OutlineRocks_45: 1366795518
+      OutlineRocks_46: -2065950038
+      OutlineRocks_47: 27535652
+      OutlineRocks_48: -1448000193
+      OutlineRocks_49: -1538976841
+      OutlineRocks_5: -1328744752
+      OutlineRocks_50: 329777376
+      OutlineRocks_51: 1618177121
+      OutlineRocks_52: 1376665590
+      OutlineRocks_53: 975395553
+      OutlineRocks_54: -1177154509
+      OutlineRocks_55: 1961819261
+      OutlineRocks_56: -777886703
+      OutlineRocks_57: -1054992464
+      OutlineRocks_58: 486480954
+      OutlineRocks_59: 1143056195
+      OutlineRocks_6: -355301470
+      OutlineRocks_60: 964983511
+      OutlineRocks_61: -1698602904
+      OutlineRocks_62: -1444532433
+      OutlineRocks_63: 775302093
+      OutlineRocks_64: -1178656496
+      OutlineRocks_65: -1207434583
+      OutlineRocks_66: -1332483672
+      OutlineRocks_67: -1345002397
+      OutlineRocks_68: 609093931
+      OutlineRocks_69: -989219563
+      OutlineRocks_7: 899074010
+      OutlineRocks_70: -1538593321
+      OutlineRocks_71: 1162660734
+      OutlineRocks_72: 2007811131
+      OutlineRocks_73: -1869049462
+      OutlineRocks_74: 1399078711
+      OutlineRocks_75: 2022058280
+      OutlineRocks_76: -772008841
+      OutlineRocks_77: 66465504
+      OutlineRocks_78: 1451743856
+      OutlineRocks_79: -1144871471
+      OutlineRocks_8: -2074061622
+      OutlineRocks_80: -1015198377
+      OutlineRocks_81: 1719374279
+      OutlineRocks_82: 188882901
+      OutlineRocks_83: -1323035669
+      OutlineRocks_84: 1296543988
+      OutlineRocks_85: 1901904420
+      OutlineRocks_86: 1181475294
+      OutlineRocks_87: 293275050
+      OutlineRocks_88: 1752443191
+      OutlineRocks_89: 6116375
+      OutlineRocks_9: -1066501699
+      OutlineRocks_90: -140694686
+      OutlineRocks_91: 961922763
+      OutlineRocks_92: -1663090016
+      OutlineRocks_93: -1634980221
+      OutlineRocks_94: 97058183
+      OutlineRocks_95: 1245818981
+      OutlineRocks_96: -289740113
+      OutlineRocks_97: -916118201
+      OutlineRocks_98: 156121479
+      OutlineRocks_99: -2127580618
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

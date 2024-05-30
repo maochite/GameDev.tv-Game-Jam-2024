@@ -14,6 +14,8 @@ namespace Unit.Entities
     {
         Player,
         Enemy,
+        Construct,
+        Gatherable,
     }
 
 
@@ -28,31 +30,30 @@ namespace Unit.Entities
         public Guid ID { get; }
     }
 
-    public interface ICaster : IUnit
+    public interface IEntity : IUnit
     {
         public Transform Transform { get; }
-    }
-
-
-    public interface IEntity : IUnit, ICaster
-    {
         public EntitySO EntitySO { get; }
     }
 
     public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
     {
-        [Header("- Entity Specifics -")]
-        public EntitySO EntitySO => UnitSO;
-
-        public virtual Transform Transform => gameObject.transform;
-        public virtual Guid ID { get; protected set; }
-        public bool IsActive { get; protected set; } = false;
-
-        public float MovementSpeed { get; protected set; }
-        public float AttackSpeed { get; protected set; }
-        public float AttackRadius { get; protected set; }
-
+        [field:Header("- Entity Specifics -")]
         [field: SerializeField] public SpriteAnimator Animator { get; protected set; }
+        public EntitySO EntitySO => UnitSO;
+        public virtual Transform Transform => gameObject.transform;
+
+        [Header("- Entity Stats -")]
+        [SerializeField, ReadOnly] protected float movementSpeed;
+        [SerializeField, ReadOnly] protected float attackSpeed;
+        [SerializeField, ReadOnly] protected float attackRadius;
+
+        public float MovementSpeed { get => movementSpeed; protected set => movementSpeed = value; }
+        public float AttackSpeed { get => attackSpeed; protected set => attackSpeed = value; }
+        public float AttackRadius { get => attackRadius; protected set => attackRadius = value; }
+
+
+        public abstract void UpdateEntityStats();
 
         protected virtual void Start()
         {

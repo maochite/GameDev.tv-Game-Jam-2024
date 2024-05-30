@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3731cf1ff77516c45b3217b95a0151e7, type: 3}
-  m_Name: ItemGoldSO
+  m_Name: Stone
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -1949422933, guid: 725e89e5a38bc6247b354cdcd324bd7d,
+  <UISprite>k__BackingField: {fileID: 2046779146, guid: 725e89e5a38bc6247b354cdcd324bd7d,
     type: 3}
-  <ResourceType>k__BackingField: 2
+  <WorldSprite>k__BackingField: {fileID: -479901139, guid: 77e732b539d2b08488678f27ca7feda6,
+    type: 3}
+  <ResourceType>k__BackingField: 1

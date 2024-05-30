@@ -13,10 +13,17 @@ namespace Unit.Entities
         public EnemySO EnemySO => UnitSO;
 
         public override float CurrentHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
+        public override float MaxHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
+        public override float HealthRegen { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
 
         public override void AssignUnit(EnemySO enemySO)
         {
             base.AssignUnit(enemySO);
+        }
+
+        public override void UpdateEntityStats()
+        {
+            throw new System.NotImplementedException();
         }
 
         //protected override void Start();

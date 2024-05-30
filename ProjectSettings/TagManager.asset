@@ -31,8 +31,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - Mask
+  - BehindMask
+  - FogMask
   - Fog
   - 
   - 

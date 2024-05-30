@@ -2,16 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Ability;
 using Unit.Gatherables;
-using System.Linq;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.EventSystems.EventTrigger;
-using Unity.VisualScripting;
 using Unit.Constructs;
-using static UnityEditor.PlayerSettings;
 using System;
+using Storage;
+using NaughtyAttributes;
 
 namespace Unit.Entities
 {
@@ -35,13 +31,12 @@ namespace Unit.Entities
     public class Player : Entity<PlayerSO>
     {
         [Header("- Player Specifics -")]
+        private const int maxAbilities = 4;
 
-        [Header("Player Prefab Components")]
+        [field: Header("Player Prefab Components")]
+        [field: SerializeField] public Inventory Inventory { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
-        private AbilityPrimary playerAbility;
-
-        [Header("Camera Components")]
-        //[SerializeField] private CameraFollow camFollow;
+        private readonly AbilityPrimary[] playerAbilities = new AbilityPrimary[maxAbilities];
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
@@ -73,12 +68,94 @@ namespace Unit.Entities
         private float actionRemainingTime = 0;
 
         //Player Stats
-        public float GatheringDamage { get; private set; }
-        public float GatheringTime { get; private set; }
-         public float GatherRadius { get; private set; } 
-         public float ItemMagnetRadius { get; private set; } 
-         public float CollectionRadius { get; private set; }
-        public override float CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        [Header("Player Stats")]
+
+        [SerializeField, ReadOnly] private float maxHealth = 1;
+        [SerializeField, ReadOnly] private float currentHealth = 1;
+        [SerializeField, ReadOnly] private float healthRegen = 1;
+        [SerializeField, ReadOnly] private float gatheringDamage = 1;
+        [SerializeField, ReadOnly] private float gatheringTime = 1;
+        [SerializeField, ReadOnly] private float gatherRadius = 1;
+        [SerializeField, ReadOnly] private float lightRadius = 1;
+        [SerializeField, ReadOnly] private float repairTime = 1;
+        [SerializeField, ReadOnly] private float itemMagnetRadius = 1;
+        [SerializeField, ReadOnly] private float collectionRadius = 1;
+
+        public float GatheringDamage { get => gatheringDamage; private set => gatheringDamage = value; }
+        public float GatheringTime { get => gatheringTime; private set => gatheringTime = value; }
+        public float GatherRadius { get => gatherRadius; private set => gatherRadius = value; }
+        public float LightRadius { get => lightRadius; private set => lightRadius = value; }
+        public float RepairTime { get => repairTime; private set => repairTime = value; }
+        public float ItemMagnetRadius { get => itemMagnetRadius; private set => itemMagnetRadius = value; }
+        public float CollectionRadius { get => collectionRadius; private set => collectionRadius = value; }
+
+        public override float CurrentHealth 
+        {
+            get { return currentHealth; }
+
+            protected set
+            {
+                if (!isActive) return;
+
+                if (value < currentHealth)
+                {
+                    currentHealth = value;
+
+                    if (currentHealth <= 0)
+                    {
+                        //OnDeath();
+                        //Destroy(gameObject);
+                        isActive = false;
+                    }
+                }
+
+                else if (value > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+
+                else currentHealth = value;
+            }
+        }
+
+        public override float MaxHealth
+        {
+            get => maxHealth;
+
+            protected set
+            {
+                if (!isActive) return;
+
+                maxHealth = value;
+
+                if (maxHealth < 1)
+                {
+                    maxHealth = 1;
+                }
+
+                if (currentHealth >= maxHealth)
+                {
+                    currentHealth = maxHealth;
+
+                    //healthBar.ToggleHealthBar(false);
+                }
+
+                //healthBar.SetHealthBarValue(_currentHealth, _maxHealth);
+            }
+        }
+
+        public override float HealthRegen 
+        { 
+            get => HealthRegen; 
+
+            protected set
+            {
+                if(healthRegen < 1)
+                {
+                    healthRegen = 1;
+                }
+            }
+        }
 
         private void Awake()
         {
@@ -86,15 +163,24 @@ namespace Unit.Entities
             miscLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            Inventory.InitializeInventory();
+        }
+
         public override void AssignUnit(PlayerSO playerSO)
         {
             base.AssignUnit(playerSO);
-            playerAbility = new(playerSO.DefaultAbility, this);
+            playerAbilities[0] = new(playerSO.DefaultAbility, this);
 
             GatheringTime = playerSO.BaseGatheringTime;
             GatherRadius = playerSO.BaseGatherRadius;
             ItemMagnetRadius = playerSO.BaseItemMagnetRadius;
             CollectionRadius = playerSO.BaseCollectionRadius;
+            GatheringDamage = playerSO.BaseGatheringDamage;
+            LightRadius = playerSO.BaseLightRadius;
+            RepairTime = playerSO.BaseRepairTime;
         }
 
         private void GetInput()
@@ -208,8 +294,8 @@ namespace Unit.Entities
 
         public void GetActionFromProximity()
         {
-
-            if (!playerAbility.IsCoolingDown())
+            //TODO: Incorporate other abilities soon
+            if (!playerAbilities[0].IsCoolingDown())
             {
                 int numEnemyColliders = Physics.OverlapSphereNonAlloc(transform.position, AttackRadius, enemyBuffer, enemyLayerMask);
 
@@ -351,7 +437,8 @@ namespace Unit.Entities
             if (currentAttackTarget.Unit != null
                     && currentAttackTarget.Unit.ID == currentAttackTarget.InstanceID)
             {
-                if (playerAbility.TryCast(currentAttackTarget.Unit.transform.position, out _))
+                //TODO more abilities
+                if (playerAbilities[0].TryCast(currentAttackTarget.Unit.transform.position, out _))
                 {
                     return true;
                 }
@@ -408,6 +495,31 @@ namespace Unit.Entities
                     Animator.TriggerSummonAnimation();
                     break;
             }
+        }
+
+        public override void UpdateEntityStats()
+        {
+            MaxHealth = EntityStatsManager.Instance.GetHealthModified(UnitSO);
+            HealthRegen = EntityStatsManager.Instance.GetHealthRegenModified(UnitSO);
+            MovementSpeed = EntityStatsManager.Instance.GetMovementModified(UnitSO);
+            GatheringTime = EntityStatsManager.Instance.GetGatherSpeedModified(UnitSO);
+            LightRadius = EntityStatsManager.Instance.GetGatherDamageModified(UnitSO);
+            GatheringTime = EntityStatsManager.Instance.GetGatherSpeedModified(UnitSO);
+            RepairTime = EntityStatsManager.Instance.GetRepairSpeedModified(UnitSO);
+            ItemMagnetRadius = EntityStatsManager.Instance.GetItemMagnetRadius(UnitSO);
+
+            //WeaponPrimary.Ability.UpdateAbilityStats();
+        }
+
+        public void LearnNewAbility(AbilitySO abilitySO, int abilitySlotNum)
+        {
+            if(abilitySlotNum < 0 || abilitySlotNum > 0)
+            {
+                Debug.LogError("Incorrect Ability Slot");
+                return;
+            }
+
+            playerAbilities[abilitySlotNum] = new(abilitySO, this);
         }
 
         private void Gather()

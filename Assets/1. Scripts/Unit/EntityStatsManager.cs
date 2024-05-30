@@ -6,21 +6,23 @@ using System.Collections.Generic;
 using Unit.Entities;
 using UnityEngine;
 
-public class UnitStatManager : MonoBehaviour
+namespace Unit
 {
     public enum StatModType
     {
-        Health,
-        HealthRegen,
-        MovementSpeed,
-        Damage,
-        Cooldown,
-        AbilitySize,
-        AbilitySpeed,
-        GatherSpeed,
-        GatherDamage,
-        RepairSpeed,
-        LightRadius,
+        Health = 0,
+        HealthRegen = 1,
+        MovementSpeed = 2,
+        Damage = 3,
+        AttackSpeed = 4,
+        CooldownReduction = 5,
+        AbilitySize = 6,
+        AbilitySpeed = 7,
+        GatherSpeed = 8,
+        GatherDamage = 9,
+        RepairSpeed = 10,
+        LightRadius = 11,
+        ItemMagnetRadius = 12,
     }
 
 
@@ -34,9 +36,10 @@ public class UnitStatManager : MonoBehaviour
         [field: SerializeField] public int Value { get; private set; }
     }
 
-    public class EntityModifications : StaticInstance<EntityModifications>
+    public class EntityStatsManager : StaticInstance<EntityStatsManager>
     {
 
+      
         [Serializable]
         public class StatValueConstraints
         {
@@ -73,6 +76,8 @@ public class UnitStatManager : MonoBehaviour
 
             [field: SerializeField, MinMaxSlider(1f, 35)]
             public Vector2 LightRadius { get; private set; } = new(1, 1);
+            [field: SerializeField, MinMaxSlider(1f, 35)]
+            public Vector2 ItemMagnetRadius { get; private set; } = new(1, 1);
         }
 
         [Serializable]
@@ -84,12 +89,14 @@ public class UnitStatManager : MonoBehaviour
             [field: SerializeField, Range(0.25f, 100)] public float Health { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float HealthRegen { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float Damage { get; private set; } = 1;
-            [field: SerializeField, Range(0.25f, 100)] public float Cooldown { get; private set; } = 1;
+            [field: SerializeField, Range(0.25f, 100)] public float AttackSpeed { get; private set; } = 1;
+            [field: SerializeField, Range(0.25f, 100)] public float CooldownReduction { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float MovementSpeed { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float AbilitySpeed { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float AbilitySize { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float GatherSpeed { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float GatherDamage { get; private set; } = 1;
+            [field: SerializeField, Range(0.25f, 100)] public float ItemMagnetRadius { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float RepairSpeed { get; private set; } = 1;
             [field: SerializeField, Range(0.25f, 100)] public float LightRadius { get; private set; } = 1;
         }
@@ -99,11 +106,12 @@ public class UnitStatManager : MonoBehaviour
             [StatModType.Health] = new(),
             [StatModType.HealthRegen] = new(),
             [StatModType.LightRadius] = new(),
-            [StatModType.Cooldown] = new(),
+            [StatModType.CooldownReduction] = new(),
             [StatModType.MovementSpeed] = new(),
             [StatModType.Damage] = new(),
             [StatModType.GatherSpeed] = new(),
             [StatModType.RepairSpeed] = new(),
+            [StatModType.ItemMagnetRadius] = new(),
         };
 
         private Dictionary<StatModType, List<StatModifier>> currentEnemyModifiers = new()
@@ -112,7 +120,7 @@ public class UnitStatManager : MonoBehaviour
             [StatModType.HealthRegen] = new(),
             [StatModType.MovementSpeed] = new(),
             [StatModType.Damage] = new(),
-            [StatModType.Cooldown] = new(),
+            [StatModType.CooldownReduction] = new(),
         };
 
         private Dictionary<StatModType, List<StatModifier>> currentConstructModifiers = new()
@@ -120,8 +128,9 @@ public class UnitStatManager : MonoBehaviour
             [StatModType.Health] = new(),
             [StatModType.HealthRegen] = new(),
             [StatModType.Damage] = new(),
-            [StatModType.Cooldown] = new(),
+            [StatModType.CooldownReduction] = new(),
             [StatModType.AbilitySize] = new(),
+            [StatModType.LightRadius] = new(),
         };
 
 
@@ -167,25 +176,35 @@ public class UnitStatManager : MonoBehaviour
         {
             if (statModifier.EntityType == EntityType.Player)
             {
+                if (!PlayerManager.Instance.TryGetPlayer(out Player player)) return false;
+                if (!currentPlayerModifiers.ContainsKey(statModifier.StatModType)) return false;
+
                 currentPlayerModifiers[statModifier.StatModType].Add(statModifier);
+
+                player.UpdateEntityStats();
             }
 
             else if (statModifier.EntityType == EntityType.Enemy)
             {
+                if (!currentEnemyModifiers.ContainsKey(statModifier.StatModType))
+                {
+                    return false;
+                }
+
                 currentEnemyModifiers[statModifier.StatModType].Add(statModifier);
+                EnemyManager.Instance.UpdateActiveEnemyModifiedStats();
             }
 
             else //construct
             {
+                if (!currentConstructModifiers.ContainsKey(statModifier.StatModType))
+                {
+                    return false;
+                }
+
                 currentConstructModifiers[statModifier.StatModType].Add(statModifier);
+                //Update Active Constructs
             }
-
-            if (PlayerManager.Instance.TryGetPlayer(out Player player))
-            {
-                //player.UpdateEntityStats();
-            }
-
-            EnemyManager.Instance.UpdateActiveEnemyModifiedStats();
 
             return true;
         }
@@ -231,9 +250,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.Health])
+            if (relativeData.Modifiers.ContainsKey(StatModType.Health))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.Health])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = entitySO.BaseHealth * (1 + (upgrades * relativeData.ModValues.Health / 100));
@@ -245,9 +267,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.HealthRegen])
+            if (relativeData.Modifiers.ContainsKey(StatModType.HealthRegen))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.HealthRegen])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = entitySO.BaseHealthRegen * (1 + (upgrades * relativeData.ModValues.HealthRegen / 100));
@@ -260,12 +285,15 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.MovementSpeed])
+            if (relativeData.Modifiers.ContainsKey(StatModType.MovementSpeed))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.MovementSpeed])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
-            float modifiedValue = entitySO.BaseMovementSpeed * (1 + (upgrades * relativeData.ModValues.AbilitySpeed / 100));
+            float modifiedValue = entitySO.BaseMovementSpeed * (1 + (upgrades * relativeData.ModValues.MovementSpeed / 100));
             return ClampValue(modifiedValue, GameStatConstraints.MovementSpeed.x, GameStatConstraints.MovementSpeed.y);
         }
 
@@ -274,9 +302,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.Damage])
+            if (relativeData.Modifiers.ContainsKey(StatModType.Damage))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.Damage])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = abilitySO.AttributeData.Damage * (1 + (upgrades * relativeData.ModValues.Damage / 100));
@@ -288,13 +319,33 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.Cooldown])
+            if (relativeData.Modifiers.ContainsKey(StatModType.CooldownReduction))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.CooldownReduction])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
-            float modifiedValue = (1 - (upgrades * (relativeData.ModValues.Cooldown / 100))) * abilitySO.AttributeData.Cooldown;
+            float modifiedValue = (1 - (upgrades * (relativeData.ModValues.CooldownReduction / 100))) * abilitySO.AttributeData.Cooldown;
             return ClampValue(modifiedValue, GameStatConstraints.Cooldown.x, GameStatConstraints.Cooldown.y);
+        }
+
+        public float GetAttackSpeedModified(EntitySO entitySO, AbilitySO abilitySO)
+        {
+            var relativeData = GetRelativeEntityData(entitySO);
+
+            int upgrades = 0;
+            if (relativeData.Modifiers.ContainsKey(StatModType.AttackSpeed))
+            {
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.AttackSpeed])
+                {
+                    upgrades += statModifier.Value;
+                }
+            }
+
+            float modifiedValue = (1 - (upgrades * (relativeData.ModValues.AttackSpeed / 100))) * entitySO.BaseAttackTime;
+            return ClampValue(modifiedValue, GameStatConstraints.AbilitySpeed.x, GameStatConstraints.AbilitySpeed.y);
         }
 
         public float GetAbilitySpeedModified(EntitySO entitySO, AbilitySO abilitySO)
@@ -302,9 +353,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.AbilitySpeed])
+            if (relativeData.Modifiers.ContainsKey(StatModType.AbilitySpeed))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.AbilitySpeed])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = abilitySO.MovementData.BaseSpeed * (1 + (upgrades * relativeData.ModValues.AbilitySpeed / 100));
@@ -316,9 +370,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(entitySO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.AbilitySize])
+            if (relativeData.Modifiers.ContainsKey(StatModType.AbilitySize))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.AbilitySize])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = abilitySO.SizeData.BaseSize * (1 + (upgrades * relativeData.ModValues.AbilitySize / 100));
@@ -330,9 +387,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(playerSO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.GatherSpeed])
+            if (relativeData.Modifiers.ContainsKey(StatModType.GatherSpeed))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.GatherSpeed])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = (1 - (upgrades * (relativeData.ModValues.GatherSpeed / 100))) * playerSO.BaseGatheringTime;
@@ -344,9 +404,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(playerSO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.GatherDamage])
+            if (relativeData.Modifiers.ContainsKey(StatModType.GatherDamage))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.GatherDamage])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = playerSO.BaseGatheringDamage * (1 + (upgrades * relativeData.ModValues.GatherDamage / 100));
@@ -358,9 +421,12 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(playerSO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.RepairSpeed])
+            if (relativeData.Modifiers.ContainsKey(StatModType.RepairSpeed))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.RepairSpeed])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = (1 - (upgrades * (relativeData.ModValues.RepairSpeed / 100))) * playerSO.BaseRepairTime;
@@ -372,13 +438,33 @@ public class UnitStatManager : MonoBehaviour
             var relativeData = GetRelativeEntityData(playerSO);
 
             int upgrades = 0;
-            foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.LightRadius])
+            if (relativeData.Modifiers.ContainsKey(StatModType.LightRadius))
             {
-                upgrades += statModifier.Value;
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.LightRadius])
+                {
+                    upgrades += statModifier.Value;
+                }
             }
 
             float modifiedValue = playerSO.BaseLightRadius * (1 + (upgrades * relativeData.ModValues.LightRadius / 100));
             return ClampValue(modifiedValue, GameStatConstraints.LightRadius.x, GameStatConstraints.LightRadius.y);
+        }
+
+        public float GetItemMagnetRadius(PlayerSO playerSO)
+        {
+            var relativeData = GetRelativeEntityData(playerSO);
+
+            int upgrades = 0;
+            if (relativeData.Modifiers.ContainsKey(StatModType.ItemMagnetRadius))
+            {
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.ItemMagnetRadius])
+                {
+                    upgrades += statModifier.Value;
+                }
+            }
+
+            float modifiedValue = playerSO.BaseItemMagnetRadius * (1 + (upgrades * relativeData.ModValues.ItemMagnetRadius / 100));
+            return ClampValue(modifiedValue, GameStatConstraints.ItemMagnetRadius.x, GameStatConstraints.ItemMagnetRadius.y);
         }
 
 
@@ -391,5 +477,6 @@ public class UnitStatManager : MonoBehaviour
         {
             return value < min ? min : (value > max ? max : value);
         }
+        
     }
 }

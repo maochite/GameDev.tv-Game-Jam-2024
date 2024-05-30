@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415f3f3e97fa62b4a8684ce0172fe55e, type: 3}
+  m_Name: ConjureScroll
+  m_EditorClassIdentifier: 
+  <UISprite>k__BackingField: {fileID: 412718756, guid: 725e89e5a38bc6247b354cdcd324bd7d,
+    type: 3}
+  <WorldSprite>k__BackingField: {fileID: 1011602351, guid: 77e732b539d2b08488678f27ca7feda6,
+    type: 3}
+  AbilitySOList:
+  - {fileID: 11400000, guid: 92668c74d91ea1948ae4126c7e51c894, type: 2}

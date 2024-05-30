@@ -71,8 +71,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 7300540214696542509}
+  movementSpeed: 0
+  attackSpeed: 0
+  attackRadius: 0
+  <Inventory>k__BackingField: {fileID: 0}
   rigidBody: {fileID: 7565830329985711769}
   inputSmoothing: 8
+  maxHealth: 1
+  currentHealth: 1
+  healthRegen: 1
+  gatheringDamage: 1
+  gatheringTime: 1
+  gatherRadius: 1
+  lightRadius: 1
+  repairTime: 1
+  itemMagnetRadius: 1
+  collectionRadius: 1
 --- !u!54 &7565830329985711769
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,7 +112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &4428578062911968094
 GameObject:
@@ -112,7 +126,7 @@ GameObject:
   - component: {fileID: 4058847465040967284}
   - component: {fileID: 9204974865529333594}
   - component: {fileID: 7300540214696542509}
-  m_Layer: 2
+  m_Layer: 26
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
