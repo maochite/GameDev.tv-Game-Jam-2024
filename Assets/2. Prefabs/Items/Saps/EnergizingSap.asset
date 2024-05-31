@@ -16,6 +16,10 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: -997368419, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: Energizing Sap increases my combat potential, and it reduces
+      the time for my abilities to refresh.
+    <Important>k__BackingField: 0
   StatModifiers:
   - <EntityType>k__BackingField: 0
     <StatModType>k__BackingField: 5

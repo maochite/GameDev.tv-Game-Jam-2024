@@ -16,6 +16,10 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: -328857783, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: Stimulating Sap increases my movement speed, and it helps
+      quicken my casting speed.
+    <Important>k__BackingField: 0
   StatModifiers:
   - <EntityType>k__BackingField: 0
     <StatModType>k__BackingField: 2

@@ -9,6 +9,7 @@ Shader "Universal Render Pipeline/Custom/VerticalZDepthAlphaCut"
 		[HDR] _EmissionColor("Emission Color", Color) = (0,0,0)
 		[Toggle(_EMISSION)] _Emission ("Emission", Float) = 0
 		[NoScaleOffset]_EmissionMap("Emission Map", 2D) = "white" {}
+		_AttenuationFactor ("Attenuation Factor", Range(0.0, 5.0)) = 0.5
 
 		_Cutoff ("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
 	}
@@ -34,6 +35,7 @@ Shader "Universal Render Pipeline/Custom/VerticalZDepthAlphaCut"
 		float4 _BaseColor;
 		float4 _EmissionColor;
 		float _Cutoff;
+		float _AttenuationFactor;
 		CBUFFER_END
 		ENDHLSL
 
@@ -124,18 +126,19 @@ Shader "Universal Render Pipeline/Custom/VerticalZDepthAlphaCut"
 			//  SurfaceData & InputData
 			void InitalizeSurfaceData(Varyings IN, out SurfaceData surfaceData)
 			{
-				surfaceData = (SurfaceData)0; // avoids "not completely initalized" errors
+				surfaceData = (SurfaceData)0; // avoids "not completely initialized" errors
 
 				half4 baseMap = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv);
 
-
 				clip(baseMap.a - _Cutoff);
 
+				// Attenuate direct lighting
+				half3 attenuation = _AttenuationFactor;
 
 				half4 diffuse = baseMap * _BaseColor * IN.color;
-				surfaceData.albedo = diffuse.rgb;
-				//surfaceData.normalTS = SampleNormal(IN.uv, TEXTURE2D_ARGS(_BumpMap, sampler_BumpMap));
-				surfaceData.emission = SampleEmission(IN.uv, _EmissionColor.rgb, TEXTURE2D_ARGS(_EmissionMap, sampler_EmissionMap));
+				surfaceData.albedo = diffuse.rgb * attenuation;
+				// surfaceData.normalTS = SampleNormal(IN.uv, TEXTURE2D_ARGS(_BumpMap, sampler_BumpMap));
+				surfaceData.emission = SampleEmission(IN.uv, _EmissionColor.rgb, TEXTURE2D_ARGS(_EmissionMap, sampler_EmissionMap)) * attenuation;
 				surfaceData.occlusion = 1.0; // unused
 				//
 			}

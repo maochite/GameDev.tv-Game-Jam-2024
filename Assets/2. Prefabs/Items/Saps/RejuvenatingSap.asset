@@ -16,6 +16,10 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: -1900088685, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: Rejuvenating Sap increases my overall health, and it slowly
+      eases my wounds.
+    <Important>k__BackingField: 0
   StatModifiers:
   - <EntityType>k__BackingField: 0
     <StatModType>k__BackingField: 0

@@ -40,6 +40,8 @@ namespace Unit.Entities
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
+        private KeyCode BagToggleKey = KeyCode.E;
+        private KeyCode BuildToggle = KeyCode.E;
 
         //Controller Variables
         private Vector3 raw_input;
@@ -189,6 +191,11 @@ namespace Unit.Entities
             raw_input.Normalize();
 
             calculated_input = Vector3.Lerp(raw_input, calculated_input, inputSmoothing * Time.deltaTime);
+
+            if (Input.GetKeyUp(BagToggleKey))
+            {
+                ToggleBag();
+            }
         }
 
         private bool Move()
@@ -534,6 +541,11 @@ namespace Unit.Entities
                 }
             }
 
+        }
+
+        private void ToggleBag()
+        {
+            Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
         }
     }
 

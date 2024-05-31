@@ -63,7 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9cd4681d69ef6b9468d19eaa08dbad85, type: 3}
+        m_Texture: {fileID: 2800000, guid: 665a674946d36dc4da353451f10f2854, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainText:
@@ -113,7 +113,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _Alpha: 0.396
+    - _Alpha: 0.632
     - _AlphaClip: 0
     - _AlphaClipThreshold: 0
     - _AlphaToMask: 0
@@ -135,17 +135,17 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MainTexSpeed: -0.16
-    - _Metallic: 1.4
+    - _MainTexSpeed: -28.7
+    - _Metallic: 0.1
     - _NoiseDissolve: 1
     - _NoiseScale: 1
-    - _NormalStength: -13.65
+    - _NormalStength: -8.7
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.15
+    - _Smoothness: -0.27
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
@@ -153,7 +153,7 @@ Material:
     - _Surface: 1
     - _VoronoiAngle: 39.4
     - _VoronoiDissolve: 4.15
-    - _VoronoiScale: 5.48
+    - _VoronoiScale: 6.7
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
@@ -162,11 +162,11 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.46666667}
     - _Color: {r: 10.172862, g: 0, b: 21.363005, a: 0.7254902}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.1741101, g: 0, b: 0.11897525, a: 0.7176471}
-    - _MainColor: {r: 0.41052094, g: 0, b: 0.7132074, a: 0.44705883}
+    - _FresnelColor: {r: 0, g: 0, b: 0, a: 0.7176471}
+    - _MainColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainTexScroll: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _MainTexTiling: {r: 25, g: 25, b: 0, a: 0}
-    - _NoiseSpeed: {r: 0.11, g: 0.12, b: 0, a: 0}
+    - _MainTexTiling: {r: 74.89, g: -36.2, b: 0, a: 0}
+    - _NoiseSpeed: {r: 3, g: 3, b: 0, a: 0}
     - _NoiseTiling: {r: 2.21, g: 4.17, b: 0, a: 0}
     - _ScrollSpeed1: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _ScrollSpeed2: {r: 0.1, g: 0.1, b: 0, a: 0}
@@ -175,8 +175,8 @@ Material:
     - _Tiling1: {r: 5, g: 5, b: 0, a: 0}
     - _Tiling2: {r: 4.64, g: 5, b: 0, a: 0}
     - _Tiling3: {r: 5, g: 5, b: 0, a: 0}
-    - _VoronoiColor: {r: 16.543812, g: 6.060156, b: 27.929432, a: 0.59607846}
-    - _VoronoiSpeed: {r: 0.17, g: 0.18, b: 0, a: 0}
+    - _VoronoiColor: {r: 5.041425, g: 0, b: 10.432949, a: 0.59607846}
+    - _VoronoiSpeed: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _VoronoiTiling: {r: 35, g: 35, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

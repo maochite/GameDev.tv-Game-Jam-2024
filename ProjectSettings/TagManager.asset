@@ -30,11 +30,11 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Dialogue
   - BehindMask
-  - FogMask
   - Fog
-  - 
+  - FogMask1
+  - FogMask2
   - 
   - 
   m_SortingLayers:

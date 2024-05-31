@@ -28,41 +28,6 @@ namespace Storage
     }
 
     [Serializable]
-    public class ItemSlot
-    {
-        [field: SerializeField] public ItemSO ItemSO { get; private set; }
-        [field: SerializeField] public int MaxItems { get; private set; }
-        [field: SerializeField] public Image SpriteUI { get; private set; }
-        [field: SerializeField] public TMP_Text NumTextUI  { get; private set; }
-        public int NumItems { get; set; } = 0;
-
-        public void UpdateItemSlotDisplay()
-        {
-            if (NumItems == 0)
-            {
-                NumTextUI.enabled = false;
-                SpriteUI.enabled = false;
-                return;
-            }
-
-            SpriteUI.enabled = true;
-            NumTextUI.enabled = true;
-            SpriteUI.sprite = ItemSO.UISprite;
-
-            if (NumItems == MaxItems)
-            {
-                NumTextUI.text = "Max";
-            }
-
-            else
-            {
-                NumTextUI.text = NumItems.ToString();
-            }
-        }
-
-    }
-
-    [Serializable]
     public class InventoryData
     {
         public List<ItemSlot> InventorySlots { get; private set; }

@@ -129,10 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa97b67cd01278449aa604692a023a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TransitionDuration>k__BackingField: 0.54
-  <FlickerStartDelay>k__BackingField: 1.5
-  <FlickerTransitionDelay>k__BackingField: 1.03
-  <TargetColor>k__BackingField: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+  <TransitionDuration>k__BackingField: 0.5
+  <FlickerStartDelay>k__BackingField: 2
+  <FlickerTransitionDelay>k__BackingField: 2
+  <TargetColor>k__BackingField: {r: 0.14716971, g: 0.14522596, b: 0.14522596, a: 1}
   <ScatterForce>k__BackingField: 3
   <SpawnOffset>k__BackingField: 0.25
   <HomingSpeed>k__BackingField: 7

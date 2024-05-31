@@ -1,3 +1,4 @@
+using Dialogue;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,5 +17,6 @@ namespace Items
     {
         [field: SerializeField] public Sprite UISprite { get; private set; }
         [field: SerializeField] public Sprite WorldSprite { get; private set; }
+        [field: SerializeField] public DialogueData DialogueTooltip { get; private set; }
     }
 }

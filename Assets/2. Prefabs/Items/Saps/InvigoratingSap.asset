@@ -16,6 +16,10 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: -2125502961, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: Invigorating Sap increases the potency of my abilities,
+      and it allows me to cast them faster.
+    <Important>k__BackingField: 0
   StatModifiers:
   - <EntityType>k__BackingField: 0
     <StatModType>k__BackingField: 3

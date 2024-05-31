@@ -21,7 +21,7 @@ MonoBehaviour:
   <BaseRepairTime>k__BackingField: 1
   <BaseGatheringTime>k__BackingField: 0.5
   <BaseGatheringDamage>k__BackingField: 1
-  <BaseGatherRadius>k__BackingField: 1.5
+  <BaseGatherRadius>k__BackingField: 2
   <BaseItemMagnetRadius>k__BackingField: 4
   <BaseCollectionRadius>k__BackingField: 1.5
   <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 7b995e134c27e714080dff60f0fb5272,
