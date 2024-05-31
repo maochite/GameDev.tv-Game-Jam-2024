@@ -4,6 +4,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using Color = UnityEngine.Color;
 using System.Drawing;
+using Unity.AI.Navigation;
 
 [RequireComponent(typeof(Map))]
 [ExecuteInEditMode]
@@ -70,6 +71,7 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     [SerializeField][ReadOnly] private FacePos faceSelected;
 
     [SerializeReference] private Map map;
+    [SerializeReference] private NavMeshSurface navmeshSurface;
 
     private Dictionary<KeyCode, Action> KeyMap;
 
@@ -81,6 +83,7 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
         if (!initialised)
         {
             map = GetComponent<Map>();
+            navmeshSurface = GetComponent<NavMeshSurface>();
             isFaceSelected = false;
             faceSelected = new();
 
@@ -102,6 +105,7 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
             overlayMaterial.SetInt("_ZWrite", 0);
 
             map.ResetMap();
+            navmeshSurface.BuildNavMesh();
         }
     }
 
@@ -511,16 +515,19 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
                 Debug.LogFormat("Action: Add     chunk [{0,2},{1,2}] block [{2,2},{3,2},{4,2}]", action.chunkIdx.x, action.chunkIdx.y, action.blockIdx.x, action.blockIdx.y, action.blockIdx.z);
                 chunk.SetBlock(action.blockIdx, action.newBlockType);
                 chunk.BuildMesh();
+                navmeshSurface.BuildNavMesh();
                 break;
             case MapActionType.ReplaceBlock:
                 Debug.LogFormat("Action: Replace chunk [{0,2},{1,2}] block [{2,2},{3,2},{4,2}]", action.chunkIdx.x, action.chunkIdx.y, action.blockIdx.x, action.blockIdx.y, action.blockIdx.z);
                 chunk.SetBlock(action.blockIdx, action.newBlockType);
                 chunk.BuildMesh();
+                navmeshSurface.BuildNavMesh();
                 break;
             case MapActionType.RemoveBlock:
                 Debug.LogFormat("Action: Delete  chunk [{0,2},{1,2}] block [{2,2},{3,2},{4,2}]", action.chunkIdx.x, action.chunkIdx.y, action.blockIdx.x, action.blockIdx.y, action.blockIdx.z);
                 chunk.SetBlock(action.blockIdx, action.newBlockType);
                 chunk.BuildMesh();
+                navmeshSurface.BuildNavMesh(); 
                 break;
             case MapActionType.SetBuildable:
                 Debug.LogFormat("Action: Build ON  chunk [{0,2},{1,2}] block [{2,2},{3,2},{4,2}]", action.chunkIdx.x, action.chunkIdx.y, action.blockIdx.x, action.blockIdx.y, action.blockIdx.z);

@@ -130,6 +130,8 @@ public class Map : MonoBehaviour, ISerializationCallbackReceiver
 
     public void ResetMap()
     {
+        PrefabUtility.UnpackPrefabInstance(gameObject, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+
         buildableBlockSet = new(); 
         buildableBlockList = new();
         BlockPos blockPos = new()
@@ -287,7 +289,7 @@ public class Map : MonoBehaviour, ISerializationCallbackReceiver
 
         chunk = m_chunks[chunkIdx.y, chunkIdx.x];
 
-        blockIdx = new(
+        blockIdx = new( 
             Mathf.FloorToInt(point.x) - Mathf.FloorToInt(chunk.transform.position.x),
             Mathf.FloorToInt(point.y),
             Mathf.FloorToInt(point.z) - Mathf.FloorToInt(chunk.transform.position.z)
