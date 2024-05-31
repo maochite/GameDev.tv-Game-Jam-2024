@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924cd2b127c2e67488fa6628351c7b41, type: 3}
   m_Name: BasicTreeSO
   m_EditorClassIdentifier: 
-  <BaseHealth>k__BackingField: 5
+  <BaseHealth>k__BackingField: 10
   <BaseHealthRegen>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: -1367318445, guid: fced200f1b8e6d34180759763b741b09,
+    type: 3}
   <ItemPool>k__BackingField:
-  - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: d521027f2c8ebab4da9d0d3d03f5fb48, type: 2}
   - {fileID: 11400000, guid: bb1af9e0224de1c4e8aa1745b8eed3dd, type: 2}
   - {fileID: 11400000, guid: 511a0c822125e0040868337b575542df, type: 2}
-  - {fileID: 11400000, guid: 699cb71fff618d14f9195f3e6237121c, type: 2}
   - {fileID: 11400000, guid: 90a666bd7d0ca0f4da35c159ecc73944, type: 2}
-  <ItemDropOffset>k__BackingField: {x: 0, y: 2, z: 0}
+  - {fileID: 11400000, guid: 699cb71fff618d14f9195f3e6237121c, type: 2}
+  <ItemDropOffset>k__BackingField: {x: 0, y: 1, z: 0}
   <GatheringAnimation>k__BackingField: 0

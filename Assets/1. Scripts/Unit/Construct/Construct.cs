@@ -24,15 +24,79 @@ namespace Unit.Constructs
         private MeshFilter meshFilter;
         private readonly Collider[] hitColliders = new Collider[200];
 
-        private GameManager gameManager;
+        [Header("Construct Stats")]
+        [SerializeField, ReadOnly] private float maxHealth = 1;
+        [SerializeField, ReadOnly] private float currentHealth = 1;
+        [SerializeField, ReadOnly] private float healthRegen = 1;
 
-        public ConstructSO ConstructSO => UnitSO;
+        public override float CurrentHealth
+        {
+            get { return currentHealth; }
 
-        public Transform Transform => transform;
+            protected set
+            {
+                if (!isActive) return;
 
-        public override float CurrentHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
-        public override float MaxHealth { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
-        public override float HealthRegen { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+                if (value < currentHealth)
+                {
+                    currentHealth = value;
+
+                    if (currentHealth <= 0)
+                    {
+                        //OnDeath();
+                        //Destroy(gameObject);
+                        isActive = false;
+                    }
+                }
+
+                else if (value > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+
+                else currentHealth = value;
+            }
+        }
+
+        public override float MaxHealth
+        {
+            get => maxHealth;
+
+            protected set
+            {
+                if (!isActive) return;
+
+                maxHealth = value;
+
+                if (maxHealth < 1)
+                {
+                    maxHealth = 1;
+                }
+
+                if (currentHealth >= maxHealth)
+                {
+                    currentHealth = maxHealth;
+
+                    //healthBar.ToggleHealthBar(false);
+                }
+
+                //healthBar.SetHealthBarValue(_currentHealth, _maxHealth);
+            }
+        }
+
+        public override float HealthRegen
+        {
+            get => HealthRegen;
+
+            protected set
+            {
+                if (healthRegen < 1)
+                {
+                    healthRegen = 1;
+                }
+            }
+        }
+
 
         private float delayTimer = 0f;
 
@@ -47,11 +111,11 @@ namespace Unit.Constructs
             meshFilter = GetComponent<MeshFilter>();
             //rangeIndicator = GetComponent<ConstructRangeIndicator>();
             //decalProjector = GetComponentInChildren<DecalProjector>();
-            gameManager = GameManager.Instance;
         }
 
-        public void Start()
+        protected override void Start()
         {
+            base.Start();
             if (nonPoolSO != null)
             {
                 AssignUnit(nonPoolSO);
@@ -70,7 +134,7 @@ namespace Unit.Constructs
             //meshRenderer.material = constructSO.Material;
 
 
-            constructAbility = new AbilityPrimary(ConstructSO.AbilityPrimarySO, this);
+            constructAbility = new AbilityPrimary(UnitSO.AbilityPrimarySO, this);
        
 
             gameObject.SetActive(true);
@@ -92,7 +156,7 @@ namespace Unit.Constructs
             {
 
                 int colliderAmount = Physics.OverlapSphereNonAlloc(transform.position,
-                    ConstructSO.TargetRange / 2,
+                    UnitSO.TargetRange / 2,
                     hitColliders,
                     LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy));
 
@@ -111,14 +175,19 @@ namespace Unit.Constructs
             }
         }
 
+
+        public override void UpdateEntityStats()
+        {
+            MaxHealth = EntityStatsManager.Instance.GetHealthModified(UnitSO);
+            HealthRegen = EntityStatsManager.Instance.GetHealthRegenModified(UnitSO);
+            MovementSpeed = EntityStatsManager.Instance.GetMovementModified(UnitSO);
+            //DefaultAbility.UpdateAbilityStats();
+        }
+
         public void FireAttack(Vector3 targetPos)
         {
             constructAbility.TryCast(targetPos, out _);
         }
 
-        public override void UpdateEntityStats()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

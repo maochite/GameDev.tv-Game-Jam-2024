@@ -15,7 +15,6 @@ namespace Dialogue
         private readonly List<DialogueData> dialogueList = new(10);
 
         // Basic Typewriter Functionality
-        TMP_TextInfo textInfo;
         private int _currentVisibleCharacterIndex;
         private Coroutine _typewriterCoroutine;
 
@@ -30,6 +29,7 @@ namespace Dialogue
 
         [field: Header("Debug Settings")]
         [field: SerializeField] public DialogueData TestDialogue { get; private set; }
+        TMP_TextInfo textInfo;
 
 
         private bool hasActiveDialogue = false;
@@ -37,7 +37,6 @@ namespace Dialogue
         protected void Start()
         {
             base.Awake();
-            textInfo = TextBox.textInfo;
         }
 
         public void QueueDialogue(DialogueData dialogueSO)
@@ -73,6 +72,7 @@ namespace Dialogue
             TextBox.alpha = 1;
 
             TextBox.text = dialogue.Text;
+            TextBox.ForceMeshUpdate();
             textInfo = TextBox.textInfo;
 
             while (_currentVisibleCharacterIndex < textInfo.characterCount + 1)
@@ -98,7 +98,6 @@ namespace Dialogue
                     {
                         dialogueList.RemoveAt(0);
                         hasActiveDialogue = false;
-                        TextBox.text = "";
                     }
 
                     yield break;

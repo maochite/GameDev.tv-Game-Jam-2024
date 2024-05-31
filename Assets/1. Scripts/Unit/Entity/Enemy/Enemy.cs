@@ -1,5 +1,9 @@
+using Ability;
+using NaughtyAttributes;
+using Storage;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
@@ -12,30 +16,100 @@ namespace Unit.Entities
         [Header("- Enemy Specifics -")]
         public EnemySO EnemySO => UnitSO;
 
-        public override float CurrentHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
-        public override float MaxHealth { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
-        public override float HealthRegen { get => throw new System.NotImplementedException(); protected set => throw new System.NotImplementedException(); }
+        [field: Header("Player Prefab Components")]
+        [field: SerializeField] private Rigidbody rigidBody;
+        public AbilityPrimary EnemyAbility { get;  private set; }
+
+        [Header("Enemy Stats")]
+        [SerializeField, ReadOnly] private float maxHealth = 1;
+        [SerializeField, ReadOnly] private float currentHealth = 1;
+        [SerializeField, ReadOnly] private float healthRegen = 1;
+
+        public override float CurrentHealth
+        {
+            get { return currentHealth; }
+
+            protected set
+            {
+                if (!isActive) return;
+
+                if (value < currentHealth)
+                {
+                    currentHealth = value;
+
+                    if (currentHealth <= 0)
+                    {
+                        //OnDeath();
+                        //Destroy(gameObject);
+                        isActive = false;
+                    }
+                }
+
+                else if (value > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+
+                else currentHealth = value;
+            }
+        }
+
+        public override float MaxHealth
+        {
+            get => maxHealth;
+
+            protected set
+            {
+                if (!isActive) return;
+
+                maxHealth = value;
+
+                if (maxHealth < 1)
+                {
+                    maxHealth = 1;
+                }
+
+                if (currentHealth >= maxHealth)
+                {
+                    currentHealth = maxHealth;
+
+                    //healthBar.ToggleHealthBar(false);
+                }
+
+                //healthBar.SetHealthBarValue(_currentHealth, _maxHealth);
+            }
+        }
+
+        public override float HealthRegen
+        {
+            get => HealthRegen;
+
+            protected set
+            {
+                if (healthRegen < 1)
+                {
+                    healthRegen = 1;
+                }
+            }
+        }
+
 
         public override void AssignUnit(EnemySO enemySO)
         {
             base.AssignUnit(enemySO);
+            EnemyAbility = new(enemySO.DefaultAbility, this);
+            UpdateEntityStats();
         }
 
         public override void UpdateEntityStats()
         {
-            throw new System.NotImplementedException();
+            MaxHealth = EntityStatsManager.Instance.GetHealthModified(UnitSO);
+            HealthRegen = EntityStatsManager.Instance.GetHealthRegenModified(UnitSO);
+            MovementSpeed = EntityStatsManager.Instance.GetMovementModified(UnitSO);
+            //DefaultAbility.UpdateAbilityStats();
         }
 
-        //protected override void Start();
 
-        //protected override void Update();
-
-        //public void AssignEnemy(EnemySO enemySO)
-        //{
-        //    AssignEntity(enemySO);
-        //}
-
-        //public override void UpdateEntityStats()
     }
     
 }

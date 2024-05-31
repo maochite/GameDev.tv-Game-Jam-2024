@@ -83,6 +83,9 @@ namespace Storage
 
     public class Inventory : MonoBehaviour
     {
+        [field: Header("Inventory Components")]
+        [field: SerializeField] public Image BagBoarder { get; private set; }
+        [field: SerializeField] public Color ColorToggle { get; private set; }
 
         [field: Header("Inventory Slots")]
         public const int InventorySize = 16;
@@ -313,6 +316,22 @@ namespace Storage
             WoodSlot.UpdateResourceDisplay();
             StoneSlot.UpdateResourceDisplay();
             GoldSlot.UpdateResourceDisplay();
+        }
+
+
+        public void ToggleInventory()
+        {
+            if (gameObject.activeSelf)
+            {
+                BagBoarder.color = Color.white;
+                gameObject.SetActive(false);
+            }
+
+            else
+            {
+                BagBoarder.color = ColorToggle;
+                gameObject.SetActive(true);
+            }
         }
 
         [Button(enabledMode: EButtonEnableMode.Playmode)]

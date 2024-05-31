@@ -35,13 +35,14 @@ namespace Unit.Entities
 
         [field: Header("Player Prefab Components")]
         [field: SerializeField] public Inventory Inventory { get; private set; }
+        [field: SerializeField] public SpellBook SpellBook { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
         private readonly AbilityPrimary[] playerAbilities = new AbilityPrimary[maxAbilities];
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
+        private KeyCode SpellBookKey = KeyCode.Q;
         private KeyCode BagToggleKey = KeyCode.E;
-        private KeyCode BuildToggle = KeyCode.E;
 
         //Controller Variables
         private Vector3 raw_input;
@@ -195,6 +196,11 @@ namespace Unit.Entities
             if (Input.GetKeyUp(BagToggleKey))
             {
                 ToggleBag();
+            }
+
+            if (Input.GetKeyDown(SpellBookKey))
+            {
+                ToggleSpellBook();
             }
         }
 
@@ -545,7 +551,12 @@ namespace Unit.Entities
 
         private void ToggleBag()
         {
-            Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
+            Inventory.ToggleInventory();
+        }
+
+        private void ToggleSpellBook()
+        {
+            SpellBook.ToggleSpellBook();
         }
     }
 
