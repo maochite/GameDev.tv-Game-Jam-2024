@@ -90,6 +90,7 @@ MonoBehaviour:
   overlayMaterial: {fileID: 0}
   isFaceSelected: 0
   map: {fileID: 86647489905578865}
+  navmeshSurface: {fileID: 0}
   initialised: 0
 --- !u!114 &1330536660796943087
 MonoBehaviour:
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -120,5 +121,5 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 01f3cbbb11a9f464cadac8dfda83c9c8, type: 2}
   m_BuildHeightMesh: 0

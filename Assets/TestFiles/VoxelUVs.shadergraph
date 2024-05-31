@@ -184,7 +184,6 @@
     "m_OutputNode": {
         "m_Id": ""
     },
-    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "962eefc3af394429a010d8f70d098acf"
@@ -780,6 +779,8 @@
     "m_AlphaClip": false,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
+    "m_AdditionalMotionVectorMode": 0,
+    "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -1188,10 +1189,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1011.2000122070313,
-            "y": -283.9999694824219,
-            "width": 180.0,
-            "height": 105.59999084472656
+            "x": -1010.0000610351563,
+            "y": -284.0000305175781,
+            "width": 177.00006103515626,
+            "height": 106.0
         }
     },
     "m_Slots": [
@@ -1211,7 +1212,7 @@
         "m_SerializableColors": []
     },
     "m_Texture": {
-        "m_SerializedTexture": "{\"textureArray\":{\"fileID\":18700000,\"guid\":\"7f3eed6846c122143982b6f18d283ee1\",\"type\":3}}",
+        "m_SerializedTexture": "{\"textureArray\":{\"fileID\":18700000,\"guid\":\"cc7e77db2bd42674cbf43bbbb7d6ba19\",\"type\":3}}",
         "m_Guid": ""
     }
 }
