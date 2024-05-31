@@ -96,8 +96,7 @@ namespace Items
 
         public void CollectItem()
         {
-            if(PlayerManager.Instance.TryGetPlayer(out Player player)
-                && player.Inventory.AddItem(ItemSO))
+            if(Player.Instance.Inventory.AddItem(ItemSO))
             {
                 Destroy(material);
                 ItemManager.Instance.ReturnItemObjectToPool(this);
@@ -173,20 +172,20 @@ namespace Items
         private void FixedUpdate()
         {
 
-            if (PlayerManager.Instance.TryGetPlayer(out Player player))
+            if (Player.Instance != null)
             {
-                float distance = Vector3.Distance(transform.position, player.transform.position);
+                float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
 
                 ////collect item logic
-                if (distance < player.CollectionRadius)
+                if (distance < Player.Instance.CollectionRadius)
                 {
                     CollectItem();
                 }
 
-                if (canHome && distance <= player.ItemMagnetRadius)
+                if (canHome && distance <= Player.Instance.ItemMagnetRadius)
                 {
 
-                    Vector3 targetPosition = player.transform.position + HomingTargetOffset;
+                    Vector3 targetPosition = Player.Instance.transform.position + HomingTargetOffset;
                     Vector3 targetDirection = (targetPosition - transform.position).normalized;
 
                     rigidBody.MovePosition(transform.position + HomingSpeed * Time.fixedDeltaTime * targetDirection);

@@ -6,42 +6,57 @@ using UnityEngine.Animations;
 
 namespace Unit.Entities
 {
-    public class PlayerManager : StaticInstance<PlayerManager>
-    {
-        [field: SerializeField] private Player player;
-        [field: SerializeField] private PlayerSO playerSO;
-        private bool isActive = false;
+    //public class PlayerManager : StaticInstance<PlayerManager>
+    //{
+    //    [field: SerializeField] private Player player;
+    //    [field: SerializeField] private PlayerSO playerSO;
+    //    [field: SerializeField] private TMP_Text playerDialogue;
 
-        public void AssignPlayer()
-        {
-            player.AssignUnit(playerSO);
-            isActive = true;
-        }
+    //    private bool isActive = false;
 
-        public bool TryGetPlayer(out Player player)
-        {
-            player = null;
+    //    public void AssignPlayer()
+    //    {
+    //        player.AssignUnit(playerSO);
+    //        isActive = true;
+    //    }
 
-            if (!isActive) return false;
+    //    public bool TryGetPlayer(out Player player)
+    //    {
+    //        player = null;
 
-            else
-            {
-                player = this.player;
-                return true;
-            }
-        }
+    //        if (!isActive) return false;
 
-        public bool TryGetPlayerPosition(out Vector3 pos)
-        {
-            pos = Vector3.zero;
+    //        else
+    //        {
+    //            player = this.player;
+    //            return true;
+    //        }
+    //    }
 
-            if (!isActive) return false;
+    //    public bool TryGetPlayerPosition(out Vector3 pos)
+    //    {
+    //        pos = Vector3.zero;
 
-            else
-            {
-                pos = player.transform.position;
-                return true;
-            }
-        }
-    }
+    //        if (!isActive) return false;
+
+    //        else
+    //        {
+    //            pos = player.transform.position;
+    //            return true;
+    //        }
+    //    }
+
+    //    public bool TryGetPlayerTextBox(out TMP_Text textBox)
+    //    {
+    //        textBox = null;
+
+    //        if (!isActive) return false;
+
+    //        else
+    //        {
+    //            textBox = playerDialogue;
+    //            return true;
+    //        }
+    //    }
+    //}
 }

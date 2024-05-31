@@ -253,7 +253,7 @@ namespace Storage
 
         private void ResolveItemSlot(ItemSlot itemSlot)
         {
-            if (!PlayerManager.Instance.TryGetPlayer(out Player player)) return;
+            if (Player.Instance == null) return;
 
             if(itemSlot.ItemSO is ItemUpgradeSO itemUpgradeSO)
             {
@@ -278,22 +278,22 @@ namespace Storage
 
                 if(itemScrollSO == InventoryData.BlazingScroll.ItemSO)
                 {
-                    player.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 0);
+                    Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 0);
                 }
 
                 else if(itemSlot.ItemSO == InventoryData.ConjureScroll.ItemSO)
                 {
-                    player.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 1);
+                    Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 1);
                 }
 
                 else if(itemScrollSO == InventoryData.HellfireScroll.ItemSO)
                 {
-                    player.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 2);
+                    Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 2);
                 }
 
                 else if(itemScrollSO == InventoryData.SolarScroll.ItemSO)
                 {
-                    player.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 3);
+                    Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 3);
                 }
 
                 else

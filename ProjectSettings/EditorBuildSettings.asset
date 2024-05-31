@@ -12,6 +12,10 @@ EditorBuildSettings:
     path: Assets/0. Scenes/PrimaryScenes/1. MainMenuScene.unity
     guid: 67b9d0b3c5c8fee4f803e801f07e22d3
   - enabled: 1
-    path: Assets/0. Scenes/PrimaryScenes/2. GameScene.unity
-    guid: d5fcbddd69b550e47a3d94992cab13b0
+    path: Assets/0. Scenes/PrimaryScenes/2. IntroScene.unity
+    guid: ca5b2d9e2af5154459d8c0e36c4e241c
+  - enabled: 1
+    path: Assets/0. Scenes/PrimaryScenes/3. MainScene.unity
+    guid: a95dc3e01b917e64a81543cff1d44366
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

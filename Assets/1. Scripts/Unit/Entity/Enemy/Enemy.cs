@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using Storage;
 using System.Collections;
 using System.Collections.Generic;
+using Unit.Gatherables;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
@@ -24,6 +25,9 @@ namespace Unit.Entities
         [SerializeField, ReadOnly] private float maxHealth = 1;
         [SerializeField, ReadOnly] private float currentHealth = 1;
         [SerializeField, ReadOnly] private float healthRegen = 1;
+
+        [Header("For Non-Pool Prefab Placement")]
+        [SerializeField] private EnemySO nonPoolSO;
 
         public override float CurrentHealth
         {
@@ -93,6 +97,15 @@ namespace Unit.Entities
             }
         }
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (nonPoolSO != null)
+            {
+                AssignUnit(nonPoolSO);
+            }
+        }
 
         public override void AssignUnit(EnemySO enemySO)
         {

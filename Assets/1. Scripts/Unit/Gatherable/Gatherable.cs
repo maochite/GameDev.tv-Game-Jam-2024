@@ -25,9 +25,12 @@ namespace Unit.Gatherables
         private float shakeTimer = 0f;
         private bool initialPositionSet = false;
 
-        public void Start()
+        protected override void Awake()
         {
-            if(nonPoolSO != null)
+
+            base.Awake();
+
+            if (nonPoolSO != null)
             {
                 AssignUnit(nonPoolSO);
             }

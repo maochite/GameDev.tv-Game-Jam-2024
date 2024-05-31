@@ -100,27 +100,21 @@ namespace Unit.Constructs
 
         private float delayTimer = 0f;
 
-        private void OnValidate()
-        {
-            Awake();
-        }
-
-        private void Awake()
+        protected override void Awake()
         {
             meshRenderer = GetComponent<MeshRenderer>();
             meshFilter = GetComponent<MeshFilter>();
             //rangeIndicator = GetComponent<ConstructRangeIndicator>();
             //decalProjector = GetComponentInChildren<DecalProjector>();
-        }
 
-        protected override void Start()
-        {
-            base.Start();
+            base.Awake();
+
             if (nonPoolSO != null)
             {
                 AssignUnit(nonPoolSO);
             }
         }
+   
 
         public override void AssignUnit(ConstructSO constructSO)
         {
