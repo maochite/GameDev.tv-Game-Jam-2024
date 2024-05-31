@@ -11,7 +11,7 @@ namespace Dialogue
 {
     public class DialogueManager : StaticInstance<DialogueManager>
     {
-        [field: SerializeField] public TMP_Text TextBox { get; private set; }
+        public TMP_Text TextBox { get; private set; }
         private readonly List<DialogueData> dialogueList = new(10);
 
         // Basic Typewriter Functionality
@@ -31,6 +31,15 @@ namespace Dialogue
         [field: SerializeField] public DialogueData TestDialogue { get; private set; }
         TMP_TextInfo textInfo;
 
+        public void AssignTextBox(TMP_Text textBox)
+        {
+            if(TextBox != null)
+            {
+                TextBox.text = "";
+            }
+
+            TextBox = textBox;
+        }
 
         private bool hasActiveDialogue = false;
 

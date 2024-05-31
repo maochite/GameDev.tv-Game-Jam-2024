@@ -42,7 +42,16 @@ namespace Unit
             UnitSO = unitSO;
             ID = Guid.NewGuid();
             isActive = true;
+            gameObject.SetActive(true);
         }
 
+        protected virtual void Awake()
+        {
+            gameObject.SetActive(false);
+        }
+        protected virtual void Start()
+        {
+          
+        }
     }
 }

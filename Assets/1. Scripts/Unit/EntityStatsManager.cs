@@ -164,7 +164,7 @@ namespace Unit
                 modifierSet.Clear();
             }
 
-            if (PlayerManager.Instance.TryGetPlayer(out Player player))
+            if (Player.Instance != null)
             {
                 //player.UpdateEntityStats();
             }
@@ -176,12 +176,12 @@ namespace Unit
         {
             if (statModifier.EntityType == EntityType.Player)
             {
-                if (!PlayerManager.Instance.TryGetPlayer(out Player player)) return false;
+                if (Player.Instance == null) return false;
                 if (!currentPlayerModifiers.ContainsKey(statModifier.StatModType)) return false;
 
                 currentPlayerModifiers[statModifier.StatModType].Add(statModifier);
 
-                player.UpdateEntityStats();
+                Player.Instance.UpdateEntityStats();
             }
 
             else if (statModifier.EntityType == EntityType.Enemy)

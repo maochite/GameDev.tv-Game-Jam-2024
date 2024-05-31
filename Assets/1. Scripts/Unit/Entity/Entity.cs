@@ -55,9 +55,14 @@ namespace Unit.Entities
 
         public abstract void UpdateEntityStats();
 
-        protected virtual void Start()
+        protected override void Awake()
         {
+            base.Awake();
+        }
 
+        protected override void Start()
+        {
+            base.Start();
         }
 
         public override void AssignUnit(T entitySO)

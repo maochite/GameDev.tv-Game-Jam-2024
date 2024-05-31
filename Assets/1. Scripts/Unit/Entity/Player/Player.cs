@@ -8,6 +8,7 @@ using Unit.Constructs;
 using System;
 using Storage;
 using NaughtyAttributes;
+using TMPro;
 
 namespace Unit.Entities
 {
@@ -30,12 +31,16 @@ namespace Unit.Entities
 
     public class Player : Entity<PlayerSO>
     {
+        public static Player Instance { get; private set; }
+
         [Header("- Player Specifics -")]
         private const int maxAbilities = 4;
 
         [field: Header("Player Prefab Components")]
+        [field: SerializeField] public PlayerSO PlayerSO { get; private set; }
         [field: SerializeField] public Inventory Inventory { get; private set; }
         [field: SerializeField] public SpellBook SpellBook { get; private set; }
+        [field: SerializeField] public TMP_Text PlayerDialogue { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
         private readonly AbilityPrimary[] playerAbilities = new AbilityPrimary[maxAbilities];
 
@@ -91,6 +96,12 @@ namespace Unit.Entities
         public float RepairTime { get => repairTime; private set => repairTime = value; }
         public float ItemMagnetRadius { get => itemMagnetRadius; private set => itemMagnetRadius = value; }
         public float CollectionRadius { get => collectionRadius; private set => collectionRadius = value; }
+
+        protected virtual void OnApplicationQuit()
+        {
+            Destroy(gameObject);
+            Instance = null;
+        }
 
         public override float CurrentHealth 
         {
@@ -160,8 +171,15 @@ namespace Unit.Entities
             }
         }
 
-        private void Awake()
+        protected override void Awake()
         {
+            Instance = this;
+
+            if(PlayerSO == null)
+            {
+                base.Awake();
+            }
+
             enemyLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy);
             miscLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
         }
@@ -169,6 +187,7 @@ namespace Unit.Entities
         protected override void Start()
         {
             base.Start();
+            AssignUnit(PlayerSO);
             Inventory.InitializeInventory();
         }
 
