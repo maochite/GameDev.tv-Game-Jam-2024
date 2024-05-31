@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 924cd2b127c2e67488fa6628351c7b41, type: 3}
-  m_Name: BasicRockSO
+  m_Name: GiantBasicRockSO
   m_EditorClassIdentifier: 
   <BaseHealth>k__BackingField: 10
   <ItemPool>k__BackingField:
