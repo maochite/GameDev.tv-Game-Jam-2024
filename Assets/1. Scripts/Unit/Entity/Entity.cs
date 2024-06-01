@@ -34,6 +34,7 @@ namespace Unit.Entities
     {
         public Transform Transform { get; }
         public EntitySO EntitySO { get; }
+        public void DamageEntity(float amount);
     }
 
     public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
@@ -63,6 +64,11 @@ namespace Unit.Entities
         protected override void Start()
         {
             base.Start();
+        }
+
+        public void DamageEntity(float amount)
+        {
+            CurrentHealth -= amount;
         }
 
         public override void AssignUnit(T entitySO)

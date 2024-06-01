@@ -26,3 +26,5 @@ MonoBehaviour:
   <BaseCollectionRadius>k__BackingField: 1.5
   <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 7b995e134c27e714080dff60f0fb5272,
     type: 2}
+  <DefaultConstruct>k__BackingField: {fileID: 11400000, guid: 2b8bfd0ab9f28144b9a2b49c5f5e263f,
+    type: 2}

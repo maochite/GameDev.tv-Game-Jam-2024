@@ -9,6 +9,8 @@ using System;
 using Storage;
 using NaughtyAttributes;
 using TMPro;
+using static ConstructManager;
+using static Ability.AbilitySO.Composition;
 
 namespace Unit.Entities
 {
@@ -26,7 +28,13 @@ namespace Unit.Entities
         Attack,
         Gather,
         Repair,
-        Summon,
+        Build,
+    }
+
+    public enum BuildState
+    {
+        Obstructed,
+        Buildable,
     }
 
     public class Player : Entity<PlayerSO>
@@ -43,11 +51,36 @@ namespace Unit.Entities
         [field: SerializeField] public TMP_Text PlayerDialogue { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
         private readonly AbilityPrimary[] playerAbilities = new AbilityPrimary[maxAbilities];
+        private readonly ConstructSO[] playerConstructs = new ConstructSO[4];
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
         private KeyCode SpellBookKey = KeyCode.Q;
         private KeyCode BagToggleKey = KeyCode.E;
+        private KeyCode ConstructKey1 = KeyCode.Alpha1;
+        private KeyCode ConstructKey2 = KeyCode.Alpha2;
+        private KeyCode ConstructKey3 = KeyCode.Alpha3;
+        private KeyCode ConstructKey4 = KeyCode.Alpha4;
+
+
+        [Header("Construct Building")]
+        private BuildState buildState;
+        private bool preparingBuild = false;
+        private Vector3 currentBuildLocation;
+        private LayerMask buildingArea;
+        private LayerMask excludedArea;
+        private int currentSelectedConstruct;
+        private Collider[] constructAreaColliders = new Collider[200];
+        [SerializeField, Range(1, 10)] private float targetSafeZoneSize = 5;
+
+        [Header("Construct Indicator")]
+        [SerializeField] private GameObject constructPreview;
+        [SerializeField] private GameObject arrowIndicatorPrefab;
+        [SerializeField] private float indicatorForwardOffset;
+        [SerializeField] private float indicatorHeightOffset;
+        [SerializeField] private AnimationCurve trajectoryCurve;
+        [SerializeField] private int resolution = 10;
+        private List<GameObject> arrowIndicators;
 
         //Controller Variables
         private Vector3 raw_input;
@@ -60,7 +93,7 @@ namespace Unit.Entities
 
         //Action detect
         private LayerMask enemyLayerMask;
-        private LayerMask miscLayerMask;
+        private LayerMask gatherLayerMask;
         private Collider[] enemyBuffer = new Collider[200];
         private List<Collider> reducedEnemyBuffer = new(200);
         private Collider[] miscBuffer = new Collider[200];
@@ -84,6 +117,7 @@ namespace Unit.Entities
         [SerializeField, ReadOnly] private float gatheringDamage = 1;
         [SerializeField, ReadOnly] private float gatheringTime = 1;
         [SerializeField, ReadOnly] private float gatherRadius = 1;
+        [SerializeField, ReadOnly] private float buildTime = 1;
         [SerializeField, ReadOnly] private float lightRadius = 1;
         [SerializeField, ReadOnly] private float repairTime = 1;
         [SerializeField, ReadOnly] private float itemMagnetRadius = 1;
@@ -92,6 +126,7 @@ namespace Unit.Entities
         public float GatheringDamage { get => gatheringDamage; private set => gatheringDamage = value; }
         public float GatheringTime { get => gatheringTime; private set => gatheringTime = value; }
         public float GatherRadius { get => gatherRadius; private set => gatherRadius = value; }
+        public float BuildTime { get => buildTime; private set => buildTime = value; }
         public float LightRadius { get => lightRadius; private set => lightRadius = value; }
         public float RepairTime { get => repairTime; private set => repairTime = value; }
         public float ItemMagnetRadius { get => itemMagnetRadius; private set => itemMagnetRadius = value; }
@@ -180,8 +215,28 @@ namespace Unit.Entities
                 base.Awake();
             }
 
-            enemyLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy);
-            miscLayerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
+            LayerMask constructMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Construct);
+            LayerMask gatherMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Gatherable);
+            LayerMask enemyMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy);
+            LayerMask playerMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Player);
+            LayerMask indestructibleMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Indestructible);
+            LayerMask terrainMask = LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Terrain);
+
+            enemyLayerMask = enemyMask;
+            gatherLayerMask = gatherMask;
+
+            buildingArea = terrainMask;
+            excludedArea = LayerUtility.CombineMasks(constructMask, gatherMask, enemyMask, playerMask, indestructibleMask);
+
+            constructPreview = Instantiate(constructPreview);
+            constructPreview.SetActive(false);
+            arrowIndicators = new(resolution);
+
+            for (int i = 0; i < resolution; i++)
+            {
+                arrowIndicators.Add(Instantiate(arrowIndicatorPrefab, transform));
+                arrowIndicators[i].SetActive(false);
+            }
         }
 
         protected override void Start()
@@ -195,7 +250,10 @@ namespace Unit.Entities
         {
             base.AssignUnit(playerSO);
             playerAbilities[0] = new(playerSO.DefaultAbility, this);
+            playerConstructs[0] = playerSO.DefaultConstruct;
 
+            MaxHealth = playerSO.BaseHealth;
+            CurrentHealth = playerSO.BaseHealth;
             GatheringTime = playerSO.BaseGatheringTime;
             GatherRadius = playerSO.BaseGatherRadius;
             ItemMagnetRadius = playerSO.BaseItemMagnetRadius;
@@ -203,6 +261,10 @@ namespace Unit.Entities
             GatheringDamage = playerSO.BaseGatheringDamage;
             LightRadius = playerSO.BaseLightRadius;
             RepairTime = playerSO.BaseRepairTime;
+
+            BuildTime = playerSO.BaseBuildingTime;
+
+            UpdateEntityStats();
         }
 
         private void GetInput()
@@ -212,14 +274,24 @@ namespace Unit.Entities
 
             calculated_input = Vector3.Lerp(raw_input, calculated_input, inputSmoothing * Time.deltaTime);
 
-            if (Input.GetKeyUp(BagToggleKey))
+            if (Input.GetKeyDown(BagToggleKey))
             {
                 ToggleBag();
             }
 
             if (Input.GetKeyDown(SpellBookKey))
             {
-                ToggleSpellBook();
+                //ToggleSpellBook();
+            }
+
+            if(preparingBuild)
+            {
+                SelectConstruct();
+
+                if (TryGetTargetedLocation(buildingArea, out RaycastHit raycastHit))
+                {
+                    EvaluateBuild(raycastHit);
+                }   
             }
         }
 
@@ -270,12 +342,17 @@ namespace Unit.Entities
         {
             if (state == EntityPrimaryState.Dead) return;
 
+            if(currentBuildLocation != Vector3.zero)
+            {
+                ChangeAction(EntityActionState.Build);
+            }
+
             if (state == EntityPrimaryState.Idle)
             {
                  GetActionFromProximity();
             }
 
-            if(state == EntityPrimaryState.Action)
+            if (state == EntityPrimaryState.Action)
             {
                 if(action == EntityActionState.None)
                 {
@@ -311,7 +388,12 @@ namespace Unit.Entities
 
             else
             {
-                if(action == EntityActionState.Attack)
+                if (action == EntityActionState.Build)
+                {
+                    Build();
+                }
+
+                else if (action == EntityActionState.Attack)
                 {
                     Attack();
                 }
@@ -356,7 +438,7 @@ namespace Unit.Entities
                 }
             }
 
-            int numMiscColliders = Physics.OverlapSphereNonAlloc(transform.position, GatherRadius, miscBuffer, miscLayerMask);
+            int numMiscColliders = Physics.OverlapSphereNonAlloc(transform.position, GatherRadius, miscBuffer, gatherLayerMask);
             gatherableBuffer.Clear();
 
             for (int i = 0; i < numMiscColliders; i++)
@@ -416,6 +498,11 @@ namespace Unit.Entities
                 default:
                     break;
             }
+
+            if(state != EntityPrimaryState.Action)
+            {
+                currentBuildLocation = Vector3.zero;
+            }
         }
 
         public void ChangeAction(EntityActionState entityAction)
@@ -460,7 +547,17 @@ namespace Unit.Entities
                     action = EntityActionState.None;
 
                     break;
-                case EntityActionState.Summon:
+
+                case EntityActionState.Build:
+
+                    EvaluateActionAnimation(UnitSO.BuildAnimation, BuildTime);
+                    action = EntityActionState.Build;
+                    ChangePrimaryState(EntityPrimaryState.Action);
+                    ToggleSpellBook(false);
+                    Look(currentBuildLocation);
+                    actionRemainingTime = BuildTime;
+                    break;
+
                 default:
                     break;
             }
@@ -489,21 +586,119 @@ namespace Unit.Entities
             return direction;
         }
 
-        public bool GetMouseWorldPosition(out Vector3 pos)
+        public void EvaluateBuild(RaycastHit raycastHit)
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (raycastHit.collider == null) return;
 
-            if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity))
+            ShowArrowIndicators(transform.position, raycastHit.point);
+            constructPreview.transform.position = raycastHit.point;
+            constructPreview.SetActive(true);
+
+            if (IsNormalUpwards(raycastHit))
             {
-                // The Raycast hit something, return with the position.
-                pos = hitInfo.point;
-                return true;
+                Vector3 towerHalfSquare = targetSafeZoneSize * 0.5f * Vector3.one;
+
+                var colliders = Physics.OverlapBoxNonAlloc(
+                    raycastHit.point, towerHalfSquare,
+                    constructAreaColliders,
+                    Quaternion.identity,
+                    excludedArea);
+
+                if (colliders > 0)
+                {
+                    buildState = BuildState.Obstructed;
+                }
+
+                else
+                {
+                    buildState = BuildState.Buildable;
+
+                    if (Input.GetMouseButtonUp(0))
+                    {
+                        currentBuildLocation = raycastHit.point;
+                    }
+                }
             }
+
             else
             {
-                pos = Vector3.zero;
-                return false;
+                buildState = BuildState.Obstructed;
             }
+        }
+
+        private void SelectConstruct()
+        {
+            if (Input.GetKeyDown(ConstructKey1))
+            {
+                currentSelectedConstruct = 0;
+            }
+
+            else if (Input.GetKeyDown(ConstructKey2))
+            {
+                currentSelectedConstruct = 1;
+            }
+
+            else if (Input.GetKeyDown(ConstructKey3))
+            {
+                currentSelectedConstruct = 2;
+            }
+
+            else if (Input.GetKeyDown(ConstructKey4))
+            {
+                currentSelectedConstruct = 3;
+            }
+        }
+        
+        private void Build()
+        {
+            //check resources
+
+            ConstructSO selectedConstructSO = playerConstructs[currentSelectedConstruct];
+
+            ConstructManager.Instance.PlaceConstruct(selectedConstructSO, currentBuildLocation);
+            currentBuildLocation = Vector3.zero;
+        }
+        
+        private void ShowArrowIndicators(Vector3 fromLocation, Vector3 toLocation)
+        {
+            Vector3 direction = (toLocation - fromLocation).normalized;
+            Vector3 offsetVector = direction * indicatorForwardOffset;
+            fromLocation += offsetVector;
+
+            for (int i = 0; i < arrowIndicators.Count; i++)
+            {
+                float t = (float)i / resolution;
+                Vector3 point = Vector3.Lerp(fromLocation, toLocation, t);
+                point.y += trajectoryCurve.Evaluate(t);
+                arrowIndicators[i].transform.position = point;
+                arrowIndicators[i].SetActive(true);
+            }
+        }
+
+        private void HideArrowIndicators()
+        {
+            foreach(GameObject gameObj in arrowIndicators)
+            {
+                gameObj.SetActive(false);
+            }
+        }
+
+        private bool IsNormalUpwards(RaycastHit hit)
+        {
+            return Vector3.Dot(hit.normal, Vector3.up) > 0.9f;
+        }
+
+        private bool TryGetTargetedLocation(LayerMask mask, out RaycastHit raycastHit)
+        {
+
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out raycastHit, Mathf.Infinity, mask))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void EvaluateActionAnimation(
@@ -575,9 +770,29 @@ namespace Unit.Entities
             Inventory.ToggleInventory();
         }
 
-        private void ToggleSpellBook()
+        private void ToggleSpellBook(bool toggle)
         {
-            SpellBook.ToggleSpellBook();
+            //We're currently building
+            if (action == EntityActionState.Build && actionRemainingTime > 0)
+            {
+                return;
+            }
+
+
+            if (toggle)
+            {
+                preparingBuild = true;
+                currentSelectedConstruct = 0;
+                SpellBook.ToggleSpellBook(true);
+            }
+
+            else
+            {
+                HideArrowIndicators();
+                constructPreview.SetActive(false);
+                SpellBook.ToggleSpellBook(false);
+            }
+            
         }
     }
 

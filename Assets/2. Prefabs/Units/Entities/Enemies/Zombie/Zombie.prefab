@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2889864696354522044}
   - component: {fileID: 7565830329985711769}
   - component: {fileID: 1419692233287336021}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 7300540214696542509}
+  movementSpeed: 0
+  attackSpeed: 0
+  attackRadius: 0
+  rigidBody: {fileID: 0}
+  maxHealth: 1
+  currentHealth: 1
+  healthRegen: 1
+  nonPoolSO: {fileID: 0}
 --- !u!1 &4428578062911968094
 GameObject:
   m_ObjectHideFlags: 0

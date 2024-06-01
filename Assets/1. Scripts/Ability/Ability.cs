@@ -36,9 +36,10 @@ namespace Ability
             AbilitySO = abilitySO;
 
             //Temp
-            Cooldown = AbilitySO.AttributeData.Cooldown;
-            AbilitySpeed = AbilitySO.MovementData.BaseSpeed;
-            AbilitySize = AbilitySO.SizeData.BaseSize;
+            //Cooldown = AbilitySO.AttributeData.Cooldown;
+            //AbilitySpeed = AbilitySO.MovementData.BaseSpeed;
+            //AbilitySize = AbilitySO.SizeData.BaseSize;
+            //AbilitySize = AbilitySO.SizeData.BaseSize;
 
             UpdateAbilityStats();
         }

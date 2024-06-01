@@ -45,7 +45,7 @@ namespace Unit.Entities
                     if (currentHealth <= 0)
                     {
                         //OnDeath();
-                        //Destroy(gameObject);
+                        EnemyManager.Instance.ReturnEnemyToPool(this);
                         isActive = false;
                     }
                 }
@@ -112,6 +112,8 @@ namespace Unit.Entities
         {
             base.AssignUnit(enemySO);
             EnemyAbility = new(enemySO.DefaultAbility, this);
+            MaxHealth = UnitSO.BaseHealth;
+            CurrentHealth = UnitSO.BaseHealth;
             UpdateEntityStats();
         }
 

@@ -21,6 +21,10 @@ namespace Unit.Entities
         private HashSet<Enemy> activeEnemies = new();
         private Queue<Enemy> enemySystemPool = new();
 
+        [Header("Enemy Test SO")]
+        [SerializeField] EnemySO enemyTestSO;
+        [SerializeField] Vector3 testLocation = Vector3.zero;
+
         private void Start()
         {
             ExtendEnemyPool(initalPoolSize);
@@ -89,7 +93,10 @@ namespace Unit.Entities
         [Button(enabledMode: EButtonEnableMode.Playmode)]
         private void SpawnEnemyTest()
         {
-
+            if(enemyTestSO != null)
+            {
+                RequestEnemy(enemyTestSO, testLocation, Quaternion.identity);
+            }
         }
     }
 }

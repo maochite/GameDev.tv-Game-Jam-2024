@@ -20,6 +20,9 @@ namespace Items
             Pause,
         }
 
+        private const float returnTime = 60f;
+        private float returnTimer = 0f;
+
         [field: Header("Item Flicker Effect")]
         [field: SerializeField, Range(0.1f, 10)] public float TransitionDuration { get; private set; } = 1;
         [field: SerializeField, Range(0.1f, 10)] public float FlickerStartDelay { get; private set; } = 1;
@@ -67,6 +70,7 @@ namespace Items
             flickerState = FlickerState.FlickerIn;
             flickerCooldownTimer = 0f;
             flickerCooldownFlag = false;
+            returnTimer = 0f;
         }
 
         public void ScatterItem(Vector3 pos)
@@ -105,6 +109,14 @@ namespace Items
 
         private void Update()
         {
+            returnTimer += Time.deltaTime;
+
+            if(returnTimer > returnTime)
+            {
+                Destroy(material);
+                ItemManager.Instance.ReturnItemObjectToPool(this);
+            }
+
             if (!flickerCooldownFlag)
             {
                 flickerCooldownTimer += Time.deltaTime;

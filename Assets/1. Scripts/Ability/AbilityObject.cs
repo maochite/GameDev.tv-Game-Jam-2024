@@ -646,7 +646,7 @@ namespace Ability
         {
             //Debug.Log("Hit entity "+entity + " " + abilitySO.AttributeData.Damage);
 
-            //entity.CurrentHealth -= ability.Damage;
+            entity.DamageEntity(ability.Damage);
 
         }
 

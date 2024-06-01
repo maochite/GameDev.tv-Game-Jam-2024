@@ -222,12 +222,12 @@ PrefabInstance:
     - target: {fileID: 1592278597469069731, guid: d74fefa8f75031549ae7430e8f5a0b9c,
         type: 3}
       propertyPath: <IntroDuration>k__BackingField
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1592278597469069731, guid: d74fefa8f75031549ae7430e8f5a0b9c,
         type: 3}
       propertyPath: <IntroDialogue>k__BackingField.<Text>k__BackingField
-      value: I like chicken,   I like liver,      meowmix meowmix please deliver!
+      value: 'Intro    '
       objectReference: {fileID: 0}
     - target: {fileID: 1875918897796352787, guid: d74fefa8f75031549ae7430e8f5a0b9c,
         type: 3}
@@ -376,6 +376,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7845511834628448726, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: constructPrefab
+      value: 
+      objectReference: {fileID: 8907488571284519814, guid: 2f021a11865bfde4ab85f7fef70f7ec2,
+        type: 3}
     - target: {fileID: 8064928343800887234, guid: d74fefa8f75031549ae7430e8f5a0b9c,
         type: 3}
       propertyPath: textClearDelay

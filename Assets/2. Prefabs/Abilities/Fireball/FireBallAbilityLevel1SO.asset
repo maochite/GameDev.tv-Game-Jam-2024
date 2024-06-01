@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe0615d21ea114cb981c9dc6cc8515, type: 3}
   m_Name: FireBallAbilityLevel1SO
   m_EditorClassIdentifier: 
-  <HitMask>k__BackingField: 0
-  <ColliderMask>k__BackingField: 0
+  <HitMask>k__BackingField: 16
+  <ColliderMask>k__BackingField: 16
   <AudioSource>k__BackingField: {fileID: 0}
   <VFXData>k__BackingField:
     <ParticlePrimary>k__BackingField: {fileID: 11400000, guid: c7eaa8ebf12eb104893b58ee3ff185de,
@@ -21,7 +21,7 @@ MonoBehaviour:
     <ParticleHit>k__BackingField: {fileID: 0}
   <AttributeData>k__BackingField:
     <Duration>k__BackingField: 3
-    <Damage>k__BackingField: 1
+    <Damage>k__BackingField: 5
     <Cooldown>k__BackingField: 3
   <CompositionData>k__BackingField:
     relativeStartLocation: 0
