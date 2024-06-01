@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3480c4475703529448634bc81eeb63f8, type: 3}
+  m_Name: RandomWaveType
+  m_EditorClassIdentifier: 
+  <EnemySpawnData>k__BackingField:
+  - <EnemyProfileSO>k__BackingField: {fileID: 11400000, guid: d0b3a1a4e224c1c41a197495960eacb1, type: 2}
+    <EnemyWeight>k__BackingField: 1
+  - <EnemyProfileSO>k__BackingField: {fileID: 11400000, guid: 0b74dcf34dab2ea44baf6e53c543999d, type: 2}
+    <EnemyWeight>k__BackingField: 3
+  <MaxEnemies>k__BackingField: 100
+  <SpawnInterval>k__BackingField: 0.1
+  <EnemiesPerWave>k__BackingField: 1
+  <WaveDuration>k__BackingField: 15

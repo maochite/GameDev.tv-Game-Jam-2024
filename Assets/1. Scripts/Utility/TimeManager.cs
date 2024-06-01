@@ -50,12 +50,15 @@ public class TimeManager : StaticInstance<TimeManager>
 
     private IEnumerator TickLoop()
     {
-        double start = Time.timeAsDouble;
-        yield return new WaitForSeconds((float)TickDelta);
-        Tick++;
-        OnTick?.Invoke();
-        double end = Time.timeAsDouble;
-        nextWaitTime = TickDelta - ((end - start) - TickDelta);
-        Debug.LogFormat("WaitTime = {0}", nextWaitTime);
+        while (true)
+        {
+            double start = Time.timeAsDouble;
+            yield return new WaitForSeconds((float)TickDelta);
+            Tick++;
+            OnTick?.Invoke();
+            double end = Time.timeAsDouble;
+            nextWaitTime = TickDelta - ((end - start) - TickDelta);
+            //Debug.LogFormat("WaitTime = {0}", nextWaitTime);
+        }
     }
 }

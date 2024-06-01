@@ -28,6 +28,7 @@ namespace Unit.Entities
 
         [Header("For Non-Pool Prefab Placement")]
         [SerializeField] private EnemySO nonPoolSO;
+        [SerializeField] private NavMeshAgent nmAgent;
 
         public override float CurrentHealth
         {

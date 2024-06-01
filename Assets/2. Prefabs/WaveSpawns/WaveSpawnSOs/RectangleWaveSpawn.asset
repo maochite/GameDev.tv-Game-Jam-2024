@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb53b5405085194a99e89371152cb7e, type: 3}
+  m_Name: RectangleWaveSpawn
+  m_EditorClassIdentifier: 
+  <EnemySpawnData>k__BackingField:
+  - <EnemyProfileSO>k__BackingField: {fileID: 11400000, guid: d0b3a1a4e224c1c41a197495960eacb1, type: 2}
+    <EnemyWeight>k__BackingField: 1
+  <SpawnRange>k__BackingField: 1
+  <SpawnInterval>k__BackingField: 60
+  <EnemiesPerWave>k__BackingField: 60
+  <WaveDuration>k__BackingField: 60
+  <SizeX>k__BackingField: 20
+  <SizeZ>k__BackingField: 20

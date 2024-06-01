@@ -14,6 +14,7 @@ namespace Unit.Entities
         [Header("Enemy Pooling")]
         [SerializeField] int initalPoolSize = 25;
         [SerializeField] int poolExtension = 25;
+        [SerializeField] public float SpawnBufferRadius = 8f;
 
         [SerializeField, ReadOnly] int currentActive = 0;
 
