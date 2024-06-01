@@ -1,3 +1,5 @@
+using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +8,7 @@ using UnityEngine;
 [RequireComponent (typeof(MeshFilter))]
 public class VoxelUV : MonoBehaviour
 {
-    [Range(0, 1024)]
+    [Range(0, 700)]
     public int index = 0;
 
     void OnValidate()
@@ -22,4 +24,27 @@ public class VoxelUV : MonoBehaviour
         mesh.SetUVs(0, uvs);
 
     }
+
+    [Button(enabledMode: EButtonEnableMode.Editor)]
+    private void Left() 
+    {
+        if(index != 0)
+        {
+            index--;
+        }
+
+        OnValidate();
+    }
+
+    [Button(enabledMode: EButtonEnableMode.Editor)]
+    private void Right() 
+    {
+        if (index < 1000)
+        {
+            index++;
+        }
+
+        OnValidate();
+    }
+
 }
