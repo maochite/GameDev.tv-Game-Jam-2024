@@ -42,7 +42,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2406041372808236226}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0451b797dd07f6d41b0ec4cf264382f8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -74,7 +74,10 @@ MonoBehaviour:
   movementSpeed: 0
   attackSpeed: 0
   attackRadius: 0
+  <PlayerSO>k__BackingField: {fileID: 0}
   <Inventory>k__BackingField: {fileID: 0}
+  <SpellBook>k__BackingField: {fileID: 0}
+  <PlayerDialogue>k__BackingField: {fileID: 0}
   rigidBody: {fileID: 7565830329985711769}
   inputSmoothing: 8
   maxHealth: 1

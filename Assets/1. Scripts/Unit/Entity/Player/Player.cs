@@ -231,12 +231,14 @@ namespace Unit.Entities
             {
                 transform.forward = movementDirection;
 
-                rigidBody.MovePosition(rigidBody.position + MovementSpeed * Time.deltaTime * calculated_input);
+
+                rigidBody.velocity = movementDirection * MovementSpeed;
                 return true;
             }
-
             else
             {
+   
+                rigidBody.velocity = Vector3.zero;
                 return false;
             }
 

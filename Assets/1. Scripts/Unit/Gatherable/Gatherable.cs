@@ -1,6 +1,7 @@
 using Items;
 using NaughtyAttributes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace Unit.Gatherables
 
         private float shakeTimer = 0f;
         private bool initialPositionSet = false;
+
+        Coroutine GatherCoroutine;
 
         protected override void Awake()
         {
@@ -122,9 +125,26 @@ namespace Unit.Gatherables
             CurrentHealth -= gatherAmount;
         }
 
-        void Update()
+        private void GatherResponse()
         {
-            if (shakeTimer > 0)
+            if(GatherCoroutine != null)
+            {
+                StopCoroutine(GatherCoroutine);
+                StartCoroutine(ShakeNode());
+            }
+
+            else
+            {
+                StartCoroutine(ShakeNode());
+            }
+        }
+
+        private IEnumerator ShakeNode()
+        {
+            spriteObject.transform.localPosition = Vector3.zero;
+            shakeTimer = shakeDuration;
+
+            while (shakeTimer > 0)
             {
                 float shakeAmountX = shakeX.Evaluate(1f - (shakeTimer / shakeDuration));
                 float shakeAmountZ = shakeZ.Evaluate(1f - (shakeTimer / shakeDuration));
@@ -133,13 +153,9 @@ namespace Unit.Gatherables
                 spriteObject.transform.localPosition = shakeOffset;
 
                 shakeTimer -= Time.deltaTime;
-            }
-        }
 
-        private void GatherResponse()
-        {
-            spriteObject.transform.localPosition = Vector3.zero;
-            shakeTimer = shakeDuration;
+                yield return null;
+            }
         }
 
         private void OnDeath()
