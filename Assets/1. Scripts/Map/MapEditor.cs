@@ -79,6 +79,20 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     public static MapEditor Instance;
     //[SerializeField][HideInInspector] private bool initialised = false;
 
+    private void initKeyMap()
+    {
+        KeyMap = new()
+        {
+            { KeyCode.E, () => HandleChangeMode(Mode.MapEdit) },
+            { KeyCode.Q, () => HandleChangeMode(Mode.TileMark) },
+            { KeyCode.Alpha1, () => SetCurrentBlock(Block.Type.Dirt) },
+            { KeyCode.Alpha2, () => SetCurrentBlock(Block.Type.Grass) },
+            { KeyCode.Alpha3, () => SetCurrentBlock(Block.Type.DarkStone) },
+            { KeyCode.Alpha4, () => SetCurrentBlock(Block.Type.SnowGrass) },
+            { KeyCode.Alpha5, () => SetCurrentBlock(Block.Type.Lava) },
+        };
+    }
+
     private void Init()
     {
         map = GetComponent<Map>();
@@ -118,18 +132,6 @@ public class MapEditor : MonoBehaviour, ISerializationCallbackReceiver
     private void Awake()
     {
         Init();
-    }
-
-    private void initKeyMap()
-    {
-        KeyMap = new()
-        {
-            { KeyCode.E, () => HandleChangeMode(Mode.MapEdit) },
-            { KeyCode.Q, () => HandleChangeMode(Mode.TileMark) },
-            { KeyCode.Alpha1, () => SetCurrentBlock(Block.Type.Dirt) },
-            { KeyCode.Alpha2, () => SetCurrentBlock(Block.Type.Grass) },
-            { KeyCode.Alpha3, () => SetCurrentBlock(Block.Type.Stone) },
-        };
     }
 
     public void OnBeforeSerialize()
