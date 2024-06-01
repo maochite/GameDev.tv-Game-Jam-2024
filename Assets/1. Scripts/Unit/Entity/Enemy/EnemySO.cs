@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Unit.Entities
 {
+    [CreateAssetMenu(menuName = "Unit/Entity/EnemySO")]
     public class EnemySO : EntitySO
     {
         [field: Header("Enemy Specifics")]
