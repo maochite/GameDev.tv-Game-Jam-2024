@@ -367,6 +367,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: ShowInternal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: StartTime.day
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: TrackGameTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: StartTime.hour
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: CurrentTime.day
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: StartGameTime.day
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303927100801638470, guid: d74fefa8f75031549ae7430e8f5a0b9c,
+        type: 3}
+      propertyPath: CurrentGameTime.day
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7192228724374581339, guid: d74fefa8f75031549ae7430e8f5a0b9c,
         type: 3}
       propertyPath: m_SizeDelta.x

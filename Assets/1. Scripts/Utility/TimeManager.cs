@@ -1,23 +1,78 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class TimeManager : StaticInstance<TimeManager>
 {
-    [SerializeField] private double TickRate = 64f;
-    [SerializeField][HideInInspector] public double TickDelta { get; private set; }
-    [SerializeField][HideInInspector] public uint Tick { get; private set; }
+    [Serializable]
+    public struct GameTime
+    {
+        [SerializeField, MinValue(1), AllowNesting] public int day;
+        [SerializeField, MinValue(0), MaxValue(23), AllowNesting] public int hour;
+        [SerializeField, MinValue(0), MaxValue(59), AllowNesting] public int minute;
 
-    [SerializeField][HideInInspector] private double nextWaitTime;
+        public void AddMinute()
+        {
+            if (minute == 59)
+            {
+                if (hour == 59)
+                {
+                    day += 1;
+                    hour = 0;
+                } else
+                {
+                    hour += 1;
+                }
+                minute = 0;
+            } else
+            {
+                minute += 1;
+            }
+        }
+    }
+
+    [Space(10)]
+    [SerializeField] private bool TrackGameTime;
+    [ShowIf("TrackGameTime"), SerializeField, MinValue(1), MaxValue(60)] private int GameDayRealTimeMins = 30;
+    [ShowIf("TrackGameTime"), SerializeField] private GameTime StartGameTime;
+    [Space(10)]
+    [SerializeField] private bool ShowInternal;
+    [ShowIf("ShowInternal"), SerializeField, ReadOnly] private uint CurrentTick;
+    [ShowIf("ShowInternal"), SerializeField, ReadOnly] private double TickDelta;
+    [ShowIf(EConditionOperator.And, "TrackGameTime", "ShowInternal"), SerializeField, ReadOnly] private double GameMinRealTimeSecs;
+    [ShowIf(EConditionOperator.And, "TrackGameTime", "ShowInternal"), SerializeField, ReadOnly] private GameTime CurrentGameTime;
+    [ShowIf(EConditionOperator.And, "TrackGameTime", "ShowInternal"), SerializeField, ReadOnly] private double NextGameMinWaitTime;
 
     public event Action OnTick;
+    public event Action OnGameMinutePassed;
 
     private void Start()
     {
-        Tick = 0;
-        TickDelta = 1 / TickRate;
-        nextWaitTime = TickDelta;
-        StartCoroutine(TickLoop());
+        CurrentTick = 0;
+        TickDelta = Time.fixedDeltaTime;
+        if (TrackGameTime)
+        {
+            CurrentGameTime = StartGameTime;
+            GameMinRealTimeSecs = GameDayRealTimeMins / 24d;
+            NextGameMinWaitTime = GameMinRealTimeSecs;
+            StartCoroutine(GameTimeLoop());
+        }
+    }
+
+    public uint GetCurrentTick()
+    {
+        return CurrentTick;
+    }
+
+    public double GetTickDelta()
+    {
+        return TickDelta;
+    }
+
+    public GameTime GetGameTime()
+    {
+        return CurrentGameTime;
     }
 
     public double TicksToTime(uint ticks)
@@ -27,7 +82,7 @@ public class TimeManager : StaticInstance<TimeManager>
 
     public double TimePassed(uint previousTick)
     {
-        return TicksToTime(Tick - previousTick);
+        return TicksToTime(CurrentTick - previousTick);
     }
 
     public double TimePassed(uint currentTick, uint previousTick)
@@ -48,17 +103,22 @@ public class TimeManager : StaticInstance<TimeManager>
         return ret * mult;
     }
 
-    private IEnumerator TickLoop()
+    private void FixedUpdate()
+    {
+        CurrentTick++;
+        OnTick?.Invoke();
+    }
+
+    private IEnumerator GameTimeLoop()
     {
         while (true)
         {
             double start = Time.timeAsDouble;
-            yield return new WaitForSeconds((float)TickDelta);
-            Tick++;
-            OnTick?.Invoke();
+            yield return new WaitForSeconds((float)GameMinRealTimeSecs);
+            CurrentGameTime.AddMinute();
+            OnGameMinutePassed?.Invoke();
             double end = Time.timeAsDouble;
-            nextWaitTime = TickDelta - ((end - start) - TickDelta);
-            //Debug.LogFormat("WaitTime = {0}", nextWaitTime);
+            NextGameMinWaitTime = GameMinRealTimeSecs - (((end - start) - GameMinRealTimeSecs));
         }
     }
 }

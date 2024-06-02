@@ -153,6 +153,8 @@ MonoBehaviour:
   poolExtension: 100
   SpawnBufferRadius: 8
   currentActive: 0
+  enemyTestSO: {fileID: 0}
+  testLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &4944958575849328856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,4 +959,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TickRate: 64
-  nextWaitTime: 0
+  TrackGameTime: 1
+  GameDayRealTimeMins: 30
+  StartGameTime:
+    day: 6
+    hour: 0
+    minute: 0
+  ShowInternal: 1
+  CurrentTick: 0
+  TickDelta: 0
+  NextTickWaitTime: 0
+  GameMinRealTimeSecs: 0
+  CurrentGameTime:
+    day: 1
+    hour: 0
+    minute: 0
+  NextGameMinWaitTime: 0

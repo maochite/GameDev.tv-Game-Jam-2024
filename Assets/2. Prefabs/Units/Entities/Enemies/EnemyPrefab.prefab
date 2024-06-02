@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 4266937332691688702}
   - component: {fileID: 33787460436176458}
   - component: {fileID: 5187777638235084939}
+  - component: {fileID: -194542028746610229}
   - component: {fileID: -8427856959166201426}
   m_Layer: 15
   m_Name: EnemyPrefab
@@ -239,6 +240,19 @@ MonoBehaviour:
   healthRegen: 1
   nonPoolSO: {fileID: 0}
   nmAgent: {fileID: -8427856959166201426}
+--- !u!114 &-194542028746610229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329064909214720615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241a99999633dab429ef6b7d8b5976d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nmAgent: {fileID: 0}
 --- !u!195 &-8427856959166201426
 NavMeshAgent:
   m_ObjectHideFlags: 0

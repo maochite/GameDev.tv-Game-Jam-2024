@@ -10,23 +10,24 @@ namespace WaveSpawns
     [Serializable]
     public class Level
     {
-        [MinValue(0), MaxValue(60)] public int startDelaySecs;
+        [SerializeField, MinValue(0), MaxValue(60)] public int startDelaySecs;
+        [SerializeField, MinValue(600), MaxValue(559)] public int startAtGameTime;
         [Space(5)]
-        [ReorderableList] public List<Wave> waves;
+        [SerializeField, ReorderableList] public List<Wave> waves;
     }
 
     [Serializable]
     public class Wave
     {
-        [MinValue(0), MaxValue(30), AllowNesting] public int startDelaySecs;
+        [SerializeField, MinValue(0), MaxValue(30), AllowNesting] public int startDelaySecs;
         [Space(5)]
-        [AllowNesting] public bool endWaveOnPercentKilled;
-        [ShowIf("endWaveOnPercentKilled"), MinValue(25f), MaxValue(100f), AllowNesting] public float percentKillsRequired;
-        [AllowNesting] public bool endWaveOnTimeLimit;
-        [ShowIf("endWaveOnTimeLimit"), MinValue(10f), MaxValue(180f), AllowNesting] public float timeLimitSecs;
+        [SerializeField, AllowNesting] public bool endWaveOnPercentKilled;
+        [ShowIf("endWaveOnPercentKilled"), SerializeField, MinValue(25f), MaxValue(100f), AllowNesting] public float percentKillsRequired;
+        [SerializeField, AllowNesting] public bool endWaveOnTimeLimit;
+        [ShowIf("endWaveOnTimeLimit"), SerializeField, MinValue(10f), MaxValue(180f), AllowNesting] public float timeLimitSecs;
         public bool despawnAllEnemiesOnWaveEnd;
         [Space(5)]
-        [ReorderableList] public List<Group> groups;
+        [SerializeField, ReorderableList] public List<Group> groups;
     }
 
     [Serializable]
@@ -38,16 +39,15 @@ namespace WaveSpawns
             Circle,
             Rectangle,
         }
-
-        public EnemySO enemy;
-        [MinValue(1), MaxValue(50), AllowNesting] public int spawnCount;
+        [SerializeReference] public EnemySO enemy;
+        [SerializeField, MinValue(1), MaxValue(50), AllowNesting] public int spawnCount;
         [Space(5)]
-        public float spawnDelaySecs;
+        [SerializeField] public float spawnDelaySecs;
         [Space(5)]
         public SpawnFormation spawnType;
-        [ShowIf("spawnType", SpawnFormation.Scatter), AllowNesting] public RandomWaveSpawn scatterWaveSpawn = new();
-        [ShowIf("spawnType", SpawnFormation.Circle), AllowNesting] public OscillatingWaveSpawn circleWaveSpawn = new();
-        [ShowIf("spawnType", SpawnFormation.Rectangle), AllowNesting] public RectangleWaveSpawn rectangleWaveSpawn = new();
+        [ShowIf("spawnType", SpawnFormation.Scatter), SerializeField, AllowNesting] public RandomWaveSpawn scatterWaveSpawn = new();
+        [ShowIf("spawnType", SpawnFormation.Circle), SerializeField, AllowNesting] public OscillatingWaveSpawn circleWaveSpawn = new();
+        [ShowIf("spawnType", SpawnFormation.Rectangle), SerializeField, AllowNesting] public RectangleWaveSpawn rectangleWaveSpawn = new();
     }
 
     public class EnemyWaveHandler : MonoBehaviour
@@ -149,7 +149,7 @@ namespace WaveSpawns
                 CurrentLevel = 0;
                 CurrentWave = 0;
                 CurrentGroup = 0;
-                LevelStartTick = TimeManager.Instance.Tick;
+                LevelStartTick = TimeManager.Instance.GetCurrentTick();
                 CurrentState = GameState.StartLevel;
                 CurrentWaveTotalEnemies = 0;
                 CurrentWaveEnemiesSpawned = 0;
@@ -243,7 +243,7 @@ namespace WaveSpawns
             if (CurrentWave < Levels[CurrentLevel].waves.Count)
             {
                 // Move to the next wave
-                WaveStartTick = TimeManager.Instance.Tick;
+                WaveStartTick = TimeManager.Instance.GetCurrentTick();
                 CurrentState = GameState.StartWave;
             }
             else
@@ -259,7 +259,7 @@ namespace WaveSpawns
                 if (CurrentLevel < Levels.Count)
                 {
                     // Move to the next level
-                    LevelStartTick = TimeManager.Instance.Tick;
+                    LevelStartTick = TimeManager.Instance.GetCurrentTick();
                     CurrentState = GameState.StartLevel;
                 }
                 else
@@ -301,14 +301,14 @@ namespace WaveSpawns
                 case GameState.StartLevel:
                     if (TimeManager.Instance.TimePassed(LevelStartTick) >= Levels[CurrentLevel].startDelaySecs)
                     {
-                        WaveStartTick = TimeManager.Instance.Tick;
+                        WaveStartTick = TimeManager.Instance.GetCurrentTick();
                         CurrentState = GameState.StartWave;
                     }
                     break;
                 case GameState.StartWave:
                     if (TimeManager.Instance.TimePassed(WaveStartTick) >= Levels[CurrentLevel].waves[CurrentWave].startDelaySecs)
                     {
-                        LastGroupSpawnTick = TimeManager.Instance.Tick;
+                        LastGroupSpawnTick = TimeManager.Instance.GetCurrentTick();
                         UpdateWaveEnemyTracking(); // Update stats used for checking wave completion
                         CurrentState = GameState.WaveInProgress;
                     }
