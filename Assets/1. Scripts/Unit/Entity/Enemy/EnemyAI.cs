@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unit.Entities;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeReference][HideInInspector] private NavMeshAgent nmAgent;
+
+    private void Awake()
     {
-        
+        nmAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        TimeManager.Instance.OnTick += TimeManager_OnTick;
+    }
+
+    private void OnDisable()
+    {
+        TimeManager.Instance.OnTick -= TimeManager_OnTick;
+    }
+
+    private void TimeManager_OnTick()
+    {
+        nmAgent.SetDestination(Player.Instance.transform.position);
     }
 }

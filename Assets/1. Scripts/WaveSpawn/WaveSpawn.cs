@@ -22,6 +22,11 @@ namespace WaveSpawns
                 }
             }
 
+            if (NavMeshUtils.NearestPointOnNavmesh(spawnPos, out Vector3 nmPos))
+            {
+                spawnPos = nmPos;
+            }
+
             Enemy enemy = EnemyManager.Instance.RequestEnemy(enemySO, spawnPos, rotation);
 
             //NetworkObject enemyNetworkObj = InstanceFinder.NetworkManager.GetPooledInstantiated(
