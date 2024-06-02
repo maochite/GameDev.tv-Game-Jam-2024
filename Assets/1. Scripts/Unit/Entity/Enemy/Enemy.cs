@@ -122,7 +122,7 @@ namespace Unit.Entities
             MaxHealth = EntityStatsManager.Instance.GetHealthModified(UnitSO);
             HealthRegen = EntityStatsManager.Instance.GetHealthRegenModified(UnitSO);
             MovementSpeed = EntityStatsManager.Instance.GetMovementModified(UnitSO);
-            //DefaultAbility.UpdateAbilityStats();
+            EnemyAbility.UpdateAbilityStats();
         }
 
 
