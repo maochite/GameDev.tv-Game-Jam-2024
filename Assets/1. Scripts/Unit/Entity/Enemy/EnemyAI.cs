@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour
         if (distance > Mathf.Max(enemy.AttackRadius-0.5f, nmAgent.radius+0.1f))
         {
             nmAgent.SetDestination(Player.Instance.transform.position);
-        } else
+        } else if (curTime < lastAttackTime + enemy.AttackSpeed) // Not needed if we exit above, but leaving it here anyways
         {
             nmAgent.SetDestination(transform.position); // Stop moving
             enemy.EnemyAbility.TryCast(Player.Instance.transform.position, out _); // TODO: Coroutine thing
