@@ -105,6 +105,10 @@ public class TimeManager : StaticInstance<TimeManager>
 
     private void FixedUpdate()
     {
+        // TODO:
+        // Ideally this would not be tied to FixedUpdate so we could have our own
+        // TickRate, and set TickDelta as 1/TickRate. However, unfortunately Unity
+        // is shit for tracking time accurately so this is easiest right now.
         CurrentTick++;
         OnTick?.Invoke();
     }

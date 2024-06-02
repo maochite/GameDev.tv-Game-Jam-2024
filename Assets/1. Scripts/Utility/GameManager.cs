@@ -8,6 +8,7 @@ using Unit.Entities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using WaveSpawns;
 
 public enum GameSceneState
 {
@@ -20,6 +21,7 @@ public enum GameSceneState
 public class GameManager : PersistentSingleton<GameManager> 
 {
     [field: SerializeField] public SceneTransitions SceneTransitions { get; private set; }
+    [SerializeField] private EnemyWaveHandler waveHandler;
 
     public static event Action<GameSceneState> OnBeforeStateChanged;
     public static event Action<GameSceneState> OnAfterStateChanged;
@@ -87,6 +89,7 @@ public class GameManager : PersistentSingleton<GameManager>
         yield return StartCoroutine(WaitCoroutine(1));
         DialogueManager.Instance.AssignTextBox(Player.Instance.PlayerDialogue);
         yield return StartCoroutine(FadeOutCoroutine(SceneTransitions.FadeDuration, SceneTransitions.FadeImage));
+        waveHandler.StartGame();
         yield break;
     }
 

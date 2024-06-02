@@ -24,6 +24,14 @@ public class EnemyAI : MonoBehaviour
 
     private void TimeManager_OnTick()
     {
+        if (!nmAgent.isOnNavMesh)
+        {
+            return;
+        }
+
+        //
+        // TODO
+        //
         nmAgent.SetDestination(Player.Instance.transform.position);
     }
 }

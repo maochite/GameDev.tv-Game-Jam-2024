@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-using WaveSpawns;
 using NaughtyAttributes;
 using Unit.Entities;
 
@@ -10,8 +9,9 @@ namespace WaveSpawns
     [Serializable]
     public class Level
     {
+        [SerializeField, AllowNesting] public bool startAtGameTime;
+        [ShowIf("startAtGameTime"), SerializeField, AllowNesting] public TimeManager.GameTime gameTime;
         [SerializeField, MinValue(0), MaxValue(60)] public int startDelaySecs;
-        [SerializeField, MinValue(600), MaxValue(559)] public int startAtGameTime;
         [Space(5)]
         [SerializeField, ReorderableList] public List<Wave> waves;
     }
@@ -24,7 +24,7 @@ namespace WaveSpawns
         [SerializeField, AllowNesting] public bool endWaveOnPercentKilled;
         [ShowIf("endWaveOnPercentKilled"), SerializeField, MinValue(25f), MaxValue(100f), AllowNesting] public float percentKillsRequired;
         [SerializeField, AllowNesting] public bool endWaveOnTimeLimit;
-        [ShowIf("endWaveOnTimeLimit"), SerializeField, MinValue(10f), MaxValue(180f), AllowNesting] public float timeLimitSecs;
+        [ShowIf("endWaveOnTimeLimit"), SerializeField, MinValue(1f), MaxValue(180f), AllowNesting] public float timeLimitSecs;
         public bool despawnAllEnemiesOnWaveEnd;
         [Space(5)]
         [SerializeField, ReorderableList] public List<Group> groups;
@@ -104,7 +104,10 @@ namespace WaveSpawns
 
         public void OnDisable()
         {
-            TimeManager.Instance.OnTick -= TimeManager_OnTick;
+            if (TimeManager.Instance)
+            {
+                TimeManager.Instance.OnTick -= TimeManager_OnTick;
+            }
         }
 
         public void EnemyKilled()
@@ -299,6 +302,23 @@ namespace WaveSpawns
                 case GameState.PreGame:
                     break;
                 case GameState.StartLevel:
+                    if (Levels[CurrentLevel].startAtGameTime)
+                    {
+                        TimeManager.GameTime time = TimeManager.Instance.GetGameTime();
+                        if (time.day < Levels[CurrentLevel].gameTime.day)
+                        {
+                            break;
+                        }
+                        if (time.hour < Levels[CurrentLevel].gameTime.hour)
+                        {
+                            break;
+                        }
+                        if (time.minute < Levels[CurrentLevel].gameTime.minute)
+                        {
+                            break;
+                        }
+                        LevelStartTick = TimeManager.Instance.GetCurrentTick();
+                    }
                     if (TimeManager.Instance.TimePassed(LevelStartTick) >= Levels[CurrentLevel].startDelaySecs)
                     {
                         WaveStartTick = TimeManager.Instance.GetCurrentTick();
@@ -369,8 +389,7 @@ namespace WaveSpawns
             {
                 if (enemy != null)
                 {
-                    // TODO
-                    //enemy.Despawn();
+                    EnemyManager.Instance.ReturnEnemyToPool(enemy);
                 }
             }
             enemies.Clear();
