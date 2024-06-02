@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 7530249405209374031}
   - component: {fileID: 1935378273648755397}
   m_Layer: 0
-  m_Name: CrystalTower
+  m_Name: ConstructPreviewBuildable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,9 +359,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5857886671465511977, guid: 4cb35691b62b23748abdef39e35e9baa, type: 3}
-  - {fileID: -950214023707993894, guid: 4cb35691b62b23748abdef39e35e9baa, type: 3}
-  - {fileID: 316791653419254635, guid: 4cb35691b62b23748abdef39e35e9baa, type: 3}
+  - {fileID: 2100000, guid: fe2bba53fb63b2243839c1fbe8ae46b0, type: 2}
+  - {fileID: 2100000, guid: fe2bba53fb63b2243839c1fbe8ae46b0, type: 2}
+  - {fileID: 2100000, guid: fe2bba53fb63b2243839c1fbe8ae46b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -76,7 +76,7 @@ namespace Unit.Entities
             base.AssignUnit(entitySO);
             MovementSpeed = entitySO.BaseMovementSpeed;
             AttackSpeed = entitySO.BaseAttackTime;
-            AttackRadius = entitySO.BaseAttackRadius;
+            AttackRadius = entitySO.BaseAttackRange;
 
         }
 

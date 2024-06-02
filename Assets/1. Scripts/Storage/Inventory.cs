@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unit;
+using Unit.Constructs;
 using Unit.Entities;
 using UnityEngine;
 using UnityEngine.UI;
@@ -98,12 +99,18 @@ namespace Storage
         [field: SerializeField] public ResourceSlot StoneSlot { get; private set; }
         [field: SerializeField] public ResourceSlot GoldSlot { get; private set; }
 
+        [field: Header("Resource Deductions")]
+        [field: SerializeField] public TMP_Text WoodDeduction { get; private set; }
+        [field: SerializeField] public TMP_Text StoneDeduction { get; private set; }
+        [field: SerializeField] public TMP_Text GoldDeduction { get; private set; }
+
         [field: Header("Starting Items")]
         [field: SerializeField] public List<ItemSO> StartingItemsList { get; private set; }
 
         [field: Header("Item Add Debug")]
+        [field: SerializeField] public int StartingResources { get; private set; } = 100;
         [field: SerializeField] public ItemSO DebugItemToAdd { get; private set; }
-        [field: SerializeField] public int DebugItemAmount { get; private set; }
+        [field: SerializeField] public int DebugItemAmount { get; private set; } = 1;
 
         public void InitializeInventory()
         {
@@ -119,13 +126,19 @@ namespace Storage
             {
                 AddItem(itemSO);
             }
+
+            WoodSlot.NumResources = StartingResources;
+            StoneSlot.NumResources = StartingResources;
+            GoldSlot.NumResources = StartingResources;
+
+            ResolveResources();
         }
 
         public bool AddItem(ItemSO itemSO)
         {
             if(itemSO is ItemResourceSO resourceSO)
             {
-                if (AddResource(resourceSO))
+                if (AddResource(resourceSO.ResourceType))
                 {
                     ResolveResources();
                     return true;
@@ -157,10 +170,9 @@ namespace Storage
         {
             if (itemSO is ItemResourceSO resourceSO)
             {
-                if (RemoveResource(resourceSO))
+                if (RemoveResource(resourceSO.ResourceType))
                 {
-                    ResolveResources();
-                    return true;
+                    return false;
                 }
 
                 else return false;
@@ -185,28 +197,31 @@ namespace Storage
             return false;
         }
 
-        private bool AddResource(ItemResourceSO itemResourceSO)
+        public bool AddResource(ResourceType resourceType, int amount = 1)
         {
-            switch (itemResourceSO.ResourceType)
+            switch (resourceType)
             {
                 case ResourceType.Wood:
-                    if (WoodSlot.NumResources < MaxResources)
+                    if (WoodSlot.NumResources + amount < MaxResources)
                     {
-                        WoodSlot.NumResources++;
+                        WoodSlot.NumResources += amount;
+                        ResolveResources();
                         return true;
                     }
                     break;
                 case ResourceType.Stone:
-                    if (StoneSlot.NumResources < MaxResources)
+                    if (StoneSlot.NumResources + amount < MaxResources)
                     {
-                        StoneSlot.NumResources++;
+                        StoneSlot.NumResources += amount;
+                        ResolveResources();
                         return true;
                     }
                     break;
                 case ResourceType.Gold:
-                    if (GoldSlot.NumResources < MaxResources)
+                    if (GoldSlot.NumResources + amount < MaxResources)
                     {
-                        GoldSlot.NumResources++;
+                        GoldSlot.NumResources += amount;
+                        ResolveResources();
                         return true;
                     }
                     break;
@@ -218,28 +233,31 @@ namespace Storage
             return false;
         }
 
-        private bool RemoveResource(ItemResourceSO itemResourceSO)
+        public bool RemoveResource(ResourceType resourceType, int amount = 1)
         {
-            switch (itemResourceSO.ResourceType)
+            switch (resourceType)
             {
                 case ResourceType.Wood:
-                    if (WoodSlot.NumResources > 0)
+                    if (WoodSlot.NumResources - amount > 0)
                     {
-                        WoodSlot.NumResources--;
+                        WoodSlot.NumResources -= amount;
+                        ResolveResources();
                         return true;
                     }
                     break;
                 case ResourceType.Stone:
-                    if (StoneSlot.NumResources > 0)
+                    if (StoneSlot.NumResources - amount > 0)
                     {
-                        StoneSlot.NumResources--;
+                        StoneSlot.NumResources -= amount;
+                        ResolveResources();
                         return true;
                     }
                     break;
                 case ResourceType.Gold:
-                    if (GoldSlot.NumResources > 0)
+                    if (GoldSlot.NumResources - amount > 0)
                     {
-                        GoldSlot.NumResources--;
+                        GoldSlot.NumResources -= amount;
+                        ResolveResources();
                         return true;
                     }
                     break;
@@ -279,21 +297,25 @@ namespace Storage
                 if(itemScrollSO == InventoryData.BlazingScroll.ItemSO)
                 {
                     Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 0);
+                    Player.Instance.LearnNewConstruct(itemScrollSO.ConstructSOList[scrolLevel - 1], 0);
                 }
 
                 else if(itemSlot.ItemSO == InventoryData.ConjureScroll.ItemSO)
                 {
                     Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 1);
+                    Player.Instance.LearnNewConstruct(itemScrollSO.ConstructSOList[scrolLevel - 1], 1);
                 }
 
                 else if(itemScrollSO == InventoryData.HellfireScroll.ItemSO)
                 {
                     Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 2);
+                    Player.Instance.LearnNewConstruct(itemScrollSO.ConstructSOList[scrolLevel - 1], 2);
                 }
 
                 else if(itemScrollSO == InventoryData.SolarScroll.ItemSO)
                 {
                     Player.Instance.LearnNewAbility(itemScrollSO.AbilitySOList[scrolLevel - 1], 3);
+                    Player.Instance.LearnNewConstruct(itemScrollSO.ConstructSOList[scrolLevel - 1], 3);
                 }
 
                 else
@@ -333,6 +355,46 @@ namespace Storage
                 gameObject.SetActive(true);
             }
         }
+
+        public bool ResolveConstructCost(ConstructSO constructSO)
+        {
+            if (WoodSlot.NumResources >= constructSO.Wood
+                && StoneSlot.NumResources >= constructSO.Stone
+                && GoldSlot.NumResources >= constructSO.Gold)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void DeductConstructCost(ConstructSO constructSO)
+        {
+            RemoveResource(ResourceType.Wood, constructSO.Wood);
+            RemoveResource(ResourceType.Stone, constructSO.Stone);
+            RemoveResource(ResourceType.Gold, constructSO.Gold);
+        }
+
+
+        public void RevealResourceDeductions(ConstructSO constructSO)
+        {
+            WoodDeduction.gameObject.SetActive(true);
+            StoneDeduction.gameObject.SetActive(true);
+            GoldDeduction.gameObject.SetActive(true);
+
+            WoodDeduction.text = "- " + constructSO.Wood;
+            StoneDeduction.text = "- " + constructSO.Stone;
+            GoldDeduction.text = "- " + constructSO.Gold;
+        }
+
+        public void HideReasourceDeductions()
+        {
+            WoodDeduction.gameObject.SetActive(false);
+            StoneDeduction.gameObject.SetActive(false);
+            GoldDeduction.gameObject.SetActive(false);
+        }
+
+
 
         [Button(enabledMode: EButtonEnableMode.Playmode)]
         private void AddItemDebug()

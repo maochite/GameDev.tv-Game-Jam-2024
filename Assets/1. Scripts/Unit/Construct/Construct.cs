@@ -150,7 +150,7 @@ namespace Unit.Constructs
             {
 
                 int colliderAmount = Physics.OverlapSphereNonAlloc(transform.position,
-                    UnitSO.TargetRange / 2,
+                    UnitSO.BaseAttackRange / 2,
                     hitColliders,
                     LayerUtility.LayerMaskByLayerEnumType(LayerEnum.Enemy));
 

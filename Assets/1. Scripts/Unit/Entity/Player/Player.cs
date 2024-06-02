@@ -9,8 +9,7 @@ using System;
 using Storage;
 using NaughtyAttributes;
 using TMPro;
-using static ConstructManager;
-using static Ability.AbilitySO.Composition;
+using Items;
 
 namespace Unit.Entities
 {
@@ -50,8 +49,6 @@ namespace Unit.Entities
         [field: SerializeField] public SpellBook SpellBook { get; private set; }
         [field: SerializeField] public TMP_Text PlayerDialogue { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
-        private readonly AbilityPrimary[] playerAbilities = new AbilityPrimary[maxAbilities];
-        private readonly ConstructSO[] playerConstructs = new ConstructSO[4];
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
@@ -61,26 +58,35 @@ namespace Unit.Entities
         private KeyCode ConstructKey2 = KeyCode.Alpha2;
         private KeyCode ConstructKey3 = KeyCode.Alpha3;
         private KeyCode ConstructKey4 = KeyCode.Alpha4;
-
+        private readonly ConstructSO[] playerConstructs = new ConstructSO[4];
 
         [Header("Construct Building")]
         private BuildState buildState;
-        private bool preparingBuild = false;
+        private bool spellBookOpen = false;
         private Vector3 currentBuildLocation;
         private LayerMask buildingArea;
         private LayerMask excludedArea;
         private int currentSelectedConstruct;
+        private int currentBuildingConstruct;
         private Collider[] constructAreaColliders = new Collider[200];
         [SerializeField, Range(1, 10)] private float targetSafeZoneSize = 5;
+        [SerializeField, Range(1, 20)] private float buildRange = 5;
 
         [Header("Construct Indicator")]
-        [SerializeField] private GameObject constructPreview;
-        [SerializeField] private GameObject arrowIndicatorPrefab;
+        [SerializeField] private GameObject constructPreviewBuildable;
+        [SerializeField] private GameObject constructPreviewObstructed;
+        [SerializeField] private GameObject arrowIndicatorBuildable;
+        [SerializeField] private GameObject arrowIndicatorObstructed;
         [SerializeField] private float indicatorForwardOffset;
         [SerializeField] private float indicatorHeightOffset;
         [SerializeField] private AnimationCurve trajectoryCurve;
         [SerializeField] private int resolution = 10;
-        private List<GameObject> arrowIndicators;
+        private List<GameObject> arrowIndicatorsBuildable;
+        private List<GameObject> arrowIndicatorsObstructed;
+
+        //AbilityVariables
+        private readonly AbilityPrimary[] playerAbilities = new AbilityPrimary[maxAbilities];
+        private int currentSelectedAbility;
 
         //Controller Variables
         private Vector3 raw_input;
@@ -138,7 +144,7 @@ namespace Unit.Entities
             Instance = null;
         }
 
-        public override float CurrentHealth 
+        public override float CurrentHealth
         {
             get { return currentHealth; }
 
@@ -193,13 +199,13 @@ namespace Unit.Entities
             }
         }
 
-        public override float HealthRegen 
-        { 
-            get => HealthRegen; 
+        public override float HealthRegen
+        {
+            get => HealthRegen;
 
             protected set
             {
-                if(healthRegen < 1)
+                if (healthRegen < 1)
                 {
                     healthRegen = 1;
                 }
@@ -210,7 +216,7 @@ namespace Unit.Entities
         {
             Instance = this;
 
-            if(PlayerSO == null)
+            if (PlayerSO == null)
             {
                 base.Awake();
             }
@@ -228,14 +234,22 @@ namespace Unit.Entities
             buildingArea = terrainMask;
             excludedArea = LayerUtility.CombineMasks(constructMask, gatherMask, enemyMask, playerMask, indestructibleMask);
 
-            constructPreview = Instantiate(constructPreview);
-            constructPreview.SetActive(false);
-            arrowIndicators = new(resolution);
+            constructPreviewBuildable = Instantiate(constructPreviewBuildable);
+            constructPreviewBuildable.SetActive(false);
+
+            constructPreviewObstructed = Instantiate(constructPreviewObstructed);
+            constructPreviewObstructed.SetActive(false);
+
+            arrowIndicatorsBuildable = new(resolution);
+            arrowIndicatorsObstructed = new(resolution);
 
             for (int i = 0; i < resolution; i++)
             {
-                arrowIndicators.Add(Instantiate(arrowIndicatorPrefab, transform));
-                arrowIndicators[i].SetActive(false);
+                arrowIndicatorsBuildable.Add(Instantiate(arrowIndicatorBuildable, transform));
+                arrowIndicatorsBuildable[i].SetActive(false);
+
+                arrowIndicatorsObstructed.Add(Instantiate(arrowIndicatorObstructed, transform));
+                arrowIndicatorsObstructed[i].SetActive(false);
             }
         }
 
@@ -249,8 +263,8 @@ namespace Unit.Entities
         public override void AssignUnit(PlayerSO playerSO)
         {
             base.AssignUnit(playerSO);
-            playerAbilities[0] = new(playerSO.DefaultAbility, this);
-            playerConstructs[0] = playerSO.DefaultConstruct;
+            //playerAbilities[0] = new(playerSO.DefaultAbility, this);
+            //playerConstructs[0] = playerSO.DefaultConstruct;
 
             MaxHealth = playerSO.BaseHealth;
             CurrentHealth = playerSO.BaseHealth;
@@ -281,17 +295,17 @@ namespace Unit.Entities
 
             if (Input.GetKeyDown(SpellBookKey))
             {
-                //ToggleSpellBook();
+                ToggleSpellBook(!spellBookOpen);
             }
 
-            if(preparingBuild)
+            if (spellBookOpen)
             {
                 SelectConstruct();
 
                 if (TryGetTargetedLocation(buildingArea, out RaycastHit raycastHit))
                 {
                     EvaluateBuild(raycastHit);
-                }   
+                }
             }
         }
 
@@ -309,10 +323,16 @@ namespace Unit.Entities
             }
             else
             {
-   
+
                 rigidBody.velocity = Vector3.zero;
                 return false;
             }
+
+        }
+
+        public void StopMovement()
+        {
+            rigidBody.velocity = Vector3.zero;
 
         }
 
@@ -333,6 +353,7 @@ namespace Unit.Entities
             }
         }
 
+
         private void Update()
         {
             GetInput();
@@ -342,21 +363,23 @@ namespace Unit.Entities
         {
             if (state == EntityPrimaryState.Dead) return;
 
-            if(currentBuildLocation != Vector3.zero)
-            {
-                ChangeAction(EntityActionState.Build);
-            }
-
             if (state == EntityPrimaryState.Idle)
             {
-                 GetActionFromProximity();
+                GetActionFromProximity();
             }
 
             if (state == EntityPrimaryState.Action)
             {
-                if(action == EntityActionState.None)
+
+                if (action == EntityActionState.None)
                 {
                     ChangePrimaryState(EntityPrimaryState.Idle);
+                }
+
+                if (action == EntityActionState.Build)
+                {
+                    ResolveCurrentAction();
+                    return;
                 }
 
                 else if (Move())
@@ -410,15 +433,19 @@ namespace Unit.Entities
 
         public void GetActionFromProximity()
         {
-            //TODO: Incorporate other abilities soon
-            if (!playerAbilities[0].IsCoolingDown())
+
+
+
+            if (TryGetAbility(out int abilityPrimary))
             {
+                currentSelectedAbility = abilityPrimary;
+
                 int numEnemyColliders = Physics.OverlapSphereNonAlloc(transform.position, AttackRadius, enemyBuffer, enemyLayerMask);
 
                 if (numEnemyColliders > 0)
                 {
                     reducedEnemyBuffer.Clear();
-                    
+
                     for (int i = 0; i < numEnemyColliders; i++)
                     {
                         reducedEnemyBuffer.Add(enemyBuffer[i]);
@@ -426,7 +453,7 @@ namespace Unit.Entities
 
                     Transform closestTransform = TransformUtility.FindClosestTransformSqr(transform.position, reducedEnemyBuffer);
 
-                    if(closestTransform.TryGetComponent(out Enemy enemy))
+                    if (closestTransform.TryGetComponent(out Enemy enemy))
                     {
                         currentAttackTarget = new(enemy);
                         Look(currentAttackTarget.Unit.transform.position);
@@ -463,7 +490,7 @@ namespace Unit.Entities
 
                 return;
             }
-            
+
 
         }
 
@@ -491,7 +518,7 @@ namespace Unit.Entities
                     Animator.ToggleIdleAnimation(true);
                     state = EntityPrimaryState.Idle;
                     //Idle Toggle is automatic if everything else is off
-                    break;;
+                    break; ;
                 case EntityPrimaryState.Action:
                     state = EntityPrimaryState.Action;
                     break;
@@ -499,7 +526,7 @@ namespace Unit.Entities
                     break;
             }
 
-            if(state != EntityPrimaryState.Action)
+            if (state != EntityPrimaryState.Action)
             {
                 currentBuildLocation = Vector3.zero;
             }
@@ -508,6 +535,8 @@ namespace Unit.Entities
         public void ChangeAction(EntityActionState entityAction)
         {
             if (entityAction == action) return;
+
+            actionRemainingTime = 0;
 
             switch (entityAction)
             {
@@ -551,11 +580,12 @@ namespace Unit.Entities
                 case EntityActionState.Build:
 
                     EvaluateActionAnimation(UnitSO.BuildAnimation, BuildTime);
+                    ToggleSpellBook(false);
                     action = EntityActionState.Build;
                     ChangePrimaryState(EntityPrimaryState.Action);
-                    ToggleSpellBook(false);
                     Look(currentBuildLocation);
                     actionRemainingTime = BuildTime;
+                    StopMovement();
                     break;
 
                 default:
@@ -569,13 +599,45 @@ namespace Unit.Entities
                     && currentAttackTarget.Unit.ID == currentAttackTarget.InstanceID)
             {
                 //TODO more abilities
-                if (playerAbilities[0].TryCast(currentAttackTarget.Unit.transform.position, out _))
+                if (playerAbilities[currentSelectedAbility].TryCast(currentAttackTarget.Unit.transform.position, out _))
                 {
                     return true;
                 }
             }
 
             return false;
+        }
+
+        private bool TryGetAbility(out int selectedAbility)
+        {
+            selectedAbility = -1;
+
+            if (playerAbilities[3] != null && !playerAbilities[3].IsCoolingDown())
+            {
+                selectedAbility = 3;
+            }
+
+            else if (playerAbilities[2] != null && !playerAbilities[2].IsCoolingDown())
+            {
+                selectedAbility = 2;
+            }
+
+            else if(playerAbilities[1] != null && !playerAbilities[1].IsCoolingDown())
+            {
+                selectedAbility = 1;
+            }
+
+            else if(playerAbilities[0] != null && !playerAbilities[0].IsCoolingDown())
+            {
+                selectedAbility = 0;
+            }
+
+            if (selectedAbility != -1)
+            {
+                return true;
+            }
+
+            else return false;
         }
 
         public Vector3 Aim(Vector3 worldPos)
@@ -590,11 +652,11 @@ namespace Unit.Entities
         {
             if (raycastHit.collider == null) return;
 
-            ShowArrowIndicators(transform.position, raycastHit.point);
-            constructPreview.transform.position = raycastHit.point;
-            constructPreview.SetActive(true);
+            var distance = Vector3.Distance(raycastHit.point, transform.position);
 
-            if (IsNormalUpwards(raycastHit))
+            if (Inventory.ResolveConstructCost(playerConstructs[currentSelectedConstruct])
+                && distance < buildRange
+                && IsNormalUpwards(raycastHit))
             {
                 Vector3 towerHalfSquare = targetSafeZoneSize * 0.5f * Vector3.one;
 
@@ -607,15 +669,21 @@ namespace Unit.Entities
                 if (colliders > 0)
                 {
                     buildState = BuildState.Obstructed;
+                    ShowConstructPreview(raycastHit.point);
+                    ShowArrowIndicators(transform.position, raycastHit.point);
                 }
 
                 else
                 {
                     buildState = BuildState.Buildable;
+                    ShowConstructPreview(raycastHit.point);
+                    ShowArrowIndicators(transform.position, raycastHit.point);
 
                     if (Input.GetMouseButtonUp(0))
                     {
                         currentBuildLocation = raycastHit.point;
+                        Inventory.DeductConstructCost(playerConstructs[currentSelectedConstruct]);
+                        ChangeAction(EntityActionState.Build);
                     }
                 }
             }
@@ -623,32 +691,60 @@ namespace Unit.Entities
             else
             {
                 buildState = BuildState.Obstructed;
+                ShowConstructPreview(raycastHit.point);
+                ShowArrowIndicators(transform.position, raycastHit.point);
+            }
+        }
+
+        private void ShowConstructPreview(Vector3 point)
+        {
+
+            if (buildState == BuildState.Buildable)
+            {
+                constructPreviewBuildable.transform.position = point;
+                constructPreviewBuildable.SetActive(true);
+                constructPreviewObstructed.SetActive(false);
+            }
+
+            else
+            {
+                constructPreviewObstructed.transform.position = point;
+                constructPreviewObstructed.SetActive(true);
+                constructPreviewBuildable.SetActive(false);
             }
         }
 
         private void SelectConstruct()
         {
-            if (Input.GetKeyDown(ConstructKey1))
+            if (Input.GetKeyDown(ConstructKey1) && playerConstructs[0] != null)
             {
                 currentSelectedConstruct = 0;
+                SpellBook.ToggleConstruct(0);
+                Inventory.RevealResourceDeductions(playerConstructs[currentSelectedConstruct]);
             }
 
-            else if (Input.GetKeyDown(ConstructKey2))
+            else if (Input.GetKeyDown(ConstructKey2) && playerConstructs[1] != null)
             {
                 currentSelectedConstruct = 1;
+                SpellBook.ToggleConstruct(1);
+                Inventory.RevealResourceDeductions(playerConstructs[currentSelectedConstruct]);
             }
 
-            else if (Input.GetKeyDown(ConstructKey3))
+            else if (Input.GetKeyDown(ConstructKey3) && playerConstructs[2] != null)
             {
                 currentSelectedConstruct = 2;
+                SpellBook.ToggleConstruct(2);
+                Inventory.RevealResourceDeductions(playerConstructs[currentSelectedConstruct]);
             }
 
-            else if (Input.GetKeyDown(ConstructKey4))
+            else if (Input.GetKeyDown(ConstructKey4) && playerConstructs[3] != null)
             {
                 currentSelectedConstruct = 3;
+                SpellBook.ToggleConstruct(3);
+                Inventory.RevealResourceDeductions(playerConstructs[currentSelectedConstruct]);
             }
         }
-        
+
         private void Build()
         {
             //check resources
@@ -658,28 +754,43 @@ namespace Unit.Entities
             ConstructManager.Instance.PlaceConstruct(selectedConstructSO, currentBuildLocation);
             currentBuildLocation = Vector3.zero;
         }
-        
+
         private void ShowArrowIndicators(Vector3 fromLocation, Vector3 toLocation)
         {
+            HideArrowIndicators();
+
             Vector3 direction = (toLocation - fromLocation).normalized;
             Vector3 offsetVector = direction * indicatorForwardOffset;
             fromLocation += offsetVector;
 
-            for (int i = 0; i < arrowIndicators.Count; i++)
+            List<GameObject> indicators;
+
+            if (buildState == BuildState.Buildable)
+            {
+                indicators = arrowIndicatorsBuildable;
+            }
+
+            else
+            {
+                indicators = arrowIndicatorsObstructed;
+            }
+
+            for (int i = 0; i < indicators.Count; i++)
             {
                 float t = (float)i / resolution;
                 Vector3 point = Vector3.Lerp(fromLocation, toLocation, t);
                 point.y += trajectoryCurve.Evaluate(t);
-                arrowIndicators[i].transform.position = point;
-                arrowIndicators[i].SetActive(true);
+                indicators[i].transform.position = point;
+                indicators[i].SetActive(true);
             }
         }
 
         private void HideArrowIndicators()
         {
-            foreach(GameObject gameObj in arrowIndicators)
+            for(int i = 0; i < resolution; i++)
             {
-                gameObj.SetActive(false);
+                arrowIndicatorsBuildable[i].SetActive(false);
+                arrowIndicatorsObstructed[i].SetActive(false);
             }
         }
 
@@ -742,7 +853,7 @@ namespace Unit.Entities
 
         public void LearnNewAbility(AbilitySO abilitySO, int abilitySlotNum)
         {
-            if(abilitySlotNum < 0 || abilitySlotNum > 0)
+            if (abilitySlotNum < 0 || abilitySlotNum + 1 > maxAbilities)
             {
                 Debug.LogError("Incorrect Ability Slot");
                 return;
@@ -751,12 +862,24 @@ namespace Unit.Entities
             playerAbilities[abilitySlotNum] = new(abilitySO, this);
         }
 
+        public void LearnNewConstruct(ConstructSO constructSO, int abilitySlotNum)
+        {
+            if (abilitySlotNum < 0 || abilitySlotNum + 1 > maxAbilities)
+            {
+                Debug.LogError("Incorrect Construct Slot");
+                return;
+            }
+
+            playerConstructs[abilitySlotNum] = constructSO ;
+            SpellBook.RevealConstructImage(abilitySlotNum);
+        }
+
         private void Gather()
         {
 
             foreach (var gatherableInstance in gatherableTargets)
             {
-                if (gatherableInstance.Unit != null 
+                if (gatherableInstance.Unit != null
                     && gatherableInstance.Unit.ID == gatherableInstance.InstanceID)
                 {
                     gatherableInstance.Unit.Gather(GatheringDamage);
@@ -773,7 +896,7 @@ namespace Unit.Entities
         private void ToggleSpellBook(bool toggle)
         {
             //We're currently building
-            if (action == EntityActionState.Build && actionRemainingTime > 0)
+            if (action == EntityActionState.Build || state == EntityPrimaryState.Dead)
             {
                 return;
             }
@@ -781,18 +904,22 @@ namespace Unit.Entities
 
             if (toggle)
             {
-                preparingBuild = true;
                 currentSelectedConstruct = 0;
+                Inventory.RevealResourceDeductions(playerConstructs[currentSelectedConstruct]);
+                spellBookOpen = true;
                 SpellBook.ToggleSpellBook(true);
             }
 
             else
             {
+                spellBookOpen = false;
                 HideArrowIndicators();
-                constructPreview.SetActive(false);
+                constructPreviewObstructed.SetActive(false);
+                constructPreviewBuildable.SetActive(false);
                 SpellBook.ToggleSpellBook(false);
+                Inventory.HideReasourceDeductions();
             }
-            
+
         }
     }
 

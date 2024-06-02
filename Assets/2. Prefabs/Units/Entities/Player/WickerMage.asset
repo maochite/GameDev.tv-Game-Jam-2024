@@ -15,16 +15,13 @@ MonoBehaviour:
   <BaseHealth>k__BackingField: 15
   <BaseHealthRegen>k__BackingField: 0
   <BaseAttackTime>k__BackingField: 0.5
-  <BaseAttackRadius>k__BackingField: 6
+  <BaseAttackRange>k__BackingField: 10
   <BaseMovementSpeed>k__BackingField: 5
   <BaseLightRadius>k__BackingField: 5
   <BaseRepairTime>k__BackingField: 1
   <BaseGatheringTime>k__BackingField: 0.5
+  <BaseBuildingTime>k__BackingField: 1.5
   <BaseGatheringDamage>k__BackingField: 1
   <BaseGatherRadius>k__BackingField: 2
   <BaseItemMagnetRadius>k__BackingField: 4
   <BaseCollectionRadius>k__BackingField: 1.5
-  <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 7b995e134c27e714080dff60f0fb5272,
-    type: 2}
-  <DefaultConstruct>k__BackingField: {fileID: 11400000, guid: 2b8bfd0ab9f28144b9a2b49c5f5e263f,
-    type: 2}

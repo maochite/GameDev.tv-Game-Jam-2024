@@ -329,7 +329,8 @@ GameObject:
   - component: {fileID: 766182524037936296}
   - component: {fileID: 4051769879069646591}
   - component: {fileID: 8907488571284519814}
-  m_Layer: 0
+  - component: {fileID: -9218669122601788758}
+  m_Layer: 19
   m_Name: ConstructPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +383,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddea441e89614742ab14de7c7aec73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 0}
+  movementSpeed: 0
+  attackSpeed: 0
+  attackRadius: 0
   nonPoolSO: {fileID: 0}
+  maxHealth: 1
+  currentHealth: 1
+  healthRegen: 1
+--- !u!136 &-9218669122601788758
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853257009820350379}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.73
+  m_Height: 2.73
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!1 &7605583250288428707
 GameObject:
   m_ObjectHideFlags: 0

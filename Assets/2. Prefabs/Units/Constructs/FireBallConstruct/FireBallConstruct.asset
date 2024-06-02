@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: FireBallConstruct
   m_EditorClassIdentifier: 
   <BaseHealth>k__BackingField: 100
+  <BaseHealthRegen>k__BackingField: 0
+  <BaseAttackTime>k__BackingField: 1
+  <BaseAttackRange>k__BackingField: 15
+  <BaseMovementSpeed>k__BackingField: 0
   <AbilityPrimarySO>k__BackingField: {fileID: 11400000, guid: 92668c74d91ea1948ae4126c7e51c894,
     type: 2}
-  <TargetRange>k__BackingField: 30
   <MeshFilter>k__BackingField: {fileID: 0}
   <Material>k__BackingField: {fileID: 0}
+  <Wood>k__BackingField: 5
+  <Stone>k__BackingField: 5
+  <Gold>k__BackingField: 0

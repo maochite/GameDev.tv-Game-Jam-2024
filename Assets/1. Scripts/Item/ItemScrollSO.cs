@@ -3,6 +3,7 @@ using Items;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Unit.Constructs;
 using UnityEngine;
 
 namespace Unit.Entities
@@ -12,5 +13,6 @@ namespace Unit.Entities
     {
         [field: InfoBox("Each Ability Scroll can have multiple levels", EInfoBoxType.Normal)]
         [field: SerializeField] public AbilitySO[] AbilitySOList;
+        [field: SerializeField] public ConstructSO[] ConstructSOList;
     }
 }
