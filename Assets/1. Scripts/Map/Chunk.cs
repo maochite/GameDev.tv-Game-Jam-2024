@@ -61,7 +61,7 @@ public class Chunk : MonoBehaviour, ISerializationCallbackReceiver
         m_blocks[blockIdx.z, blockIdx.y, blockIdx.x] = blockType;
     }
 
-    private void ClearBlocks() 
+    private void ClearBlocks()
     {
         for (int z = 0; z < m_chunkWidth + 0; ++z)
         {
@@ -72,10 +72,9 @@ public class Chunk : MonoBehaviour, ISerializationCallbackReceiver
                     if (y == 0)
                     {
                         m_blocks[z, y, x] = Block.Type.Dirt;
-                    } else if (y == 1)
-                    {
-                        m_blocks[z, y, x] = Block.Type.Grass;
-                    } else
+                    }
+
+                    else
                     {
                         m_blocks[z, y, x] = Block.Type.Air;
                     }
