@@ -9,8 +9,6 @@ namespace WaveSpawns
     [Serializable]
     public class Level
     {
-        [SerializeField, AllowNesting] public bool startAtGameTime;
-        [ShowIf("startAtGameTime"), SerializeField, AllowNesting] public TimeManager.GameTime gameTime;
         [SerializeField, MinValue(0), MaxValue(60)] public int startDelaySecs;
         [Space(5)]
         [SerializeField, ReorderableList] public List<Wave> waves;
@@ -19,6 +17,9 @@ namespace WaveSpawns
     [Serializable]
     public class Wave
     {
+        [SerializeField, AllowNesting] public bool startAtGameTime;
+        [ShowIf("startAtGameTime"), SerializeField, AllowNesting] public TimeManager.GameTime gameTime;
+        [Space(5)]
         [SerializeField, MinValue(0), MaxValue(30), AllowNesting] public int startDelaySecs;
         [Space(5)]
         [SerializeField, AllowNesting] public bool endWaveOnPercentKilled;
@@ -302,23 +303,6 @@ namespace WaveSpawns
                 case GameState.PreGame:
                     break;
                 case GameState.StartLevel:
-                    if (Levels[CurrentLevel].startAtGameTime)
-                    {
-                        TimeManager.GameTime time = TimeManager.Instance.GetGameTime();
-                        if (time.day < Levels[CurrentLevel].gameTime.day)
-                        {
-                            break;
-                        }
-                        if (time.hour < Levels[CurrentLevel].gameTime.hour)
-                        {
-                            break;
-                        }
-                        if (time.minute < Levels[CurrentLevel].gameTime.minute)
-                        {
-                            break;
-                        }
-                        LevelStartTick = TimeManager.Instance.GetCurrentTick();
-                    }
                     if (TimeManager.Instance.TimePassed(LevelStartTick) >= Levels[CurrentLevel].startDelaySecs)
                     {
                         WaveStartTick = TimeManager.Instance.GetCurrentTick();
@@ -326,6 +310,23 @@ namespace WaveSpawns
                     }
                     break;
                 case GameState.StartWave:
+                    if (Levels[CurrentLevel].waves[CurrentWave].startAtGameTime)
+                    {
+                        TimeManager.GameTime time = TimeManager.Instance.GetGameTime();
+                        if (time.day < Levels[CurrentLevel].waves[CurrentWave].gameTime.day)
+                        {
+                            break;
+                        }
+                        if (time.hour < Levels[CurrentLevel].waves[CurrentWave].gameTime.hour)
+                        {
+                            break;
+                        }
+                        if (time.minute < Levels[CurrentLevel].waves[CurrentWave].gameTime.minute)
+                        {
+                            break;
+                        }
+                        WaveStartTick = TimeManager.Instance.GetCurrentTick();
+                    }
                     if (TimeManager.Instance.TimePassed(WaveStartTick) >= Levels[CurrentLevel].waves[CurrentWave].startDelaySecs)
                     {
                         LastGroupSpawnTick = TimeManager.Instance.GetCurrentTick();
