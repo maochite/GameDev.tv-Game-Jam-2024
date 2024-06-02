@@ -19,7 +19,10 @@ public class EnemyAI : MonoBehaviour
 
     private void OnDisable()
     {
-        TimeManager.Instance.OnTick -= TimeManager_OnTick;
+        if (TimeManager.Instance)
+        {
+            TimeManager.Instance.OnTick -= TimeManager_OnTick;
+        }
     }
 
     private void TimeManager_OnTick()
