@@ -112,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7415441797746235540}
   - component: {fileID: 190051306234801116}
+  - component: {fileID: 4944958575849328856}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -150,7 +151,33 @@ MonoBehaviour:
     type: 3}
   initalPoolSize: 25
   poolExtension: 100
+  SpawnBufferRadius: 8
   currentActive: 0
+--- !u!114 &4944958575849328856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577145616132860955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35659997698b15445a5317b852a1626a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Levels: []
+  CurrentState: 0
+  CurrentLevel: 0
+  CurrentWave: 0
+  CurrentGroup: 0
+  CurrentWaveTotalEnemies: 0
+  CurrentWaveEnemiesSpawned: 0
+  CurrentWaveEnemiesKilled: 0
+  CurrentWaveEnemiesAlive: 0
+  LevelStartTick: 0
+  WaveStartTick: 0
+  LastGroupSpawnTick: 0
+  DebugLogging: 1
 --- !u!1 &2964679333824751667
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,9 +529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722a39f3ba56b3d4280cb3f57ac5c37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerSO: {fileID: 11400000, guid: 53702d5c683a74b47bf828c9608284e7, type: 2}
-  playerDialogue: {fileID: 0}
 --- !u!1 &6086848802856111519
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +673,7 @@ Transform:
   - {fileID: 3674031209509510371}
   - {fileID: 3769209963043455859}
   - {fileID: 1063197524110267206}
+  - {fileID: 8782008405807528315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8953594875561403626
@@ -887,3 +912,49 @@ MonoBehaviour:
   poolExtension: 25
   poolSize: 500
   currentActive: 0
+--- !u!1 &8854117323798088223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8782008405807528315}
+  - component: {fileID: 5303927100801638470}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8782008405807528315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854117323798088223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1875918897796352787}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5303927100801638470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854117323798088223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121ed0efe7344434bbb8f3818206ceb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TickRate: 64
+  nextWaitTime: 0

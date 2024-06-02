@@ -1,9 +1,6 @@
 using UnityEngine;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using System;
-using NaughtyAttributes;
 using Unit.Entities;
 
 namespace WaveSpawns
@@ -20,6 +17,11 @@ namespace WaveSpawns
                 {
                     spawnPos = newSpawnPos;
                 }
+            }
+
+            if (NavMeshUtils.NearestPointOnNavmesh(spawnPos, out Vector3 nmPos))
+            {
+                spawnPos = nmPos;
             }
 
             Enemy enemy = EnemyManager.Instance.RequestEnemy(enemySO, spawnPos, rotation);
