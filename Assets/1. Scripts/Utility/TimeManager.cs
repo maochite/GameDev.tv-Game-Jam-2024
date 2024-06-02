@@ -118,11 +118,11 @@ public class TimeManager : StaticInstance<TimeManager>
         while (true)
         {
             double start = Time.timeAsDouble;
-            yield return new WaitForSeconds((float)GameMinRealTimeSecs);
+            yield return new WaitForSeconds((float)NextGameMinWaitTime);
             CurrentGameTime.AddMinute();
             OnGameMinutePassed?.Invoke();
             double end = Time.timeAsDouble;
-            NextGameMinWaitTime = GameMinRealTimeSecs - (((end - start) - GameMinRealTimeSecs));
+            NextGameMinWaitTime = GameMinRealTimeSecs - (((end - start) - NextGameMinWaitTime));
         }
     }
 }
