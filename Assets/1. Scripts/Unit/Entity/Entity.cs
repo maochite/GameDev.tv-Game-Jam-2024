@@ -90,7 +90,7 @@ namespace Unit.Entities
 
         public void DamageEntity(float amount)
         {
-            AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.audioDict[AudioClips.Hit]);
+            AudioManager.Instance.PlayClip(AudioClipEnum.Hit);
             CurrentHealth -= amount;
         }
 

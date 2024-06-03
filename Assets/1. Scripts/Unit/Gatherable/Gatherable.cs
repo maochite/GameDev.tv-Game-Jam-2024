@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 namespace Unit.Gatherables
 {
@@ -133,17 +132,17 @@ namespace Unit.Gatherables
             if(UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Attack)
             {
 
-                AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.Axe);
+                AudioManager.Instance.PlayClip(AudioClipEnum.Attack);
             }
 
             else if (UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Mine)
             {
-                AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.Pick);
+                AudioManager.Instance.PlayClip(AudioClipEnum.Pick);
             }
 
             else if (UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Chop)
             {
-                AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.Axe);
+                AudioManager.Instance.PlayClip(AudioClipEnum.Axe);
             }
         }
 

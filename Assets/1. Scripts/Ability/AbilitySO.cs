@@ -79,7 +79,7 @@ namespace Ability
         [field: SerializeField] public Hit HitData { get; private set; }
         [field: SerializeField] public Movement MovementData { get; private set; }
         [field: SerializeField] public bool Debuffs { get; private set; } = false;
-        [field: SerializeField] public AudioClips AudioClips { get; private set; }
+        [field: SerializeField] public AudioClipEnum AudioClips { get; private set; }
 
         [Serializable]
         public class Attribute

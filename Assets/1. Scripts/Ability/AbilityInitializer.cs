@@ -127,9 +127,7 @@ namespace Ability
             float timeElapsed = 0;
             float timeNormalized = 0;
 
-            var clip = AudioManager.Instance.audioDict[ability.AbilitySO.AudioClips];
-
-            AudioManager.Instance.GlobalSource.PlayOneShot(clip);
+            AudioManager.Instance.PlayClip(ability.AbilitySO.AudioClips);
 
             if (ability.AbilitySO.VFXData.ParticleProp != null)
             {
