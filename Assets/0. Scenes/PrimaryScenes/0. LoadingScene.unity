@@ -271,11 +271,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4944958575849328856, guid: d74fefa8f75031549ae7430e8f5a0b9c,
         type: 3}
-      propertyPath: DebugLogging
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944958575849328856, guid: d74fefa8f75031549ae7430e8f5a0b9c,
-        type: 3}
       propertyPath: Levels.Array.data[0].waves.Array.size
       value: 10
       objectReference: {fileID: 0}
