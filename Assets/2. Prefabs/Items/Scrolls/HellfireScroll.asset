@@ -17,9 +17,18 @@ MonoBehaviour:
   <WorldSprite>k__BackingField: {fileID: 2014718836, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
   <DialogueTooltip>k__BackingField:
-    <Text>k__BackingField: 
+    <Text>k__BackingField: A forbidden scroll that scorches the land beneath me with
+      fire. I can also transfer some of this power into my constructs.
     <Important>k__BackingField: 0
   AbilitySOList:
   - {fileID: 11400000, guid: a455c51e4dfb96b499335bd954c58288, type: 2}
+  - {fileID: 11400000, guid: f2edc3a7a0b123b45855cce6edd326e8, type: 2}
+  - {fileID: 11400000, guid: 5e2eb69ef99b4d74996f296d013fe26f, type: 2}
+  - {fileID: 11400000, guid: 66ba1d6dd832ace4bafb1402b41418f4, type: 2}
+  - {fileID: 11400000, guid: a455c51e4dfb96b499335bd954c58288, type: 2}
   ConstructSOList:
   - {fileID: 11400000, guid: cc15c2930b888f34c8a378a8dc7fd75b, type: 2}
+  - {fileID: 11400000, guid: 8a70bb45f65652b4480b76d9b6bf3d3c, type: 2}
+  - {fileID: 11400000, guid: e0f48d5083cc4154c90b8363b07eeec0, type: 2}
+  - {fileID: 11400000, guid: faa502dcd7c3af048bd7dd9785466ff1, type: 2}
+  - {fileID: 11400000, guid: 4627c3c64a6fb0e4eaa46ec3229cdadf, type: 2}

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ParticleSystemPrefab>k__BackingField: {fileID: 4446266624969285163, guid: 71adeff0b1527bd4388d5d3dbfd76138,
     type: 3}
+  <Offset>k__BackingField: {x: 0, y: 0, z: 0}
   <SizeModifier>k__BackingField: 1
+  <ModifyChildrenSize>k__BackingField: 0
   <ClearPrimaryParticles>k__BackingField: 1
   <ClearSecondaryParticles>k__BackingField: 0
-  <LingerTime>k__BackingField: 1
+  <LingerTime>k__BackingField: 2

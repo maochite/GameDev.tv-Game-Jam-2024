@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace Unit.Entities
 {
+    public interface ISpriteAnimated
+    {
+        public AnimatorOverrideController UpAnimatorController { get; }
+        public AnimatorOverrideController DownAnimatorController { get; }
+        public AnimatorOverrideController LeftAnimatorController { get; }
+        public AnimatorOverrideController RightAnimatorController { get; }
+    }
+
     public enum EntityActionAnimation
     {
         Chop,
@@ -41,6 +49,16 @@ namespace Unit.Entities
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
             PlayerCamera = Camera.main;
+        }
+
+        public void AssignAnimations(ISpriteAnimated spriteAnimated)
+        {
+            UpAnimatorController = spriteAnimated.UpAnimatorController;
+            DownAnimatorController = spriteAnimated.DownAnimatorController;
+            LeftAnimatorController = spriteAnimated.LeftAnimatorController;
+            RightAnimatorController = spriteAnimated.RightAnimatorController;
+
+            ChangeAnimationMultiplier(1);
         }
 
         private void Update()
@@ -105,9 +123,9 @@ namespace Unit.Entities
         }
 
 
-        public void ToggleDeathAnimation()
+        public void ToggleDeathAnimation(bool toggle)
         {
-            animator.SetBool("isAlive", false);
+            animator.SetBool("isAlive", toggle);
         }
 
         public void ChangeAnimationMultiplier(float animationSpeed)

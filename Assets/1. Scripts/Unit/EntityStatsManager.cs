@@ -20,7 +20,7 @@ namespace Unit
         AbilitySpeed = 7,
         GatherSpeed = 8,
         GatherDamage = 9,
-        RepairSpeed = 10,
+        BuildSpeed = 10,
         LightRadius = 11,
         ItemMagnetRadius = 12,
     }
@@ -110,7 +110,7 @@ namespace Unit
             [StatModType.MovementSpeed] = new(),
             [StatModType.Damage] = new(),
             [StatModType.GatherSpeed] = new(),
-            [StatModType.RepairSpeed] = new(),
+            [StatModType.BuildSpeed] = new(),
             [StatModType.ItemMagnetRadius] = new(),
         };
 
@@ -421,9 +421,9 @@ namespace Unit
             var relativeData = GetRelativeEntityData(playerSO);
 
             int upgrades = 0;
-            if (relativeData.Modifiers.ContainsKey(StatModType.RepairSpeed))
+            if (relativeData.Modifiers.ContainsKey(StatModType.BuildSpeed))
             {
-                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.RepairSpeed])
+                foreach (StatModifier statModifier in relativeData.Modifiers[StatModType.BuildSpeed])
                 {
                     upgrades += statModifier.Value;
                 }

@@ -28,10 +28,10 @@ TagManager:
   - Item
   - 
   - 
-  - 
-  - 
+  - EnemyMask
+  - PlayerMask
   - Dialogue
-  - BehindMask
+  - 
   - Fog
   - FogMask1
   - FogMask2

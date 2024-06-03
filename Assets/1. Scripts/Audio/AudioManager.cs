@@ -10,8 +10,8 @@ namespace Audio
     {
         None,
         MainMenu,
-        Game,
-        Boss,
+        GameTrack1,
+        GameTrack2,
     }
 
 
@@ -88,8 +88,8 @@ namespace Audio
 
         [SerializeField, Header("Background Audio")] private AudioSource bg_source;
         [SerializeField] private AudioClip MainMenu_BG_Clip;
-        [SerializeField] private AudioClip Game_BG_Clip;
-        [SerializeField] private AudioClip Boss_BG_Clip;
+        [SerializeField] private AudioClip GameTrack1;
+        [SerializeField] private AudioClip GameTrack2;
         [SerializeField, Range(0, 100)] private float BG_Max_Volume = 50;
         [SerializeField, Range(0, 5)] private float BG_Fade_Time = 1;
 
@@ -134,8 +134,8 @@ namespace Audio
             {
                 BGMusic.None => null,
                 BGMusic.MainMenu => MainMenu_BG_Clip,
-                BGMusic.Game => Game_BG_Clip,
-                BGMusic.Boss => Boss_BG_Clip,
+                BGMusic.GameTrack1 => GameTrack1,
+                BGMusic.GameTrack2 => GameTrack2,
                 _ => null
             };
 

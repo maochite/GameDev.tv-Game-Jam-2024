@@ -16,10 +16,11 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: -84271433, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: This pickaxe allows me to mine rocks for stones and gems.
+      It also helps with my gathering speed.
+    <Important>k__BackingField: 0
   StatModifiers:
   - <EntityType>k__BackingField: 0
     <StatModType>k__BackingField: 8
-    <Value>k__BackingField: 1
-  - <EntityType>k__BackingField: 0
-    <StatModType>k__BackingField: 12
     <Value>k__BackingField: 1

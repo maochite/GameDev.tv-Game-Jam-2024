@@ -1,4 +1,5 @@
 using Ability;
+using JetBrains.Annotations;
 using NaughtyAttributes;
 using Storage;
 using System.Collections;
@@ -12,14 +13,19 @@ using UnityEngine.Animations;
 namespace Unit.Entities
 {
 
+    [RequireComponent(typeof(NavMeshAgent))]
     public class Enemy : Entity<EnemySO>
     {
         [Header("- Enemy Specifics -")]
         public EnemySO EnemySO => UnitSO;
 
-        [field: Header("Player Prefab Components")]
+        [field: Header("Enemy Prefab Components")]
+        [field: SerializeField] public SpriteAnimator Animator { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
         public AbilityPrimary EnemyAbility { get;  private set; }
+
+        [field: Header("AI")]
+        public NavMeshAgent NMAgent { get; private set; }
 
         [Header("Enemy Stats")]
         [SerializeField, ReadOnly] private float maxHealth = 1;
@@ -28,7 +34,11 @@ namespace Unit.Entities
 
         [Header("For Non-Pool Prefab Placement")]
         [SerializeField] private EnemySO nonPoolSO;
-        [SerializeField] private NavMeshAgent nmAgent;
+
+        //enemy fields
+        private float lastAttackTime;
+        private EntityPrimaryState primaryState;
+        private EntityActionState actionState;
 
         public override float CurrentHealth
         {
@@ -45,17 +55,25 @@ namespace Unit.Entities
                     if (currentHealth <= 0)
                     {
                         //OnDeath();
-                        EnemyManager.Instance.ReturnEnemyToPool(this);
+                        ChangePrimaryState(EntityPrimaryState.Dead);
+                        actionState = EntityActionState.None;
+                        StartCoroutine(DeathTimer());
                         isActive = false;
                     }
                 }
 
-                else if (value > maxHealth)
+                if (value >= maxHealth)
                 {
                     currentHealth = maxHealth;
+                    HealthBar.ToggleHealthBar(false);
+                    HealthBar.SetHealthBarValue(currentHealth, maxHealth);
+                    return;
                 }
 
                 else currentHealth = value;
+
+                HealthBar.ToggleHealthBar(true);
+                HealthBar.SetHealthBarValue(currentHealth, maxHealth);
             }
         }
 
@@ -77,11 +95,15 @@ namespace Unit.Entities
                 if (currentHealth >= maxHealth)
                 {
                     currentHealth = maxHealth;
-
-                    //healthBar.ToggleHealthBar(false);
+                    HealthBar.ToggleHealthBar(false);
                 }
 
-                //healthBar.SetHealthBarValue(_currentHealth, _maxHealth);
+                else
+                {
+                    HealthBar.ToggleHealthBar(true);
+                }
+
+                HealthBar.SetHealthBarValue(currentHealth, maxHealth);
             }
         }
 
@@ -101,7 +123,7 @@ namespace Unit.Entities
         protected override void Awake()
         {
             base.Awake();
-
+            NMAgent = GetComponent<NavMeshAgent>();
             if (nonPoolSO != null)
             {
                 AssignUnit(nonPoolSO);
@@ -111,7 +133,12 @@ namespace Unit.Entities
         public override void AssignUnit(EnemySO enemySO)
         {
             base.AssignUnit(enemySO);
-            EnemyAbility = new(enemySO.DefaultAbility, this);
+            NMAgent.enabled = true;
+            ChangePrimaryState(EntityPrimaryState.Idle);
+            actionState = EntityActionState.None;
+            lastAttackTime = 0;
+            Animator.AssignAnimations(enemySO);
+            EnemyAbility = new(enemySO.DemolishAbility, this);
             MaxHealth = UnitSO.BaseHealth;
             CurrentHealth = UnitSO.BaseHealth;
             UpdateEntityStats();
@@ -125,7 +152,120 @@ namespace Unit.Entities
             EnemyAbility.UpdateAbilityStats();
         }
 
+        private void OnEnable()
+        {
+            TimeManager.Instance.OnTick += TimeManager_OnTick;
+        }
 
+        private void OnDisable()
+        {
+            if (TimeManager.Instance)
+            {
+                TimeManager.Instance.OnTick -= TimeManager_OnTick;
+            }
+        }
+
+        private void TimeManager_OnTick()
+        {
+            if (primaryState == EntityPrimaryState.Dead) return;
+
+            if (!NMAgent.isOnNavMesh)
+            {
+                return;
+            }
+
+            RegenEntity();
+            float curTime = Time.time;
+            if (actionState == EntityActionState.Attack)
+            {
+                if(curTime < lastAttackTime + AttackSpeed)
+                {
+                    return;
+                }
+
+                if (EnemyAbility.TryCast(Player.Instance.transform.position, out _))
+                {
+                    actionState = EntityActionState.None;
+                    ChangePrimaryState(EntityPrimaryState.Idle);
+                }
+
+                else
+                {
+                    Debug.LogError("Shouldn't have failed the cast");
+                }
+            }
+
+            float distance = Vector3.Distance(transform.position, Player.Instance.transform.position);
+
+            if (actionState == EntityActionState.None
+                && distance > Mathf.Max(AttackRadius - 0.5f, NMAgent.radius + 0.1f))
+            {
+                ChangePrimaryState(EntityPrimaryState.Move);
+
+                NMAgent.SetDestination(Player.Instance.transform.position);
+            }
+
+            else if (curTime >= lastAttackTime + AttackSpeed) // Not needed if we exit above, but leaving it here anyways
+            {
+                NMAgent.SetDestination(transform.position); // Stop moving
+
+                if (!EnemyAbility.IsCoolingDown())
+                {
+                    lastAttackTime = curTime;
+                    ChangePrimaryState(EntityPrimaryState.Action);
+                    actionState = EntityActionState.Attack;
+                    Animator.TriggerAttackAnimation();
+                }
+                
+            }  
+        }
+
+        private void ChangePrimaryState(EntityPrimaryState primaryState)
+        {
+            Animator.ToggleWalkAnimation(false);
+            Animator.ToggleIdleAnimation(false);
+            Animator.ToggleDeathAnimation(false);
+
+            if (primaryState == EntityPrimaryState.Idle)
+            {
+                primaryState = EntityPrimaryState.Idle;
+                Animator.ToggleIdleAnimation(true);
+            }
+
+            else if (primaryState == EntityPrimaryState.Move)
+            {
+                primaryState = EntityPrimaryState.Move;
+                Animator.ToggleWalkAnimation(true);
+            }
+
+            else if(primaryState == EntityPrimaryState.Action)
+            {
+                primaryState = EntityPrimaryState.Action;
+            }
+
+            else
+            {
+                primaryState = EntityPrimaryState.Dead;
+                Animator.ToggleDeathAnimation(true);
+            }
+        }
+
+        protected override void RegenEntity()
+        {
+            regenTimer -= Time.deltaTime;
+
+            if (regenTimer < 0)
+            {
+                CurrentHealth += healthRegen;
+                regenTimer = RegenInterval;
+            }
+        }
+
+        private IEnumerator DeathTimer()
+        {
+            yield return new WaitForSeconds(2);
+            EnemyManager.Instance.ReturnEnemyToPool(this);
+        }
     }
     
 }

@@ -17,9 +17,19 @@ MonoBehaviour:
   <WorldSprite>k__BackingField: {fileID: 1011602351, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
   <DialogueTooltip>k__BackingField:
-    <Text>k__BackingField: 
+    <Text>k__BackingField: This conjuration scroll allows me to drench my enemies
+      in oil, slowing their movement and increasing my damage against them. I can
+      also channel this power into my constructs.
     <Important>k__BackingField: 0
   AbilitySOList:
   - {fileID: 11400000, guid: 1c63812a50b90984d99cff9b53af55fc, type: 2}
+  - {fileID: 11400000, guid: 6ed8bc5e31fec114b976a4ab07514ab7, type: 2}
+  - {fileID: 11400000, guid: 4a7581dc6311f0f4ba6f2e5ea1907c44, type: 2}
+  - {fileID: 11400000, guid: f4db7af727035e045808e44940541a39, type: 2}
+  - {fileID: 11400000, guid: ff1c59d969ba0804fa1fa5b3c9448f63, type: 2}
   ConstructSOList:
   - {fileID: 11400000, guid: a8c475ffa39cbb0468eb8d0bfda1d1e7, type: 2}
+  - {fileID: 11400000, guid: 77e14a95422848c4c9a66bedc1676c37, type: 2}
+  - {fileID: 11400000, guid: 543a7043eda79d5469562020e9bae567, type: 2}
+  - {fileID: 11400000, guid: 7dc307f3e32d61c488bf79876fccefca, type: 2}
+  - {fileID: 11400000, guid: dd6582ca200ab7f4f82b3d24d3ce2d74, type: 2}

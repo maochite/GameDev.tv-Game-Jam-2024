@@ -5,8 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unit.Entities;
 using Unit.Gatherables;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.XR;
 
 namespace Unit.Constructs
 {
@@ -23,11 +25,14 @@ namespace Unit.Constructs
         private MeshRenderer meshRenderer;
         private MeshFilter meshFilter;
         private readonly Collider[] hitColliders = new Collider[200];
+        [field: SerializeField] public SkinnedMeshRenderer Mesh { get; private set; }
 
         [Header("Construct Stats")]
         [SerializeField, ReadOnly] private float maxHealth = 1;
         [SerializeField, ReadOnly] private float currentHealth = 1;
         [SerializeField, ReadOnly] private float healthRegen = 1;
+
+        private float towerDegen = 1;
 
         public override float CurrentHealth
         {
@@ -43,18 +48,23 @@ namespace Unit.Constructs
 
                     if (currentHealth <= 0)
                     {
-                        //OnDeath();
-                        //Destroy(gameObject);
+                        ConstructManager.Instance.ReturnConstructToPool(this);
                         isActive = false;
                     }
                 }
 
-                else if (value > maxHealth)
+                if (value >= maxHealth)
                 {
                     currentHealth = maxHealth;
+                    HealthBar.ToggleHealthBar(false);
+                    HealthBar.SetHealthBarValue(currentHealth, maxHealth);
+                    return;
                 }
 
                 else currentHealth = value;
+
+                HealthBar.ToggleHealthBar(true);
+                HealthBar.SetHealthBarValue(currentHealth, maxHealth);
             }
         }
 
@@ -76,11 +86,15 @@ namespace Unit.Constructs
                 if (currentHealth >= maxHealth)
                 {
                     currentHealth = maxHealth;
-
-                    //healthBar.ToggleHealthBar(false);
+                    HealthBar.ToggleHealthBar(false);
                 }
 
-                //healthBar.SetHealthBarValue(_currentHealth, _maxHealth);
+                else
+                {
+                    HealthBar.ToggleHealthBar(true);
+                }
+
+                HealthBar.SetHealthBarValue(currentHealth, maxHealth);
             }
         }
 
@@ -90,10 +104,7 @@ namespace Unit.Constructs
 
             protected set
             {
-                if (healthRegen < 1)
-                {
-                    healthRegen = 1;
-                }
+                return;
             }
         }
 
@@ -107,6 +118,7 @@ namespace Unit.Constructs
             //rangeIndicator = GetComponent<ConstructRangeIndicator>();
             //decalProjector = GetComponentInChildren<DecalProjector>();
 
+
             base.Awake();
 
             if (nonPoolSO != null)
@@ -119,30 +131,28 @@ namespace Unit.Constructs
         public override void AssignUnit(ConstructSO constructSO)
         {
             base.AssignUnit(constructSO);
+            gameObject.SetActive(true);
 
-            //Flush the previous material
-            //Destroy(meshRenderer.material);
-            //
-            //Mesh newMesh = constructSO.MeshFilter.sharedMesh;
-            //meshFilter.mesh = newMesh;
-            //meshRenderer.material = constructSO.Material;
+            foreach(Material material in Mesh.materials)
+            {
+                Destroy(material);
+            }
 
+            Material[] mats = new Material[] { UnitSO.Material, UnitSO.Material, UnitSO.RockMaterial };
+            Mesh.materials = mats;
 
+            MaxHealth = UnitSO.BaseHealth;
+            CurrentHealth = UnitSO.BaseHealth;
             constructAbility = new AbilityPrimary(UnitSO.AbilityPrimarySO, this);
        
-
-            gameObject.SetActive(true);
-        }
-
-        public void ReturnConstruct()
-        {
-            //gameManager.ConstructManager.AbilityModHandler.RemoveListener(AbilityModHandler);
         }
 
 
         private void FixedUpdate()
         {
             delayTimer = -Time.deltaTime;
+
+            RegenEntity();
 
             if (delayTimer > 0) return;
 
@@ -169,6 +179,16 @@ namespace Unit.Constructs
             }
         }
 
+        protected override void RegenEntity()
+        {
+            regenTimer -= Time.deltaTime; 
+
+            if (regenTimer < 0)
+            {
+                CurrentHealth -= towerDegen;
+                regenTimer = RegenInterval;
+            }
+        }
 
         public override void UpdateEntityStats()
         {

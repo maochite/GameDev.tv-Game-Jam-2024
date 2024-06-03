@@ -70,7 +70,7 @@ namespace Unit.Entities
             }
 
             activeEnemies.Remove(enemy);
-
+            enemy.NMAgent.enabled = false;
             enemy.gameObject.SetActive(false);
             enemySystemPool.Enqueue(enemy);
 

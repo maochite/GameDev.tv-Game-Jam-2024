@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PigUp
+  m_Controller: {fileID: 9100000, guid: e847c66486a47a54693984b8dc8f1928, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f88f6b3bbc4c22945a14b0db8d4e4f27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a92d7622accc4c6468d6831658a80d34, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5bb47768a0e20b34cb277bcb4fd6d737, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9a6bffd86eaea454fb4fe0d0ca1a2613, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1700f11023569084e8010958597a030e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 06b9ed892b68dbc4a80c8e37469f63dd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e5ecfe0dcf432f843a20ae8f60d37eda, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 71f40d3f0271b9c4a880b7b3d205a0da, type: 2}

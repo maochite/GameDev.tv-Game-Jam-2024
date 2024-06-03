@@ -36,6 +36,8 @@ namespace Unit.Entities
         Buildable,
     }
 
+
+    [RequireComponent(typeof(Collider))]
     public class Player : Entity<PlayerSO>
     {
         public static Player Instance { get; private set; }
@@ -48,8 +50,9 @@ namespace Unit.Entities
         [field: SerializeField] public Inventory Inventory { get; private set; }
         [field: SerializeField] public SpellBook SpellBook { get; private set; }
         [field: SerializeField] public TMP_Text PlayerDialogue { get; private set; }
+        [field: SerializeField] public SpriteAnimator Animator { get; protected set; }
         [field: SerializeField] private Rigidbody rigidBody;
-        [field: SerializeField] private PhysicMaterial rbMaterial;
+
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
@@ -206,9 +209,9 @@ namespace Unit.Entities
 
             protected set
             {
-                if (healthRegen < 1)
+                if (healthRegen < 0)
                 {
-                    healthRegen = 1;
+                    healthRegen = 0.01f;
                 }
             }
         }
@@ -259,7 +262,6 @@ namespace Unit.Entities
             base.Start();
             AssignUnit(PlayerSO);
             Inventory.InitializeInventory();
-            rbMaterial.bounciness = 0.01f;
         }
 
         public override void AssignUnit(PlayerSO playerSO)
@@ -267,6 +269,13 @@ namespace Unit.Entities
             base.AssignUnit(playerSO);
             //playerAbilities[0] = new(playerSO.DefaultAbility, this);
             //playerConstructs[0] = playerSO.DefaultConstruct;
+            var collider = GetComponent<Collider>();
+            collider.material = null;
+            PhysicMaterial pm = new();
+            pm.staticFriction = 0;
+            pm.dynamicFriction = 0;
+            pm.bounciness = 0.01f;
+            collider.material = pm;
 
             MaxHealth = playerSO.BaseHealth;
             CurrentHealth = playerSO.BaseHealth;
@@ -922,6 +931,16 @@ namespace Unit.Entities
                 Inventory.HideReasourceDeductions();
             }
 
+        }
+        protected override void RegenEntity()
+        {
+            regenTimer -= Time.deltaTime;
+
+            if (regenTimer < 0)
+            {
+                CurrentHealth += healthRegen;
+                regenTimer = RegenInterval;
+            }
         }
     }
 

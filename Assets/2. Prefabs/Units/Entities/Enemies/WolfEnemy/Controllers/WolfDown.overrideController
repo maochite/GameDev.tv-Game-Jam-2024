@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WolfDown
+  m_Controller: {fileID: 9100000, guid: e847c66486a47a54693984b8dc8f1928, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5bb47768a0e20b34cb277bcb4fd6d737, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fe626797f367a764e864efb16e05fde0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f88f6b3bbc4c22945a14b0db8d4e4f27, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d63c965fcdfad5d4dbaa5fec3d7bcc60, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1700f11023569084e8010958597a030e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 90ba949ce00fe3640bab7f9827decf02, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e5ecfe0dcf432f843a20ae8f60d37eda, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 295db80ac9ef0d34189f193e9c71fa63, type: 2}

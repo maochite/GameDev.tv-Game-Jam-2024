@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b99534abf52e0f4ab9e0403e40071f6, type: 2}
+  - {fileID: 2100000, guid: cae2e93798d5dcc499c6e7ab41d76df1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4764748fccf9de84291064753f175159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonPoolSO: {fileID: 11400000, guid: 3b5c943fc98e1ae41844e6f2751f2ef4, type: 2}
+  nonPoolSO: {fileID: 11400000, guid: d8daa13c17960e547a0c5aab05bd7746, type: 2}
   spriteObject: {fileID: 2341784503580518817}
   shakeDuration: 0.5
   shakeVariations:

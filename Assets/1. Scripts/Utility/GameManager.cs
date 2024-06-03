@@ -1,4 +1,5 @@
 using Ability;
+using Audio;
 using Dialogue;
 using System;
 using System.Collections;
@@ -87,6 +88,7 @@ public class GameManager : PersistentSingleton<GameManager>
     private IEnumerator HandleMainGame()
     {
         yield return StartCoroutine(WaitCoroutine(1));
+        AudioManager.Instance.ChangeBGMusicState(BGMusic.GameTrack1);
         DialogueManager.Instance.AssignTextBox(Player.Instance.PlayerDialogue);
         yield return StartCoroutine(FadeOutCoroutine(SceneTransitions.FadeDuration, SceneTransitions.FadeImage));
         waveHandler.StartGame();

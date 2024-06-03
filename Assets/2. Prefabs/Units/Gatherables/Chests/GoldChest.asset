@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924cd2b127c2e67488fa6628351c7b41, type: 3}
+  m_Name: GoldChest
+  m_EditorClassIdentifier: 
+  <BaseHealth>k__BackingField: 15
+  <BaseHealthRegen>k__BackingField: 0
+  <RandomItemPool>k__BackingField:
+  - {fileID: 11400000, guid: 896530af9fc9c9b43a6cf0a2635a4f1d, type: 2}
+  - {fileID: 11400000, guid: 15836ee81d6475f43ab53da892b9e2ba, type: 2}
+  - {fileID: 11400000, guid: b8023d1f8c01b894b83b4ac2f1432ec6, type: 2}
+  - {fileID: 11400000, guid: 952a9ea1029619c40a1a308785ef0b98, type: 2}
+  <ItemPool>k__BackingField:
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  - {fileID: 11400000, guid: fc94a24b96d104b459c0c5e9146abe91, type: 2}
+  <ItemDropOffset>k__BackingField: {x: 0, y: 2, z: 0}
+  <GatheringAnimation>k__BackingField: 2

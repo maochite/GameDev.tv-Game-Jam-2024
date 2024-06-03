@@ -736,7 +736,10 @@ namespace Ability
         public void ExpireAbility()
         {
             //TriggerAbilityOnExpiration();
-            primaryParticles.ReturnParticles(PreviousRotation);
+            if (primaryParticles != null)
+            {
+                primaryParticles.ReturnParticles(PreviousRotation);
+            }
 
             AbilityInitializer.Instance.ReturnAbilityToPool(this);
         }

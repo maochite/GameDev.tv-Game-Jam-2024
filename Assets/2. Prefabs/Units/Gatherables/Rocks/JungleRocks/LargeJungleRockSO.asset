@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924cd2b127c2e67488fa6628351c7b41, type: 3}
+  m_Name: LargeJungleRockSO
+  m_EditorClassIdentifier: 
+  <BaseHealth>k__BackingField: 8
+  <BaseHealthRegen>k__BackingField: 0
+  <RandomItemPool>k__BackingField: []
+  <ItemPool>k__BackingField:
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: 31864bed93ff4d64a87d0e918d8cab3a, type: 2}
+  - {fileID: 11400000, guid: b8e7d9e5791d7e84abad519228533aad, type: 2}
+  <ItemDropOffset>k__BackingField: {x: 0, y: 2.5, z: 0}
+  <GatheringAnimation>k__BackingField: 1

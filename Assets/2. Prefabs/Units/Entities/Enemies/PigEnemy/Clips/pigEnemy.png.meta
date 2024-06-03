@@ -1,0 +1,1579 @@
+fileFormatVersion: 2
+guid: c4445bcada9726a489c612887bca59da
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pigEnemy_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 504
+        width: 37
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5911655, y: -0.0060353833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0155f649debc33489922ce7b162970c
+      internalID: -921752429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 504
+        width: 37
+        height: 43
+      alignment: 9
+      pivot: {x: 0.60519016, y: 0.012066509}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4de309ad3635854599212bb159af307
+      internalID: -2080164609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 503
+        width: 37
+        height: 44
+      alignment: 9
+      pivot: {x: 0.59116507, y: 0.011792963}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae40aa34d170c3a408b96e7fe6e25c03
+      internalID: -1275074119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 502
+        width: 36
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5936974, y: 0.017689792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3701c633f5dc2aa48a265b2e16c0a2a8
+      internalID: 1141554849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 503
+        width: 36
+        height: 44
+      alignment: 9
+      pivot: {x: 0.56486595, y: 0.0058947476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b926347fe65384fb91b9908a0cceb1
+      internalID: 65722569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 504
+        width: 36
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5720749, y: -0.0000007097111}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fc7e6bc513ea94489ca2498e9af8c6
+      internalID: -1538454179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_6
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 503
+        width: 36
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5864894, y: -0.00000069358134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd25235a4ac76b34cbcdb9feb55cf21c
+      internalID: 193133146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 502
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5667193, y: -0.0000013871627}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e50b6fcaeaf7bf4ea8aba783c7b0c2e
+      internalID: 1155691706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_8
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 503
+        width: 36
+        height: 44
+      alignment: 9
+      pivot: {x: 0.59369576, y: 0.005896135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712e1757ea2aaae45a3f3eb2c6c32a59
+      internalID: 204008568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 439
+        width: 38
+        height: 48
+      alignment: 9
+      pivot: {x: 0.47951514, y: 0.010810216}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28044318083f83544bb842f653ba4261
+      internalID: 1489939099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_10
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 439
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.42137238, y: -0.00000064931015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615154c9db35a3944b86c185a397c186
+      internalID: -103796883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_11
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 440
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.3977837, y: 0.02208174}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f5961657b4fc446b9ac20a331bc8e8
+      internalID: 1290313840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_12
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 440
+        width: 34
+        height: 47
+      alignment: 9
+      pivot: {x: 0.46947256, y: 0.005519786}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748d4a1e23441144780b7bae2ff62917
+      internalID: -1552662760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_13
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 439
+        width: 35
+        height: 48
+      alignment: 9
+      pivot: {x: 0.44069126, y: 0.0054047904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37902e6aa87b3c240b990914cc6034e7
+      internalID: -1945221575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_14
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 439
+        width: 36
+        height: 47
+      alignment: 9
+      pivot: {x: 0.42071617, y: 0.005519786}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02c4358af0711146b88655fcc8dcaeb
+      internalID: 24089025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_15
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 439
+        width: 36
+        height: 48
+      alignment: 9
+      pivot: {x: 0.44954598, y: -0.0054060617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94796a3a94197c3478467ff357c5570b
+      internalID: -1482768454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_16
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 439
+        width: 35
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d30fe8d8fae64a34da5d61482ee374a0
+      internalID: 2101245333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_17
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 439
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc742265dc89fb4d819122ffb15dfc0
+      internalID: 2085633645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 375
+        width: 35
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5646456, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e0e30b21970f44b8599678dd9d98be
+      internalID: -647657299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 375
+        width: 34
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5748652, y: 0.0065776026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5626a8cdd5a46ff4382e7d5cf3e300bc
+      internalID: 121484476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_20
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 374
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5808066, y: 0.012856224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de3bfb7f58bc654c89b00c020b67d12
+      internalID: -579037047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_21
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 374
+        width: 35
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e3ef8e1fd8dfa4a9113efd9f31e32b
+      internalID: 251986590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_22
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 374
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.53706664, y: -0.00000069358134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b78133966e57943838c37d87282817
+      internalID: -820985335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_23
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 375
+        width: 36
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5648668, y: 0.0060332543}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9636cf9465e3b7a4a8933712c859817e
+      internalID: 1242110661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_24
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 374
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.566721, y: 0.005896135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80b3273832b8bf439596390f0099f32
+      internalID: -709295181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_25
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 374
+        width: 34
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5686816, y: 0.0060332543}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8249e2806d7644d8db3069056b6395
+      internalID: 1508055922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_26
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 374
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5815465, y: -0.00000069358134}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 025f36a54591ae243af7ebf645458b32
+      internalID: 1017927375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_27
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 311
+        width: 38
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d411e05d1351647a97e46706b02f08
+      internalID: 1234937665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_28
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 311
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.58209574, y: -0.0048639826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99eda7edfabd904479bcc358292102d5
+      internalID: -1005205277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_29
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 312
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.58505017, y: 0.002141425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2c8c5449da6aa4a893dd43368f53d5
+      internalID: -613732556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_30
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 312
+        width: 34
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5366377, y: 0.009938991}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a96c78e83f3ea4b8c65374e03d04da
+      internalID: 25643658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_31
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 311
+        width: 35
+        height: 48
+      alignment: 9
+      pivot: {x: 0.55338573, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307ce4ca15091b34eb140afad4930159
+      internalID: 1361317773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_32
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 311
+        width: 36
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5895767, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f52338e547e284abb9c8a134d19943
+      internalID: -1052752464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_33
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 311
+        width: 36
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5518604, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37b82f5f3cb0d846ab0ec7c1f7533cf
+      internalID: 2012392665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_34
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 311
+        width: 35
+        height: 48
+      alignment: 9
+      pivot: {x: 0.54364365, y: 0.007071813}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b61942db3800554aaf0dd6ff082437d
+      internalID: -1363259194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_35
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 311
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.57986987, y: 0.0035355885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5773b1d454496040a02a586bd66ea46
+      internalID: -864480136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 247
+        width: 37
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5864824, y: 0.005314317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350a3ab07187b1e4c95530f64db9656f
+      internalID: 1098358616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_37
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 246
+        width: 32
+        height: 43
+      alignment: 9
+      pivot: {x: 0.59285235, y: -0.00000035485556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350a304c095ccab44b289a65fa092f5f
+      internalID: -1642855252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_38
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 246
+        width: 32
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5857096, y: -0.0053157364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28cf51b0e21283b4dbd365a26b6e5bb1
+      internalID: 2090196467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_39
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 246
+        width: 34
+        height: 44
+      alignment: 9
+      pivot: {x: 0.60755783, y: 0.010388461}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf4ca09efe8de3498acad603bbfbc18
+      internalID: -1093681065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_40
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 246
+        width: 44
+        height: 46
+      alignment: 9
+      pivot: {x: 0.46363762, y: 0.009936789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df3b315532473d49a5367e95f6bf6e8
+      internalID: -721685263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_41
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 246
+        width: 50
+        height: 44
+      alignment: 9
+      pivot: {x: 0.39486206, y: 0.0051938836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bf89fd32bc91d45a6b5708aede8bde
+      internalID: -1607982765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 183
+        width: 38
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc7f7a02d6342a41b12815c61eff266
+      internalID: -1339266578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_43
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 183
+        width: 39
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b9ccd66cc484e4fbe5447ae587880e
+      internalID: -386533237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_44
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 183
+        width: 35
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e1e08cf0a73a749930eb6370bc9b94
+      internalID: -1485489960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_45
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 183
+        width: 44
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c075424eafed3bd4590505cda7220684
+      internalID: -1093078907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_46
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 183
+        width: 52
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5270556, y: 0.00532945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f0f565a71792f48b1e59b12c66e015
+      internalID: 1166193548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_47
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 183
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4920063, y: 0.00532945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab751b9425ca82c4c934f163d22564a6
+      internalID: 1235604001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 119
+        width: 35
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5526534, y: 0.0038959591}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c184aa38a67b748bb70383068912dd
+      internalID: 1022219643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_49
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 119
+        width: 33
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5964589, y: 0.0038959591}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9e60438fe8b5b43ae33cf9a78e687e
+      internalID: -364840803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_50
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 119
+        width: 34
+        height: 41
+      alignment: 9
+      pivot: {x: 0.6182592, y: 0.004086006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530afe72e83cab048b4946ec51ac6e36
+      internalID: 1338384026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_51
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 119
+        width: 33
+        height: 42
+      alignment: 9
+      pivot: {x: 0.55076784, y: 0.00000018165225}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da8f1ef6ae6f0e43b9fd1620bf607fe
+      internalID: -1542077247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_52
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 119
+        width: 46
+        height: 43
+      alignment: 9
+      pivot: {x: 0.40166506, y: 0.015585079}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0308d1a63dd2b6046a59b4bce4e97c78
+      internalID: -467907037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_53
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 119
+        width: 49
+        height: 43
+      alignment: 9
+      pivot: {x: 0.3769145, y: 0.011688055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47099b3acd728a243a49fd4dd4299dfd
+      internalID: 1425340146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_54
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 55
+        width: 38
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a365b48abdaa464ab4e0d3b3eeaabe0
+      internalID: 2111450463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_55
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 55
+        width: 39
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5500633, y: -0.0035373853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0ae0d6df013544fad9c1bc2b5a2b50
+      internalID: -1039807316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_56
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 55
+        width: 35
+        height: 48
+      alignment: 9
+      pivot: {x: 0.58832574, y: -0.0067794323}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0878b10568c4148b3788aadec9f7e5
+      internalID: 1983249468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_57
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 55
+        width: 44
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117fa56785a6edb4fbfe7207a167c0f4
+      internalID: -2044521860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_58
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 55
+        width: 52
+        height: 48
+      alignment: 9
+      pivot: {x: 0.45306632, y: -0.00000015894572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed0051df2c951c45bbd9b81662623b6
+      internalID: 894755442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_59
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 55
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1a0de40f141a8428d25f350ff9bf92
+      internalID: -1582349057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_60
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4
+        width: 30
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b622b899225aea448a502e81bc09d9c
+      internalID: -641886506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_61
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 4
+        width: 31
+        height: 42
+      alignment: 9
+      pivot: {x: 0.47900587, y: 0.019369444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eaa2268c0abf4c49ab2a886518fb5f6
+      internalID: 546562348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_62
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 2
+        width: 30
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.054234322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c253e7d6d8ce82f47b8f4bc34e3abde4
+      internalID: 415842214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_63
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 2
+        width: 35
+        height: 34
+      alignment: 9
+      pivot: {x: 0.40702602, y: 0.06699569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d988fb2cd02e3943b261e450be6cd45
+      internalID: 2058479763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_64
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 2
+        width: 37
+        height: 28
+      alignment: 9
+      pivot: {x: 0.4120533, y: 0.13364959}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93431008fbbca654b9ac2703df989bf5
+      internalID: 2122790536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigEnemy_65
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 2
+        width: 43
+        height: 36
+      alignment: 9
+      pivot: {x: 0.40162197, y: 0.07231273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ca4b329ff0a2245814e27cdb87aff8
+      internalID: -1637606685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b7d5e03727304d944aab49d758661931
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pigEnemy_0: -921752429
+      pigEnemy_1: -2080164609
+      pigEnemy_10: -103796883
+      pigEnemy_11: 1290313840
+      pigEnemy_12: -1552662760
+      pigEnemy_13: -1945221575
+      pigEnemy_14: 24089025
+      pigEnemy_15: -1482768454
+      pigEnemy_16: 2101245333
+      pigEnemy_17: 2085633645
+      pigEnemy_18: -647657299
+      pigEnemy_19: 121484476
+      pigEnemy_2: -1275074119
+      pigEnemy_20: -579037047
+      pigEnemy_21: 251986590
+      pigEnemy_22: -820985335
+      pigEnemy_23: 1242110661
+      pigEnemy_24: -709295181
+      pigEnemy_25: 1508055922
+      pigEnemy_26: 1017927375
+      pigEnemy_27: 1234937665
+      pigEnemy_28: -1005205277
+      pigEnemy_29: -613732556
+      pigEnemy_3: 1141554849
+      pigEnemy_30: 25643658
+      pigEnemy_31: 1361317773
+      pigEnemy_32: -1052752464
+      pigEnemy_33: 2012392665
+      pigEnemy_34: -1363259194
+      pigEnemy_35: -864480136
+      pigEnemy_36: 1098358616
+      pigEnemy_37: -1642855252
+      pigEnemy_38: 2090196467
+      pigEnemy_39: -1093681065
+      pigEnemy_4: 65722569
+      pigEnemy_40: -721685263
+      pigEnemy_41: -1607982765
+      pigEnemy_42: -1339266578
+      pigEnemy_43: -386533237
+      pigEnemy_44: -1485489960
+      pigEnemy_45: -1093078907
+      pigEnemy_46: 1166193548
+      pigEnemy_47: 1235604001
+      pigEnemy_48: 1022219643
+      pigEnemy_49: -364840803
+      pigEnemy_5: -1538454179
+      pigEnemy_50: 1338384026
+      pigEnemy_51: -1542077247
+      pigEnemy_52: -467907037
+      pigEnemy_53: 1425340146
+      pigEnemy_54: 2111450463
+      pigEnemy_55: -1039807316
+      pigEnemy_56: 1983249468
+      pigEnemy_57: -2044521860
+      pigEnemy_58: 894755442
+      pigEnemy_59: -1582349057
+      pigEnemy_6: 193133146
+      pigEnemy_60: -641886506
+      pigEnemy_61: 546562348
+      pigEnemy_62: 415842214
+      pigEnemy_63: 2058479763
+      pigEnemy_64: 2122790536
+      pigEnemy_65: -1637606685
+      pigEnemy_7: 1155691706
+      pigEnemy_8: 204008568
+      pigEnemy_9: 1489939099
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527fd4807913b884fa83aeff4c3eaf30, type: 3}
+  m_Name: GoblinEnemySO
+  m_EditorClassIdentifier: 
+  <BaseHealth>k__BackingField: 35
+  <BaseHealthRegen>k__BackingField: 1
+  <BaseAttackTime>k__BackingField: 1
+  <BaseAttackRange>k__BackingField: 12
+  <BaseMovementSpeed>k__BackingField: 4
+  <AttackAbility>k__BackingField: {fileID: 11400000, guid: 382c3f1a96c678247a4d2ca1c21ced98,
+    type: 2}
+  <DemolishAbility>k__BackingField: {fileID: 11400000, guid: 382c3f1a96c678247a4d2ca1c21ced98,
+    type: 2}
+  <UpAnimatorController>k__BackingField: {fileID: 22100000, guid: 39118612a5d9e9947b6cf9d8c7958c77,
+    type: 2}
+  <DownAnimatorController>k__BackingField: {fileID: 22100000, guid: a1f5ad8dd7d6dc841863cbbb13dfe6a7,
+    type: 2}
+  <LeftAnimatorController>k__BackingField: {fileID: 22100000, guid: f12004693037203479c1deec10f12bfd,
+    type: 2}
+  <RightAnimatorController>k__BackingField: {fileID: 22100000, guid: 5d6da8024a113974ca88c289acc0ad8c,
+    type: 2}

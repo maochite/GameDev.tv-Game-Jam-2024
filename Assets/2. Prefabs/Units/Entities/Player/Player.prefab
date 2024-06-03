@@ -71,17 +71,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9885f7b288258d468bc9ece8c182c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 7300540214696542509}
   movementSpeed: 0
   attackSpeed: 0
   attackRadius: 0
+  <HealthBar>k__BackingField: {fileID: 0}
   <PlayerSO>k__BackingField: {fileID: 11400000, guid: 53702d5c683a74b47bf828c9608284e7,
     type: 2}
   <Inventory>k__BackingField: {fileID: 0}
   <SpellBook>k__BackingField: {fileID: 0}
   <PlayerDialogue>k__BackingField: {fileID: 0}
+  <Animator>k__BackingField: {fileID: 7300540214696542509}
   rigidBody: {fileID: 7565830329985711769}
-  rbMaterial: {fileID: 13400000, guid: 0451b797dd07f6d41b0ec4cf264382f8, type: 2}
   inputSmoothing: 8
   targetSafeZoneSize: 2
   buildRange: 8
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 4058847465040967284}
   - component: {fileID: 9204974865529333594}
   - component: {fileID: 7300540214696542509}
-  m_Layer: 26
+  m_Layer: 24
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b486859ccd3f9594992c966ceaffe28a, type: 2}
+  - {fileID: 2100000, guid: 6ba8f8a423a63f244b07d81e901f285a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

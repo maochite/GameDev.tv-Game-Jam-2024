@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527fd4807913b884fa83aeff4c3eaf30, type: 3}
+  m_Name: PigEnemySO
+  m_EditorClassIdentifier: 
+  <BaseHealth>k__BackingField: 25
+  <BaseHealthRegen>k__BackingField: 0.25
+  <BaseAttackTime>k__BackingField: 1
+  <BaseAttackRange>k__BackingField: 2
+  <BaseMovementSpeed>k__BackingField: 5
+  <AttackAbility>k__BackingField: {fileID: 11400000, guid: 78d2917c78acf6940983fa29d1b5d006,
+    type: 2}
+  <DemolishAbility>k__BackingField: {fileID: 11400000, guid: b1e76457a2eb11b44aaf2fb873056f68,
+    type: 2}
+  <UpAnimatorController>k__BackingField: {fileID: 22100000, guid: 47c3a590e3a5f2842a25eece81e9c749,
+    type: 2}
+  <DownAnimatorController>k__BackingField: {fileID: 22100000, guid: 0a32753d8f6e8a342985f6eea6e94e2f,
+    type: 2}
+  <LeftAnimatorController>k__BackingField: {fileID: 22100000, guid: 2aca13bf10c02924dbf3e006d2f0630c,
+    type: 2}
+  <RightAnimatorController>k__BackingField: {fileID: 22100000, guid: 7d835bd1509a4b644b664cbc2daf68be,
+    type: 2}

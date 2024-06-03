@@ -1,0 +1,1667 @@
+fileFormatVersion: 2
+guid: 220cddd6e5331c348a2e610afa176d0b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 0
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoblinCaster_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 508
+        width: 34
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56715123ec770164ab571ea888f7cd8f
+      internalID: -1001341491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 508
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eea6c95ea813be40a1253105665d8f2
+      internalID: 891879749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 508
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb5034f9bd4ce143bdc7550623d90f9
+      internalID: 230824874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 508
+        width: 36
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450b80136e6057d4b933504b435d35d3
+      internalID: 1785471129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_4
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 508
+        width: 50
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651877c096623f84583e1c9142e69109
+      internalID: 2104983378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_5
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 508
+        width: 48
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e07f553da35ca0740823d91e886ea355
+      internalID: -1857683612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_6
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 508
+        width: 36
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0cf603d08bb1bf4ab31dd8a2df6bd8e
+      internalID: 1476290667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_7
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 444
+        width: 27
+        height: 47
+      alignment: 9
+      pivot: {x: 0.47524473, y: 0.0035549733}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5416f7427f195e748a514bce285e63e0
+      internalID: 396403548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 444
+        width: 27
+        height: 47
+      alignment: 9
+      pivot: {x: 0.45952466, y: 0.0038763818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca12bdd5be508c1439e825f99a2cd340
+      internalID: -439024975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_9
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 444
+        width: 27
+        height: 47
+      alignment: 9
+      pivot: {x: 0.46964404, y: 0.0038763818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9128101785df84ca7c83b33b908d2c
+      internalID: -2077576397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 444
+        width: 29
+        height: 47
+      alignment: 9
+      pivot: {x: 0.48115855, y: 0.00000064931015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c133f65ca8be7448a8871c714fb5fb
+      internalID: 842672227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_11
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 444
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.40065143, y: 0.00000064931015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9099e8b9a76b2e46ad5bc926ccb32c4
+      internalID: -666201282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_12
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 444
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.39619493, y: 0.0035549733}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c1a8455695fdd4e992df24b3b31cba
+      internalID: -1230724323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_13
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 444
+        width: 28
+        height: 47
+      alignment: 9
+      pivot: {x: 0.40451378, y: 0.0071105957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b117a77ad7295c4b9cba66f97548fd8
+      internalID: -112015200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_14
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 380
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5099425, y: 0.001759847}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89777b6434d4fb442b2befbda2d91dd3
+      internalID: -368802429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 380
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6e9d61e20dad14687a49d7fdf2639d
+      internalID: 1045330210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_16
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 380
+        width: 32
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42db23985a1aef04abca1a3de16855af
+      internalID: 2086737733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_17
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 380
+        width: 36
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8896e071aa667f4c9495f161c8084d9
+      internalID: 696836773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_18
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 380
+        width: 50
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea6eeba151897449a4f7a6afab35d2d
+      internalID: 2034682062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_19
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 380
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ef7d7fe1b38144ca944028a450239c
+      internalID: -823630528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_20
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 380
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47eb3e430e376e42869ee491ed80a19
+      internalID: -1228091524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_21
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 316
+        width: 27
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318b716d9ce6b4541b2a95d7892d9848
+      internalID: -174339021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_22
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 316
+        width: 27
+        height: 47
+      alignment: 9
+      pivot: {x: 0.50805944, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12205d34311c764ca6aae6fbc2c978a
+      internalID: -1878174043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_23
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 316
+        width: 27
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5214917, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef113f6d5fb8a04580e8b467929a78e
+      internalID: 2114086886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_24
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 316
+        width: 29
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5200095, y: 0.0046295817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4a46da090ee314aa0ba8a6f981b876
+      internalID: 1709540039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_25
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 316
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.59891117, y: 0.0015434102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6411ad559a1e07048ac312c59f07246f
+      internalID: -2033700914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_26
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 316
+        width: 33
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5945148, y: 0.0030868205}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b719498bb90098e40a982746e6cdbd47
+      internalID: 1408047754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_27
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 316
+        width: 28
+        height: 47
+      alignment: 9
+      pivot: {x: 0.60362136, y: 0.006172992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117c529321316af48bf3ebb2356fa16e
+      internalID: 933310508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 258
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08bcaf53dcfb8b5489cfcc0af789f899
+      internalID: -982806846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_29
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 259
+        width: 34
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc2dc53512434046acd00be42efffbd
+      internalID: 674392533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_30
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 258
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.49810836, y: 0.0013389587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b5c9007cfe9684785fc6582b340e8f
+      internalID: -701925494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_31
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 257
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4981079, y: 0.013397853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552fee215c2f88c49bfe7e603d0d6158
+      internalID: -218730806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_32
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 258
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.49243343, y: 0.0013389587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5283e89a044b79047bc8b8957afc1683
+      internalID: -66033291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_33
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 259
+        width: 34
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae9c9334d2805643aa7365c7d5192a0
+      internalID: 1295256217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_34
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 258
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5037824, y: -0.0000006357829}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc51fb29bace91b47bdde9b0a3b8c066
+      internalID: -389027959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_35
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 257
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.51891464, y: 0.010718028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1be070a7105784999afca740f972eb
+      internalID: -1257605700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_36
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 258
+        width: 34
+        height: 48
+      alignment: 9
+      pivot: {x: 0.51513135, y: 0.0066986084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa9fdde227576c4eb002f166a7f77ab
+      internalID: 1676111574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_37
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 194
+        width: 27
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbdc029a9415df418f93da834d39f7e
+      internalID: 876122680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_38
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 194
+        width: 27
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b53ebe21dd61fa40b466ee0e338ac91
+      internalID: -1432144326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_39
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 195
+        width: 27
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a026b9b54eb587147b2cf1220ce5c29a
+      internalID: -1486540411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_40
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 195
+        width: 27
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f9516f159fc1a4b8868389ffe96b5a
+      internalID: -926668993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_41
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 194
+        width: 28
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56058a16b90580a4d99c085cad9e3991
+      internalID: -1968815623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_42
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 194
+        width: 30
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4698883, y: 0.0000003317128}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b2fefac361f0f04eaa2b85f5f496173
+      internalID: 843251639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_43
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 194
+        width: 29
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7de8e61cf3e03f44acc8f4f90708572
+      internalID: 1709635054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_44
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 194
+        width: 28
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25efb3e27856454a9eb9d260c3f80fc
+      internalID: -363723045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_45
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 194
+        width: 28
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b938b4e8690d9304b81e761bf12620f4
+      internalID: 724899129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_46
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 130
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f71411b5c457c40b53b394afb9811c
+      internalID: -1263129084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_47
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 130
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 796e2f9f854370c4cbdc19b51a090719
+      internalID: 946381774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_48
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 129
+        width: 34
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d35500954f2eb946952dbdd13018602
+      internalID: -24740352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_49
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 129
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8900143f5627115458645248229a4b9b
+      internalID: -2101428434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_50
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 129
+        width: 34
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04e23e44813d604e84b42e9fa8d2a32
+      internalID: -1692722065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_51
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 130
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95539f3dd080564888bde2d684d22f1
+      internalID: -1698937942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_52
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 129
+        width: 34
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96e3796350e4b74b91b16e8c85110b8
+      internalID: -218584489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_53
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 129
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685445450e7ad2e48a72dad4711dcd71
+      internalID: -399725583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_54
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 129
+        width: 34
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82171fb736b09f54a906abc4f90eae7a
+      internalID: 16320238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_55
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 66
+        width: 27
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf677a7ffcfafd144823b7815a9b39a3
+      internalID: -2032469278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_56
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 66
+        width: 27
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5052776, y: -0.00041099216}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d9774d2291d0349be4ad50913a1edf
+      internalID: -438006831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_57
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 67
+        width: 27
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1d210a00a74a047a98d76adbcc121e
+      internalID: -1966315250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_58
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 67
+        width: 27
+        height: 46
+      alignment: 9
+      pivot: {x: 0.47237423, y: -0.0040427498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea494fae69c92554f811754778933ad9
+      internalID: 577799044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_59
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 66
+        width: 28
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5127934, y: 0.005693476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc3fc3aed37d104b9bb1270846b65c9
+      internalID: 1611256656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_60
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 66
+        width: 30
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5391622, y: 0.019118434}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f60a004e4fc41649992ff874b07e305
+      internalID: 1609353725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_61
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 66
+        width: 29
+        height: 47
+      alignment: 9
+      pivot: {x: 0.49287257, y: 0.015655193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9b2f0424f2d8340857149b40c20f7a
+      internalID: -172104637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_62
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 66
+        width: 28
+        height: 47
+      alignment: 9
+      pivot: {x: 0.4663097, y: 0.0060757576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89833cbd1c8d2d4fb1f6da7e3155e8a
+      internalID: -543117950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_63
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 66
+        width: 23
+        height: 47
+      alignment: 9
+      pivot: {x: 0.53465736, y: 0.00043714806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6772953b74d617642b0c0f9c6d1b30d9
+      internalID: 1903016253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_64
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 34
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe511519c394b545a411f8e41f37481
+      internalID: -574268289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_65
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 4
+        width: 34
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53730f9ef23820439529ab7339e73a9
+      internalID: -250428069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_66
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 4
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43af11bae74c9124bb52265455b3acb0
+      internalID: -1048036288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_67
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 5
+        width: 32
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e949f02670aa04f9bde4a4b5251484
+      internalID: 1060113971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_68
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 5
+        width: 32
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712f080358b8cd64aa37436b734a5dec
+      internalID: 1184493819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoblinCaster_69
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 3
+        width: 34
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf903664decf8d345ae153fbbe50d01b
+      internalID: -1336719960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 97f8b1fdc189eac49a9fee306f5cef86
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GoblinCaster_0: -1001341491
+      GoblinCaster_1: 891879749
+      GoblinCaster_10: 842672227
+      GoblinCaster_11: -666201282
+      GoblinCaster_12: -1230724323
+      GoblinCaster_13: -112015200
+      GoblinCaster_14: -368802429
+      GoblinCaster_15: 1045330210
+      GoblinCaster_16: 2086737733
+      GoblinCaster_17: 696836773
+      GoblinCaster_18: 2034682062
+      GoblinCaster_19: -823630528
+      GoblinCaster_2: 230824874
+      GoblinCaster_20: -1228091524
+      GoblinCaster_21: -174339021
+      GoblinCaster_22: -1878174043
+      GoblinCaster_23: 2114086886
+      GoblinCaster_24: 1709540039
+      GoblinCaster_25: -2033700914
+      GoblinCaster_26: 1408047754
+      GoblinCaster_27: 933310508
+      GoblinCaster_28: -982806846
+      GoblinCaster_29: 674392533
+      GoblinCaster_3: 1785471129
+      GoblinCaster_30: -701925494
+      GoblinCaster_31: -218730806
+      GoblinCaster_32: -66033291
+      GoblinCaster_33: 1295256217
+      GoblinCaster_34: -389027959
+      GoblinCaster_35: -1257605700
+      GoblinCaster_36: 1676111574
+      GoblinCaster_37: 876122680
+      GoblinCaster_38: -1432144326
+      GoblinCaster_39: -1486540411
+      GoblinCaster_4: 2104983378
+      GoblinCaster_40: -926668993
+      GoblinCaster_41: -1968815623
+      GoblinCaster_42: 843251639
+      GoblinCaster_43: 1709635054
+      GoblinCaster_44: -363723045
+      GoblinCaster_45: 724899129
+      GoblinCaster_46: -1263129084
+      GoblinCaster_47: 946381774
+      GoblinCaster_48: -24740352
+      GoblinCaster_49: -2101428434
+      GoblinCaster_5: -1857683612
+      GoblinCaster_50: -1692722065
+      GoblinCaster_51: -1698937942
+      GoblinCaster_52: -218584489
+      GoblinCaster_53: -399725583
+      GoblinCaster_54: 16320238
+      GoblinCaster_55: -2032469278
+      GoblinCaster_56: -438006831
+      GoblinCaster_57: -1966315250
+      GoblinCaster_58: 577799044
+      GoblinCaster_59: 1611256656
+      GoblinCaster_6: 1476290667
+      GoblinCaster_60: 1609353725
+      GoblinCaster_61: -172104637
+      GoblinCaster_62: -543117950
+      GoblinCaster_63: 1903016253
+      GoblinCaster_64: -574268289
+      GoblinCaster_65: -250428069
+      GoblinCaster_66: -1048036288
+      GoblinCaster_67: 1060113971
+      GoblinCaster_68: 1184493819
+      GoblinCaster_69: -1336719960
+      GoblinCaster_7: 396403548
+      GoblinCaster_8: -439024975
+      GoblinCaster_9: -2077576397
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

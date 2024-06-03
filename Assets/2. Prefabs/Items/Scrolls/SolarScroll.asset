@@ -17,9 +17,18 @@ MonoBehaviour:
   <WorldSprite>k__BackingField: {fileID: 1776051508, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
   <DialogueTooltip>k__BackingField:
-    <Text>k__BackingField: 
+    <Text>k__BackingField: A scroll that radiates with divine yet devastating energies.
+      Perhaps I can channel some of this power into my constructs.
     <Important>k__BackingField: 0
   AbilitySOList:
   - {fileID: 11400000, guid: c89be6876f803d54bbcf1db7969536f2, type: 2}
+  - {fileID: 11400000, guid: f73afa5861ac8e047b5098deca05e053, type: 2}
+  - {fileID: 11400000, guid: 781031400b007664da3525a14f16b282, type: 2}
+  - {fileID: 11400000, guid: 82a66e1722c0d0845b3f75416943d1e3, type: 2}
+  - {fileID: 11400000, guid: 1d70bb0bbaaf2a54ba522f360b2de2bf, type: 2}
   ConstructSOList:
-  - {fileID: 11400000, guid: a8c475ffa39cbb0468eb8d0bfda1d1e7, type: 2}
+  - {fileID: 11400000, guid: 37d03aa4646de824687b77f467eb695a, type: 2}
+  - {fileID: 11400000, guid: 9049f27ba022e3c45aa8ddbf82acc259, type: 2}
+  - {fileID: 11400000, guid: 924ecb6ab8bf48c4e87120760c7880b4, type: 2}
+  - {fileID: 11400000, guid: e17161427a53c694babff30fb23cf759, type: 2}
+  - {fileID: 11400000, guid: 223d7d4ca039ac94ea1038aa5f6c10a1, type: 2}

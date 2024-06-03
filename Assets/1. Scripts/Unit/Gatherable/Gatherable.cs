@@ -165,6 +165,15 @@ namespace Unit.Gatherables
                 ItemObject itemObj = ItemManager.Instance.RequestItemObject(itemSO, transform.position, Quaternion.identity);
                 itemObj.ScatterItem(transform.position + UnitSO.ItemDropOffset);
             }
+
+            if(UnitSO.RandomItemPool != null && UnitSO.RandomItemPool.Count > 0)
+            {
+                var ranIndex = UnityEngine.Random.Range(0, UnitSO.RandomItemPool.Count);
+                var itemSO = UnitSO.RandomItemPool[ranIndex];
+
+                ItemObject itemObj = ItemManager.Instance.RequestItemObject(itemSO, transform.position, Quaternion.identity);
+                itemObj.ScatterItem(transform.position + UnitSO.ItemDropOffset);
+            }
         }
     }
 }

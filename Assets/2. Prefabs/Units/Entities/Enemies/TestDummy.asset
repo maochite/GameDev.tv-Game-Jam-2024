@@ -15,7 +15,16 @@ MonoBehaviour:
   <BaseHealth>k__BackingField: 10000
   <BaseHealthRegen>k__BackingField: 0
   <BaseAttackTime>k__BackingField: 1
-  <BaseAttackRange>k__BackingField: 1
+  <BaseAttackRange>k__BackingField: 1.5
   <BaseMovementSpeed>k__BackingField: 1
-  <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 7b995e134c27e714080dff60f0fb5272,
+  <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 6ed8bc5e31fec114b976a4ab07514ab7,
+    type: 2}
+  <SpriteAnimator>k__BackingField: {fileID: 0}
+  <UpAnimatorController>k__BackingField: {fileID: 22100000, guid: f9ad4892f65e8634c904a2b281918886,
+    type: 2}
+  <DownAnimatorController>k__BackingField: {fileID: 22100000, guid: 3750260deba9d73428e815f7731fbddf,
+    type: 2}
+  <LeftAnimatorController>k__BackingField: {fileID: 22100000, guid: 9678c06147a5df54fa7f2046ceca375b,
+    type: 2}
+  <RightAnimatorController>k__BackingField: {fileID: 22100000, guid: 5f35767d0dbb22448b2f72c93950a032,
     type: 2}

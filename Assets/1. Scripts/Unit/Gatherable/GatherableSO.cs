@@ -11,6 +11,7 @@ namespace Unit.Gatherables
     {
         [field: Header("Gatherable Specifics")]
         //[field: SerializeField] public Sprite Sprite { get; private set; }
+        [field: SerializeField] public List<ItemSO> RandomItemPool { get; private set; }
         [field: SerializeField] public List<ItemSO> ItemPool { get; private set; }
         [field: SerializeField] public Vector3 ItemDropOffset { get; private set; }
         [field: SerializeField] public EntityActionAnimation GatheringAnimation { get; private set; }

@@ -6080,7 +6080,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6fee3cafcbb5f54186d156ebc2deb99, type: 2}
   - {fileID: 11400000, guid: beb0b1c02ae0ba34794aba301cc126a7, type: 2}
   - {fileID: 11400000, guid: b8023d1f8c01b894b83b4ac2f1432ec6, type: 2}
-  - {fileID: 11400000, guid: 15836ee81d6475f43ab53da892b9e2ba, type: 2}
   <StartingResources>k__BackingField: 100
   <DebugItemToAdd>k__BackingField: {fileID: 0}
   <DebugItemAmount>k__BackingField: 1

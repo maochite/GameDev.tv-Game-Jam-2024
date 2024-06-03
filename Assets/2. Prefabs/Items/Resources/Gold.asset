@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UISprite>k__BackingField: {fileID: 318884186, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
-  <WorldSprite>k__BackingField: {fileID: -1949422933, guid: 725e89e5a38bc6247b354cdcd324bd7d,
+  <WorldSprite>k__BackingField: {fileID: 318884186, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: 
+    <Important>k__BackingField: 0
   <ResourceType>k__BackingField: 2

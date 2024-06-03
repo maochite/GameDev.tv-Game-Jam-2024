@@ -17,9 +17,18 @@ MonoBehaviour:
   <WorldSprite>k__BackingField: {fileID: 1825638480, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
   <DialogueTooltip>k__BackingField:
-    <Text>k__BackingField: 
+    <Text>k__BackingField: One of the basic scrolls provided to Wicker Mages alike,
+      it grants us fundamental knowledge of fireballs and fireball constructs.
     <Important>k__BackingField: 0
   AbilitySOList:
   - {fileID: 11400000, guid: 92668c74d91ea1948ae4126c7e51c894, type: 2}
+  - {fileID: 11400000, guid: 44adae2a0f226ea47b8fc365293b1ffe, type: 2}
+  - {fileID: 11400000, guid: e667aa5089518be48987ce1b4915cdcf, type: 2}
+  - {fileID: 11400000, guid: 52ecc52485915434a9150ec3c0d95b79, type: 2}
+  - {fileID: 11400000, guid: aced7ef462e9f334a859d0834e6d6989, type: 2}
   ConstructSOList:
   - {fileID: 11400000, guid: 2b8bfd0ab9f28144b9a2b49c5f5e263f, type: 2}
+  - {fileID: 11400000, guid: 1f9e024a188aacb4aa411d15055b5772, type: 2}
+  - {fileID: 11400000, guid: 74faea8cc96ad924e9fad28abfabc700, type: 2}
+  - {fileID: 11400000, guid: 0d19a22382762fc45b559103875a19d6, type: 2}
+  - {fileID: 11400000, guid: db5957675932c0c4788a3ba64936ea18, type: 2}
