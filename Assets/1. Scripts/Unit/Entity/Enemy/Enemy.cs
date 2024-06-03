@@ -3,9 +3,6 @@ using JetBrains.Annotations;
 using NaughtyAttributes;
 using Storage;
 using System.Collections;
-using System.Collections.Generic;
-using Unit.Gatherables;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
@@ -148,7 +145,18 @@ namespace Unit.Entities
         {
             MaxHealth = EntityStatsManager.Instance.GetHealthModified(UnitSO);
             HealthRegen = EntityStatsManager.Instance.GetHealthRegenModified(UnitSO);
-            MovementSpeed = EntityStatsManager.Instance.GetMovementModified(UnitSO);
+
+            if (IsDebuffed)
+            {
+                MovementSpeed = EntityStatsManager.Instance.GetMovementModified(EntitySO) / 2;
+            }
+
+            else
+            {
+                MovementSpeed = EntityStatsManager.Instance.GetMovementModified(UnitSO);
+            }
+
+            NMAgent.speed = MovementSpeed;
             EnemyAbility.UpdateAbilityStats();
         }
 

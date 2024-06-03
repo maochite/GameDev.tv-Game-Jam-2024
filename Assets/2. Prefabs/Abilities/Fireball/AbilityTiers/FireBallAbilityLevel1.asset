@@ -243,3 +243,5 @@ MonoBehaviour:
       range: 0.1
       rotateYAxisOnly: 1
       disableHomingOnHit: 1
+  <Debuffs>k__BackingField: 0
+  <AudioClips>k__BackingField: 3

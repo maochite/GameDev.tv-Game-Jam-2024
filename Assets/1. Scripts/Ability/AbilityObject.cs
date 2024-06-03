@@ -647,7 +647,19 @@ namespace Ability
         {
             //Debug.Log("Hit entity "+entity + " " + abilitySO.AttributeData.Damage);
             VFXHitEvent();
-            entity.DamageEntity(ability.Damage);
+
+            if(abilitySO.Debuffs)
+            {
+                entity.DebuffEntity();
+            }
+
+            if(entity.IsDebuffed)
+            {
+                float extraDamage = ability.Damage * 0.25f;
+                entity.DamageEntity(ability.Damage + extraDamage);
+            }
+
+            else entity.DamageEntity(ability.Damage);
 
         }
 

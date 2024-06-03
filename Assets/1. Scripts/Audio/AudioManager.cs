@@ -13,10 +13,73 @@ namespace Audio
         GameTrack1,
         GameTrack2,
     }
+    public enum AudioClipEnum
+    {
+        Axe,
+        Pick,
+        Attack,
+        Fireball,
+        Hit,
+    }
+
+
 
 
     public class AudioManager : StaticInstance<AudioManager>
     {
+        [SerializeField] private AudioSource GlobalSource;
+        public AudioClip Axe;
+        public AudioClip Pick;
+        public AudioClip Attack;
+        public AudioClip Fireball;
+        public AudioClip Hit;
+
+        private Dictionary<AudioClip, float> clipCooldowns = new Dictionary<AudioClip, float>();
+        private Dictionary<AudioClip, float> lastPlayedTimes = new Dictionary<AudioClip, float>();
+
+        public float axeCooldown = 0.2f;
+        public float pickCooldown = 0.2f;
+        public float attackCooldown = 0.2f;
+        public float fireballCooldown = 0.2f;
+        public float hitCooldown = 0.2f;
+
+        private void Start()
+        {
+            clipCooldowns[Axe] = axeCooldown;
+            clipCooldowns[Pick] = pickCooldown;
+            clipCooldowns[Attack] = attackCooldown;
+            clipCooldowns[Fireball] = fireballCooldown;
+            clipCooldowns[Hit] = hitCooldown;
+
+            lastPlayedTimes[Axe] = -axeCooldown;
+            lastPlayedTimes[Pick] = -pickCooldown;
+            lastPlayedTimes[Attack] = -attackCooldown;
+            lastPlayedTimes[Fireball] = -fireballCooldown;
+            lastPlayedTimes[Hit] = -hitCooldown;
+        }
+
+        public void PlayClip(AudioClipEnum clipEnum)
+        {
+            AudioClip clip = audioDict[clipEnum];
+
+            float lastPlayedTime;
+            if (lastPlayedTimes.TryGetValue(clip, out lastPlayedTime))
+            {
+                float cooldown;
+                if (clipCooldowns.TryGetValue(clip, out cooldown))
+                {
+                    if (Time.time >= lastPlayedTime + cooldown)
+                    {
+                        // Play the clip
+                        GlobalSource.PlayOneShot(clip);
+
+                        // Update the last played time
+                        lastPlayedTimes[clip] = Time.time;
+                    }
+                }
+            }
+        }
+
         public class AudioWrapper : MonoBehaviour
         {
             private bool isInitialized = false;
@@ -35,7 +98,7 @@ namespace Audio
 
                 //Add default volume and volume mutiplier
                 defaultAudioVolume = this.audioSource.volume;
-                this.volumeMultiplier = volumeMultiplier;   
+                this.volumeMultiplier = volumeMultiplier;
 
                 ChangeVolume(volumeMultiplier);
 
@@ -72,8 +135,8 @@ namespace Audio
 
             public bool IsPlaying()
             {
-                if(audioSource.isPlaying) return true;
-                
+                if (audioSource.isPlaying) return true;
+
                 else
                 {
                     gameObject.SetActive(false);
@@ -109,8 +172,10 @@ namespace Audio
         private List<(Vector3 pos, float time)> audioPositionsToRemove = new(50);
 
         [ReadOnly, SerializeField] float _SFXVolume = 1f;
-        public float SFXVolume { get => _SFXVolume/2f; }//Remap 0-2 to 0-1
+        public float SFXVolume { get => _SFXVolume / 2f; }//Remap 0-2 to 0-1
         public float BGMVolume { get => BG_Max_Volume / 100f; }
+
+        public Dictionary<AudioClipEnum, AudioClip> audioDict;
 
         protected override void Awake()
         {
@@ -121,6 +186,14 @@ namespace Audio
                 CreateNewAudioPool(audioSource);
             }
 
+            audioDict = new()
+            {
+                [AudioClipEnum.Attack] = Attack,
+                [AudioClipEnum.Pick] = Pick,
+                [AudioClipEnum.Axe] = Axe,
+                [AudioClipEnum.Fireball] = Fireball,
+                [AudioClipEnum.Hit] = Hit,
+            };
 
             bg_source.volume = 0;
             //BG_Source.Play();
@@ -252,7 +325,8 @@ namespace Audio
         {
             if (!audioPools.ContainsKey(wrapper.GetAudioSource()))
             {
-                return;
+                Destroy(wrapper);
+                Destroy(wrapper.GetAudioSource());
             }
 
             audioPools[wrapper.GetAudioSource()].Enqueue(wrapper);

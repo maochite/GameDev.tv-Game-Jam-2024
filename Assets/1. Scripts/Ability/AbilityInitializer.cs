@@ -127,6 +127,7 @@ namespace Ability
             float timeElapsed = 0;
             float timeNormalized = 0;
 
+            AudioManager.Instance.PlayClip(ability.AbilitySO.AudioClips);
 
             if (ability.AbilitySO.VFXData.ParticleProp != null)
             {

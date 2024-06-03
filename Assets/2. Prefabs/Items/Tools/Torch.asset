@@ -17,7 +17,7 @@ MonoBehaviour:
   <WorldSprite>k__BackingField: {fileID: -349852698, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
   <DialogueTooltip>k__BackingField:
-    <Text>k__BackingField: This torch will increase my light radius.
+    <Text>k__BackingField: This torch will increase my light radius. Very handy!
     <Important>k__BackingField: 0
   StatModifiers:
   - <EntityType>k__BackingField: 0

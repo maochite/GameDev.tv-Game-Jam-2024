@@ -418,6 +418,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  ChopClip: {fileID: 6008561270214742384, guid: f27aa67741829dd4ca19d4d23c20aa99,
+    type: 3}
+  MineClip: {fileID: 6008561270214742384, guid: f27aa67741829dd4ca19d4d23c20aa99,
+    type: 3}
+  AttackClip: {fileID: 6008561270214742384, guid: f27aa67741829dd4ca19d4d23c20aa99,
+    type: 3}
   currentHealth: 0
   maxHealth: 0
 --- !u!1 &7342074858374536607

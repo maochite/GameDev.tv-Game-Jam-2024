@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.Animations;
 using TMPro;
 using System.Linq;
+using Audio;
 
 namespace Unit.Entities
 {
@@ -35,6 +36,8 @@ namespace Unit.Entities
         public Transform Transform { get; }
         public EntitySO EntitySO { get; }
         public void DamageEntity(float amount);
+        public void DebuffEntity();
+        public bool IsDebuffed { get; }
     }
 
     public abstract class Entity<T> : Unit<T>, IEntity where T : EntitySO
@@ -55,7 +58,11 @@ namespace Unit.Entities
 
         protected const float RegenInterval = 1;
         protected float regenTimer = 0;
- 
+
+        public bool IsDebuffed { get; private set; } = false;
+        protected const float debuffMaxTime = 10;
+        protected float debuffTimer = 0;
+
         public abstract void UpdateEntityStats();
 
         protected override void Awake()
@@ -83,6 +90,7 @@ namespace Unit.Entities
 
         public void DamageEntity(float amount)
         {
+            AudioManager.Instance.PlayClip(AudioClipEnum.Hit);
             CurrentHealth -= amount;
         }
 
@@ -91,12 +99,39 @@ namespace Unit.Entities
         public override void AssignUnit(T entitySO)
         {
             base.AssignUnit(entitySO);
+            IsDebuffed = false;
+            debuffTimer = 0;
+            regenTimer = 0;
             MovementSpeed = entitySO.BaseMovementSpeed;
             AttackSpeed = entitySO.BaseAttackTime;
             AttackRadius = entitySO.BaseAttackRange;
 
         }
 
+        public void DebuffEntity()
+        {
+            IsDebuffed = true;
+            UpdateEntityStats();
+        }
+
+        private void UndoDebuff()
+        {
+
+        }
+
+        protected void ResolveDebuff()
+        {
+            if (IsDebuffed)
+            {
+                debuffTimer -= Time.deltaTime;
+
+                if (debuffTimer < 0)
+                {
+                    IsDebuffed = false;
+                    UndoDebuff();
+                }
+            }
+        }
     }
 }
     

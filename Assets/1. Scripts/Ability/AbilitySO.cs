@@ -3,6 +3,8 @@ using UnityEngine;
 using System;
 using UnityEngine.VFX;
 using NaughtyAttributes;
+using Audio;
+
 
 
 #if UNITY_EDITOR
@@ -76,6 +78,8 @@ namespace Ability
         [field: SerializeField] public ActiveRotation ActiveRotationData { get; private set; }
         [field: SerializeField] public Hit HitData { get; private set; }
         [field: SerializeField] public Movement MovementData { get; private set; }
+        [field: SerializeField] public bool Debuffs { get; private set; } = false;
+        [field: SerializeField] public AudioClipEnum AudioClips { get; private set; }
 
         [Serializable]
         public class Attribute
