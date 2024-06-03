@@ -26,7 +26,7 @@ namespace WaveSpawns
         [ShowIf("endWaveOnPercentKilled"), SerializeField, MinValue(25f), MaxValue(100f), AllowNesting] public float percentKillsRequired;
         [SerializeField, AllowNesting] public bool endWaveOnTimeLimit;
         [ShowIf("endWaveOnTimeLimit"), SerializeField, MinValue(1f), MaxValue(180f), AllowNesting] public float timeLimitSecs;
-        public bool despawnAllEnemiesOnWaveEnd;
+        [SerializeField, AllowNesting] public bool despawnAllEnemiesOnWaveEnd;
         [Space(5)]
         [SerializeField, ReorderableList] public List<Group> groups;
     }
