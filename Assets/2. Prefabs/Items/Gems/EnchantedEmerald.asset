@@ -16,10 +16,11 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: -1292362189, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: This Emerald enhances my constructs' defenses, making
+      them more resilient. It'll also help keep them summoned for longer times.
+    <Important>k__BackingField: 0
   StatModifiers:
-  - <EntityType>k__BackingField: 2
-    <StatModType>k__BackingField: 1
-    <Value>k__BackingField: 1
   - <EntityType>k__BackingField: 2
     <StatModType>k__BackingField: 0
     <Value>k__BackingField: 1

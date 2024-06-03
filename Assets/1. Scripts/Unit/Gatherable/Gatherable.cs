@@ -1,9 +1,11 @@
+using Audio;
 using Items;
 using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 namespace Unit.Gatherables
 {
@@ -27,6 +29,11 @@ namespace Unit.Gatherables
         private bool initialPositionSet = false;
 
         Coroutine GatherCoroutine;
+
+        [Header("Audio")]
+        public AudioSource ChopClip;
+        public AudioSource MineClip;
+        public AudioSource AttackClip;
 
         protected override void Awake()
         {
@@ -123,6 +130,21 @@ namespace Unit.Gatherables
         public void Gather(float gatherAmount)
         {
             CurrentHealth -= gatherAmount;
+            if(UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Attack)
+            {
+
+                AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.Axe);
+            }
+
+            else if (UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Mine)
+            {
+                AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.Pick);
+            }
+
+            else if (UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Chop)
+            {
+                AudioManager.Instance.GlobalSource.PlayOneShot(AudioManager.Instance.Axe);
+            }
         }
 
         private void GatherResponse()

@@ -13,10 +13,27 @@ namespace Audio
         GameTrack1,
         GameTrack2,
     }
+    public enum AudioClips
+    {
+        Axe,
+        Pick,
+        Attack,
+        Fireball,
+        Hit,
+    }
+
+
 
 
     public class AudioManager : StaticInstance<AudioManager>
     {
+        public AudioSource GlobalSource;
+        public AudioClip Axe;
+        public AudioClip Pick;
+        public AudioClip Attack;
+        public AudioClip Fireball;
+        public AudioClip Hit;
+
         public class AudioWrapper : MonoBehaviour
         {
             private bool isInitialized = false;
@@ -35,7 +52,7 @@ namespace Audio
 
                 //Add default volume and volume mutiplier
                 defaultAudioVolume = this.audioSource.volume;
-                this.volumeMultiplier = volumeMultiplier;   
+                this.volumeMultiplier = volumeMultiplier;
 
                 ChangeVolume(volumeMultiplier);
 
@@ -72,8 +89,8 @@ namespace Audio
 
             public bool IsPlaying()
             {
-                if(audioSource.isPlaying) return true;
-                
+                if (audioSource.isPlaying) return true;
+
                 else
                 {
                     gameObject.SetActive(false);
@@ -109,8 +126,10 @@ namespace Audio
         private List<(Vector3 pos, float time)> audioPositionsToRemove = new(50);
 
         [ReadOnly, SerializeField] float _SFXVolume = 1f;
-        public float SFXVolume { get => _SFXVolume/2f; }//Remap 0-2 to 0-1
+        public float SFXVolume { get => _SFXVolume / 2f; }//Remap 0-2 to 0-1
         public float BGMVolume { get => BG_Max_Volume / 100f; }
+
+        public Dictionary<AudioClips, AudioClip> audioDict;
 
         protected override void Awake()
         {
@@ -121,6 +140,14 @@ namespace Audio
                 CreateNewAudioPool(audioSource);
             }
 
+            audioDict = new()
+            {
+                [AudioClips.Attack] = Attack,
+                [AudioClips.Pick] = Pick,
+                [AudioClips.Axe] = Axe,
+                [AudioClips.Fireball] = Fireball,
+                [AudioClips.Hit] = Hit,
+            };
 
             bg_source.volume = 0;
             //BG_Source.Play();
@@ -252,7 +279,8 @@ namespace Audio
         {
             if (!audioPools.ContainsKey(wrapper.GetAudioSource()))
             {
-                return;
+                Destroy(wrapper);
+                Destroy(wrapper.GetAudioSource());
             }
 
             audioPools[wrapper.GetAudioSource()].Enqueue(wrapper);
