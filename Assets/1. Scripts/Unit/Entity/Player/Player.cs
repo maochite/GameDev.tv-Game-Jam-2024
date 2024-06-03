@@ -49,6 +49,7 @@ namespace Unit.Entities
         [field: SerializeField] public SpellBook SpellBook { get; private set; }
         [field: SerializeField] public TMP_Text PlayerDialogue { get; private set; }
         [field: SerializeField] private Rigidbody rigidBody;
+        [field: SerializeField] private PhysicMaterial rbMaterial;
 
         [Header("Controller Components")]
         [SerializeField, Range(1, 20)] private float inputSmoothing = 8f;
@@ -258,6 +259,7 @@ namespace Unit.Entities
             base.Start();
             AssignUnit(PlayerSO);
             Inventory.InitializeInventory();
+            rbMaterial.bounciness = 0.01f;
         }
 
         public override void AssignUnit(PlayerSO playerSO)

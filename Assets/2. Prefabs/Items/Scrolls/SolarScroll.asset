@@ -16,5 +16,10 @@ MonoBehaviour:
     type: 3}
   <WorldSprite>k__BackingField: {fileID: 1776051508, guid: 77e732b539d2b08488678f27ca7feda6,
     type: 3}
+  <DialogueTooltip>k__BackingField:
+    <Text>k__BackingField: 
+    <Important>k__BackingField: 0
   AbilitySOList:
-  - {fileID: 11400000, guid: 92668c74d91ea1948ae4126c7e51c894, type: 2}
+  - {fileID: 11400000, guid: c89be6876f803d54bbcf1db7969536f2, type: 2}
+  ConstructSOList:
+  - {fileID: 11400000, guid: a8c475ffa39cbb0468eb8d0bfda1d1e7, type: 2}

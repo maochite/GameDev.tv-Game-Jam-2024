@@ -195,6 +195,7 @@ namespace Ability
 
             returnAbilityToPool = false;
             currentHitTarget = null;
+            primaryParticles = null;
             hasHomingEnabled = abilitySO.MovementData.HomingData.Enabled;
             remainingHits = abilitySO.HitData.MaxHits;
 
@@ -241,8 +242,8 @@ namespace Ability
             if(abilitySO.VFXData.ParticlePrimary != null)
             {
                 primaryParticles = ParticleManager.Instance.RequestParticleSystem(abilitySO.VFXData.ParticlePrimary);
-                primaryParticles.AttachParticleSystem(transform);
-                primaryParticles.ChangeParticalSize(currentSize);
+                primaryParticles.AttachParticleSystem(transform, abilitySO.VFXData.ParticlePrimary.Offset);
+                //primaryParticles.ChangeParticalSize(currentSize);
                 primaryParticles.Activate();
             }
         }
@@ -645,7 +646,7 @@ namespace Ability
         void EntityHitEvent(IEntity entity)
         {
             //Debug.Log("Hit entity "+entity + " " + abilitySO.AttributeData.Damage);
-
+            VFXHitEvent();
             entity.DamageEntity(ability.Damage);
 
         }
@@ -654,6 +655,7 @@ namespace Ability
         {
             if (abilitySO.VFXData.ParticleHit != null)
             {
+        
                 hitParticles = ParticleManager.Instance.RequestParticleSystem(abilitySO.VFXData.ParticleHit);
                 hitParticles.SetOrientation(transform.position + -transform.forward * 0.5f, Quaternion.identity);
                 hitParticles.ChangeParticalSize(currentSize);
@@ -735,6 +737,7 @@ namespace Ability
         {
             //TriggerAbilityOnExpiration();
             primaryParticles.ReturnParticles(PreviousRotation);
+
             AbilityInitializer.Instance.ReturnAbilityToPool(this);
         }
 

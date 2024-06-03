@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Collections;
 using Audio;
 using static AbilityTools;
+using Particle;
 
 
 namespace Ability
@@ -125,6 +126,14 @@ namespace Ability
             Ability ability = castingData.Ability;
             float timeElapsed = 0;
             float timeNormalized = 0;
+
+
+            if (ability.AbilitySO.VFXData.ParticleProp != null)
+            {
+                var propParticles = ParticleManager.Instance.RequestParticleSystem(ability.AbilitySO.VFXData.ParticleProp);
+                propParticles.SetOrientation(ability.AbilitySO.VFXData.ParticleProp.Offset + castingData.TargetPoint, Quaternion.identity);
+                propParticles.Activate();
+            }
 
             InitialIncrementData incrementData = SetIncrementData(ability);
 

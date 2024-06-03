@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527fd4807913b884fa83aeff4c3eaf30, type: 3}
   m_Name: TestEnemy
   m_EditorClassIdentifier: 
-  <BaseHealth>k__BackingField: 10
+  <BaseHealth>k__BackingField: 1000
   <BaseHealthRegen>k__BackingField: 0
   <BaseAttackTime>k__BackingField: 1
-  <BaseAttackRadius>k__BackingField: 1
+  <BaseAttackRange>k__BackingField: 1
   <BaseMovementSpeed>k__BackingField: 0
   <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 7b995e134c27e714080dff60f0fb5272,
     type: 2}

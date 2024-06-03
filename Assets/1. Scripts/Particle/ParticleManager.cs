@@ -16,7 +16,7 @@ namespace Particle
         public bool IsActive { get; private set; } = false;
         public bool IsReturning { get; private set; } = false;
 
-        public void Assign(ParticleSystem particleSystem, ParticleSO particleSO, ParticleManager manager)
+        public void Initialize(ParticleSystem particleSystem, ParticleSO particleSO, ParticleManager manager)
         {
             Manager = manager;
             ParticleSystem = particleSystem;
@@ -24,7 +24,7 @@ namespace Particle
 
             ParticleSystem.Stop();
             gameObject.SetActive(false);
-            AttachParticleSystem(manager.transform);
+            AttachParticleSystem(manager.transform, Vector3.zero);
         }
 
         public void Activate()
@@ -37,10 +37,14 @@ namespace Particle
             }
         }
 
-        public void AttachParticleSystem(Transform parent)
+        public void AttachParticleSystem(Transform parent, Vector3 offset)
         {
-            transform.SetParent(parent);
-            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            if(parent != null)
+            {
+                transform.SetParent(parent);
+            }
+
+            transform.SetLocalPositionAndRotation(offset, Quaternion.identity);
         }
 
         public void SetOrientation(Vector3 pos, Quaternion rot)
@@ -52,25 +56,57 @@ namespace Particle
         {
             size *= ParticleSO.SizeModifier;
 
-            if (size < 0)
+            if (ParticleSO.ModifyChildrenSize)
             {
-                size = 0;
+                var systems = ParticleSystem.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem system in systems)
+                {
+
+                    if (size < 0)
+                    {
+                        size = 0;
+                    }
+
+                    var mainModule = system.main;
+                    mainModule.startSize = size;
+
+                    particles = new ParticleSystem.Particle[system.main.maxParticles];
+
+                    int numParticlesAlive = system.GetParticles(particles);
+
+                    for (int i = 0; i < numParticlesAlive; i++)
+                    {
+                        particles[i].startSize = size;
+                    }
+
+
+                    system.SetParticles(particles, numParticlesAlive);
+                }
             }
 
-            var mainModule = ParticleSystem.main;
-            mainModule.startSize = size;
-
-            particles = new ParticleSystem.Particle[ParticleSystem.main.maxParticles];
-
-            int numParticlesAlive = ParticleSystem.GetParticles(particles);
-
-            for (int i = 0; i < numParticlesAlive; i++)
+            else
             {
-                particles[i].startSize = size;
+                if (size < 0)
+                {
+                    size = 0;
+                }
+
+                var mainModule = ParticleSystem.main;
+                mainModule.startSize = size;
+
+                particles = new ParticleSystem.Particle[ParticleSystem.main.maxParticles];
+
+                int numParticlesAlive = ParticleSystem.GetParticles(particles);
+
+                for (int i = 0; i < numParticlesAlive; i++)
+                {
+                    particles[i].startSize = size;
+                }
+
+
+                ParticleSystem.SetParticles(particles, numParticlesAlive);
             }
-
-
-            ParticleSystem.SetParticles(particles, numParticlesAlive);
         }
 
         public void OnParticleSystemStopped()
@@ -91,14 +127,14 @@ namespace Particle
             IsReturning = true;
 
             Vector3 pos = transform.position;
-            AttachParticleSystem(Manager.transform);
+            AttachParticleSystem(Manager.transform, Vector3.zero);
             SetOrientation(pos, lingerRotation);
 
             LingerParticles();
 
             yield return new WaitForSeconds(ParticleSO.LingerTime);
 
-            AttachParticleSystem(Manager.transform);
+            AttachParticleSystem(Manager.transform, Vector3.zero);
 
             gameObject.SetActive(false);
 
@@ -176,7 +212,7 @@ namespace Particle
                     transform);
 
                 ParticleWrapper wrapper = particleSystem.gameObject.AddComponent<ParticleWrapper>();
-                wrapper.Assign(particleSystem, particleSO, this);
+                wrapper.Initialize(particleSystem, particleSO, this);
 
                 particleSystemPools[particleSO].Enqueue(wrapper);
             }
@@ -213,7 +249,7 @@ namespace Particle
         private void SpawnTestParticles()
         {
             var wrapper = RequestParticleSystem(testParticleSO);
-            wrapper.AttachParticleSystem(null);
+            wrapper.AttachParticleSystem(null, Vector3.zero);
             wrapper.SetOrientation(testSpawnLocation, Quaternion.identity);
             wrapper.Activate();
         }

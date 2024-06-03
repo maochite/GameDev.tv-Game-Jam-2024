@@ -7,26 +7,30 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireBallTrailMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 996d5213009cf4c4aa2ee98bd6f53384,
-    type: 3}
+  m_Name: ConjureOilParticleCast1Material
+  m_Shader: {fileID: 4800000, guid: 8516d7a69675844a7a0b7095af7c46af, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ValidKeywords:
+  - _RECEIVE_SHADOWS_OFF
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords:
+  - _FLIPBOOKBLENDING_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses:
-  - MOTIONVECTORS
+  - SHADOWCASTER
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: dd28a114170527849842f12bbf3d0fc3, type: 3}
+        m_Texture: {fileID: 2800000, guid: a5f26aadbfce3364cb55e7ffb572a7f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -50,14 +54,22 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4b34cef096734a041a61b6034bf1a2fb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 023b5867c35b79b4099776c419a4e2e4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainText:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NormalFromTexture_d15f8d8b15ad4440b12e5763a75dfd23_Texture_0_Texture2D:
+    - _NoiseMap1:
+        m_Texture: {fileID: 2800000, guid: 1c14bd22d663a4746ab1111b0f84cc5c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseMap2:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -90,21 +102,24 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _Alpha: 1
     - _AlphaClip: 0
+    - _AlphaClipThreshold: 0.994
     - _AlphaToMask: 0
     - _Blend: 0
-    - _BlendModePreserveSpecular: 1
+    - _BlendModePreserveSpecular: 0
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
+    - _CastShadows: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorMode: 0
     - _Cull: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DisplacementStrength: 0.666
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
@@ -114,55 +129,63 @@ Material:
     - _EnvironmentReflections: 1
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
-    - _FresnelPower: 0.57
+    - _FresnelPower: 5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MainTexSpeed: 0
-    - _Metallic: 0
+    - _MainTexSpeed: 1
+    - _Metallic: 1
     - _Mode: 0
-    - _NoiseDissolve: 2
-    - _NoiseScale: 2
-    - _NormalStength: 0
+    - _NoiseDissolve: 5
+    - _NoiseScale: 1
+    - _NormalStength: 5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _Smoothness: 0
+    - _ReceiveShadows: 0
+    - _Smoothness: 55
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _VoronoiAngle: 1
-    - _VoronoiDissolve: 4.86
-    - _VoronoiScale: 1
+    - _VoronoiAngle: 3
+    - _VoronoiDissolve: 1
+    - _VoronoiScale: 5
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 0
+    - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0, b: 0, a: 1}
-    - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BaseColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 1.7207955, g: 0.23557651, b: 0, a: 0}
-    - _MainColor: {r: 1, g: 0, b: 0, a: 1}
-    - _MainTexTiling: {r: 0.65, g: 0, b: 0, a: 0}
-    - _NoiseSpeed: {r: 5, g: 5, b: 0, a: 0}
+    - _FresnelColor: {r: 7.9908247, g: 0.46738744, b: 0.46738744, a: 1}
+    - _MainColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainTexTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _NoiseSpeed: {r: 1, g: 1, b: 0, a: 0}
     - _NoiseTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _ScrollSpeed1: {r: 0, g: 0, b: 0, a: 0}
+    - _ScrollSpeed2: {r: 0, g: 0, b: 0, a: 0}
+    - _ScrollSpeed3: {r: 1, g: 1, b: 0, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _VoronoiColor: {r: 2.270603, g: 0.3517762, b: 0, a: 1}
-    - _VoronoiSpeed: {r: 2, g: 2, b: 0, a: 0}
-    - _VoronoiTiling: {r: 5, g: 5, b: 0, a: 0}
+    - _Tiling1: {r: 1, g: 1, b: 0, a: 0}
+    - _Tiling2: {r: 1, g: 1, b: 0, a: 0}
+    - _Tiling3: {r: 1, g: 1, b: 0, a: 0}
+    - _VoronoiColor: {r: 18.401936, g: 0, b: 0, a: 1}
+    - _VoronoiSpeed: {r: 1, g: 1, b: 0, a: 0}
+    - _VoronoiTiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7808623784592687817
+--- !u!114 &7863283358663125447
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

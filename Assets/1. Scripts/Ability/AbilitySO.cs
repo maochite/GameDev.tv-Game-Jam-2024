@@ -77,7 +77,6 @@ namespace Ability
         [field: SerializeField] public Hit HitData { get; private set; }
         [field: SerializeField] public Movement MovementData { get; private set; }
 
-
         [Serializable]
         public class Attribute
         {
@@ -92,6 +91,7 @@ namespace Ability
             [field: SerializeField] public Particle.ParticleSO ParticlePrimary { get; private set; }
             //[field: SerializeField] public ParticleSO ParticleCast { get; private set; }
             [field: SerializeField] public Particle.ParticleSO ParticleHit { get; private set; }
+            [field: SerializeField] public Particle.ParticleSO ParticleProp { get; private set; }
         }
 
         [Serializable]

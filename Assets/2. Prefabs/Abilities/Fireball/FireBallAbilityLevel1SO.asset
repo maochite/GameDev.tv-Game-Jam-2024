@@ -19,10 +19,11 @@ MonoBehaviour:
     <ParticlePrimary>k__BackingField: {fileID: 11400000, guid: c7eaa8ebf12eb104893b58ee3ff185de,
       type: 2}
     <ParticleHit>k__BackingField: {fileID: 0}
+    <ParticleProp>k__BackingField: {fileID: 0}
   <AttributeData>k__BackingField:
     <Duration>k__BackingField: 3
     <Damage>k__BackingField: 5
-    <Cooldown>k__BackingField: 3
+    <Cooldown>k__BackingField: 29.9
   <CompositionData>k__BackingField:
     relativeStartLocation: 0
     <LocalCoordinates>k__BackingField: 1
@@ -88,7 +89,7 @@ MonoBehaviour:
         value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0
@@ -97,7 +98,7 @@ MonoBehaviour:
         value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0

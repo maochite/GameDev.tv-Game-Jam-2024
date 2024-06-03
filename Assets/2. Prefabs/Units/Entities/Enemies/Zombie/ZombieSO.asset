@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527fd4807913b884fa83aeff4c3eaf30, type: 3}
   m_Name: ZombieSO
   m_EditorClassIdentifier: 
-  <BaseHealth>k__BackingField: 10
+  <BaseHealth>k__BackingField: 100
   <BaseHealthRegen>k__BackingField: 1
   <BaseAttackTime>k__BackingField: 1
-  <BaseAttackRadius>k__BackingField: 1
+  <BaseAttackRange>k__BackingField: 1
   <BaseMovementSpeed>k__BackingField: 5
   <DefaultAbility>k__BackingField: {fileID: 11400000, guid: 92668c74d91ea1948ae4126c7e51c894,
     type: 2}

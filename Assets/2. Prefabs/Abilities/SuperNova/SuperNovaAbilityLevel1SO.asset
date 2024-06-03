@@ -10,31 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdfe0615d21ea114cb981c9dc6cc8515, type: 3}
-  m_Name: FlameThrowerAbilityLevel1SO
+  m_Name: SuperNovaAbilityLevel1SO
   m_EditorClassIdentifier: 
   <HitMask>k__BackingField: 16
-  <ColliderMask>k__BackingField: 0
+  <ColliderMask>k__BackingField: 16
   <AudioSource>k__BackingField: {fileID: 0}
   <VFXData>k__BackingField:
-    <ParticlePrimary>k__BackingField: {fileID: 11400000, guid: bc5303a8291f4df4fbf63b2ae8feef5d,
+    <ParticlePrimary>k__BackingField: {fileID: 11400000, guid: c7eaa8ebf12eb104893b58ee3ff185de,
       type: 2}
     <ParticleHit>k__BackingField: {fileID: 0}
+    <ParticleProp>k__BackingField: {fileID: 11400000, guid: 441a62df68be87b4e8818688b73b20e4,
+      type: 2}
   <AttributeData>k__BackingField:
-    <Duration>k__BackingField: 1
+    <Duration>k__BackingField: 10
     <Damage>k__BackingField: 5
-    <Cooldown>k__BackingField: 55
+    <Cooldown>k__BackingField: 10
   <CompositionData>k__BackingField:
-    relativeStartLocation: 0
+    relativeStartLocation: 1
     <LocalCoordinates>k__BackingField: 1
     <RemoveYDirection>k__BackingField: 1
     <OffsetData>k__BackingField:
       <Y_StartPositionIsZero>k__BackingField: 1
       <StartPositionOffsetType>k__BackingField: 0
-      startPositionOffset: {x: 0, y: 1, z: 0.5}
+      startPositionOffset: {x: 0, y: 1, z: 0}
       startPositionRandomRangeA: {x: 0, y: 0, z: 0}
       startPositionRandomRangeB: {x: 0, y: 0, z: 0}
       <TargetPositionOffsetType>k__BackingField: 0
-      targetPositionOffset: {x: 0, y: 1, z: 2}
+      targetPositionOffset: {x: 0, y: 1, z: 0}
       targetPositionRandomRangeA: {x: 0, y: 0, z: 0}
       targetPositionRandomRangeB: {x: 0, y: 0, z: 0}
       <RotationOffsetType>k__BackingField: 0
@@ -42,42 +44,42 @@ MonoBehaviour:
       rotationRandomRangeA: {x: 0, y: 0, z: 0}
       rotationRandomRangeB: {x: 0, y: 0, z: 0}
       <ModifiedPositionOffsetType>k__BackingField: 0
-      modifiedPositionOffset: {x: 0, y: 0, z: 0}
+      modifiedPositionOffset: {x: 0, y: 0, z: 0.5}
       modifiedRandomRangeA: {x: 0, y: 0, z: 0}
       modifiedRandomRangeB: {x: 0, y: 0, z: 0}
   <IncrementData>k__BackingField:
-    <NumIncrements>k__BackingField: 1
-    <TimeBetweenIncrements>k__BackingField: 0.5
+    <NumIncrements>k__BackingField: 20
+    <TimeBetweenIncrements>k__BackingField: 0.35
     <GapTime>k__BackingField: 1
-    <IncrementsPerGap>k__BackingField: 1
+    <IncrementsPerGap>k__BackingField: 100
     angleCurveY:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        inSlope: 1.4386245
+        outSlope: 1.4386245
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        time: 6.9329476
+        value: 9.973908
+        inSlope: 1.4386245
+        outSlope: 1.4386245
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
   <CapacityData>k__BackingField:
     <AbilityAmount>k__BackingField: 3
-    <SpreadAngle>k__BackingField: 114
-    <MaximumSpreadAngle>k__BackingField: 115
+    <SpreadAngle>k__BackingField: 360
+    <MaximumSpreadAngle>k__BackingField: 360
   <SizeData>k__BackingField:
     baseSize: 0.5
     sizeCurveMultiplier:
@@ -178,7 +180,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   <HitData>k__BackingField:
-    <EntityHitType>k__BackingField: 1
+    <EntityHitType>k__BackingField: 0
     entityHitCooldown: 5
     <HitResponseType>k__BackingField: 0
     maxHits: 1
@@ -186,7 +188,7 @@ MonoBehaviour:
     chainRange: 1
     chainFallback: 0
   <MovementData>k__BackingField:
-    baseSpeed: 15
+    baseSpeed: 7
     speedMultiplier:
       serializedVersion: 2
       m_Curve:
@@ -213,7 +215,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     homingData:
       <Enabled>k__BackingField: 1
-      rotationSpeed: 125
+      rotationSpeed: 167
       rotationSpeedMultiplier:
         serializedVersion: 2
         m_Curve:
@@ -222,7 +224,7 @@ MonoBehaviour:
           value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 0
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0
@@ -231,13 +233,13 @@ MonoBehaviour:
           value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 0
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      range: 15.3
+      range: 10.1
       rotateYAxisOnly: 1
-      disableHomingOnHit: 1
+      disableHomingOnHit: 0
