@@ -1,15 +1,12 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class StaticInstance<T> : MonoBehaviour where T : MonoBehaviour
 {
     public static T Instance { get; private set; }
-    protected virtual void Awake() => Instance = this as T;
 
-    protected virtual void OnApplicationQuit()
+    protected virtual void Awake()
     {
-        Destroy(gameObject);
-        Instance = null;
+        Instance = this as T;
     }
 }
 
@@ -17,13 +14,14 @@ public abstract class Singleton<T> : StaticInstance<T> where T : MonoBehaviour
 {
     protected override void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Debug.Log(gameObject.name + " singleton confliction");
-            Destroy(gameObject);
-            //return;
+            base.Awake();
         }
-        base.Awake();
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
     }
 }
 

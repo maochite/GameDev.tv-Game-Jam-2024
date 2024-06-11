@@ -16,25 +16,32 @@ public class TimeManager : StaticInstance<TimeManager>
         {
             if (minute == 59)
             {
-                if (hour == 59)
+                if (hour == 23)
                 {
                     day += 1;
                     hour = 0;
-                } else
+                }
+                else
                 {
                     hour += 1;
                 }
                 minute = 0;
-            } else
+            }
+            else
             {
                 minute += 1;
             }
         }
+
+        public override readonly string ToString()
+        {
+            return String.Format("day {0} - {1:D2}:{2:D2}", day, hour, minute);
+        }
     }
 
     [Space(10)]
-    [SerializeField] private bool TrackGameTime;
-    [ShowIf("TrackGameTime"), SerializeField, MinValue(1), MaxValue(60)] private int GameDayRealTimeMins = 30;
+    [SerializeField] public bool TrackGameTime;
+    [ShowIf("TrackGameTime"), SerializeField, MinValue(1), MaxValue(60)] public int GameDayRealTimeMins = 30;
     [ShowIf("TrackGameTime"), SerializeField] private GameTime StartGameTime;
     [Space(10)]
     [SerializeField] private bool ShowInternal;
@@ -46,18 +53,18 @@ public class TimeManager : StaticInstance<TimeManager>
 
     public event Action OnTick;
     public event Action OnGameMinutePassed;
+    public event Action OnGameHourPassed;
+    public event Action OnGameDayPassed;
 
-    private void Start()
+    private Coroutine gameTimeCoroutine;
+
+    public void ResetGameTime()
     {
-        CurrentTick = 0;
-        TickDelta = Time.fixedDeltaTime;
-        if (TrackGameTime)
+        if (gameTimeCoroutine != null)
         {
-            CurrentGameTime = StartGameTime;
-            GameMinRealTimeSecs = GameDayRealTimeMins / 24d;
-            NextGameMinWaitTime = GameMinRealTimeSecs;
-            StartCoroutine(GameTimeLoop());
+            StopCoroutine(gameTimeCoroutine);
         }
+        Init();
     }
 
     public uint GetCurrentTick()
@@ -68,6 +75,50 @@ public class TimeManager : StaticInstance<TimeManager>
     public double GetTickDelta()
     {
         return TickDelta;
+    }
+
+    public void SetGameTime(GameTime gameTime)
+    {
+        GameTime prevGameTime = CurrentGameTime;
+        CurrentGameTime = gameTime;
+        InvokeEventsOnTimeChange(prevGameTime, CurrentGameTime);
+    }
+
+    public void InvokeEventsOnTimeChange(GameTime oldTime, GameTime newTime)
+    {
+        // Probably best to invoke callbacks in the order minute->hour->day
+        // so store these first and check+invoke at the end
+        bool minutePassed = false;
+        bool hourPassed = false;
+        bool dayPassed = false;
+        if (newTime.day > oldTime.day)
+        {
+            minutePassed = true;
+            hourPassed = true;
+            dayPassed = true;
+        }
+        else if (newTime.day == oldTime.day && newTime.hour > oldTime.hour)
+        {
+            minutePassed = true;
+            hourPassed = true;
+        }
+        else if (newTime.day == oldTime.day && newTime.hour == oldTime.hour && newTime.minute > oldTime.minute)
+        {
+            minutePassed = true;
+        }
+
+        if (minutePassed)
+        {
+            OnGameMinutePassed?.Invoke();
+            if (hourPassed)
+            {
+                OnGameHourPassed?.Invoke();
+                if (dayPassed)
+                {
+                    OnGameDayPassed?.Invoke();
+                }
+            }
+        }
     }
 
     public GameTime GetGameTime()
@@ -103,6 +154,24 @@ public class TimeManager : StaticInstance<TimeManager>
         return ret * mult;
     }
 
+    private void Init()
+    {
+        CurrentTick = 0;
+        TickDelta = Time.fixedDeltaTime;
+        if (TrackGameTime)
+        {
+            CurrentGameTime = StartGameTime;
+            GameMinRealTimeSecs = GameDayRealTimeMins / 24d;
+            NextGameMinWaitTime = GameMinRealTimeSecs;
+            gameTimeCoroutine = StartCoroutine(GameTimeLoop());
+        }
+    }
+
+    private void Start()
+    {
+        Init();
+    }
+
     private void FixedUpdate()
     {
         // TODO:
@@ -119,8 +188,9 @@ public class TimeManager : StaticInstance<TimeManager>
         {
             double start = Time.timeAsDouble;
             yield return new WaitForSeconds((float)NextGameMinWaitTime);
+            GameTime prevGameTime = CurrentGameTime;
             CurrentGameTime.AddMinute();
-            OnGameMinutePassed?.Invoke();
+            InvokeEventsOnTimeChange(prevGameTime, CurrentGameTime);
             double end = Time.timeAsDouble;
             NextGameMinWaitTime = GameMinRealTimeSecs - (((end - start) - NextGameMinWaitTime));
         }

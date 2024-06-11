@@ -167,10 +167,7 @@ namespace Unit.Entities
 
         private void OnDisable()
         {
-            if (TimeManager.Instance)
-            {
-                TimeManager.Instance.OnTick -= TimeManager_OnTick;
-            }
+            TimeManager.Instance.OnTick -= TimeManager_OnTick;
         }
 
         private void TimeManager_OnTick()
