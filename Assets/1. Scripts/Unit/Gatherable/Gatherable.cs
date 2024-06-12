@@ -12,9 +12,7 @@ namespace Unit.Gatherables
     public class Gatherable : Unit<GatherableSO>
     {
         [Header("- Gatherable Specifics -")]
-
-        [Header("For Non-Pool Prefab Placement")]
-        [SerializeField] private GatherableSO nonPoolSO;
+        [SerializeField] private GatherableSO prefabSO;
 
         [Header("Prefab Fields")]
         [SerializeField] private SpriteRenderer spriteObject;
@@ -29,19 +27,14 @@ namespace Unit.Gatherables
 
         Coroutine GatherCoroutine;
 
-        [Header("Audio")]
-        public AudioSource ChopClip;
-        public AudioSource MineClip;
-        public AudioSource AttackClip;
-
         protected override void Awake()
         {
 
             base.Awake();
 
-            if (nonPoolSO != null)
+            if (prefabSO != null)
             {
-                AssignUnit(nonPoolSO);
+                AssignUnit(prefabSO);
             }
         }
 
@@ -129,7 +122,8 @@ namespace Unit.Gatherables
         public void Gather(float gatherAmount)
         {
             CurrentHealth -= gatherAmount;
-            if(UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Attack)
+
+            if (UnitSO.GatheringAnimation == Entities.EntityActionAnimation.Attack)
             {
 
                 AudioManager.Instance.PlayClip(AudioClipEnum.Attack);

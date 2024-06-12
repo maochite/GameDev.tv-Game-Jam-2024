@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4764748fccf9de84291064753f175159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonPoolSO: {fileID: 11400000, guid: e5e4cc87e990775478bfc91c1e0f88bf, type: 2}
+  prefabSO: {fileID: 11400000, guid: e5e4cc87e990775478bfc91c1e0f88bf, type: 2}
   spriteObject: {fileID: 7244755794374802670}
   shakeDuration: 0.5
   shakeVariations:
@@ -496,12 +496,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  ChopClip: {fileID: 5653092472610355316, guid: b9b82d547b555f24ca2f611cb9bbe36b,
-    type: 3}
-  MineClip: {fileID: 5653092472610355316, guid: b9b82d547b555f24ca2f611cb9bbe36b,
-    type: 3}
-  AttackClip: {fileID: 5653092472610355316, guid: b9b82d547b555f24ca2f611cb9bbe36b,
-    type: 3}
   currentHealth: 0
   maxHealth: 0
 --- !u!65 &4532250620630427271
